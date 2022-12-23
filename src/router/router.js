@@ -1,31 +1,37 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+import FeedbackAdd from './pages/feedbacks/FeedbackAdd.vue';
+import FeedbackDetail from './pages/feedbacks/FeedbackDetail';
+import FeedbackEdit from './pages/feedbacks/FeedbackEdit';
+import FeedbackList from './pages/feedbacks/FeedbackList';
+import StatusFeedbackList from './pages/roadmap/StatusFeedbackList.vue';
+import NotFOund from './pages/NotFound.vue'
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/", redirect: '/feedbacks',
-      component: null,
+      path: "/", redirect: '/feedbacks'
     },
     {
       path: "/feedbacks",
-      component: null,
+      component: FeedbackList,
     },
     {
       path: "/feedbacks/:id",
-      component: null,
+      component: FeedbackDetail,
       children: [
-        {path: 'add', component: null},
-        {path:'edit', component: null} //editing feedback
+        {path: 'add', component: FeedbackAdd},
+        {path:'edit', component: FeedbackEdit} //editing feedback
       ]
     },
     {
       path: "/roadmap",
-      component: null,
+      component: StatusFeedbackList,
     },
     {
       path: "/:notFound(.*)",
-      component: null,
+      component: NotFOund,
     }
   ],
 });
