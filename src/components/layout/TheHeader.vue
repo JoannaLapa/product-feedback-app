@@ -4,6 +4,8 @@
       <h1>Frontend Mentor</h1>
       <p>Feedback Board</p>
     </div>
+    <nav>
+    <div>
     <svg
       class="icon-open"
       width="20"
@@ -26,6 +28,8 @@
         fill-rule="evenodd"
       />
     </svg>
+</div>
+</nav>
   </header>
 </template>
 
