@@ -31,7 +31,7 @@
     <ul>
       <li>
         <ul>
-          <sort-by-category-item v-for="category in categories"> {{ category }}</sort-by-category-item>
+          <sort-by-category-item v-for="category in categories">{{ category }}</sort-by-category-item>
           <!-- doesn't work check in CoachesList example how it should be done -->
         <!-- make it as a component with v-for usage -->
         <!-- <li>
