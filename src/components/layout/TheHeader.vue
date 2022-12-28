@@ -31,8 +31,10 @@
     <ul>
       <li>
         <ul>
+          <sort-by-category-item v-for="category in categories"> {{ category }}</sort-by-category-item>
+          <!-- doesn't work check in CoachesList example how it should be done -->
         <!-- make it as a component with v-for usage -->
-        <li>
+        <!-- <li>
           <button>All</button>
         </li>
         <li>
@@ -49,7 +51,7 @@
         </li>
         <li>
           <button>Feature</button>
-        </li>
+        </li> -->
       </ul>
       </li>
       <li>
@@ -74,6 +76,16 @@
     </ul>
   </header>
 </template>
+
+<script>
+import SortByCategoryItem from "../ui/SortByCategoryItem.vue";
+
+export default {
+  components: {
+    SortByCategoryItem,
+  },
+};
+</script>
 
 <style lang="scss">
 .hidden {
