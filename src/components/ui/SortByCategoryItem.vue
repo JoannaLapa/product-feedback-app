@@ -1,8 +1,6 @@
 <template>
   <li>
-    <base-button>
-      <slot></slot>
-    </base-button>
+    <base-button></base-button>
   </li>
 </template>
 
