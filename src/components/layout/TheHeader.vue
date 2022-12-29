@@ -31,10 +31,10 @@
     <ul>
       <li>
         <ul>
-          <sort-by-category-item v-for="category in categories">{{ category }}</sort-by-category-item>
-          <!-- doesn't work check in CoachesList example how it should be done -->
-        <!-- make it as a component with v-for usage -->
-        <!-- <li>
+          <sort-by-category-item v-for="category in categories">{{ category }}</sort-by-category-item> 
+          <!-- Above component for the sceleton below, -->
+          <!-- It doesn't work, I'm going to fix it later - I want to use v-for and attach category dynamically-->
+          <!-- <li>
           <button>All</button>
         </li>
         <li>
@@ -52,7 +52,7 @@
         <li>
           <button>Feature</button>
         </li> -->
-      </ul>
+        </ul>
       </li>
       <li>
         <!-- another component? -->
@@ -61,15 +61,15 @@
           <router-link to="/roadmap">View</router-link>
           <li>
             Planned
-            <!-- Add number here -->
+            <!-- Add dynamic number here-->
           </li>
           <li>
             In-Progress
-            <!-- Add number here -->
+            <!-- Add dynamic number here -->
           </li>
           <li>
             Live
-            <!-- Add number here -->
+            <!-- Add dynamic number here -->
           </li>
         </ul>
       </li>
