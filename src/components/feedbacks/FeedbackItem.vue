@@ -1,4 +1,6 @@
 <template>
+    <section>
+    <base-box>
   <article>
     <div class="feedback__votes">
       <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
@@ -32,14 +34,18 @@
     To consider - where hould be attached NoFeedback and v-if - in FeedBackItem or in FeedbackList -->
     </div>
   </article>
+</base-box>
+</section>
 </template>
 
 <script>
+import BaseBox from "../ui/BaseBox.vue";
 import BaseButton from "../ui/BaseButton.vue";
 
 export default {
   props: {},
   components: {
+    BaseBox,
     BaseButton,
   },
 };
