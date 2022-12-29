@@ -50,7 +50,7 @@ export default {
   },
 };
 //wrapper component seems to doesn't work
-//task to solve - styling wrapper component to make max width 100% only in TheHeader mobile screen
+//task to solve - add special class for wrapper: to make max width 100% only in TheHeader mobile screen, for desktop max-width like in a desktop project
 </script>
 
 <style lang="scss">
