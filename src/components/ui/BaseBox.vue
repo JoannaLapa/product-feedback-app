@@ -1,12 +1,12 @@
 <template>
-    <div class="base-box">
+  <div class="base-box">
     <slot></slot>
-    </div>
+  </div>
 </template>
 
 <style lang="scss">
 .base-box {
-    border-radius: 0.625rem;
-    background-color: #FFFFFF;
+  border-radius: 0.625rem;
+  background-color: #ffffff;
 }
 </style>
