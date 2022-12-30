@@ -17,6 +17,3 @@
   <!-- v-if reply add span with username who replies - replies.replyingTo -->
   <slot></slot>
 </template>
-
-<script>
-</script>
