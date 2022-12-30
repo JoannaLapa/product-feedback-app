@@ -1,7 +1,7 @@
 <template>
   <form>
     <fieldset>
-      <legend>Add comment:</legend>
+      <label for="comment">Add comment:</label>
       <textarea
         id="comment"
         name="comment"
@@ -9,7 +9,7 @@
         placeholder="Type your comment here"
       >
       </textarea>
-      <label for="comment">Dynamic number characters left</label>
+      <legend>Dynamic number characters left</legend>
     </fieldset>
   </form>
 </template>
