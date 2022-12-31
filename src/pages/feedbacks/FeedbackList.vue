@@ -4,7 +4,7 @@
     <blue-bar>
       <suggestions></suggestions>
       <dropdown-menu></dropdown-menu>
-      <base-button>+ Add Feedback</base-button>
+      <base-button link to="add">+ Add Feedback</base-button>
     </blue-bar>
   </the-main>
 </template>
