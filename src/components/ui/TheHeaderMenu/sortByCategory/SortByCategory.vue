@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import BaseBox from "../BaseBox.vue";
+import BaseBox from "../../BaseBox.vue";
 import SortByCategoryItem from "./SortByCategoryItem.vue";
 
 export default {
