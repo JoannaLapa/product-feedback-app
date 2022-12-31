@@ -16,12 +16,12 @@
 
 <script>
 export default {
-    props: {
-        to: {
-            type: String,
-            reqired: false,
-            default: '/feedbacks',   
-        }
-    }
-}
+  props: {
+    to: {
+      type: String,
+      reqired: false,
+      default: "/feedbacks",
+    },
+  },
+};
 </script>
