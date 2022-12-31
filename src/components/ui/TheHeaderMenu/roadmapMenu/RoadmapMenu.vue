@@ -1,4 +1,4 @@
-<temnplate>
+<template>
   <li>
     <base-box>
       <ul>
@@ -19,10 +19,10 @@
       </ul>
     </base-box>
   </li>
-</temnplate>
+</template>
 
 <script>
-import BaseBox from "../BaseBox.vue";
+import BaseBox from "../../BaseBox.vue";
 
 export default {
   components: {
