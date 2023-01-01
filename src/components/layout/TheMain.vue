@@ -1,6 +1,8 @@
 <template>
-  <slot></slot>
-  <wrapper></wrapper>
+    <slot></slot>
+  <wrapper>
+    <slot></slot>
+  </wrapper>
 </template>
 
 <script>
