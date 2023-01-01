@@ -1,7 +1,8 @@
 <template>
-  <section>
     <base-box>
       <article>
+        <p>{{}}</p>
+        <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
         <div class="feedback__votes">
           <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -39,7 +40,6 @@
         </div>
       </article>
     </base-box>
-  </section>
 </template>
 
 <script>
