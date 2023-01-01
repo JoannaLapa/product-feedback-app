@@ -1,30 +1,39 @@
 <template>
   <the-header></the-header>
-  <the-main>
-    <blue-bar>
-      <suggestions></suggestions>
-      <dropdown-menu></dropdown-menu>
-      <base-button link to="add">+ Add Feedback</base-button>
-    </blue-bar>
-  </the-main>
+  <main>
+    <wrapper>
+      <blue-bar>
+        <suggestions></suggestions>
+        <dropdown-menu></dropdown-menu>
+        <base-button link to="add">+ Add Feedback</base-button>
+      </blue-bar>
+      <no-feedback v-if="noFeedback"></no-feedback>
+      <feedback-item v-if="!noFeedback"></feedback-item>
+    </wrapper>
+  </main>
 </template>
 <script>
 import TheHeader from "../../components/layout/TheHeader.vue";
-import TheMain from "../../components/layout/TheMain.vue";
 import BaseButton from "../../components/ui/BaseButton.vue";
 import BlueBar from "../../components/ui/BlueBar.vue";
 import Suggestions from "../../components/ui/Suggestions.vue";
 import DropdownMenu from "../../components/ui/DropdownMenu.vue";
+import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
+import NoFeedback from "../../components/feedbacks/NoFeedback.vue";
+import Wrapper from "../../components/ui/Wrapper.vue";
 // set the v-if - if there is no feedback add NoFeedback component v-else if there are feedbacks set FeedbackItem component with v-for
 
 export default {
   components: {
     TheHeader,
-    TheMain,
     BaseButton,
     BlueBar,
     Suggestions,
     DropdownMenu,
+    FeedbackItem,
+    NoFeedback,
+    Wrapper,
   },
+  props: ["noFeedback"],
 };
 </script>
