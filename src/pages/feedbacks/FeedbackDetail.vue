@@ -1,4 +1,5 @@
 <template>
+  <the-main>
   <div>
     <go-back>
       <base-button>Edit Feedback</base-button>
@@ -7,6 +8,7 @@
     <comments-list></comments-list>
     <add-comment></add-comment>
   </div>
+ </the-main>
 </template>
 
 <script>
@@ -15,6 +17,7 @@ import GoBack from "../../components/ui/GoBack.vue";
 import FeedbackItem from "../../components/feedbacks/FeedBackItem.vue";
 import CommentsList from "../../components/comments/CommentsList.vue";
 import AddComment from "../../components/comments/AddComment.vue";
+import TheMain from "../../components/layout/TheMain.vue"
 
 export default {
   components: {
@@ -23,6 +26,7 @@ export default {
     FeedbackItem,
     CommentsList,
     AddComment,
+    TheMain,
   },
 };
 </script>
