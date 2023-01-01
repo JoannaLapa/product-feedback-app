@@ -1,5 +1,6 @@
 <template>
-  <the-main>
+  <main>
+    <wrapper>
   <go-back></go-back>
   <base-box>
     <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
@@ -31,21 +32,22 @@
       submitTitle="Add Feedback"
     ></feedback-create-form>
   </base-box>
-</the-main>
+</wrapper>
+</main>
 </template>
 
 <script>
 import BaseBox from "../../components/ui/BaseBox.vue";
 import FeedbackCreateForm from "../../components/feedbacks/FeedbackCreateForm.vue";
 import GoBack from "../../components/ui/GoBack.vue";
-import TheMain from "../../components/layout/TheMain.vue"
+import Wrapper from "../../components/ui/Wrapper.vue";
 
 export default {
   components: {
     BaseBox,
     FeedbackCreateForm,
     GoBack,
-    TheMain,
+    Wrapper,
   },
 };
 </script>

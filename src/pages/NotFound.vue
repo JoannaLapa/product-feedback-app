@@ -1,12 +1,15 @@
 <template>
-<the-main></the-main>
+  <main>
+    <wrapper></wrapper>
+  </main>
 </template>
+
 <script>
-import TheMain from "../components/layout/TheMain.vue";
+import Wrapper from "../components/ui/Wrapper.vue";
 
 export default {
     components: {
-        TheMain,
+        Wrapper,
     }
 }
 </script>
