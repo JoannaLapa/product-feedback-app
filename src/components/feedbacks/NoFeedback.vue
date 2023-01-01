@@ -104,8 +104,8 @@
 </template>
 
 <script>
-import BaseBox from "./BaseBox.vue";
-import BaseButton from "./BaseButton.vue";
+import BaseBox from "../ui/BaseBox.vue";
+import BaseButton from "../ui/BaseButton.vue";
 
 export default {
   components: {
