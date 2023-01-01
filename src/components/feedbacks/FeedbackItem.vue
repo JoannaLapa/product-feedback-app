@@ -12,12 +12,16 @@
               fill-rule="evenodd"
             />
           </svg>
-          <p>{{ upvotes }}</p>
+          <p>{{  }}</p>
+          <!-- upvotes -->
         </div>
         <div class="feedback__content">
-          <h2>{{ title }}</h2>
-          <p>{{ content }}</p>
-          <base-button>{{ category }}</base-button>
+          <h2>{{  }}</h2>
+          <!-- title -->
+          <p>{{  }}</p>
+          <!-- content -->
+          <base-button>{{  }}</base-button>
+          <!-- category -->
         </div>
         <div class="feedback__comments">
           <svg width="18" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +31,7 @@
               fill-rule="nonzero"
             />
           </svg>
-          <p>{{ comments.length }}</p>
+          <p>{{  }}</p>
           <!-- comments.length move to script and create a correct prop or another feature - to check
     possible usage - v-if - if there iss no comment the number should be in grey color -->
           <!-- attach NoFeedback and make like in the BaseButton props with Boolean and if true attach feedback item if false - v-else - attach NoFeedback component
