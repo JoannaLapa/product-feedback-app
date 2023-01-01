@@ -28,7 +28,6 @@ export default {
   components: {
     BaseBox,
   },
-  //   props: [statusName],
 };
 //idea for future solution: check the index of separate status and make a method for calculating the number of them if "planned" i++ etc.
 </script>
