@@ -10,7 +10,7 @@
     <wrapper>
       <ul>
         <li>
-            <!-- list of items dependly on status name -->
+          <!-- list of items dependly on status name -->
           <h3></h3>
           <!-- status name here, use v-for to attach the list, h3 name and description below dependly on the status name -->
           <p>{{ description }}</p>
