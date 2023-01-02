@@ -17,18 +17,23 @@ const router = createRouter({
     {
       path: "/feedbacks",
       component: FeedbackList,
+      children: [
+        { path: "add", component: FeedbackAdd },
+      ],
     },
     {
       path: "/feedbacks/:id",
       component: FeedbackDetail,
       children: [
-        { path: "add", component: FeedbackAdd },
         { path: "edit", component: FeedbackEdit }, //editing feedback
       ],
     },
     {
       path: "/roadmap",
       component: StatusFeedbackList,
+      children: [
+        { path: "add", component: FeedbackAdd },
+      ],
     },
     {
       path: "/:notFound(.*)",
