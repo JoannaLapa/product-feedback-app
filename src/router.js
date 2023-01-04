@@ -5,7 +5,7 @@ import FeedbackDetail from "./pages/feedbacks/FeedbackDetail.vue";
 import FeedbackEdit from "./pages/feedbacks/FeedbackEdit.vue";
 import FeedbackList from "./pages/feedbacks/FeedbackList.vue";
 import StatusFeedbackList from "./pages/roadmap/StatusFeedbackList.vue";
-import NotFOund from "./pages/NotFound.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -37,7 +37,7 @@ const router = createRouter({
     },
     {
       path: "/:notFound(.*)",
-      component: NotFOund,
+      component: NotFound,
     },
   ],
 });
