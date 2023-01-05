@@ -1,8 +1,6 @@
 <template>
-  <!-- is there any html tag semantically better for a code below?
-    figure?? -->
   <div>
-    <img src="../assets/user-images/image-.jpg" alt="" />
+    <!-- <img src="../assets/user-images/image-.jpg" alt="" /> -->
     <!-- check how to add user name to img src and alt dynamically from comments.user.name -->
     <h3>{{}}</h3>
     <!-- here comments.user.name -->
