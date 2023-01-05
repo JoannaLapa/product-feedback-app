@@ -12,7 +12,7 @@
     </wrapper>
   </main>
 </template>
-<script>
+<script setup>
 import TheHeader from "../../components/layout/TheHeader.vue";
 import BaseButton from "../../components/ui/BaseButton.vue";
 import BlueBar from "../../components/ui/BlueBar.vue";
@@ -22,18 +22,5 @@ import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 import NoFeedback from "../../components/feedbacks/NoFeedback.vue";
 import Wrapper from "../../components/ui/Wrapper.vue";
 // set the v-if - if there is no feedback add NoFeedback component v-else if there are feedbacks set FeedbackItem component with v-for
-
-export default {
-  components: {
-    TheHeader,
-    BaseButton,
-    BlueBar,
-    Suggestions,
-    DropdownMenu,
-    FeedbackItem,
-    NoFeedback,
-    Wrapper,
-  },
-  props: ["noFeedback"],
-};
+  // props: ["noFeedback"],
 </script>

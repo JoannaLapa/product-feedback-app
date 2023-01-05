@@ -21,13 +21,7 @@
   </li>
 </template>
 
-<script>
+<script setup>
 import BaseBox from "../../BaseBox.vue";
-
-export default {
-  components: {
-    BaseBox,
-  },
-};
 //idea for future solution: check the index of separate status and make a method for calculating the number of them if "planned" i++ etc.
 </script>

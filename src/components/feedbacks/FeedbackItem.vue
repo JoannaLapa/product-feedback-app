@@ -42,15 +42,7 @@
   </base-box>
 </template>
 
-<script>
+<script setup>
 import BaseBox from "../ui/BaseBox.vue";
 import BaseButton from "../ui/BaseButton.vue";
-
-export default {
-  props: {},
-  components: {
-    BaseBox,
-    BaseButton,
-  },
-};
 </script>

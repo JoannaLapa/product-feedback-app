@@ -11,14 +11,7 @@
   </li>
 </template>
 
-<script>
+<script setup>
 import BaseBox from "../../BaseBox.vue";
 import SortByCategoryItem from "./SortByCategoryItem.vue";
-
-export default {
-  components: {
-    BaseBox,
-    SortByCategoryItem,
-  },
-};
 </script>

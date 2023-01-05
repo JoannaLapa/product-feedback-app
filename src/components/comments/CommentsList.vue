@@ -16,14 +16,7 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import CommentItem from "./CommentItem.vue";
 import PostReply from "./PostReply.vue";
-
-export default {
-  components: {
-    CommentItem,
-    PostReply,
-  },
-};
 </script>

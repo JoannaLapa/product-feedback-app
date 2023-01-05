@@ -25,20 +25,10 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import Wrapper from "../../components/ui/Wrapper.vue";
 import BlueBar from "../../components/ui/BlueBar.vue";
 import GoBack from "../../components/ui/GoBack.vue";
 import BaseButton from "../../components/ui/BaseButton.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
-
-export default {
-  components: {
-    Wrapper,
-    BlueBar,
-    GoBack,
-    BaseButton,
-    FeedbackItem,
-  },
-};
 </script>

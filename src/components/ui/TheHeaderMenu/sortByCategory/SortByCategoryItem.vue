@@ -4,15 +4,9 @@
   </li>
 </template>
 
-<script>
+<script setup>
 import BaseButton from "../../BaseButton.vue";
-
-export default {
-  components: {
-    BaseButton,
-  },
-  props: {
-    categories: ["All", "UI", "UX", "Enhancement", "Feature", "Bug"],
-  },
-};
+  // props: {
+  //   categories: ["All", "UI", "UX", "Enhancement", "Feature", "Bug"],
+  // },
 </script>

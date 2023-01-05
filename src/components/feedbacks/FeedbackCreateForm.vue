@@ -35,18 +35,12 @@
   </form>
 </template>
 
-<script>
+<script setup>
 import BaseButton from "../ui/BaseButton.vue";
-
-export default {
-  components: {
-    BaseButton,
-  },
-  props: ["title", "edit", "delete", "submitTitle", "dynamicTitle"],
+  // props: ["title", "edit", "delete", "submitTitle", "dynamicTitle"],
   //   computed: {
   //     dynamicTitle() {
   //         this.dynamicTitle = 'attachTitleFromJson'
   //     }
   //   }
-};
 </script>

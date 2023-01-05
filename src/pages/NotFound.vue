@@ -4,12 +4,6 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import Wrapper from "../components/ui/Wrapper.vue";
-
-export default {
-  components: {
-    Wrapper,
-  },
-};
 </script>

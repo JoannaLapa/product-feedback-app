@@ -5,12 +5,6 @@
   </form>
 </template>
 
-<script>
+<script setup>
 import BaseButton from "../ui/BaseButton.vue";
-
-export default {
-  components: {
-    BaseButton,
-  },
-};
 </script>
