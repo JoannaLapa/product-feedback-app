@@ -8,9 +8,8 @@
   </router-link>
 </template>
 
-<script>
-export default {
-  props: {
+<script setuo>
+  defineProps({
     link: {
       type: Boolean,
       reqired: false,
@@ -26,11 +25,6 @@ export default {
       reqired: false,
       default: "/",
     },
-  },
-};
+  })
 </script>
-<!-- <style lang="scss">
-button {
 
-}
-</style> -->
