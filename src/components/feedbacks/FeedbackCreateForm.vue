@@ -28,9 +28,9 @@
         name="feedback-detail"
       />
     </fieldset>
-    <BaseButton v-if="edit">{{ delete }}</BaseButton>
+    <BaseButton v-if="edit">Delete</BaseButton>
     <BaseButton>Cancel</BaseButton>
-    <BaseButton>{{ submitTitle }}</BaseButton>
+    <BaseButton>Add Feedback</BaseButton>
   </form>
 </template>
 
