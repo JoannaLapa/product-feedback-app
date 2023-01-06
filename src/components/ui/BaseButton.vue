@@ -20,7 +20,7 @@
     },
     to: {
       type: String,
-      default: "/",
+      default: "/feedbacks",
     },
   })
 </script>
