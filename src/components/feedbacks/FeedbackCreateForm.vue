@@ -1,7 +1,7 @@
 <template>
   <form>
     <fieldset>
-      <legend>{{ (title, dynamicTitle) }}</legend>
+      <legend>{{ title, dynamicTitle }}</legend>
       <label for="feedback-title">Feedback Title</label>
       <p id="feedback-title-instruction">Add a short, descriptive headline</p>
       <input
