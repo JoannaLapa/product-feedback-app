@@ -12,17 +12,14 @@
   defineProps({
     link: {
       type: Boolean,
-      reqired: false,
       default: false,
     },
     mode: {
       type: String,
-      reqired: false,
       default: null,
     },
     to: {
       type: String,
-      reqired: false,
       default: "/",
     },
   })
