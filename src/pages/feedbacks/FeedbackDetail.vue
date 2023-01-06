@@ -4,9 +4,9 @@
       <go-back>
         <base-button>Edit Feedback</base-button>
       </go-back>
-      <feedback-item></feedback-item>
-      <comments-list></comments-list>
-      <add-comment></add-comment>
+      <feedback-item />
+      <comments-list />
+      <add-comment />
     </wrapper>
   </main>
 </template>

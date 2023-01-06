@@ -1,16 +1,16 @@
 <template>
   <main>
     <wrapper>
-      <go-back></go-back>
+      <go-back />
       <base-box>
-        <IconEditFeedback></IconEditFeedback>
+        <IconEditFeedback />
         <feedback-create-form
           edit
           title="Editing"
           delete="Delete"
           submitTitle="Save Changes"
           dynamicTitle=""
-        ></feedback-create-form>
+        />
       </base-box>
     </wrapper>
   </main>

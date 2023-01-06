@@ -1,10 +1,10 @@
 <template>
-  <the-header></the-header>
+  <the-header />
   <main>
     <wrapper>
       <blue-bar>
-        <suggestions></suggestions>
-        <dropdown-menu></dropdown-menu>
+        <suggestions />
+        <dropdown-menu />
         <base-button link to="add">+ Add Feedback</base-button>
       </blue-bar>
       <no-feedback v-if="noFeedback"></no-feedback>

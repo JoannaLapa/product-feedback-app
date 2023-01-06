@@ -1,6 +1,6 @@
 <template>
   <div class="go-back__container">
-   <ArrowLeft></ArrowLeft>
+   <ArrowLeft />
     <router-link to>Go Back</router-link>
   </div>
   <slot></slot>

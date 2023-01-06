@@ -1,9 +1,9 @@
 <template>
   <main>
     <wrapper>
-      <go-back></go-back>
+      <go-back />
       <base-box>
-       <IconNewFeedback></IconNewFeedback>
+       <IconNewFeedback />
         <feedback-create-form
           title="Create New Feedback"
           submitTitle="Add Feedback"

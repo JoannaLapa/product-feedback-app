@@ -6,12 +6,12 @@
         <p>Feedback Board</p>
       </div>
       <div>
-        <IconOpenMenu></IconOpenMenu>
-        <IconCloseMenu></IconCloseMenu>
+        <IconOpenMenu />
+        <IconCloseMenu />
       </div>
       <ul>
-        <sort-by-category></sort-by-category>
-        <roadmap-menu></roadmap-menu>
+        <sort-by-category />
+        <roadmap-menu />
       </ul>
     </wrapper>
   </header>
