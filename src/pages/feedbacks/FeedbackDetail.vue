@@ -2,7 +2,7 @@
   <main>
     <Wrapper>
       <GoBack>
-        <BaseButton>Edit Feedback</BaseButton>
+        <BaseButton link to="">Edit Feedback</BaseButton>
       </GoBack>
       <FeedbackItem />
       <CommentsList />

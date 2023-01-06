@@ -8,7 +8,7 @@
         about new ideas to improve our app.
       </p>
     </div>
-    <BaseButton>+ Add Feedback</BaseButton>
+    <BaseButton link to="/add">+ Add Feedback</BaseButton>
   </BaseBox>
 </template>
 

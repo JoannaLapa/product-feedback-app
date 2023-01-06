@@ -5,7 +5,7 @@
       <BlueBar>
         <Suggestions />
         <DropdownMenu />
-        <BaseButton link to="add">+ Add Feedback</BaseButton>
+        <BaseButton link to="/add">+ Add Feedback</BaseButton>
       </BlueBar>
       <NoFeedback v-if="noFeedback"></NoFeedback>
       <FeedbackItem v-if="!noFeedback"></FeedbackItem>

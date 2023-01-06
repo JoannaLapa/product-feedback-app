@@ -4,7 +4,7 @@
       <blue-bar>
         <go-back></go-back>
         <h2>Roadmap</h2>
-        <base-button>+ Add Feedback</base-button>
+        <base-button link to="/add">+ Add Feedback</base-button>
       </blue-bar>
     </wrapper>
     <wrapper>
