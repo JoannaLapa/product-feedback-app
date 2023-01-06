@@ -11,15 +11,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/",
-      redirect: "/feedbacks",
-    },
-    {
       path: "/feedbacks",
       component: FeedbackList,
-      children: [
-        { path: "add", component: FeedbackAdd },
-      ],
     },
     {
       path: "/feedbacks/:id",
@@ -31,9 +24,10 @@ const router = createRouter({
     {
       path: "/roadmap",
       component: StatusFeedbackList,
-      children: [
-        { path: "add", component: FeedbackAdd },
-      ],
+    },
+    {
+      path: "/add",
+      component: FeedbackAdd,
     },
     {
       path: "/:notFound(.*)",
