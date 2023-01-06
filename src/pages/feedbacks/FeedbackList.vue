@@ -1,15 +1,15 @@
 <template>
   <the-header />
   <main>
-    <wrapper>
-      <blue-bar>
-        <suggestions />
-        <dropdown-menu />
-        <base-button link to="add">+ Add Feedback</base-button>
-      </blue-bar>
-      <no-feedback v-if="noFeedback"></no-feedback>
-      <feedback-item v-if="!noFeedback"></feedback-item>
-    </wrapper>
+    <Wrapper>
+      <BlueBar>
+        <Suggestions />
+        <DropdownMenu />
+        <BaseButton link to="add">+ Add Feedback</BaseButton>
+      </BlueBar>
+      <NoFeedback v-if="noFeedback"></NoFeedback>
+      <FeedbackItem v-if="!noFeedback"></FeedbackItem>
+    </Wrapper>
   </main>
 </template>
 <script setup>

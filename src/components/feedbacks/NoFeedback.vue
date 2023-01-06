@@ -1,15 +1,15 @@
 <template>
-  <base-box>
+  <BaseBox>
     <div class="no-feedback__container">
-      <IconNoFeedback></IconNoFeedback>
+      <IconNoFeedback />
       <h2>There is no feedback yet.</h2>
       <p>
         Got a suggestion? Found a bug that needs to be squashed? We love hearing
         about new ideas to improve our app.
       </p>
     </div>
-    <base-button>+ Add Feedback</base-button>
-  </base-box>
+    <BaseButton>+ Add Feedback</BaseButton>
+  </BaseBox>
 </template>
 
 <script setup>

@@ -1,6 +1,6 @@
 <template>
   <li>
-    <base-box>
+    <BaseBox>
       <ul>
         Roadmap
         <router-link to="/roadmap">View</router-link>
@@ -17,7 +17,7 @@
           <!-- <span>{{ statusName }}</span> -->
         </li>
       </ul>
-    </base-box>
+    </BaseBox>
   </li>
 </template>
 

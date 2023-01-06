@@ -26,12 +26,11 @@
         id="feedback-detail"
         aria-describedby="feedback-details-instruction"
         name="feedback-detail"
-      >
-      </textarea>
+      />
     </fieldset>
-    <base-button v-if="edit">{{ delete }}</base-button>
-    <base-button>Cancel</base-button>
-    <base-button>{{ submitTitle }}</base-button>
+    <BaseButton v-if="edit">{{ delete }}</BaseButton>
+    <BaseButton>Cancel</BaseButton>
+    <BaseButton>{{ submitTitle }}</BaseButton>
   </form>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <wrapper />
+    <Wrapper />
   </main>
 </template>
 

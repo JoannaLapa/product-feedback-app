@@ -1,15 +1,15 @@
 <template>
   <main>
-    <wrapper>
-      <go-back />
-      <base-box>
+    <Wrapper>
+      <GoBack />
+      <BaseBox>
        <IconNewFeedback />
-        <feedback-create-form
+        <FeedbackCreateForm
           title="Create New Feedback"
           submitTitle="Add Feedback"
-        ></feedback-create-form>
-      </base-box>
-    </wrapper>
+        ></FeedbackCreateForm>
+      </BaseBox>
+    </Wrapper>
   </main>
 </template>
 

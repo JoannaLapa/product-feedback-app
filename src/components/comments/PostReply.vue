@@ -1,7 +1,7 @@
 <template>
   <form>
-    <textarea maxlength="250" name="reply" id="comment"></textarea>
-    <base-button>Post Reply</base-button>
+    <textarea maxlength="250" name="reply" id="comment" />
+    <BaseButton>Post Reply</BaseButton>
   </form>
 </template>
 

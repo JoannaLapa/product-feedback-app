@@ -1,5 +1,5 @@
 <template>
-  <base-box>
+  <BaseBox>
     <article>
       <p>{{}}</p>
       <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
@@ -21,7 +21,7 @@
         <!-- title -->
         <p>{{}}</p>
         <!-- content -->
-        <base-button>{{}}</base-button>
+        <BaseButton>{{}}</BaseButton>
         <!-- category -->
       </div>
       <div class="feedback__comments">
@@ -39,7 +39,7 @@
     To consider - where hould be attached NoFeedback and v-if - in FeedBackItem or in FeedbackList -->
       </div>
     </article>
-  </base-box>
+  </BaseBox>
 </template>
 
 <script setup>

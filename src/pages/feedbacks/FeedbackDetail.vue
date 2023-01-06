@@ -1,13 +1,13 @@
 <template>
   <main>
-    <wrapper>
-      <go-back>
-        <base-button>Edit Feedback</base-button>
-      </go-back>
-      <feedback-item />
-      <comments-list />
-      <add-comment />
-    </wrapper>
+    <Wrapper>
+      <GoBack>
+        <BaseButton>Edit Feedback</BaseButton>
+      </GoBack>
+      <FeedbackItem />
+      <CommentsList />
+      <AddComment />
+    </Wrapper>
   </main>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <base-box>
+  <BaseBox>
     <form>
       <label for="comment">Add comment:</label>
       <textarea
@@ -10,9 +10,9 @@
         aria-describedby="characters-left"
       />
       <p id="characters-left">Dynamic number characters left</p>
-      <base-button>Post comment</base-button>
+      <BaseButton>Post comment</BaseButton>
     </form>
-  </base-box>
+  </BaseBox>
 </template>
 
 <!-- future styling textarea:valid/invalid for active states possible on textarea and form -->

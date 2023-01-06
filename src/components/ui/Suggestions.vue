@@ -1,6 +1,6 @@
 <template>
   <div>
-   <icon-suggestions />
+   <IconSuggestions />
     <p>
       <span>dynamic number here</span>
       Suggestions

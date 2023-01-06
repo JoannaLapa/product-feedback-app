@@ -1,6 +1,6 @@
 <template>
   <li>
-    <base-button>Test</base-button>
+    <BaseButton>Test</BaseButton>
   </li>
 </template>
 

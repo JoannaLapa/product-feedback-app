@@ -1,6 +1,6 @@
 <template>
   <header>
-    <wrapper>
+    <Wrapper>
       <div class="heading">
         <h1>Frontend Mentor</h1>
         <p>Feedback Board</p>
@@ -10,10 +10,10 @@
         <IconCloseMenu />
       </div>
       <ul>
-        <sort-by-category />
-        <roadmap-menu />
+        <SortByCategory />
+        <RoadmapMenu />
       </ul>
-    </wrapper>
+    </Wrapper>
   </header>
 </template>
 
