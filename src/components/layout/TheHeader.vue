@@ -27,7 +27,7 @@ import IconCloseMenu from "../icons/IconCloseMenu.vue";
 //task to solve - add special class for wrapper: to make max width 100% only in TheHeader mobile screen, for desktop max-width like in a desktop project
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .hidden {
   display: none;
 }

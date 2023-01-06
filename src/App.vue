@@ -6,7 +6,7 @@
 import { RouterLink, RouterView } from "vue-router";
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
 
 *,

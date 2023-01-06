@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .base-box {
   border-radius: 0.625rem;
   background-color: #ffffff;

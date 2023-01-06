@@ -8,8 +8,6 @@
   </div>
 </template>
 
-<style lang="scss"></style>
-
 <script setup>
 import IconSuggestions from '../icons/IconSuggestions.vue';
 </script>
