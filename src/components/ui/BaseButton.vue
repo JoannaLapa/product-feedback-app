@@ -8,7 +8,7 @@
   </router-link>
 </template>
 
-<script setuo>
+<script setup>
   defineProps({
     link: {
       type: Boolean,
