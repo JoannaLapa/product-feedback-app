@@ -8,8 +8,7 @@
         maxlength="250"
         placeholder="Type your comment here"
         aria-describedby="characters-left"
-      >
-      </textarea>
+      />
       <p id="characters-left">Dynamic number characters left</p>
       <base-button>Post comment</base-button>
     </form>
