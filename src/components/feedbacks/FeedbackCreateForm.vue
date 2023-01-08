@@ -1,12 +1,12 @@
 <template>
   <form>
     <fieldset>
-      <legend>{{ title, dynamicTitle }}</legend>
+      <legend>{{ (title, dynamicTitle) }}</legend>
       <label for="feedback-title">Feedback Title</label>
       <p id="feedback-title-instruction">Add a short, descriptive headline</p>
       <input
-        type="text"
         id="feedback-title"
+        type="text"
         aria-describedby="feedback-title-instruction"
       />
       <label for="category">Category</label>
@@ -35,11 +35,11 @@
 </template>
 
 <script setup>
-import BaseButton from "../ui/BaseButton.vue";
-  // props: ["title", "edit", "delete", "submitTitle", "dynamicTitle"],
-  //   computed: {
-  //     dynamicTitle() {
-  //         this.dynamicTitle = 'attachTitleFromJson'
-  //     }
-  //   }
+import BaseButton from "../basicComponents/BaseButton.vue";
+// props: ["title", "edit", "delete", "submitTitle", "dynamicTitle"],
+//   computed: {
+//     dynamicTitle() {
+//         this.dynamicTitle = 'attachTitleFromJson'
+//     }
+//   }
 </script>
