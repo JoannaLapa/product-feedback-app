@@ -1,13 +1,13 @@
 <template>
   <main>
-    <wrapper>
-      <blue-bar>
-        <go-back></go-back>
+    <Wrapper>
+      <BaseBar>
+        <GoBack></GoBack>
         <h2>Roadmap</h2>
-        <base-button link to="/add">+ Add Feedback</base-button>
-      </blue-bar>
-    </wrapper>
-    <wrapper>
+        <BaseButton link to="/add">+ Add Feedback</BaseButton>
+      </BaseBar>
+    </Wrapper>
+    <Wrapper>
       <ul>
         <li>
           <!-- list of items dependly on status name -->
@@ -16,19 +16,19 @@
           <p>{{ description }}</p>
           <ul>
             <li>
-              <feedback-item></feedback-item>
+              <FeedbackItem />
             </li>
           </ul>
         </li>
       </ul>
-    </wrapper>
+    </Wrapper>
   </main>
 </template>
 
 <script setup>
-import Wrapper from "../../components/ui/Wrapper.vue";
-import BlueBar from "../../components/ui/BlueBar.vue";
-import GoBack from "../../components/ui/GoBack.vue";
-import BaseButton from "../../components/ui/BaseButton.vue";
+import Wrapper from "../../components/basicComponents/Wrapper.vue";
+import BaseBar from "../../components/basicComponents/BaseBar.vue";
+import GoBack from "../../components/basicComponents/GoBack.vue";
+import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 </script>
