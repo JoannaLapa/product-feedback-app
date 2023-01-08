@@ -18,9 +18,9 @@
 </template>
 
 <script setup>
-import SortByCategory from "../ui/TheHeaderMenu/sortByCategory/SortByCategory.vue";
-import RoadmapMenu from "../ui/TheHeaderMenu/roadmapMenu/RoadmapMenu.vue";
-import Wrapper from "../ui/Wrapper.vue";
+import SortByCategory from "./SortByCategory.vue";
+import RoadmapMenu from "./RoadmapMenu.vue";
+import Wrapper from "./Wrapper.vue";
 import IconOpenMenu from "../icons/IconOpenMenu.vue";
 import IconCloseMenu from "../icons/IconCloseMenu.vue";
 

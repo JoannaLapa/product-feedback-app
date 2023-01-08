@@ -1,6 +1,6 @@
 <template>
   <div>
-   <IconSuggestions />
+    <IconSuggestions />
     <p>
       <span>dynamic number here</span>
       Suggestions
@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import IconSuggestions from '../icons/IconSuggestions.vue';
+import IconSuggestions from "../icons/IconSuggestions.vue";
 </script>

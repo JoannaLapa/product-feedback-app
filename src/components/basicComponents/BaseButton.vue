@@ -9,19 +9,18 @@
 </template>
 
 <script setup>
-  defineProps({
-    link: {
-      type: Boolean,
-      default: false,
-    },
-    mode: {
-      type: String,
-      default: null,
-    },
-    to: {
-      type: String,
-      default: "/feedbacks",
-    },
-  })
+defineProps({
+  link: {
+    type: Boolean,
+    default: false,
+  },
+  mode: {
+    type: String,
+    default: null,
+  },
+  to: {
+    type: String,
+    default: "/feedbacks",
+  },
+});
 </script>
-
