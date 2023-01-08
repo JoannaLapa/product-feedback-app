@@ -1,10 +1,10 @@
 <template>
   <form>
-    <textarea maxlength="250" name="reply" id="comment" />
+    <textarea id="comment" maxlength="250" name="reply" />
     <BaseButton>Post Reply</BaseButton>
   </form>
 </template>
 
 <script setup>
-import BaseButton from "../ui/BaseButton.vue";
+import BaseButton from "../basicComponents/BaseButton.vue";
 </script>
