@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import BaseBox from "../ui/BaseBox.vue";
-import BaseButton from "../ui/BaseButton.vue";
+import BaseBox from "../basicComponents/BaseBox.vue";
+import BaseButton from "../basicComponents/BaseButton.vue";
 import IconNoFeedback from "../icons/IconNoFeedback.vue";
 </script>

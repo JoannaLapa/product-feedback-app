@@ -4,7 +4,7 @@
       <p>{{}}</p>
       <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
       <div class="feedback__votes">
-       <ArrowUp />
+        <ArrowUp />
         <p>{{}}</p>
         <!-- upvotes -->
       </div>
@@ -31,6 +31,6 @@
 <script setup>
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
-import BaseBox from "../ui/BaseBox.vue";
-import BaseButton from "../ui/BaseButton.vue";
+import BaseBox from "../basicComponents/BaseBox.vue";
+import BaseButton from "../basicComponents/BaseButton.vue";
 </script>
