@@ -11,13 +11,14 @@
       />
       <label for="category">Category</label>
       <p id="category-instruction">Choose a category for your feedback</p>
-      <select id="category" aria-describedby="category-instruction">
-        <option value="Feature">Feature</option>
-        <option value="UI">UI</option>
-        <option value="UX">UX</option>
-        <option value="Enhancement">Enhancement</option>
-        <option value="Bug">Bug</option>
-      </select>
+      <BaseSelect id="category" aria-described-by="category - instruction">
+        <BaseOption
+          v-for="category in categories"
+          :key="category"
+          :value="category"
+          :text="category"
+        />
+      </BaseSelect>
       <label for="feedback-detail">Feedback Detail</label>
       <p id="feedback-details-instruction">
         Include any specific comments on what should be improved, added, etc.
@@ -36,7 +37,10 @@
 
 <script setup>
 import BaseButton from "../basicComponents/BaseButton.vue";
-// props: ["title", "edit", "delete", "submitTitle", "dynamicTitle"],
+import BaseSelect from "../basicComponents/BaseSelect.vue";
+import BaseOption from "../basicComponents/BaseOption.vue";
+
+const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];
 //   computed: {
 //     dynamicTitle() {
 //         this.dynamicTitle = 'attachTitleFromJson'
