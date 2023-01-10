@@ -1,11 +1,10 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "@/App.vue";
-import router from "./router.js";
+import router from "@/router.js";
 
-// import "./assets/main.css";
+const pinia = createPinia();
 
-const app = createApp(App);
+createApp(App).use(pinia).use(router).mount("#app");
 
-app.use(router);
-
-app.mount("#app");
+//till should import css
