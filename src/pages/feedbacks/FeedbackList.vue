@@ -3,7 +3,8 @@
   <main>
     <Wrapper>
       <BaseBar color="blue">
-        <ShowSuggestions />
+        //ShowSuggestions should be hidden in mobile - use Tailwind CC class
+        <ShowSuggestions :feedbacks="feedbacks" />
         <label>Sort by:</label>
         <BaseSelect name="choice">
           <BaseOption
