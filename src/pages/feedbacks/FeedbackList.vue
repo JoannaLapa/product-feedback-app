@@ -26,8 +26,8 @@
   </main>
 </template>
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
+import { onMounted, computed } from "vue";
+import { useFeedbacksStore } from "../../stores/feedbacks";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
@@ -52,11 +52,7 @@ const optionDetails = [
   "Least Comments",
 ];
 
-const feedbacks = ref([]);
-
-onMounted(async () => {
-  const response = await axios.get("http://localhost:3000/productRequests");
-  feedbacks.value = response.data;
-  console.log(feedbacks);
-});
+const feedbacksStore = useFeedbacksStore();
+const feedbacks = computed(() => feedbacksStore.feedbacks);
+onMounted(feedbacksStore.FETCH_FEEDBACKS);
 </script>
