@@ -6,5 +6,3 @@ import router from "@/router.js";
 const pinia = createPinia();
 
 createApp(App).use(pinia).use(router).mount("#app");
-
-//till should import css
