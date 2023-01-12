@@ -51,7 +51,6 @@ const optionDetails = [
   "Most Comments",
   "Least Comments",
 ];
-
 const feedbacksStore = useFeedbacksStore();
 const feedbacks = computed(() => feedbacksStore.feedbacks);
 onMounted(feedbacksStore.FETCH_FEEDBACKS);

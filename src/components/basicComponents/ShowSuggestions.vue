@@ -6,7 +6,8 @@
       Suggestions
     </p>
     <p v-else>
-      <span>{{ Object.keys(feedbacks).length }}</span> Suggestion
+      <span>{{ Object.keys(feedbacks).length }}</span>
+      Suggestion
     </p>
   </div>
 </template>
