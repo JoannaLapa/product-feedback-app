@@ -6,6 +6,7 @@ export const FETCH_FEEDBACKS = "FETCH_FEEDBACKS";
 export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
 export const FILTERED_FEEDBACKS = "FILTERED_FEEDBACKS";
 export const INCLUDE_FEEDBACK_BY_CATEGORY = "INCLUDE_FEEDBACK_BY_CATEGORY";
+export const UNIQUE_CATEGORIES = "UNIQUE_CATEGORIES";
 
 export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => ({
@@ -44,6 +45,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       return statusNumbers;
     },
+    //returns boolean if feedback.category is the selected category
     [INCLUDE_FEEDBACK_BY_CATEGORY]: () => (feedback) => {
       const userStore = useUserStore();
       return userStore.selectedCategories.includes(feedback.category);
@@ -52,6 +54,17 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       return state.feedbacks.filter((feedback) =>
         this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
       );
+    },
+    [UNIQUE_CATEGORIES](state) {
+      const uniqueCategories = new Set();
+      state.feedbacks.forEach((feedback) =>
+        uniqueCategories.add(feedback.category)
+      );
+      uniqueCategories.forEach((category) =>
+        category.replace(category[0], category[0].toUpperCase())
+      );
+      uniqueCategories.add("All");
+      return uniqueCategories;
     },
   },
 });
