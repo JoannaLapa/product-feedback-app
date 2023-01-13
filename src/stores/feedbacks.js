@@ -49,15 +49,21 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
       );
     },
+    //I added this getter as a set, but I finally consider if this is needed cause anyway I have to hardcode categories (if there would be any feedback with the category)
     [UNIQUE_CATEGORIES](state) {
-      const uniqueCategories = new Set();
+      const uniqueCategories = new Set([
+        "All",
+        "UX",
+        "UI",
+        "Feature",
+        "Enhancement",
+        "Bug",
+      ]);
       state.feedbacks.forEach((feedback) =>
-        uniqueCategories.add(feedback.category)
+        uniqueCategories.add(
+          feedback.category.charAt(0).toUpperCase() + feedback.category.slice(1)
+        )
       );
-      uniqueCategories.forEach((category) =>
-        category.replace(category[0], category[0].toUpperCase())
-      );
-      uniqueCategories.add("All");
       return uniqueCategories;
     },
   },
