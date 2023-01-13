@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import getFeedbacks from "@/api/getFeedbacks";
 import { useUserStore } from "./user";
-import { useUserStore } from "./user";
 
 export const FETCH_FEEDBACKS = "FETCH_FEEDBACKS";
 export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
@@ -79,6 +78,28 @@ export const useFeedbacksStore = defineStore("feedbacks", {
           feedback.category.charAt(0).toUpperCase() + feedback.category.slice(1)
         )
       );
+      return uniqueCategories;
+    },
+    [UNIQUE_CATEGORIES](state) {
+      const uniqueCategories = new Set();
+      state.feedbacks.forEach((feedback) =>
+        uniqueCategories.add(feedback.category)
+      );
+      uniqueCategories.forEach((category) =>
+        category.replace(category[0], category[0].toUpperCase())
+      );
+      uniqueCategories.add("All");
+      return uniqueCategories;
+    },
+    [UNIQUE_CATEGORIES](state) {
+      const uniqueCategories = new Set();
+      state.feedbacks.forEach((feedback) =>
+        uniqueCategories.add(feedback.category)
+      );
+      uniqueCategories.forEach((category) =>
+        category.replace(category[0], category[0].toUpperCase())
+      );
+      uniqueCategories.add("All");
       return uniqueCategories;
     },
   },
