@@ -1,8 +1,11 @@
 import { defineStore } from "pinia";
 import getFeedbacks from "@/api/getFeedbacks";
+import { useUserStore } from "./user";
 
 export const FETCH_FEEDBACKS = "FETCH_FEEDBACKS";
 export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
+export const FILTERED_FEEDBACKS = "FILTERED_FEEDBACKS";
+export const INCLUDE_FEEDBACK_BY_CATEGORY = "INCLUDE_FEEDBACK_BY_CATEGORY";
 
 export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => ({
@@ -34,6 +37,15 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         .set("Live", liveNumber);
 
       return statusNumbers;
+    },
+    [INCLUDE_FEEDBACK_BY_CATEGORY]: () => (feedback) => {
+      const userStore = useUserStore();
+      return userStore.selectedCategories.includes(feedback.category);
+    },
+    [FILTERED_FEEDBACKS](state) {
+      return state.feedbacks.filter((feedback) =>
+        this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
+      );
     },
   },
 });
