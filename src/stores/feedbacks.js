@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import getFeedbacks from "@/api/getFeedbacks";
 import { useUserStore } from "./user";
+import { useUserStore } from "./user";
 
 export const FETCH_FEEDBACKS = "FETCH_FEEDBACKS";
 export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
