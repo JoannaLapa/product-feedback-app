@@ -3,7 +3,7 @@
     <BaseBox>
       <ul>
         <SortByCategoryItem
-          v-for="category in categories"
+          v-for="category in UNIQUE_CATEGORIES"
           :key="category"
           :text="category"
         />
@@ -13,8 +13,13 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import BaseBox from "./BaseBox.vue";
 import SortByCategoryItem from "./SortByCategoryItem.vue";
+import { useFeedbacksStore } from "@/stores/feedbacks.js";
 
-const categories = ["All", "Feature", "UI", "UX", "Enhancement", "Bug"];
+const feedbacksStore = useFeedbacksStore();
+const UNIQUE_CATEGORIES = computed(() => feedbacksStore.UNIQUE_CATEGORIES);
 </script>
+<!-- const jobsStore = useJobsStore();
+const UNIQUE_ORGANIZATIONS = computed(() => jobsStore.UNIQUE_ORGANIZATIONS); -->
