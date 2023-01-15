@@ -1,10 +1,10 @@
 <template>
-  <button v-if="!link" :class="mode">
-    <slot></slot>
+  <button v-if="!link" :class="mode" value="value">
+    {{ text }}
   </button>
   <router-link v-else :to="to" :class="mode">
     <!-- router-link or router-view? -->
-    <slot></slot>
+    {{ text }}
   </router-link>
 </template>
 
@@ -21,6 +21,12 @@ defineProps({
   to: {
     type: String,
     default: "/feedbacks",
+  },
+  text: { type: String, required: true },
+  value: {
+    type: String,
+    required: false,
+    default: null,
   },
 });
 </script>
