@@ -39,12 +39,19 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       return statusNumbers;
     },
-    //returns boolean if feedback.category is the selected category
     [INCLUDE_FEEDBACK_BY_CATEGORY]: () => (feedback) => {
       const userStore = useUserStore();
-      return userStore.selectedCategories.includes(feedback.category);
+      if (userStore.selectedCategories.length === 0) return true;
+      if (userStore.selectedCategories === "All") return true;
+      return userStore.selectedCategories
+        .toLowerCase()
+        .includes(feedback.category);
     },
     [FILTERED_FEEDBACKS](state) {
+      const filteredFeedbacks = state.feedbacks.filter((feedback) =>
+        this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
+      );
+      if (filteredFeedbacks.length === 0) return state.feedbacks;
       return state.feedbacks.filter((feedback) =>
         this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
       );
