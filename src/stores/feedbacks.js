@@ -39,6 +39,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       return statusNumbers;
     },
+    //selectedCategories includes the value added when button is clicked. With code belowe I check if this value is the same like feedback.category
     [INCLUDE_FEEDBACK_BY_CATEGORY]: () => (feedback) => {
       const userStore = useUserStore();
       if (userStore.selectedCategories.length === 0) return true;
@@ -51,10 +52,9 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const filteredFeedbacks = state.feedbacks.filter((feedback) =>
         this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
       );
-      if (filteredFeedbacks.length === 0) return state.feedbacks;
-      return state.feedbacks.filter((feedback) =>
-        this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
-      );
+      return filteredFeedbacks.length === 0
+        ? state.feedbacks
+        : filteredFeedbacks;
     },
     //I added this getter as a set, but I finally consider if this is needed cause anyway I have to hardcode categories (if there would be any feedback with the category)
     [UNIQUE_CATEGORIES](state) {
