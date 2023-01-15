@@ -25,15 +25,23 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
 import BaseButton from "../basicComponents/BaseButton.vue";
 
-defineProps({
+const props = defineProps({
   feedback: {
     type: Object,
     default: null,
   },
+  to: {
+    type: String,
+    required: false,
+    default: "/feedbacks",
+  },
 });
+
+const feedbackPageLink = computed(() => `/${props.feedback.id}`);
 </script>
