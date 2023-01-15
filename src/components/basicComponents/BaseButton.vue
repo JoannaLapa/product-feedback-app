@@ -1,7 +1,14 @@
 <template>
+<<<<<<< HEAD
   <router-link v-if="link" :to="to" :class="mode">
+=======
+  <button v-if="!link" :class="mode" value="value">
+    {{ text }}
+  </button>
+  <router-link v-else :to="to" :class="mode">
+>>>>>>> cf302b6 (slot replaced with props, value. text props added)
     <!-- router-link or router-view? -->
-    <slot></slot>
+    {{ text }}
   </router-link>
   <div v-if="likeAButton" :class="mode">
     <p>{{ text }}</p>
@@ -28,6 +35,12 @@ defineProps({
   to: {
     type: String,
     default: "/feedbacks",
+  },
+  text: { type: String, required: true },
+  value: {
+    type: String,
+    required: false,
+    default: null,
   },
 });
 </script>
