@@ -18,11 +18,11 @@
             :text="optionDetail"
           />
         </BaseSelect>
-        <BaseButton link to="/add">+ Add Feedback</BaseButton>
+        <BaseButton link to="/add" text="+ Add Feedback" />
       </BaseBar>
       <NoFeedback v-if="noFeedback" />
       <FeedbackItem
-        v-for="feedback in feedbacks"
+        v-for="feedback in FILTERED_FEEDBACKS"
         :key="feedback.id"
         :feedback="feedback"
       />
@@ -55,7 +55,9 @@ const optionDetails = [
   "Most Comments",
   "Least Comments",
 ];
+
 const feedbacksStore = useFeedbacksStore();
 const feedbacks = computed(() => feedbacksStore.feedbacks);
 onMounted(feedbacksStore.FETCH_FEEDBACKS);
+const FILTERED_FEEDBACKS = computed(() => feedbacksStore.FILTERED_FEEDBACKS);
 </script>
