@@ -21,11 +21,13 @@
         <BaseButton link to="/add" text="+ Add Feedback" />
       </BaseBar>
       <NoFeedback v-if="noFeedback" />
-      <FeedbackItem
-        v-for="feedback in FILTERED_FEEDBACKS"
-        :key="feedback.id"
-        :feedback="feedback"
-      />
+      <ul>
+        <FeedbackItem
+          v-for="feedback in FILTERED_FEEDBACKS"
+          :key="feedback.id"
+          :feedback="feedback"
+        />
+      </ul>
     </Wrapper>
   </main>
 </template>
