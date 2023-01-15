@@ -45,7 +45,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       return statusNumbers;
     },
-    //selectedCategories includes the value added when button is clicked. With code belowe I check if this value is the same like feedback.category
+    //userStore.selectedCategories includes the value added when button is clicked. With code below I check if this value is the same like feedback.category.
     [INCLUDE_FEEDBACK_BY_CATEGORY]: () => (feedback) => {
       const userStore = useUserStore();
       if (userStore.selectedCategories.length === 0) return true;
@@ -54,6 +54,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         .toLowerCase()
         .includes(feedback.category);
     },
+    //if the feedback.category is empty I return all feedbacks - I suppose that I should pront some modal window to show thet there is any feedback at this category?
     [FILTERED_FEEDBACKS](state) {
       const filteredFeedbacks = state.feedbacks.filter((feedback) =>
         this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
