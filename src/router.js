@@ -15,11 +15,8 @@ const router = createRouter({
       component: FeedbackList,
     },
     {
-      path: "/feedbacks/:id",
+      path: "/:id",
       component: FeedbackDetail,
-      children: [
-        { path: "edit", component: FeedbackEdit }, //editing feedback
-      ],
     },
     {
       path: "/roadmap",
@@ -28,6 +25,10 @@ const router = createRouter({
     {
       path: "/add",
       component: FeedbackAdd,
+    },
+    {
+      path: "/edit",
+      component: FeedbackEdit,
     },
     {
       path: "/:notFound(.*)",
