@@ -10,7 +10,11 @@
       <div class="feedback__content">
         <h2>{{ feedback.title }}</h2>
         <p>{{ feedback.description }}</p>
+<<<<<<< HEAD
         <BaseButton like-a-button :text="feedback.category" />
+=======
+        <BaseButton :text="feedback.category" />
+>>>>>>> aa0de85 (props added to BaseButton)
       </div>
       <div class="feedback__comments">
         <IconComments />
