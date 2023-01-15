@@ -10,7 +10,6 @@
 
 <script setup>
 import BaseButton from "./BaseButton.vue";
-
 import { computed, ref } from "vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "@/stores/user.js";
@@ -21,9 +20,6 @@ const UNIQUE_CATEGORIES = computed(() => feedbacksStore.UNIQUE_CATEGORIES);
 const activeFilter = ref([]);
 const filteredData = (name) => {
   activeFilter.value = name;
-  console.log(activeFilter.value);
   usersStore.ADD_SELECTED_CATEGORY(activeFilter.value);
-  console.log(`to jest user story ${usersStore.selectedCategories}`);
-  console.log(feedbacksStore.feedbacks);
 };
 </script>
