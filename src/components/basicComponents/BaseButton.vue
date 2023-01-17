@@ -1,12 +1,5 @@
 <template>
-<<<<<<< HEAD
   <router-link v-if="link" :to="to" :class="mode">
-=======
-  <button v-if="!link" :class="mode" value="value">
-    {{ text }}
-  </button>
-  <router-link v-else :to="to" :class="mode">
->>>>>>> cf302b6 (slot replaced with props, value. text props added)
     <!-- router-link or router-view? -->
     {{ text }}
   </router-link>
