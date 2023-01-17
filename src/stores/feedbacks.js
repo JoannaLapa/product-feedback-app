@@ -7,6 +7,7 @@ export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
 export const FILTERED_FEEDBACKS = "FILTERED_FEEDBACKS";
 export const INCLUDE_FEEDBACK_BY_CATEGORY = "INCLUDE_FEEDBACK_BY_CATEGORY";
 export const UNIQUE_CATEGORIES = "UNIQUE_CATEGORIES";
+export const INCREASED_UPVOTES = "INCREASED_UPVOTES";
 
 export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => ({
@@ -73,6 +74,10 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         )
       );
       return uniqueCategories;
+    },
+    [INCREASED_UPVOTES]: () => {
+      const userStore = useUserStore();
+      userStore.upvotes = INCREASED_UPVOTES;
     },
   },
 });
