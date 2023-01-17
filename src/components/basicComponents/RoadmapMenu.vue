@@ -4,7 +4,7 @@
       <ul>
         Roadmap
         <router-link to="/roadmap">View</router-link>
-        <RoadmapLi
+        <RoadmapItem
           v-for="[statusName, statusNumber] in COUNTED_STATUS_MAP"
           :key="statusName"
           :status-name="statusName"
@@ -19,7 +19,7 @@
 import { computed } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import BaseBox from "./BaseBox.vue";
-import RoadmapLi from "./RoadmapLi.vue";
+import RoadmapItem from "./RoadmapItem.vue";
 
 const feedbacksStore = useFeedbacksStore();
 const COUNTED_STATUS_MAP = computed(() => feedbacksStore.COUNTED_STATUS_MAP);
