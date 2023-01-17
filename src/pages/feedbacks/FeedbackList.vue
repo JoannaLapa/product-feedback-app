@@ -3,7 +3,8 @@
   <main>
     <Wrapper>
       <BaseBar color="blue">
-        //ShowSuggestions should be hidden in mobile - use Tailwind CC class
+        <!-- ShowSuggestions should be hidden in mobile - v-if here, because
+        default is null. (this is Ola's suggestion how to do it) -->
         <ShowSuggestions
           :feedbacks="feedbacks"
           :feedbacks-length="Object.keys(feedbacks).length"
