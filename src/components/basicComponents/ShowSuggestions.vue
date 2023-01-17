@@ -1,13 +1,10 @@
 <template>
   <div>
     <IconSuggestions />
-    <p v-if="Object.keys(feedbacks).length !== 1">
-      <span>{{ Object.keys(feedbacks).length }}</span>
-      Suggestions
-    </p>
-    <p v-else>
-      <span>{{ Object.keys(feedbacks).length }}</span>
-      Suggestion
+    <p>
+      <span>{{ feedbacksLength }}</span>
+      <span> Suggestion</span>
+      <span v-if="feedbacksLength !== 1"> Suggestions</span>
     </p>
   </div>
 </template>
@@ -19,6 +16,10 @@ defineProps({
   feedbacks: {
     type: Object,
     default: null,
+  },
+  feedbacksLength: {
+    type: Number,
+    default: 1,
   },
 });
 </script>
