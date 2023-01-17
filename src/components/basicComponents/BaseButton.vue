@@ -1,16 +1,23 @@
 <template>
-  <button v-if="!link" :class="mode">
-    <slot></slot>
-  </button>
-  <router-link v-else :to="to" :class="mode">
+  <router-link v-if="link" :to="to" :class="mode">
     <!-- router-link or router-view? -->
     <slot></slot>
   </router-link>
+  <div v-if="likeAButton" :class="mode">
+    <p>{{ text }}</p>
+  </div>
+  <button v-else :class="mode">
+    <slot></slot>
+  </button>
 </template>
 
 <script setup>
 defineProps({
   link: {
+    type: Boolean,
+    default: false,
+  },
+  likeAButton: {
     type: Boolean,
     default: false,
   },

@@ -10,7 +10,7 @@
       <div class="feedback__content">
         <h2>{{ feedback.title }}</h2>
         <p>{{ feedback.description }}</p>
-        <BaseButton>{{ feedback.category }}</BaseButton>
+        <BaseButton like-a-button :text="feedback.category" />
       </div>
       <div class="feedback__comments">
         <IconComments />
