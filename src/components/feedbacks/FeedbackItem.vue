@@ -1,26 +1,30 @@
 <template>
   <BaseBox>
-    <article>
-      <p v-if="roadmap">{{ feedback.status }}</p>
-      <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
-      <div class="feedback__votes">
-        <ArrowUp />
-        <p>{{ feedback.upvotes }}</p>
-      </div>
-      <div class="feedback__content">
-        <h2>{{ feedback.title }}</h2>
-        <p>{{ feedback.description }}</p>
-        <BaseButton like-a-button :text="feedback.category" />
-      </div>
-      <div class="feedback__comments">
-        <IconComments />
-        <p v-if="feedback.comments">
-          {{ feedback.comments.length }}
-        </p>
-        <p v-else>0</p>
-        <!-- if there iss no comment  - the number should be in grey color -->
-      </div>
-    </article>
+    <router-link :to="feedbackPageLink">
+      <li>
+        <article>
+          <p v-if="roadmap">{{ feedback.status }}</p>
+          <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
+          <div class="feedback__votes">
+            <ArrowUp />
+            <p>{{ feedback.upvotes }}</p>
+          </div>
+          <div class="feedback__content">
+            <h2>{{ feedback.title }}</h2>
+            <p>{{ feedback.description }}</p>
+            <BaseButton :text="feedback.category" />
+          </div>
+          <div class="feedback__comments">
+            <IconComments />
+            <p v-if="feedback.comments">
+              {{ feedback.comments.length }}
+            </p>
+            <p v-else>0</p>
+            <!-- if there iss no comment  - the number should be in grey color -->
+          </div>
+        </article>
+      </li>
+    </router-link>
   </BaseBox>
 </template>
 
