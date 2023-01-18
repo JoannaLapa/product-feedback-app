@@ -15,7 +15,7 @@
       <div class="feedback__comments">
         <IconComments />
         <p>
-          {{ feedback.comments.length || 0 }}
+          {{ feedback.comments ? feedback.comments.length : 0 }}
         </p>
         <!-- if there iss no comment  - the number should be in grey color -->
       </div>
