@@ -10,8 +10,14 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   }),
   actions: {
     async [FETCH_FEEDBACKS]() {
-      const feedbacks = await getFeedbacks();
-      this.feedbacks = feedbacks;
+      try {
+        const feedbacks = await getFeedbacks();
+        this.feedbacks = feedbacks;
+      } catch (err) {
+        err instanceof Error
+          ? console.log(`The error: ${err.message}`)
+          : console.log("Something went wrong");
+      }
     },
   },
   getters: {
