@@ -3,7 +3,7 @@
     <BaseButton
       :text="category"
       :value="category"
-      @click="filteredData(category)"
+      @filter-data="filterData(category)"
     />
   </li>
 </template>
@@ -18,7 +18,7 @@ const usersStore = useUserStore();
 const feedbacksStore = useFeedbacksStore();
 const UNIQUE_CATEGORIES = computed(() => feedbacksStore.UNIQUE_CATEGORIES);
 const activeFilter = ref([]);
-const filteredData = (name) => {
+const filterData = (name) => {
   activeFilter.value = name;
   usersStore.ADD_SELECTED_CATEGORY(activeFilter.value);
 };
