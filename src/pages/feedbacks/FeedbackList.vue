@@ -51,6 +51,7 @@ defineProps({
     defaullt: false,
   },
 });
+// Ola' s suggestion for below - You will need here pair of value / name
 const optionDetails = [
   "Most Upvotes",
   "Least Upvotes",
