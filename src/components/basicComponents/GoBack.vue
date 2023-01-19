@@ -8,13 +8,4 @@
 
 <script setup>
 import ArrowLeft from "../icons/ArrowLeft.vue";
-// export default {
-//   props: {
-//     to: {
-//       type: String,
-//       reqired: false,
-//       default: "/feedbacks",
-//     },
-//   },
-// };
 </script>

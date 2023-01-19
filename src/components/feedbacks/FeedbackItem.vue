@@ -1,28 +1,25 @@
 <template>
   <BaseBox>
     <article>
-      <p>{{}}</p>
+      <p v-if="roadmap">{{ feedback.status }}</p>
       <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
       <div class="feedback__votes">
         <ArrowUp />
-        <p>{{}}</p>
-        <!-- upvotes -->
+        <p>{{ feedback.upvotes }}</p>
       </div>
       <div class="feedback__content">
-        <h2>{{}}</h2>
-        <!-- title -->
-        <p>{{}}</p>
-        <!-- content -->
-        <BaseButton>{{}}</BaseButton>
-        <!-- category -->
+        <h2>{{ feedback.title }}</h2>
+        <p>{{ feedback.description }}</p>
+        <div>
+          <p>{{ feedback.category }}</p>
+        </div>
       </div>
       <div class="feedback__comments">
         <IconComments />
-        <p>{{}}</p>
-        <!-- comments.length move to script and create a correct prop or another feature - to check
-    possible usage - v-if - if there iss no comment the number should be in grey color -->
-        <!-- attach NoFeedback and make like in the BaseButton props with Boolean and if true attach feedback item if false - v-else - attach NoFeedback component
-    To consider - where hould be attached NoFeedback and v-if - in FeedBackItem or in FeedbackList -->
+        <p>
+          {{ feedback.comments ? feedback.comments.length : 0 }}
+        </p>
+        <!-- if there iss no comment  - the number should be in grey color -->
       </div>
     </article>
   </BaseBox>
@@ -32,5 +29,12 @@
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
-import BaseButton from "../basicComponents/BaseButton.vue";
+
+defineProps({
+  // Ola's suggestion - If null then you should think about hiding this component
+  feedback: {
+    type: Object,
+    default: null,
+  },
+});
 </script>

@@ -23,8 +23,6 @@ import RoadmapMenu from "./RoadmapMenu.vue";
 import Wrapper from "./Wrapper.vue";
 import IconOpenMenu from "../icons/IconOpenMenu.vue";
 import IconCloseMenu from "../icons/IconCloseMenu.vue";
-
-//task to solve - add special class for wrapper: to make max width 100% only in TheHeader mobile screen, for desktop max-width like in a desktop project
 </script>
 
 <style scoped lang="scss">
