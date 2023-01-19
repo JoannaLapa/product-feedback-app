@@ -31,6 +31,7 @@ import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
 
 defineProps({
+  // Ola's suggestion - If null then you should think about hiding this component
   feedback: {
     type: Object,
     default: null,
