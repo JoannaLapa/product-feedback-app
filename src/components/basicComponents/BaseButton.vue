@@ -6,8 +6,8 @@
   <div v-if="likeAButton" :class="mode">
     <p>{{ text }}</p>
   </div>
-  <button v-else :class="mode">
-    <slot></slot>
+  <button v-else :class="mode" @click="$emit('filter-data')">
+    {{ text }}
   </button>
 </template>
 
@@ -36,4 +36,6 @@ defineProps({
     default: null,
   },
 });
+
+defineEmits(["filter-data"]);
 </script>

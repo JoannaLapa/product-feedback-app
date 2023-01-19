@@ -3,8 +3,7 @@
     <IconSuggestions />
     <p>
       <span>{{ feedbacksLength }}</span>
-      <span> Suggestion</span>
-      <span v-if="feedbacksLength !== 1"> Suggestions</span>
+      {{ feedbacksLength !== 1 ? "Suggestions" : "Suggestion" }}
     </p>
   </div>
 </template>

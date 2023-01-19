@@ -18,10 +18,9 @@
           </div>
           <div class="feedback__comments">
             <IconComments />
-            <p v-if="feedback.comments">
-              {{ feedback.comments.length }}
+            <p>
+              {{ feedback.comments ? feedback.comments.length : 0 }}
             </p>
-            <p v-else>0</p>
             <!-- if there iss no comment  - the number should be in grey color -->
           </div>
         </router-link>
