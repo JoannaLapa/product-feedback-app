@@ -17,10 +17,6 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  likeAButton: {
-    type: Boolean,
-    default: false,
-  },
   mode: {
     type: String,
     default: null,

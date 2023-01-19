@@ -10,7 +10,9 @@
       <div class="feedback__content">
         <h2>{{ feedback.title }}</h2>
         <p>{{ feedback.description }}</p>
-        <BaseButton like-a-button :text="feedback.category" />
+        <div>
+          <p>{{ feedback.category }}</p>
+        </div>
       </div>
       <div class="feedback__comments">
         <IconComments />
@@ -27,9 +29,9 @@
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
-import BaseButton from "../basicComponents/BaseButton.vue";
 
 defineProps({
+  // Ola's suggestion - If null then you should think about hiding this component
   feedback: {
     type: Object,
     default: null,
