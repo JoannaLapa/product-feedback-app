@@ -3,9 +3,6 @@
     <!-- router-link or router-view? -->
     <slot></slot>
   </router-link>
-  <div v-if="likeAButton" :class="mode">
-    <p>{{ text }}</p>
-  </div>
   <button v-else :class="mode">
     <slot></slot>
   </button>
@@ -14,10 +11,6 @@
 <script setup>
 defineProps({
   link: {
-    type: Boolean,
-    default: false,
-  },
-  likeAButton: {
     type: Boolean,
     default: false,
   },
