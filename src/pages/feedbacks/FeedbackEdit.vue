@@ -20,6 +20,6 @@
 import BaseBox from "../../components/basicComponents/BaseBox.vue";
 import FeedbackCreateForm from "../../components/feedbacks/FeedbackCreateForm.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";
-import Wrapper from "../../components/basicComponents/Wrapper.vue";
+import Wrapper from "../../components/basicComponents/BaseWrapper.vue";
 import IconEditFeedback from "../../components/icons/IconEditFeedback.vue";
 </script>

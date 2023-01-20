@@ -40,7 +40,7 @@ import BaseSelect from "../../components/basicComponents/BaseSelect.vue";
 import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 import NoFeedback from "../../components/feedbacks/NoFeedback.vue";
-import Wrapper from "../../components/basicComponents/Wrapper.vue";
+import Wrapper from "../../components/basicComponents/BaseWrapper.vue";
 // set the v-if - if there is no feedback add NoFeedback component v-else if there are feedbacks set FeedbackItem component with v-for
 // <!-- attach NoFeedback and make like in the BaseButton props with Boolean and if true attach feedback item if false - v-else - attach NoFeedback component
 defineProps({

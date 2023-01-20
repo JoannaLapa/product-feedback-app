@@ -17,5 +17,5 @@ import GoBack from "../../components/basicComponents/GoBack.vue";
 import FeedbackItem from "../../components/feedbacks/FeedBackItem.vue";
 import CommentsList from "../../components/comments/CommentsList.vue";
 import AddComment from "../../components/comments/AddComment.vue";
-import Wrapper from "../../components/basicComponents/Wrapper.vue";
+import Wrapper from "../../components/basicComponents/BaseWrapper.vue";
 </script>

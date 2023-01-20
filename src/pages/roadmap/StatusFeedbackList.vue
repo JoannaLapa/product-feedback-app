@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import Wrapper from "../../components/basicComponents/Wrapper.vue";
+import Wrapper from "../../components/basicComponents/BaseWrapper.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
