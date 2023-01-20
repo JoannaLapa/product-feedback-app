@@ -17,7 +17,7 @@
 import BaseBox from "../../components/basicComponents/BaseBox.vue";
 import FeedbackCreateForm from "../../components/feedbacks/FeedbackCreateForm.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";
-import Wrapper from "../../components/basicComponents/Wrapper.vue";
+import Wrapper from "../../components/basicComponents/BaseWrapper.vue";
 import IconNewFeedback from "../../components/icons/IconNewFeedback.vue";
 // export default {
 //   components: {

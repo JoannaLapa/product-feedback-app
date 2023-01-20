@@ -20,12 +20,12 @@
 <script setup>
 import SortByCategory from "./SortByCategory.vue";
 import RoadmapMenu from "./RoadmapMenu.vue";
-import Wrapper from "./Wrapper.vue";
+import Wrapper from "./BaseWrapper.vue";
 import IconOpenMenu from "../icons/IconOpenMenu.vue";
 import IconCloseMenu from "../icons/IconCloseMenu.vue";
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .hidden {
   display: none;
 }
