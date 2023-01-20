@@ -1,13 +1,13 @@
 <template>
   <main>
-    <Wrapper>
+    <BaseWrapper>
       <BaseBar>
         <GoBack></GoBack>
         <h2>Roadmap</h2>
         <BaseButton link to="/add">+ Add Feedback</BaseButton>
       </BaseBar>
-    </Wrapper>
-    <Wrapper>
+    </BaseWrapper>
+    <BaseWrapper>
       <ul>
         <li>
           <!-- list of items dependly on status name -->
@@ -21,12 +21,12 @@
           </ul>
         </li>
       </ul>
-    </Wrapper>
+    </BaseWrapper>
   </main>
 </template>
 
 <script setup>
-import Wrapper from "../../components/basicComponents/BaseWrapper.vue";
+import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
