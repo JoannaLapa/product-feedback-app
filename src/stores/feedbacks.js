@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import getFeedbacks from "@/api/getFeedbacks";
 import { useUserStore } from "./user";
 
+//Ola suggestion: it depends (as always), but I'm used to using lower case in components and upper case in stores or in variables f.e const uniqueCategories = ...
 export const FETCH_FEEDBACKS = "FETCH_FEEDBACKS";
 export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
 export const FILTERED_FEEDBACKS = "FILTERED_FEEDBACKS";
