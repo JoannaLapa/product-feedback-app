@@ -3,9 +3,6 @@
     <!-- router-link or router-view? -->
     {{ text }}
   </router-link>
-  <div v-if="likeAButton" :class="mode">
-    <p>{{ text }}</p>
-  </div>
   <button v-else :class="mode" @click="$emit('filter-data')">
     {{ text }}
   </button>
@@ -19,17 +16,19 @@ defineProps({
   },
   mode: {
     type: String,
-    default: null,
+    default: " ",
   },
   to: {
     type: String,
     default: "/feedbacks",
   },
-  text: { type: String, required: true },
+  text: {
+    type: String,
+    required: true,
+  },
   value: {
     type: String,
-    required: false,
-    default: null,
+    default: " ",
   },
 });
 

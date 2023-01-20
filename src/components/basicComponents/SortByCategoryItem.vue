@@ -1,9 +1,9 @@
 <template>
-  <li v-for="category in UNIQUE_CATEGORIES" :key="category">
+  <li v-for="{ id, name } in uniqueCategories" :key="id">
     <BaseButton
-      :text="category"
-      :value="category"
-      @filter-data="filterData(category)"
+      :text="name"
+      :value="name"
+      @filter-data="filterData({ id: id, name: name.toLowerCase() })"
     />
   </li>
 </template>
@@ -16,7 +16,7 @@ import { useUserStore } from "@/stores/user.js";
 
 const usersStore = useUserStore();
 const feedbacksStore = useFeedbacksStore();
-const UNIQUE_CATEGORIES = computed(() => feedbacksStore.UNIQUE_CATEGORIES);
+const uniqueCategories = computed(() => feedbacksStore.uniqueCategories);
 const activeFilter = ref([]);
 const filterData = (name) => {
   activeFilter.value = name;
