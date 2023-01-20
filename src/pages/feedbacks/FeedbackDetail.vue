@@ -1,13 +1,13 @@
 <template>
   <main>
-    <Wrapper>
+    <BaseWrapper>
       <GoBack>
         <BaseButton link to="">Edit Feedback</BaseButton>
       </GoBack>
       <FeedbackItem />
       <CommentsList />
       <AddComment />
-    </Wrapper>
+    </BaseWrapper>
   </main>
 </template>
 
@@ -17,5 +17,5 @@ import GoBack from "../../components/basicComponents/GoBack.vue";
 import FeedbackItem from "../../components/feedbacks/FeedBackItem.vue";
 import CommentsList from "../../components/comments/CommentsList.vue";
 import AddComment from "../../components/comments/AddComment.vue";
-import Wrapper from "../../components/basicComponents/BaseWrapper.vue";
+import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 </script>
