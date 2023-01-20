@@ -1,6 +1,6 @@
 <template>
   <header>
-    <Wrapper>
+    <BaseWrapper>
       <div class="heading">
         <h1>Frontend Mentor</h1>
         <p>Feedback Board</p>
@@ -13,14 +13,14 @@
         <SortByCategory />
         <RoadmapMenu />
       </ul>
-    </Wrapper>
+    </BaseWrapper>
   </header>
 </template>
 
 <script setup>
 import SortByCategory from "./SortByCategory.vue";
 import RoadmapMenu from "./RoadmapMenu.vue";
-import Wrapper from "./BaseWrapper.vue";
+import BaseWrapper from "./BaseWrapper.vue";
 import IconOpenMenu from "../icons/IconOpenMenu.vue";
 import IconCloseMenu from "../icons/IconCloseMenu.vue";
 </script>

@@ -1,9 +1,9 @@
 <template>
   <main>
-    <Wrapper />
+    <BaseWrapper />
   </main>
 </template>
 
 <script setup>
-import Wrapper from "../components/basicComponents/BaseWrapper.vue";
+import BaseWrapper from "../components/basicComponents/BaseWrapper.vue";
 </script>
