@@ -4,7 +4,7 @@ export const ADD_SELECTED_CATEGORY = "ADD_SELECTED_CATEGORY";
 export const COUNT_UPVOTES = "COUNT_UPVOTES";
 export const useUserStore = defineStore("user", {
   state: () => ({
-    selectedCategories: [],
+    selectedCategories: [{ id: 0, name: "All" }],
     upvotes: "",
   }),
   actions: {
