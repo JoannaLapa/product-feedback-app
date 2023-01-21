@@ -1,7 +1,7 @@
 <template>
   <header>
     <BaseWrapper>
-      <div class="heading">
+      <div>
         <h1>Frontend Mentor</h1>
         <p>Feedback Board</p>
       </div>
