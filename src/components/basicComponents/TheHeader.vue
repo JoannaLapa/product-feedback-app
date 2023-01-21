@@ -1,13 +1,15 @@
 <template>
   <header>
     <BaseWrapper>
-      <div>
-        <h1>Frontend Mentor</h1>
-        <p>Feedback Board</p>
-      </div>
-      <div>
-        <IconOpenMenu />
-        <IconCloseMenu />
+      <div class="bg-header-sm md:bg-header-md xl:bg-header-xl">
+        <div>
+          <h1>Frontend Mentor</h1>
+          <p>Feedback Board</p>
+        </div>
+        <div>
+          <IconOpenMenu />
+          <IconCloseMenu />
+        </div>
       </div>
       <ul>
         <SortByCategory />
