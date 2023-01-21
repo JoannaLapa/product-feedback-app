@@ -43,6 +43,7 @@ module.exports = {
           "0.9375rem",
           {
             lineHeight: "1.355rem",
+            letterSpacing: "-0.02em",
           },
         ],
         lg: [
