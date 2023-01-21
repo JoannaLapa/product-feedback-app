@@ -31,6 +31,19 @@ module.exports = {
         "header-xl":
           "url('/src/assets/suggestions/background-header-desktop.jpg')",
       },
+      fontSize: {
+        'h1sm': ['1.25rem', {
+          lineHeight: '1.81rem',
+          letterSpacing: '-0.02em',
+          fontWeight: '700',
+        }],
+        'psm': ['0.8125rem', {
+          lineHeight: '1.17rem',
+          fontWeight: '500',
+        }],
+        'pmd': ['0.9375rem', {
+          lineHeight: '1.355rem',
+        }],
     },
   },
   plugins: [],
