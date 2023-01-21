@@ -24,9 +24,12 @@ module.exports = {
         "neutral-600": "373F68",
       },
       backgroundImage: {
-        'background-header-sm': "url('/src/assets/suggestions/background-header-mobile.jpg')",
-        'background-header-md': "url('/src/assets/suggestions/background-header-tablet.jpg')",
-        'background-header-xl': "url('/src/assets/suggestions/background-header-desktop.jpg')",
+        "background-header-sm":
+          "url('/src/assets/suggestions/background-header-mobile.jpg')",
+        "background-header-md":
+          "url('/src/assets/suggestions/background-header-tablet.jpg')",
+        "background-header-xl":
+          "url('/src/assets/suggestions/background-header-desktop.jpg')",
       },
     },
   },
