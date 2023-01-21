@@ -24,11 +24,11 @@ module.exports = {
         "neutral-600": "373F68",
       },
       backgroundImage: {
-        "background-header-sm":
+        "header-sm":
           "url('/src/assets/suggestions/background-header-mobile.jpg')",
-        "background-header-md":
+        "header-md":
           "url('/src/assets/suggestions/background-header-tablet.jpg')",
-        "background-header-xl":
+        "header-xl":
           "url('/src/assets/suggestions/background-header-desktop.jpg')",
       },
     },
