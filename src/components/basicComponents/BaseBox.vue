@@ -1,12 +1,5 @@
 <template>
-  <div class="base-box">
+  <div class="rounded-lg bg-neutral-100">
     <slot></slot>
   </div>
 </template>
-
-<style scoped>
-.base-box {
-  border-radius: 0.625rem;
-  background-color: #ffffff;
-}
-</style>
