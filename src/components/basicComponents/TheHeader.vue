@@ -9,7 +9,7 @@
             <h1 class="text-sm font-bold text-neutral-100">Frontend Mentor</h1>
             <p class="text-xs text-neutral-100">Feedback Board</p>
           </div>
-          <div>
+          <div class="cursor-pointer">
             <IconOpenMenu />
             <IconCloseMenu />
           </div>
