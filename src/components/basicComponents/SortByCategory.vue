@@ -1,7 +1,7 @@
 <template>
   <li>
-    <BaseBox>
-      <ul class="flex flex-wrap gap-2.5 pl-6 pt-6 pb-9 pr-4">
+    <BaseBox variant="small">
+      <ul class="flex flex-wrap gap-2.5">
         <SortByCategoryItem />
       </ul>
     </BaseBox>
