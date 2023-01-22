@@ -5,8 +5,12 @@
   </router-link>
   <button
     v-else
-    class="h-[1.875rem] rounded-lg p-2.5"
-    :class="mode"
+    class="flex h-[1.875rem] place-items-center rounded-lg p-2.5"
+    :class="{
+      'bg-primary-100 text-neutral-100': variant === 'primary',
+      'bg-secondary-400 text-primary-100': variant === 'neutral-hover',
+      'bg-neutral-300 text-primary-100': variant === 'neutral',
+    }"
     @click="$emit('filter-data')"
   >
     {{ text }}
@@ -40,9 +44,7 @@ defineProps({
     default: " ",
     required: true,
     validation: (variant) =>
-      ["custom", "hero", "primary", "outline-dark", "outline-light"].includes(
-        variant
-      ),
+      ["primary", "secondary", "neutral", "neutral-hover"].includes(variant),
   },
 });
 

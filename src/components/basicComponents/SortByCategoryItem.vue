@@ -1,6 +1,7 @@
 <template>
   <li v-for="{ id, name } in uniqueCategories" :key="id">
     <BaseButton
+      variant="neutral"
       :text="name"
       :value="name"
       @filter-data="filterData({ id: id, name: name.toLowerCase() })"
