@@ -14,8 +14,10 @@ module.exports = {
       colors: {
         "primary-100": "#4661E6",
         "primary-200": "#AD1FEA",
+        "primary-300": "#D73737",
         "secondary-100": "#F49F85",
         "secondary-200": "#F49F85",
+        "secondary-300": "#E98888",
         "neutral-100": "#FFFFFF",
         "neutral-200": "#F7F8FD",
         "neutral-300": "#F2F4FF",
@@ -57,6 +59,9 @@ module.exports = {
       },
       maxWidth: {
         "3/4": "72%",
+      },
+      borderRadius: {
+        "rounded-lg": "10px",
       },
     },
     plugins: [],
