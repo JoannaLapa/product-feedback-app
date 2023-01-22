@@ -1,7 +1,7 @@
 <template>
   <header>
     <BaseWrapper>
-      <div class="fixed w-screen">
+      <div class="fixed flex w-screen flex-col">
         <div
           class="flex items-center justify-between bg-header-sm bg-cover px-6 py-4 md:bg-header-md xl:bg-header-xl"
         >
@@ -14,8 +14,8 @@
             <IconCloseMenu />
           </div>
         </div>
-        <div class="flex justify-end bg-neutral-200">
-          <ul class="flex h-screen max-w-3/4 flex-col gap-11 p-6">
+        <div class="flex w-3/4 self-end bg-neutral-200">
+          <ul class="flex h-screen flex-col gap-11 p-6">
             <SortByCategory />
             <RoadmapMenu />
           </ul>
