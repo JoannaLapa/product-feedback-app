@@ -3,7 +3,12 @@
     <!-- router-link or router-view? -->
     {{ text }}
   </router-link>
-  <button v-else :class="mode" @click="$emit('filter-data')">
+  <button
+    v-else
+    class="h-[1.875rem] rounded-lg p-2.5"
+    :class="mode"
+    @click="$emit('filter-data')"
+  >
     {{ text }}
   </button>
 </template>
@@ -29,6 +34,15 @@ defineProps({
   value: {
     type: String,
     default: " ",
+  },
+  variant: {
+    type: String,
+    default: " ",
+    required: true,
+    validation: (variant) =>
+      ["custom", "hero", "primary", "outline-dark", "outline-light"].includes(
+        variant
+      ),
   },
 });
 
