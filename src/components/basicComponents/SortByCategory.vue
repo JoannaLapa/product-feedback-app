@@ -1,7 +1,7 @@
 <template>
   <li>
     <BaseBox>
-      <ul class="pl-6">
+      <ul class="pl-6 pt-6 pb-9 pr-4">
         <SortByCategoryItem />
       </ul>
     </BaseBox>
