@@ -18,6 +18,7 @@ module.exports = {
         "secondary-100": "#F49F85",
         "secondary-200": "#F49F85",
         "secondary-300": "#E98888",
+        "secondary-400": "#CFD7FF",
         "neutral-100": "#FFFFFF",
         "neutral-200": "#F7F8FD",
         "neutral-300": "#F2F4FF",
@@ -57,7 +58,7 @@ module.exports = {
           },
         ],
       },
-      maxWidth: {
+      width: {
         "3/4": "72%",
       },
       borderRadius: {
