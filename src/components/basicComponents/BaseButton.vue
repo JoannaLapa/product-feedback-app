@@ -1,6 +1,5 @@
 <template>
   <router-link v-if="link" :to="to" :class="mode">
-    <!-- router-link or router-view? -->
     {{ text }}
   </router-link>
   <button
