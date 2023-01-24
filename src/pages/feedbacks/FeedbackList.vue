@@ -1,7 +1,7 @@
 <template>
-  <TheHeader />
-  <main>
-    <BaseWrapper>
+  <BaseWrapper>
+    <TheHeader />
+    <main class="w-[76.4%]">
       <BaseBar color="blue">
         <!-- ShowSuggestions should be hidden in mobile - v-if here, because
         default is null. (this is Ola's suggestion how to do it) -->
@@ -26,8 +26,8 @@
         :key="feedback.id"
         :feedback="feedback"
       />
-    </BaseWrapper>
-  </main>
+    </main>
+  </BaseWrapper>
 </template>
 <script setup>
 import { onMounted, computed } from "vue";
