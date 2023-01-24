@@ -1,8 +1,8 @@
 <template>
   <li>
     <BaseBox variant="small">
-      <div class="mb-6 flex justify-between">
-        <h2 class="text-lg text-neutral-500">Roadmap</h2>
+      <div class="mb-6 flex justify-between pt-[1.1875rem]">
+        <h2 class="text-lg font-bold text-neutral-500">Roadmap</h2>
         <router-link
           class="text-xs font-semibold text-primary-100 underline transition duration-300 hover:text-secondary-500"
           to="/roadmap"

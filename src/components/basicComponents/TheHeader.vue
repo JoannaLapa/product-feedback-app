@@ -1,24 +1,30 @@
 <template>
   <header>
     <BaseWrapper>
-      <div class="fixed flex w-screen flex-col">
+      <div
+        class="flex flex-col max-sm:fixed max-sm:w-screen sm:mt-14 sm:mb-10 sm:grid sm:max-h-[11.125rem] sm:grid-cols-3 sm:grid-rows-1 sm:gap-2.5"
+      >
         <div
-          class="flex items-center justify-between bg-header-sm bg-cover px-6 py-4 md:bg-header-md xl:bg-header-xl"
+          class="flex items-center justify-between bg-header-sm bg-cover px-6 py-4 sm:col-span-1 sm:min-h-full sm:items-end sm:rounded-lg sm:bg-header-md sm:bg-auto sm:py-6 xl:bg-header-xl"
         >
           <div>
-            <h1 class="text-sm font-bold text-neutral-100">Frontend Mentor</h1>
-            <p class="text-xs text-neutral-100">Feedback Board</p>
+            <h1 class="text-sm font-bold text-neutral-100 sm:text-xl">
+              Frontend Mentor
+            </h1>
+            <p class="text-xs text-neutral-100 sm:text-sm">Feedback Board</p>
           </div>
-          <button class="cursor-pointer" @click="toggleMenu">
+          <button class="cursor-pointer sm:hidden" @click="toggleMenu">
             <IconOpenMenu v-if="isOpened" />
             <IconCloseMenu v-else />
           </button>
         </div>
         <div
-          class="relative right-0 flex w-3/4 self-end bg-neutral-200 before:absolute before:-left-2/4 before:h-screen before:w-[50%] before:bg-black before:opacity-50"
+          class="relative right-0 flex self-end bg-neutral-200 max-sm:w-3/4 max-sm:before:absolute max-sm:before:-left-2/4 max-sm:before:h-screen max-sm:before:w-[50%] max-sm:before:bg-black max-sm:before:opacity-50 sm:col-start-2 sm:col-end-4 sm:flex sm:max-h-full"
           :class="{ hidden: isOpened }"
         >
-          <ul class="flex h-screen flex-col gap-5 p-6">
+          <ul
+            class="flex flex-col gap-5 max-sm:h-screen max-sm:p-6 sm:grid sm:grid-cols-2 sm:grid-rows-1 sm:gap-2.5"
+          >
             <SortByCategory />
             <RoadmapMenu />
           </ul>
