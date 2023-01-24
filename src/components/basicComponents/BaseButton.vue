@@ -9,6 +9,7 @@
       'bg-primary-100 text-neutral-100': variant === 'primary',
       'bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100':
         variant === 'neutral',
+      'bg-primary-100 text-neutral-100': variant === 'focused',
     }"
     @click="$emit('filter-data')"
   >
@@ -39,7 +40,7 @@ defineProps({
     default: " ",
     required: true,
     validation: (variant) =>
-      ["primary", "secondary", "neutral"].includes(variant),
+      ["primary", "secondary", "neutral", "focused"].includes(variant),
   },
 });
 
