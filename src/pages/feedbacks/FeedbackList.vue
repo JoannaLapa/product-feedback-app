@@ -1,7 +1,7 @@
 <template>
   <BaseWrapper>
     <TheHeader />
-    <main class="lg:w-[76.4%]">
+    <main class="relative max-sm:top-[4.5rem] lg:w-[76.4%]">
       <BaseBar color="blue">
         <!-- ShowSuggestions should be hidden in mobile - v-if here, because
         default is null. (this is Ola's suggestion how to do it) -->
