@@ -24,9 +24,3 @@ import BaseWrapper from "./BaseWrapper.vue";
 import IconOpenMenu from "../icons/IconOpenMenu.vue";
 import IconCloseMenu from "../icons/IconCloseMenu.vue";
 </script>
-
-<style scoped>
-.hidden {
-  display: none;
-}
-</style>
