@@ -1,14 +1,22 @@
 <template>
   <li>
-    <BaseBox>
-      <ul>
-        Roadmap
-        <router-link to="/roadmap">View</router-link>
+    <BaseBox variant="small">
+      <div class="mb-6 flex justify-between">
+        <h2 class="text-lg text-neutral-500">Roadmap</h2>
+        <router-link
+          class="text-xs font-semibold text-primary-100 underline transition duration-300 hover:text-secondary-500"
+          to="/roadmap"
+        >
+          View
+        </router-link>
+      </div>
+      <ul class="flex flex-col gap-2">
         <RoadmapItem
           v-for="[statusName, statusNumber] in COUNTED_STATUS_MAP"
           :key="statusName"
           :status-name="statusName"
           :status-number="statusNumber"
+          :variant="statusName.toLowerCase()"
         />
       </ul>
     </BaseBox>

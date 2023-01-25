@@ -15,9 +15,9 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       { id: 0, name: "All" },
       { id: 1, name: "UX" },
       { id: 2, name: "UI" },
-      { id: 3, name: "Feature" },
-      { id: 4, name: "Enhancement" },
-      { id: 5, name: "Bug" },
+      { id: 3, name: "Enhancement" },
+      { id: 4, name: "Bug" },
+      { id: 5, name: "Feature" },
     ],
   }),
   actions: {

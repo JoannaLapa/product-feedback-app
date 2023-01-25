@@ -16,15 +16,16 @@ module.exports = {
         "primary-200": "#AD1FEA",
         "primary-300": "#D73737",
         "secondary-100": "#F49F85",
-        "secondary-200": "#F49F85",
-        "secondary-300": "#E98888",
-        "secondary-400": "#CFD7FF",
+        "secondary-200": "#E98888",
+        "secondary-300": "#CFD7FF",
+        "secondary-400": "#62BCFA",
+        "secondary-500": "#8397F8",
         "neutral-100": "#FFFFFF",
         "neutral-200": "#F7F8FD",
         "neutral-300": "#F2F4FF",
         "neutral-400": "#647196",
         "neutral-500": "#3A4374",
-        "neutral-600": "373F68",
+        "neutral-600": "#373F68",
       },
       backgroundImage: {
         "header-sm":
@@ -46,6 +47,7 @@ module.exports = {
           "0.9375rem",
           {
             lineHeight: "1.355rem",
+            letterSpacing: "-0.02em",
           },
         ],
         lg: [
