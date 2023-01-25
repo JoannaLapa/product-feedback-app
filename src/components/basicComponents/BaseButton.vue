@@ -16,7 +16,7 @@ defineProps({
   },
   mode: {
     type: String,
-    default: " ",
+    default: "",
   },
   to: {
     type: String,
@@ -28,7 +28,7 @@ defineProps({
   },
   value: {
     type: String,
-    default: " ",
+    default: "",
   },
 });
 
