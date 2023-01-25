@@ -13,8 +13,7 @@
 defineProps({
   variant: {
     type: String,
-    default: " ",
-    required: false,
+    default: "",
     validation: (variant) => ["small"].includes(variant),
   },
 });
