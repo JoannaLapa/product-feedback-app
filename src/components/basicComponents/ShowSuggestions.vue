@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-sm:hidden">
     <IconSuggestions />
     <p>
       <span>{{ feedbacksLength }}</span>
@@ -12,10 +12,6 @@
 import IconSuggestions from "../icons/IconSuggestions.vue";
 
 defineProps({
-  feedbacks: {
-    type: Object,
-    default: null,
-  },
   feedbacksLength: {
     type: Number,
     default: 1,
