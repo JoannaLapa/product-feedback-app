@@ -1,7 +1,7 @@
 <template>
   <header>
     <div
-      class="flex flex-col max-sm:fixed max-sm:w-screen sm:mt-14 sm:mb-10 sm:grid sm:max-h-[11.125rem] sm:grid-cols-3 sm:grid-rows-1 sm:gap-2.5 lg:my-0 lg:max-h-[33.0625rem] lg:grid-cols-1 lg:grid-rows-[8.5625rem_23rem] lg:gap-6"
+      class="top-0 flex flex-col max-sm:fixed max-sm:w-screen sm:mt-14 sm:mb-10 sm:grid sm:max-h-[11.125rem] sm:grid-cols-3 sm:grid-rows-1 sm:gap-2.5 lg:my-0 lg:max-h-[33.0625rem] lg:grid-cols-1 lg:grid-rows-[8.5625rem_23rem] lg:gap-6"
     >
       <div
         class="lg:rows-span-1 flex items-center justify-between bg-header-sm bg-cover px-6 py-4 sm:col-span-1 sm:min-h-full sm:items-end sm:rounded-lg sm:bg-header-md sm:bg-auto sm:py-6 lg:max-h-[6.5206rem] xl:bg-header-xl"
