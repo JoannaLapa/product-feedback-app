@@ -2,7 +2,7 @@
   <BaseWrapper>
     <TheHeader />
     <main class="lg:w-[76.4%]">
-      <BaseBar color="blue" class="max-sm:mt-[4.5rem]">
+      <BaseBar variant="primary" class="max-sm:mt-[4.5rem]">
         <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
         <label>Sort by:</label>
         <BaseSelect name="choice">
