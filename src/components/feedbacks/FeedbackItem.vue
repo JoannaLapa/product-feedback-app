@@ -19,7 +19,7 @@
           <div class="feedback__comments">
             <IconComments />
             <p>
-              {{ feedback.comments.length || 0 }}
+              {{ feedback.comments ? feedback.comments.length : 0 }}
             </p>
             <!-- if there iss no comment  - the number should be in grey color -->
             <!-- Suggestion from Ola (doesn't work for me) ==> FYI you can also use here: feedback.comments.length || 0 -->
@@ -49,6 +49,4 @@ const props = defineProps({
 });
 const feedbackPageLink = computed(() => `/${props.feedback.id}`);
 </script>
-<!-- 
-     {{ feedback.comments ? feedback.comments.length : 0 }}
- -->
+``
