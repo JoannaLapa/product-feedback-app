@@ -1,7 +1,8 @@
 <template>
   <BaseBox>
     <article>
-      <p v-if="roadmap">{{ feedback.status }}</p>
+      <!-- the commented paragraph should be added when the component is used in StatusFeedbackList page -->
+      <!-- <p v-if="roadmap">{{ feedback.status }}</p> -->
       <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
       <div class="feedback__votes">
         <ArrowUp />
