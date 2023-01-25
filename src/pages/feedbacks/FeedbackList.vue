@@ -1,14 +1,9 @@
 <template>
   <BaseWrapper>
     <TheHeader />
-    <main class="relative max-sm:top-[4.5rem] lg:w-[76.4%]">
-      <BaseBar color="blue">
-        <!-- ShowSuggestions should be hidden in mobile - v-if here, because
-        default is null. (this is Ola's suggestion how to do it) -->
-        <ShowSuggestions
-          :feedbacks="feedbacks"
-          :feedbacks-length="Object.keys(feedbacks).length"
-        />
+    <main class="lg:w-[76.4%]">
+      <BaseBar color="blue" class="max-sm:mt-[4.5rem]">
+        <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
         <label>Sort by:</label>
         <BaseSelect name="choice">
           <BaseOption
@@ -41,6 +36,7 @@ import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vu
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 import NoFeedback from "../../components/feedbacks/NoFeedback.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
+// v-if here, because default is null. (this is Ola's suggestion how to do it) - I think it was a comment for resolving noFeedback case
 // set the v-if - if there is no feedback add NoFeedback component v-else if there are feedbacks set FeedbackItem component with v-for
 // <!-- attach NoFeedback and make like in the BaseButton props with Boolean and if true attach feedback item if false - v-else - attach NoFeedback component
 defineProps({
