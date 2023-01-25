@@ -48,7 +48,7 @@ import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 defineProps({
   noFeedback: {
     type: Boolean,
-    defaullt: false,
+    default: false,
   },
 });
 // Ola' s suggestion for below - You will need here pair of value / name
