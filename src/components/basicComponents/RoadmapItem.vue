@@ -26,7 +26,7 @@ defineProps({
   },
   variant: {
     type: String,
-    default: " ",
+    default: "",
     required: false,
     validation: (variant) =>
       ["planned", "in-progress", "live"].includes(variant),
