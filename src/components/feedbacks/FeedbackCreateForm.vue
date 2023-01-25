@@ -41,9 +41,4 @@ import BaseSelect from "../basicComponents/BaseSelect.vue";
 import BaseOption from "../basicComponents/BaseOption.vue";
 
 const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];
-//   computed: {
-//     dynamicTitle() {
-//         this.dynamicTitle = 'attachTitleFromJson'
-//     }
-//   }
 </script>

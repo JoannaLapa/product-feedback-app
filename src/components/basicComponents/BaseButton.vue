@@ -33,11 +33,10 @@ defineProps({
   },
   value: {
     type: String,
-    default: " ",
+    default: "",
   },
   variant: {
     type: String,
-    default: " ",
     required: true,
     validation: (variant) =>
       ["primary", "secondary", "neutral", "focused"].includes(variant),
