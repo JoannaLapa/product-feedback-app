@@ -5,14 +5,7 @@
       <BaseBar variant="primary" class="max-sm:mt-[4.5rem]">
         <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
         <label class="text-xs text-neutral-300">Sort by:</label>
-        <BaseSelect name="choice">
-          <BaseOption
-            v-for="optionDetail in optionDetails"
-            :key="optionDetail"
-            :value="optionDetail"
-            :text="optionDetail"
-          />
-        </BaseSelect>
+        <BaseSelect />
         <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
       </BaseBar>
       <NoFeedback v-if="noFeedback" />
@@ -30,7 +23,7 @@ import { useFeedbacksStore } from "../../stores/feedbacks";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
-import BaseOption from "../../components/basicComponents/BaseOption.vue";
+// import BaseOption from "../../components/basicComponents/BaseOption.vue";
 import BaseSelect from "../../components/basicComponents/BaseSelect.vue";
 import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
@@ -45,13 +38,6 @@ defineProps({
     defaullt: false,
   },
 });
-// Ola' s suggestion for below - You will need here pair of value / name
-const optionDetails = [
-  "Most Upvotes",
-  "Least Upvotes",
-  "Most Comments",
-  "Least Comments",
-];
 
 const feedbacksStore = useFeedbacksStore();
 const feedbacks = computed(() => feedbacksStore.feedbacks);
