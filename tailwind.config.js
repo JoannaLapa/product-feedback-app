@@ -63,6 +63,9 @@ module.exports = {
       width: {
         "3/4": "72%",
       },
+      screens: {
+        xs: "23.4375rem",
+      },
       borderRadius: {
         "rounded-lg": "10px",
       },
