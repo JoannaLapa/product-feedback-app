@@ -67,6 +67,6 @@ module.exports = {
         "rounded-lg": "10px",
       },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/forms")],
   },
 };
