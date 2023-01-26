@@ -4,8 +4,10 @@
     <main class="lg:w-[76.4%]">
       <BaseBar variant="primary" class="max-sm:mt-[4.5rem]">
         <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
-        <label class="text-xs text-neutral-300">Sort by:</label>
-        <BaseSelect />
+        <div class="flex gap-0.5">
+          <label class="text-xs text-neutral-300">Sort by: </label>
+          <BaseSelect />
+        </div>
         <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
       </BaseBar>
       <NoFeedback v-if="noFeedback" />
