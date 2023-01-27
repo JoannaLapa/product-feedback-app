@@ -28,6 +28,7 @@ module.exports = {
         "neutral-500": "#3A4374",
         "neutral-600": "#373F68",
         "neutral-700": "#979797",
+        "neutral-800": "#373f6859",
       },
       backgroundImage: {
         "header-sm":
@@ -72,6 +73,9 @@ module.exports = {
       gap: {
         10.5: "2.375rem",
       },
+      maxWidth: {
+        206: "51.5625rem",
+      },
       screens: {
         xs: "23.4375rem",
         sm: "640px",
@@ -79,6 +83,17 @@ module.exports = {
         lg: "1024px",
         xl: "1280px",
         "2xl": "1536px",
+      },
+      spacing: {
+        19: "4.8125rem",
+        59: "15.9375rem",
+        61: "15.3125rem",
+        63: "15.9375rem",
+        206: "51.5625rem",
+        270: "67.5rem",
+      },
+      boxShadow: {
+        "3xl": "0 10px 40px -7px rgba(55, 63, 104, 0.350492)",
       },
       width: {
         "3/4": "72%",
