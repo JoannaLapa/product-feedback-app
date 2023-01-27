@@ -2,8 +2,11 @@
   <router-link
     v-if="link"
     :to="to"
-    class="flex max-h-10 w-fit place-items-center rounded-lg p-2 text-xs font-bold transition duration-300 xs:p-4"
-    :class="{ 'bg-primary-200 text-neutral-300': variant === 'primary' }"
+    class="flex max-h-10 w-fit place-items-center rounded-lg p-2 text-xs font-bold transition duration-300 md:max-h-11 xs:p-4"
+    :class="{
+      'bg-primary-200 text-neutral-300 hover:bg-secondary-600 md:text-sm':
+        variant === 'primary',
+    }"
   >
     {{ text }}
   </router-link>
