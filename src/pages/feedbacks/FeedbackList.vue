@@ -3,10 +3,14 @@
     <TheHeader />
     <main class="lg:w-[76.4%]">
       <BaseBar variant="primary" class="max-sm:mt-[4.5rem]">
-        <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
-        <div class="flex gap-0.5">
-          <label class="text-xs text-neutral-300">Sort by: </label>
-          <BaseSelect />
+        <div class="items-center md:flex md:gap-10.5">
+          <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
+          <div class="flex items-center gap-0.5">
+            <label class="text-xxs text-neutral-300 md:text-xs"
+              >Sort by:
+            </label>
+            <BaseSelect />
+          </div>
         </div>
         <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
       </BaseBar>
