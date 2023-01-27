@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex"
+    class="flex items-center justify-between py-2 px-6 sm:rounded-lg md:py-3.5 md:pr-3 md:pl-6 lg:pr-4"
     :class="{
       'min-h-[3.5rem] bg-neutral-600': variant === 'primary',
     }"
