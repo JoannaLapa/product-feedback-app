@@ -1,17 +1,19 @@
 <template>
   <Listbox v-model="selectedOption">
     <ListboxButton
-      class="flex items-center gap-2 text-xxs font-bold text-neutral-300 md:text-xs"
+      class="relative flex items-center gap-2 text-xxs font-bold text-neutral-300 md:text-xs"
       >{{ selectedOption.name }}
       <ArrowDown />
     </ListboxButton>
-    <ListboxOptions class="bg-neutral-100">
+    <ListboxOptions
+      class="divide-neutral-700/15 absolute z-10 mt-[250px] flex w-60 flex-col divide-y rounded-lg border-neutral-700 bg-neutral-100 indent-6 text-xxs shadow-3xl lg:mt-[300px] lg:w-63"
+    >
       <ListboxOption
         v-for="option in options"
         :key="option.id"
         :value="option"
         :disabled="option.unavailable"
-        class="text-neutral-400 md:text-xs"
+        class="py-3 text-neutral-400 md:text-xs lg:text-base"
       >
         {{ option.name }}
       </ListboxOption>
