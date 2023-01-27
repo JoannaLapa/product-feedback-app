@@ -4,7 +4,7 @@
       <div class="mb-6 flex items-center justify-between pt-[1.1875rem]">
         <h2 class="text-lg font-bold text-neutral-500">Roadmap</h2>
         <router-link
-          class="text-xs font-semibold text-primary-100 underline transition duration-300 hover:text-secondary-500"
+          class="text-xxs font-semibold text-primary-100 underline transition duration-300 hover:text-secondary-500"
           to="/roadmap"
         >
           View

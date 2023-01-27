@@ -1,7 +1,7 @@
 <template>
-  <div class="max-sm:hidden">
+  <div class="hidden gap-4 sm:flex">
     <IconSuggestions />
-    <p>
+    <p class="text-lg font-bold text-neutral-100">
       <span>{{ feedbacksLength }}</span>
       {{ feedbacksLength !== 1 ? "Suggestions" : "Suggestion" }}
     </p>
