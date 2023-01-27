@@ -37,13 +37,14 @@ module.exports = {
           "url('/src/assets/suggestions/background-header-desktop.jpg')",
       },
       fontSize: {
-        xs: [
+        xxs: [
           "0.8125rem",
           {
             lineHeight: "1.17rem",
             fontWeight: "500",
           },
         ],
+        xs: "0.875rem",
         sm: [
           "0.9375rem",
           {
@@ -51,6 +52,13 @@ module.exports = {
             letterSpacing: "-0.02em",
           },
         ],
+        base: [
+          "1rem",
+          {
+            lineHeight: "1.5rem",
+          },
+        ],
+        lg: ["1.125rem", { lineHeight: "1.75rem" }],
         xl: [
           "1.25rem",
           {
@@ -60,11 +68,19 @@ module.exports = {
           },
         ],
       },
-      width: {
-        "3/4": "72%",
+      gap: {
+        10.5: "2.375rem",
       },
       screens: {
         xs: "23.4375rem",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
+      width: {
+        "3/4": "72%",
       },
       borderRadius: {
         "rounded-lg": "10px",
