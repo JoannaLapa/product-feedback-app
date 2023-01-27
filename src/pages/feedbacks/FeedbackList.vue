@@ -1,9 +1,9 @@
 <template>
   <BaseWrapper>
     <TheHeader />
-    <main class="lg:w-[76.4%]">
+    <main class="lg:w-[76.4%] xl:max-w-206">
       <BaseBar variant="primary" class="max-sm:mt-[4.5rem]">
-        <div class="items-center md:flex md:gap-10.5">
+        <div class="items-center sm:flex sm:gap-10.5">
           <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
           <div class="flex items-center gap-0.5">
             <label class="text-xxs text-neutral-300 md:text-xs"
