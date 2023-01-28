@@ -73,6 +73,14 @@ module.exports = {
       gap: {
         10.5: "2.375rem",
       },
+      gridTemplateColumns: {
+        "sidebar-lg": "13.75rem",
+        "sidebar-xl": "15.9374rem",
+      },
+      gridTemplateRows: {
+        "sidebar-lg": "8.5625rem 23rem",
+        "sidebar-box-lg": "10.375rem 11.125rem",
+      },
       maxWidth: {
         206: "51.5625rem",
       },
@@ -85,10 +93,14 @@ module.exports = {
         "2xl": "1536px",
       },
       spacing: {
+        18: "4.5rem",
         19: "4.8125rem",
+        26: "6.5206rem",
+        45: "11.125rem",
         59: "15.9375rem",
         61: "15.3125rem",
-        63: "15.9375rem",
+        73: "18.9375rem",
+        132: "33.0625rem",
         206: "51.5625rem",
         270: "67.5rem",
       },
