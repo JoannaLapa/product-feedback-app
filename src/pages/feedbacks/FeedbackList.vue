@@ -2,7 +2,7 @@
   <BaseWrapper>
     <TheHeader />
     <main class="lg:w-[76.4%] xl:max-w-206">
-      <BaseBar variant="primary" class="max-sm:mt-[4.5rem]">
+      <BaseBar variant="primary">
         <div class="items-center sm:flex sm:gap-10.5">
           <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
           <BaseSelect />
@@ -10,11 +10,13 @@
         <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
       </BaseBar>
       <NoFeedback v-if="noFeedback" />
-      <FeedbackItem
-        v-for="feedback in FILTERED_FEEDBACKS"
-        :key="feedback.id"
-        :feedback="feedback"
-      />
+      <ul class="flex flex-col gap-4 px-6 pt-8 pb-15 sm:px-0 sm:pt-6 lg:gap-5">
+        <FeedbackItem
+          v-for="feedback in FILTERED_FEEDBACKS"
+          :key="feedback.id"
+          :feedback="feedback"
+        />
+      </ul>
     </main>
   </BaseWrapper>
 </template>
