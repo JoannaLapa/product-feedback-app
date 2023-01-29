@@ -60,7 +60,7 @@ module.exports = {
             lineHeight: "1.5rem",
           },
         ],
-        lg: ["1.125rem", { lineHeight: "1.75rem" }],
+        lg: ["1.125rem", { lineHeight: "1.75rem" }], //18px
         xl: [
           "1.25rem",
           {
@@ -76,10 +76,12 @@ module.exports = {
       gridTemplateColumns: {
         "sidebar-lg": "13.75rem",
         "sidebar-xl": "15.9374rem",
+        "feedback-article-sm": "2.5rem 1fr 2.75rem",
       },
       gridTemplateRows: {
         "sidebar-lg": "8.5625rem 23rem",
         "sidebar-box-lg": "10.375rem 11.125rem",
+        "feedback-article": "1fr 2rem",
       },
       maxWidth: {
         206: "51.5625rem",
@@ -93,8 +95,12 @@ module.exports = {
         "2xl": "1536px",
       },
       spacing: {
+        1.6: "0.4375rem", //7px
+        3.3: "0.8125", //13px
         7.5: "1.875rem",
+        14: "3.3125rem", //53px
         15: "3.4375rem",
+        17: "4.3125", //69px
         18: "4.5rem",
         19: "4.8125rem",
         26: "6.5206rem",
