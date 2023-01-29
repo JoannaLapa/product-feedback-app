@@ -6,6 +6,7 @@
       stroke-width="2"
       fill="none"
       fill-rule="evenodd"
+      v-bind="$attrs"
     />
   </svg>
 </template>
