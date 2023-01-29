@@ -93,6 +93,7 @@ module.exports = {
         "2xl": "1536px",
       },
       spacing: {
+        7.5: "1.875rem",
         15: "3.4375rem",
         18: "4.5rem",
         19: "4.8125rem",
