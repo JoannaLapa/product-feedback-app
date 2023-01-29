@@ -5,10 +5,9 @@
         <!-- the commented paragraph should be added when the component is used in StatusFeedbackList page -->
         <!-- <p v-if="roadmap">{{ feedback.status }}</p> -->
         <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
-        <div class="feedback__votes">
-          <ArrowUp />
-          <p>{{ feedback.upvotes }}</p>
-        </div>
+        <BaseButton variant="voted" :number="feedback.upvotes">
+          <ArrowUp class="stroke-primary-100" />
+        </BaseButton>
         <div class="feedback__content">
           <h2>{{ feedback.title }}</h2>
           <p>{{ feedback.description }}</p>
@@ -32,6 +31,7 @@
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
+import BaseButton from "../basicComponents/BaseButton.vue";
 
 defineProps({
   // Ola's suggestion - If null then you should think about hiding this component
