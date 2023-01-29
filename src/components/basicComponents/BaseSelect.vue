@@ -9,7 +9,7 @@
           v-slot="{ open }"
           class="relative flex cursor-pointer items-center gap-2 text-xxs font-bold text-neutral-300 md:text-xs"
           >{{ selectedOption.name }}
-          <ArrowUp v-show="open" />
+          <ArrowUp v-show="open" class="stroke-neutral-100" />
           <ArrowDown v-show="!open" />
         </ListboxButton>
       </div>
