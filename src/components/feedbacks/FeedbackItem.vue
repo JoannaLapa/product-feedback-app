@@ -37,11 +37,11 @@
           class="col-start-2 flex items-center gap-1.6 justify-self-end text-xxs font-bold sm:col-span-3 sm:row-span-full sm:self-center sm:text-base"
         >
           <IconComments />
-          <!-- :class="{ 'opacity-50': the conditional }" -->
+          <!-- if there iss no comment  - the number should be in grey color -->
+          <!-- :class="{ 'opacity-50': the condition?? }" -->
           <p class="text-neutral-500 opacity-100">
             {{ feedback.comments ? feedback.comments.length : 0 }}
           </p>
-          <!-- if there iss no comment  - the number should be in grey color -->
         </div>
       </article>
     </BaseBox>
