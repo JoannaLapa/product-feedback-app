@@ -16,7 +16,7 @@
     :class="{
       'h-7.5 bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100':
         variant === 'neutral',
-      'h-8 gap-2.5 bg-neutral-300 text-neutral-500 hover:bg-secondary-300 focus:bg-primary-100 focus:text-neutral-100 sm:flex-col':
+      'h-8 w-17 gap-2.5 bg-neutral-300  text-xxs font-bold text-neutral-500 hover:bg-secondary-300 focus:bg-primary-100 focus:text-neutral-100 sm:h-14 sm:w-10 sm:flex-col sm:gap-2 ':
         variant === 'voted',
     }"
     @click="$emit('filter-data')"
@@ -60,3 +60,4 @@ defineProps({
 
 defineEmits(["filter-data"]);
 </script>
+
