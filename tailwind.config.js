@@ -26,6 +26,7 @@ module.exports = {
         "neutral-400": "#647196",
         "neutral-500": "#3A4374",
         "neutral-600": "#373F68",
+        "neutral-700": "#979797",
       },
       backgroundImage: {
         "header-sm":
@@ -50,7 +51,7 @@ module.exports = {
             letterSpacing: "-0.02em",
           },
         ],
-        lg: [
+        xl: [
           "1.25rem",
           {
             lineHeight: "1.81rem",
@@ -63,7 +64,7 @@ module.exports = {
         "3/4": "72%",
       },
       borderRadius: {
-        "rounded-lg": "10px",
+        "rounded-lg": "0.625rem", //10x
       },
     },
     plugins: [],

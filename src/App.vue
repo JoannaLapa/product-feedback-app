@@ -18,5 +18,6 @@ html {
 }
 body {
   margin: 0 auto;
+  background-color: #f7f8fd;
 }
 </style>
