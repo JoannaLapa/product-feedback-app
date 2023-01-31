@@ -9,17 +9,17 @@ defineProps({
   ariaDescribedBy: {
     type: String,
     required: false,
-    default: null,
+    default: "",
   },
   id: {
     type: String,
     required: false,
-    default: null,
+    default: "",
   },
   name: {
     type: String,
     required: false,
-    default: null,
+    default: "",
   },
 });
 </script>
