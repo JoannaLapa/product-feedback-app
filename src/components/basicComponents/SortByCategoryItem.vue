@@ -1,7 +1,7 @@
 <template>
   <li v-for="{ id, name } in uniqueCategories" :key="id">
     <BaseButton
-      variant="neutral"
+      :variant="whichVariant(name)"
       :text="name"
       :value="name"
       @filter-data="filterData({ id: id, name: name.toLowerCase() })"
@@ -19,6 +19,14 @@ const usersStore = useUserStore();
 const feedbacksStore = useFeedbacksStore();
 const uniqueCategories = computed(() => feedbacksStore.uniqueCategories);
 const activeFilter = ref("All");
+
+const whichVariant = (name) => {
+  if (name === activeFilter.value) {
+    return "focused";
+  } else {
+    return "neutral";
+  }
+};
 const filterData = (name) => {
   activeFilter.value = name;
   usersStore.ADD_SELECTED_CATEGORY(activeFilter.value);
