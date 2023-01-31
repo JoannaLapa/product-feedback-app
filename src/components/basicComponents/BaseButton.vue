@@ -2,7 +2,7 @@
   <router-link
     v-if="link"
     :to="to"
-    class="flex max-h-10 w-fit place-items-center rounded-lg p-2 text-xs font-bold transition duration-300 md:max-h-11 xs:p-4"
+    class="flex max-h-10 w-fit place-items-center rounded-lg p-2 text-xs font-bold transition duration-300 xs:p-4 md:max-h-11"
     :class="{
       'bg-primary-200 text-neutral-300 hover:bg-secondary-600 md:text-sm':
         variant === 'primary',
@@ -18,6 +18,7 @@
         variant === 'neutral',
       'h-8 w-17 gap-2.5 bg-neutral-300  text-xxs font-bold text-neutral-500 hover:bg-secondary-300 focus:bg-primary-100 focus:text-neutral-100 sm:h-14 sm:w-10 sm:flex-col sm:gap-2 ':
         variant === 'voted',
+      'h-7.5 bg-primary-100 text-neutral-100': variant === 'secondary',
     }"
     @click="$emit('filter-data')"
   >
