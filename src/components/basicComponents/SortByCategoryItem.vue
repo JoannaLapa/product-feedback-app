@@ -18,7 +18,7 @@ import { useUserStore } from "@/stores/user.js";
 const usersStore = useUserStore();
 const feedbacksStore = useFeedbacksStore();
 const uniqueCategories = computed(() => feedbacksStore.uniqueCategories);
-const activeFilter = ref([]);
+const activeFilter = ref("All");
 const filterData = (name) => {
   activeFilter.value = name;
   usersStore.ADD_SELECTED_CATEGORY(activeFilter.value);

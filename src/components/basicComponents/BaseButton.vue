@@ -1,6 +1,5 @@
 <template>
-  <router-link v-if="link" :to="to" :class="mode">
-    <!-- router-link or router-view? -->
+  <router-link v-if="link" :to="to">
     {{ text }}
   </router-link>
   <button
@@ -22,10 +21,6 @@ defineProps({
   link: {
     type: Boolean,
     default: false,
-  },
-  mode: {
-    type: String,
-    default: "",
   },
   to: {
     type: String,

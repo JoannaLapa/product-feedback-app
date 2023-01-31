@@ -3,19 +3,22 @@
     <BaseWrapper>
       <div class="fixed flex w-screen flex-col">
         <div
-          class="z-20 flex items-center justify-between bg-header-sm bg-cover px-6 py-4 md:bg-header-md xl:bg-header-xl"
+          class="flex items-center justify-between bg-header-sm bg-cover px-6 py-4 md:bg-header-md xl:bg-header-xl"
         >
           <div>
             <h1 class="text-sm font-bold text-neutral-100">Frontend Mentor</h1>
             <p class="text-xs text-neutral-100">Feedback Board</p>
           </div>
-          <div class="cursor-pointer">
-            <IconOpenMenu />
-            <IconCloseMenu />
-          </div>
+          <button class="cursor-pointer" @click="toggleMenu">
+            <IconOpenMenu v-if="isOpened" />
+            <IconCloseMenu v-else />
+          </button>
         </div>
-        <div class="relative right-0 z-20 flex w-3/4 self-end bg-neutral-200">
-          <ul class="flex h-screen flex-col gap-11 p-6">
+        <div
+          v-show="!isOpened"
+          class="relative right-0 flex w-3/4 self-end bg-neutral-200 before:absolute before:-left-2/4 before:h-screen before:w-[50%] before:bg-black before:opacity-50"
+        >
+          <ul class="flex h-screen flex-col gap-5 p-6">
             <SortByCategory />
             <RoadmapMenu />
           </ul>
@@ -26,9 +29,17 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import SortByCategory from "./SortByCategory.vue";
 import RoadmapMenu from "./RoadmapMenu.vue";
 import BaseWrapper from "./BaseWrapper.vue";
 import IconOpenMenu from "../icons/IconOpenMenu.vue";
 import IconCloseMenu from "../icons/IconCloseMenu.vue";
+
+let isOpened = ref(true);
+
+const toggleMenu = () => {
+  isOpened.value = !isOpened.value;
+  document.documentElement.classList.toggle("overflow-hidden");
+};
 </script>

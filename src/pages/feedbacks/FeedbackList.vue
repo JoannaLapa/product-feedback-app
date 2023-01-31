@@ -18,7 +18,7 @@
             :text="optionDetail"
           />
         </BaseSelect>
-        <BaseButton link to="/add" text="+ Add Feedback" />
+        <BaseButton link to="/add" text="+ Add Feedback" variant="secondary" />
       </BaseBar>
       <NoFeedback v-if="noFeedback" />
       <ul>
