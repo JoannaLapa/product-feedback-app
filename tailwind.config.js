@@ -64,7 +64,7 @@ module.exports = {
         "3/4": "72%",
       },
       borderRadius: {
-        "rounded-lg": "10px",
+        "rounded-lg": "0.625rem", //10x
       },
     },
     plugins: [],
