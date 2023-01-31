@@ -15,8 +15,8 @@
           </button>
         </div>
         <div
+          v-show="!isOpened"
           class="relative right-0 flex w-3/4 self-end bg-neutral-200 before:absolute before:-left-2/4 before:h-screen before:w-[50%] before:bg-black before:opacity-50"
-          :class="{ hidden: isOpened }"
         >
           <ul class="flex h-screen flex-col gap-5 p-6">
             <SortByCategory />
