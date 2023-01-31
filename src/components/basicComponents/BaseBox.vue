@@ -2,7 +2,7 @@
   <div
     class="rounded-lg bg-neutral-100"
     :class="{
-      'sm:max-w-56 border-neutral-700 pl-6 pb-9 pr-4 sm:min-h-full sm:pb-4':
+      'border-neutral-700 pl-6 pb-9 pr-4 sm:min-h-full sm:pb-4':
         variant === 'small',
     }"
   >

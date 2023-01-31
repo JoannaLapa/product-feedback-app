@@ -1,7 +1,7 @@
 <template>
-  <BaseBox>
-    <router-link :to="feedbackPageLink">
-      <li>
+  <router-link :to="feedbackPageLink">
+    <li>
+      <BaseBox>
         <article>
           <p v-if="roadmap">{{ feedback.status }}</p>
           <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
@@ -22,12 +22,11 @@
               {{ feedback.comments ? feedback.comments.length : 0 }}
             </p>
             <!-- if there iss no comment  - the number should be in grey color -->
-            <!-- Suggestion from Ola (doesn't work for me) ==> FYI you can also use here: feedback.comments.length || 0 -->
           </div>
         </article>
-      </li>
-    </router-link>
-  </BaseBox>
+      </BaseBox>
+    </li>
+  </router-link>
 </template>
 
 <script setup>

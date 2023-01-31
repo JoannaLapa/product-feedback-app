@@ -38,7 +38,6 @@
 <script setup>
 import BaseButton from "../basicComponents/BaseButton.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
-import BaseOption from "../basicComponents/BaseOption.vue";
 
 const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];
 </script>
