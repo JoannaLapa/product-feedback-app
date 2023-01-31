@@ -34,7 +34,7 @@
           </div>
         </div>
         <div
-          class="col-start-2 flex items-center gap-1.6 justify-self-end text-xxs font-bold sm:col-span-3 sm:row-span-full sm:self-center sm:text-base"
+          class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold sm:col-span-3 sm:row-span-full sm:self-center sm:text-base"
         >
           <IconComments />
           <!-- if there iss no comment  - the number should be in grey color -->
