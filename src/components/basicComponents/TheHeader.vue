@@ -4,7 +4,7 @@
       class="top-0 flex flex-col sm:mt-14 sm:mb-10 sm:grid sm:max-h-45 sm:grid-cols-3 sm:grid-rows-1 sm:gap-2.5 lg:my-0 lg:max-h-132 lg:grid-cols-sidebar-lg lg:grid-rows-sidebar-lg lg:gap-y-6 xl:grid-cols-sidebar-xl"
     >
       <div
-        class="lg:rows-span-1 flex items-center justify-between bg-header-sm bg-cover px-6 py-4 sm:col-span-1 sm:min-h-full sm:items-end sm:rounded-lg sm:bg-header-md sm:bg-auto sm:py-6 lg:max-h-26 lg:bg-header-xl"
+        class="lg:rows-span-1 flex items-center justify-between bg-header-sm bg-cover px-3 py-4 xs:px-6 sm:col-span-1 sm:min-h-full sm:items-end sm:rounded-lg sm:bg-header-md sm:bg-auto sm:py-6 lg:max-h-26 lg:bg-header-xl"
       >
         <div>
           <h1 class="text-sm font-bold text-neutral-100 sm:text-xl">
