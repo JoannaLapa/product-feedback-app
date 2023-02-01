@@ -22,7 +22,7 @@ const activeFilter = ref("All");
 
 const whichVariant = (name) => {
   if (name === activeFilter.value) {
-    return "focused";
+    return "secondary";
   } else {
     return "neutral";
   }

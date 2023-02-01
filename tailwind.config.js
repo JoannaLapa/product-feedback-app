@@ -60,7 +60,7 @@ module.exports = {
             lineHeight: "1.5rem",
           },
         ],
-        lg: ["1.125rem", { lineHeight: "1.75rem" }],
+        lg: ["1.125rem", { lineHeight: "1.75rem" }], //18px
         xl: [
           "1.25rem",
           {
@@ -70,40 +70,36 @@ module.exports = {
           },
         ],
       },
-      gap: {
-        10.5: "2.375rem",
-      },
       gridTemplateColumns: {
         "sidebar-lg": "13.75rem",
-        "sidebar-xl": "15.9374rem",
+        "sidebar-xl": "15.875rem",
+        "feedback-article-sm": "2.5rem 1fr 2.75rem",
       },
       gridTemplateRows: {
-        "sidebar-lg": "8.5625rem 23rem",
+        "sidebar-lg": "8.625rem 23rem",
         "sidebar-box-lg": "10.375rem 11.125rem",
+        "feedback-article": "1fr 2rem",
       },
       maxWidth: {
-        206: "51.5625rem",
+        "3xl": "51.625rem",
+        "4xl": "55rem",
       },
       screens: {
-        xs: "23.4375rem",
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        "2xl": "1536px",
+        xs: "375px",
       },
       spacing: {
+        //follows tailwind spacing system organisation - 1 = approx 4px //
+        7.5: "1.875rem",
+        17: "4.375rem", //70px
         18: "4.5rem",
         19: "4.8125rem",
-        26: "6.5206rem",
+        26: "6.5rem",
         45: "11.125rem",
         59: "15.9375rem",
         61: "15.3125rem",
         73: "18.9375rem",
         76: "19rem",
-        132: "33.0625rem",
-        206: "51.5625rem",
-        270: "67.5rem",
+        132: "33.125rem",
       },
       boxShadow: {
         "3xl": "0 10px 40px -7px rgba(55, 63, 104, 0.350492)",

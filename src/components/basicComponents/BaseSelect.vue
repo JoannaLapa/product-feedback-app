@@ -2,14 +2,15 @@
   <Listbox v-model="selectedOption" as="div">
     <div class="relative">
       <div class="flex items-center gap-0.5">
-        <ListboxLabel class="text-xxs text-neutral-300 md:text-xs"
-          >Sort by:</ListboxLabel
-        >
+        <ListboxLabel class="text-xxs text-neutral-300 md:text-xs">
+          Sort by:
+        </ListboxLabel>
         <ListboxButton
           v-slot="{ open }"
           class="relative flex cursor-pointer items-center gap-2 text-xxs font-bold text-neutral-300 md:text-xs"
-          >{{ selectedOption.name }}
-          <ArrowUp v-show="open" />
+        >
+          {{ selectedOption.name }}
+          <ArrowUp v-show="open" class="stroke-neutral-100" />
           <ArrowDown v-show="!open" />
         </ListboxButton>
       </div>
@@ -19,7 +20,7 @@
         leave-to-class="opacity-0"
       >
         <ListboxOptions
-          class="divide-neutral-700/15 lg:w-63 absolute top-12 z-10 flex w-60 flex-col divide-y rounded-lg border-neutral-700 bg-neutral-100 indent-6 text-xxs shadow-3xl sm:top-14"
+          class="divide-neutral-700/15 absolute top-12 z-10 flex w-60 flex-col divide-y rounded-lg border-neutral-700 bg-neutral-100 indent-6 text-xxs shadow-3xl sm:top-14 lg:w-64"
           role="listbox"
         >
           <ListboxOption

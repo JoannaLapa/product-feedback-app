@@ -1,10 +1,10 @@
 <template>
   <main>
     <BaseWrapper>
-      <BaseBar>
+      <BaseBar variant="primary">
         <GoBack></GoBack>
         <h2>Roadmap</h2>
-        <BaseButton link to="/add">+ Add Feedback</BaseButton>
+        <BaseButton link to="/add" variant="primary" text="+ Add Feedback" />
       </BaseBar>
     </BaseWrapper>
     <BaseWrapper>
@@ -13,7 +13,7 @@
           <!-- list of items dependly on status name -->
           <h3></h3>
           <!-- status name here, use v-for to attach the list, h3 name and description below dependly on the status name -->
-          <p>{{ description }}</p>
+          <p></p>
           <ul>
             <li>
               <FeedbackItem />

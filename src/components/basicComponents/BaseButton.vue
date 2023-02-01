@@ -2,7 +2,7 @@
   <router-link
     v-if="link"
     :to="to"
-    class="flex max-h-10 w-fit place-items-center rounded-lg p-2 text-xs font-bold transition duration-300 md:max-h-11 xs:p-4"
+    class="flex max-h-10 w-fit place-items-center rounded-lg p-2 text-xs font-bold transition duration-300 xs:p-4 md:max-h-11"
     :class="{
       'bg-primary-200 text-neutral-300 hover:bg-secondary-600 md:text-sm':
         variant === 'primary',
@@ -12,15 +12,18 @@
   </router-link>
   <button
     v-else
-    class="flex h-[1.875rem] place-items-center rounded-lg p-2.5 transition duration-300"
+    class="flex place-items-center rounded-lg p-2.5 transition duration-300"
     :class="{
-      'bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100':
+      'h-7.5 bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100':
         variant === 'neutral',
-      'bg-primary-100 text-neutral-100': variant === 'focused',
+      'h-8 w-17 gap-2.5 bg-neutral-300  text-xxs font-bold text-neutral-500 hover:bg-secondary-300 focus:bg-primary-100 focus:text-neutral-100 sm:h-14 sm:w-10 sm:flex-col sm:gap-2 ':
+        variant === 'voted',
+      'h-7.5 bg-primary-100 text-neutral-100': variant === 'secondary',
     }"
     @click="$emit('filter-data')"
   >
-    {{ text }}
+    {{ text || number }}
+    <slot></slot>
   </button>
 </template>
 
@@ -36,7 +39,13 @@ defineProps({
   },
   text: {
     type: String,
-    required: true,
+    required: false,
+    default: "",
+  },
+  number: {
+    type: Number,
+    required: false,
+    default: null,
   },
   value: {
     type: String,
@@ -46,7 +55,7 @@ defineProps({
     type: String,
     required: true,
     validation: (variant) =>
-      ["primary", "secondary", "neutral", "focused"].includes(variant),
+      ["primary", "secondary", "neutral", "voted"].includes(variant),
   },
 });
 
