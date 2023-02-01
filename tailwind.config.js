@@ -81,7 +81,8 @@ module.exports = {
         "feedback-article": "1fr 2rem",
       },
       maxWidth: {
-        206: "51.625rem",
+        "3xl": "51.625rem",
+        "4xl": "55rem",
       },
       screens: {
         xs: "375px",
@@ -99,9 +100,6 @@ module.exports = {
         73: "18.9375rem",
         76: "19rem",
         132: "33.125rem",
-        172: "43rem",
-        206: "51.625rem",
-        270: "67.5rem",
       },
       boxShadow: {
         "3xl": "0 10px 40px -7px rgba(55, 63, 104, 0.350492)",
