@@ -1,7 +1,7 @@
 <template>
   <BaseWrapper>
     <TheHeader />
-    <main class="lg:w-4/5 xl:max-w-206">
+    <main class="lg:w-4/5 xl:max-w-3xl">
       <BaseBar variant="primary">
         <div class="items-center sm:flex sm:gap-10">
           <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
