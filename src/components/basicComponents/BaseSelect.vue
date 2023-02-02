@@ -1,5 +1,5 @@
 <template>
-  <Listbox v-model="selectedOption" as="div">
+  <Listbox v-model="selectedOption">
     <div class="relative">
       <div class="flex items-center gap-0.5">
         <ListboxLabel class="text-xxs text-neutral-300 md:text-xs">
@@ -33,16 +33,26 @@
             <li
               class="relative cursor-pointer select-none py-3 text-neutral-400 transition duration-300 hover:text-primary-200 md:text-xs lg:text-base"
             >
-              <span> {{ option.name }}</span>
-              <span
-                v-if="selected"
-                :class="[
-                  active ? 'text-white' : 'text-primary-200',
-                  'absolute inset-y-0 right-0 flex items-center pr-4',
-                ]"
+              <button
+                @click="
+                  selectSortingData({
+                    id: option.id,
+                    name: option.name,
+                    unavailable: option.unavailable,
+                  })
+                "
               >
-                <IconCheck class="h-5 w-5" aria-hidden="true" />
-              </span>
+                <span> {{ option.name }}</span>
+                <span
+                  v-if="selected"
+                  :class="[
+                    active ? 'text-white' : 'text-primary-200',
+                    'absolute inset-y-0 right-0 flex items-center pr-4',
+                  ]"
+                >
+                  <IconCheck class="h-5 w-5" aria-hidden="true" />
+                </span>
+              </button>
             </li>
           </ListboxOption>
         </ListboxOptions>
@@ -52,7 +62,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed, watch } from "vue";
 import {
   Listbox,
   ListboxButton,
@@ -63,12 +73,17 @@ import {
 import ArrowDown from "../icons/ArrowDown.vue";
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconCheck from "../icons/IconCheck.vue";
+import { useUserStore } from "@/stores/user.js";
+import { useFeedbacksStore } from "@/stores/feedbacks.js";
 
-const options = [
-  { id: 1, name: "Most Upvotes", unavailable: false },
-  { id: 2, name: "Least Upvotes", unavailable: false },
-  { id: 3, name: "Most Comments", unavailable: false },
-  { id: 4, name: "Least Comments", unavailable: false },
-];
-const selectedOption = ref(options[0]);
+const selectedOption = ref({ id: 0, name: "Most Upvotes", unavailable: false });
+const usersStore = useUserStore();
+const feedbacksStore = useFeedbacksStore();
+const options = computed(() => feedbacksStore.options);
+const selectSortingData = (name) => {
+  selectedOption.value = name;
+};
+watch(selectedOption, function () {
+  usersStore.ADD_SELECTED_SORTING_CATEGORY(selectedOption.value);
+});
 </script>
