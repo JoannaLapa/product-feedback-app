@@ -12,7 +12,7 @@
       <NoFeedback v-if="noFeedback" />
       <ul class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5">
         <FeedbackItem
-          v-for="feedback in FILTERED_FEEDBACKS"
+          v-for="feedback in SORTED_FEEDBACKS"
           :key="feedback.id"
           :feedback="feedback"
         />
@@ -26,7 +26,6 @@ import { useFeedbacksStore } from "../../stores/feedbacks";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
-// import BaseOption from "../../components/basicComponents/BaseOption.vue";
 import BaseSelect from "../../components/basicComponents/BaseSelect.vue";
 import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
@@ -45,5 +44,5 @@ defineProps({
 const feedbacksStore = useFeedbacksStore();
 const feedbacks = computed(() => feedbacksStore.feedbacks);
 onMounted(feedbacksStore.FETCH_FEEDBACKS);
-const FILTERED_FEEDBACKS = computed(() => feedbacksStore.FILTERED_FEEDBACKS);
+const SORTED_FEEDBACKS = computed(() => feedbacksStore.SORTED_FEEDBACKS);
 </script>
