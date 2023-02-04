@@ -13,3 +13,4 @@ const getFeedbacks = async () => {
   }
 };
 export default getFeedbacks;
+//spróbować tym sposobem: https://frontendmasters.com/courses/serverless-functions/introduction/
