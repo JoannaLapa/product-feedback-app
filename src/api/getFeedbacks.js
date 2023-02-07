@@ -2,7 +2,8 @@ import axios from "axios";
 
 const getFeedbacks = async () => {
   try {
-    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const baseUrl =
+      "https://run.mocky.io/v3/bea655b8-25cc-4ee6-a057-65052e50e6ee";
     const url = baseUrl;
     const response = await axios.get(url);
     const feedbacks = response.data;
