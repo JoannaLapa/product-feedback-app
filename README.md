@@ -1,4 +1,4 @@
-### Links
+# Links
 
 -  [Click here to check solution URL](https://github.com/JoannaLapa/product-feedback-app)
 -  [Click here to see Live Site URL](https://product-feedback-app-jl.netlify.app/)
@@ -44,9 +44,9 @@ Future development:
 
 ### Screenshots
 
-![Mobile](./screenshots/mobile_screenshot.png.jpg)
-![Tablet](./screenshots/tablet_screenshot.png.jpg)
-![Desktop](./screenshots/desktop_screenshot.png.jpg)
+![Mobile](./screenshots/mobile_screenshot.png)
+![Tablet](./screenshots/tablet_screenshot.png)
+![Desktop](./screenshots/desktop_screenshot.png)
 
 ## My process
 
