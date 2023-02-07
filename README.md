@@ -1,7 +1,7 @@
 ### Links
 
--  [Solution URL:](https://github.com/JoannaLapa/product-feedback-app)
--  [Live Site URL:](https://product-feedback-app-jl.netlify.app/)
+-  [Click here to check solution URL](https://github.com/JoannaLapa/product-feedback-app)
+-  [Click here to see Live Site URL](https://product-feedback-app-jl.netlify.app/)
 
 # Frontend Mentor - Product feedback app solution
 
