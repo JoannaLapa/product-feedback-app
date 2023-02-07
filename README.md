@@ -1,6 +1,11 @@
+### Links
+
+-  [Solution URL:](https://github.com/JoannaLapa/product-feedback-app)
+-  [Live Site URL:](https://product-feedback-app-jl.netlify.app/)
+
 # Frontend Mentor - Product feedback app solution
 
-This is the project which is still under construction. It would be a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is the project which is still in progress. The main page is almost done. It would be a solution to the [Product feedback app challenge on Frontend Mentor, level guru](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). 
 
 ## Table of contents
 
@@ -20,62 +25,63 @@ This is the project which is still under construction. It would be a solution to
 
 ### The challenge
 
+Already done:
+
 Users should be able to:
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Create, read, update, and delete product feedback requests
-- Receive form validations when trying to create/edit feedback requests
 - Sort suggestions by most/least upvotes and most/least comments
 - Filter suggestions by category
-- Add comments and replies to a product feedback request
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+
+Future development: 
+
 - Upvote product feedback requests
-- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- Create, read, update, and delete product feedback requests
+- Receive form validations when trying to create/edit feedback requests
+- Add comments and replies to a product feedback request
+- Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
-### Screenshot
+### Screenshots
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+![Mobile](./screenshots/mobile_screenshot.png.jpg)
+![Tablet](./screenshots/tablet_screenshot.png.jpg)
+![Desktop](./screenshots/desktop_screenshot.png.jpg)
 
 ## My process
 
 ### Built with
 
+- [Vue.js](https://vuejs.org/) - JS framework
+- [Vite.js](https://vitejs.dev/) - build tool
+- [Pinia](https://pinia.vuejs.org/) - Vue.js Store
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- [Headless UI](https://headlessui.com/) 
 - Semantic HTML5 markup
-- SCSS
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [Vue](https://vuejs.org/) - JS library
-- [Vite.js](https://vitejs.dev/) - build tool
 
 ### What I learned
 
-Will be completed later...
+I learnt Vue.js basic concepts, Pinia basics, Tailwind CSS.
 
 ### Continued development
 
-Will be completed later...
+At this moment I focus on learning Vue.js and I continue to deepen my knowledge of JavaScript. I am going to learn about testing the application and Typescript.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - 
-description
-- [Example resource 2](https://www.example.com) - description
+- [Vue.js documentation](https://vuejs.org/guide/introduction.html) 
+- [Pinia documentation](https://pinia.vuejs.org/) 
+- [Tailwind CSS documentation](https://tailwindcss.com/)
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@JoannaLapa](https://www.frontendmentor.io/profile/JoannaLapa)
+- LinkedIn - [Joanna Łapa](https://www.linkedin.com/in/joanna-lapa-/)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I would like to thank Aleksandra Kręcisz for her feedbacks, lots of useful advices and huge commitment.
 
