@@ -4,7 +4,7 @@
       :variant="whichVariant(name)"
       :text="name"
       :value="name"
-      @filter-data="filterData({ id: id, name: name.toLowerCase() })"
+      @action="filterData({ id: id, name: name.toLowerCase() })"
     />
   </li>
 </template>
