@@ -7,6 +7,7 @@ export const FETCH_FEEDBACKS = "FETCH_FEEDBACKS";
 export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
 export const FILTERED_FEEDBACKS = "FILTERED_FEEDBACKS";
 export const INCLUDE_FEEDBACK_BY_CATEGORY = "INCLUDE_FEEDBACK_BY_CATEGORY";
+export const SORTED_FEEDBACKS = "SORTED_FEEDBACKS";
 export const INCREASED_UPVOTES = "INCREASED_UPVOTES";
 
 export const useFeedbacksStore = defineStore("feedbacks", {
@@ -16,9 +17,15 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       { id: 0, name: "All" },
       { id: 1, name: "UX" },
       { id: 2, name: "UI" },
-      { id: 3, name: "Feature" },
-      { id: 4, name: "Enhancement" },
-      { id: 5, name: "Bug" },
+      { id: 3, name: "Enhancement" },
+      { id: 4, name: "Bug" },
+      { id: 5, name: "Feature" },
+    ],
+    options: [
+      { id: 1, name: "Most Upvotes", unavailable: false },
+      { id: 2, name: "Least Upvotes", unavailable: false },
+      { id: 3, name: "Most Comments", unavailable: false },
+      { id: 4, name: "Least Comments", unavailable: false },
     ],
   }),
   actions: {
@@ -60,7 +67,8 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       if (userStore.selectedCategories.id === 0) return true;
       return userStore.selectedCategories.name === feedback.category;
     },
-    //if the feedback.category is empty I return all feedbacks - I suppose that I should pront some modal window to show thet there is any feedback at this category?
+    //if the feedback.category is empty I return all feedbacks - idea for the future improvement - maybe better is to make this button disabled
+    //filtering feedbacks when the user clicks on the button with category
     [FILTERED_FEEDBACKS](state) {
       const filteredFeedbacks = state.feedbacks.filter((feedback) =>
         this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
@@ -72,6 +80,36 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     [INCREASED_UPVOTES]: () => {
       const userStore = useUserStore();
       userStore.upvotes = INCREASED_UPVOTES;
+    },
+    //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
+    [SORTED_FEEDBACKS]() {
+      const userStore = useUserStore();
+      const filteredFeedbacks = this.FILTERED_FEEDBACKS;
+      //sort by "Least Upvotes"
+      if (userStore.selectedSortingCategory.id === 2) {
+        return filteredFeedbacks.sort(
+          (feedbackA, feedbackB) => feedbackA.upvotes - feedbackB.upvotes
+        );
+        //sort by "Most Comments", if there is any comment return 0 else return the length of comments array
+      } else if (userStore.selectedSortingCategory.id === 3) {
+        return filteredFeedbacks.sort(
+          (feedbackA, feedbackB) =>
+            (feedbackB.comments ? feedbackB.comments.length : 0) -
+            (feedbackA.comments ? feedbackA.comments.length : 0)
+        );
+        //sort by "Least Comments", if there is any comment return 0 else return the length of comments array
+      } else if (userStore.selectedSortingCategory.id === 4) {
+        return filteredFeedbacks.sort(
+          (feedbackA, feedbackB) =>
+            (feedbackA.comments ? feedbackA.comments.length : 0) -
+            (feedbackB.comments ? feedbackB.comments.length : 0)
+        );
+        //sort by "Most Upvotes"
+      } else {
+        return filteredFeedbacks.sort(
+          (feedbackA, feedbackB) => feedbackB.upvotes - feedbackA.upvotes
+        );
+      }
     },
   },
 });

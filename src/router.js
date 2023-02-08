@@ -11,7 +11,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/feedbacks",
+      path: "/",
       component: FeedbackList,
     },
     {
