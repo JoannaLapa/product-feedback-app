@@ -8,26 +8,29 @@ export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
 export const FILTERED_FEEDBACKS = "FILTERED_FEEDBACKS";
 export const INCLUDE_FEEDBACK_BY_CATEGORY = "INCLUDE_FEEDBACK_BY_CATEGORY";
 export const SORTED_FEEDBACKS = "SORTED_FEEDBACKS";
-export const INCREASED_UPVOTES = "INCREASED_UPVOTES";
+export const INCLUDE_UPVOTED_FEEDBACK = "INCLUDE_UPVOTED_FEEDBACK";
+export const INCREASE_UPVOTES = "INCREASE_UPVOTES";
 
 export const useFeedbacksStore = defineStore("feedbacks", {
-  state: () => ({
-    feedbacks: [],
-    uniqueCategories: [
-      { id: 0, name: "All" },
-      { id: 1, name: "UX" },
-      { id: 2, name: "UI" },
-      { id: 3, name: "Enhancement" },
-      { id: 4, name: "Bug" },
-      { id: 5, name: "Feature" },
-    ],
-    options: [
-      { id: 1, name: "Most Upvotes", unavailable: false },
-      { id: 2, name: "Least Upvotes", unavailable: false },
-      { id: 3, name: "Most Comments", unavailable: false },
-      { id: 4, name: "Least Comments", unavailable: false },
-    ],
-  }),
+  state: () => {
+    return {
+      feedbacks: [],
+      uniqueCategories: [
+        { id: 0, name: "All" },
+        { id: 1, name: "UX" },
+        { id: 2, name: "UI" },
+        { id: 3, name: "Enhancement" },
+        { id: 4, name: "Bug" },
+        { id: 5, name: "Feature" },
+      ],
+      options: [
+        { id: 1, name: "Most Upvotes", unavailable: false },
+        { id: 2, name: "Least Upvotes", unavailable: false },
+        { id: 3, name: "Most Comments", unavailable: false },
+        { id: 4, name: "Least Comments", unavailable: false },
+      ],
+    };
+  },
   actions: {
     async [FETCH_FEEDBACKS]() {
       try {
@@ -37,6 +40,17 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         err instanceof Error
           ? console.log(`The error: ${err.message}`)
           : console.log("Something went wrong");
+      }
+    },
+    [INCREASE_UPVOTES]() {
+      const feedbackToUpvote = this.feedbacks.find((feedback) =>
+        this.INCLUDE_UPVOTED_FEEDBACK(feedback)
+      );
+      if (feedbackToUpvote === undefined) {
+        return;
+      } else {
+        feedbackToUpvote.upvotes++;
+        return feedbackToUpvote.upvotes;
       }
     },
   },
@@ -77,10 +91,6 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         ? state.feedbacks
         : filteredFeedbacks;
     },
-    [INCREASED_UPVOTES]: () => {
-      const userStore = useUserStore();
-      userStore.upvotes = INCREASED_UPVOTES;
-    },
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
     [SORTED_FEEDBACKS]() {
       const userStore = useUserStore();
@@ -110,6 +120,11 @@ export const useFeedbacksStore = defineStore("feedbacks", {
           (feedbackA, feedbackB) => feedbackB.upvotes - feedbackA.upvotes
         );
       }
+    },
+    [INCLUDE_UPVOTED_FEEDBACK]: () => (feedback) => {
+      const userStore = useUserStore();
+      const upvotedFeedback = userStore.upvotedFeedback;
+      return upvotedFeedback.id === feedback.id;
     },
   },
 });

@@ -59,6 +59,7 @@ import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
 import BaseButton from "../basicComponents/BaseButton.vue";
 import { useUserStore } from "@/stores/user.js";
+import { useFeedbacksStore } from "@/stores/feedbacks.js";
 
 const props = defineProps({
   // Ola's suggestion - If null then you should think about hiding this component
@@ -73,13 +74,14 @@ const props = defineProps({
   },
 });
 const usersStore = useUserStore();
+const useFeedbackStore = useFeedbacksStore();
 const upvotedFeeedback = ref({});
 const feedbackPageLink = computed(() => `/${props.feedback.id}`);
 const firstLetterToUpper = (name) =>
   name.charAt(0).toUpperCase() + name.slice(1);
 const addUpvotedFeedback = (feedback) => {
   upvotedFeeedback.value = feedback;
-  console.log(upvotedFeeedback.value);
-  return usersStore.ADD_UPVOTED_FEEDBACK(upvotedFeeedback.value);
+  usersStore.ADD_UPVOTED_FEEDBACK(upvotedFeeedback.value);
+  useFeedbackStore.INCREASE_UPVOTES();
 };
 </script>
