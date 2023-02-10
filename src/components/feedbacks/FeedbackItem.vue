@@ -27,11 +27,11 @@
           <p class="text-xxs text-neutral-400 sm:text-base">
             {{ feedback.description }}
           </p>
-          <div class="w-fit rounded-lg bg-neutral-300 sm:mt-1">
-            <p class="py-1.5 px-4 text-xxs font-semibold text-primary-100">
-              {{ firstLetterToUpper(feedback.category) }}
-            </p>
-          </div>
+          <p
+            class="sm:mt-1py-1.5 w-fit rounded-lg bg-neutral-300 px-4 text-xxs font-semibold text-primary-100"
+          >
+            {{ firstLetterToUpper(feedback.category) }}
+          </p>
         </div>
         <div
           class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold sm:col-span-3 sm:row-span-full sm:self-center sm:text-base"
