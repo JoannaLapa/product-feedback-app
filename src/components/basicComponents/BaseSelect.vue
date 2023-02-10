@@ -84,6 +84,6 @@ const selectSortingData = (name) => {
   selectedOption.value = name;
 };
 watch(selectedOption, function () {
-  usersStore.ADD_SELECTED_SORTING_CATEGORY(selectedOption.value);
+  usersStore.addSelectedSortingCategory(selectedOption.value);
 });
 </script>

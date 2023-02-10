@@ -29,7 +29,7 @@ const whichVariant = (name) => {
 };
 const filterData = (name) => {
   activeFilter.value = name;
-  usersStore.ADD_SELECTED_CATEGORY(activeFilter.value);
-  return feedbacksStore.FILTERED_FEEDBACKS;
+  usersStore.addSelectedCategory(activeFilter.value);
+  return feedbacksStore.filteredFeedbacksList;
 };
 </script>

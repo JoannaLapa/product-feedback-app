@@ -2,15 +2,6 @@ import { defineStore } from "pinia";
 import getFeedbacks from "@/api/getFeedbacks";
 import { useUserStore } from "./user";
 
-//Ola suggestion: it depends (as always), but I'm used to using lower case in components and upper case in stores or in variables f.e const uniqueCategories = ...
-export const FETCH_FEEDBACKS = "FETCH_FEEDBACKS";
-export const COUNTED_STATUS_MAP = "COUNTED_STATUS_MAP";
-export const FILTERED_FEEDBACKS = "FILTERED_FEEDBACKS";
-export const INCLUDE_FEEDBACK_BY_CATEGORY = "INCLUDE_FEEDBACK_BY_CATEGORY";
-export const SORTED_FEEDBACKS = "SORTED_FEEDBACKS";
-export const INCLUDE_UPVOTED_FEEDBACK = "INCLUDE_UPVOTED_FEEDBACK";
-export const INCREASE_UPVOTES = "INCREASE_UPVOTES";
-
 export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => {
     return {
@@ -32,7 +23,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     };
   },
   actions: {
-    async [FETCH_FEEDBACKS]() {
+    async fetchFeedbacks() {
       try {
         const feedbacks = await getFeedbacks();
         this.feedbacks = feedbacks;
@@ -42,20 +33,17 @@ export const useFeedbacksStore = defineStore("feedbacks", {
           : console.log("Something went wrong");
       }
     },
-    [INCREASE_UPVOTES]() {
-      const feedbackToUpvote = this.feedbacks.find((feedback) =>
-        this.INCLUDE_UPVOTED_FEEDBACK(feedback)
-      );
-      if (feedbackToUpvote === undefined) {
+    increaseUpvotes() {
+      if (this.upvotedFeedback === undefined) {
         return;
       } else {
-        feedbackToUpvote.upvotes++;
-        return feedbackToUpvote.upvotes;
+        this.upvotedFeedback.upvotes++;
+        return this.upvotedFeedback.upvotes;
       }
     },
   },
   getters: {
-    [COUNTED_STATUS_MAP](state) {
+    countedStatusMap(state) {
       const statusNumbers = new Map();
       //counting how many feedbacks are dependly on status value
       const plannedNumber = state.feedbacks.filter(
@@ -75,26 +63,21 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       return statusNumbers;
     },
-    //userStore.selectedCategories includes the value added when button is clicked. With code below I check if this value is the same like feedback.category.
-    [INCLUDE_FEEDBACK_BY_CATEGORY]: () => (feedback) => {
-      const userStore = useUserStore();
-      if (userStore.selectedCategories.id === 0) return true;
-      return userStore.selectedCategories.name === feedback.category;
-    },
     //if the feedback.category is empty I return all feedbacks - idea for the future improvement - maybe better is to make this button disabled
     //filtering feedbacks when the user clicks on the button with category
-    [FILTERED_FEEDBACKS](state) {
-      const filteredFeedbacks = state.feedbacks.filter((feedback) =>
-        this.INCLUDE_FEEDBACK_BY_CATEGORY(feedback)
+    filteredFeedbacksList(state) {
+      const userStore = useUserStore();
+      const filteredFeedbacks = state.feedbacks.filter(
+        (feedback) => userStore.selectedCategories.name === feedback.category
       );
       return filteredFeedbacks.length === 0
         ? state.feedbacks
         : filteredFeedbacks;
     },
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
-    [SORTED_FEEDBACKS]() {
+    sortedFeedbacksList() {
       const userStore = useUserStore();
-      const filteredFeedbacks = this.FILTERED_FEEDBACKS;
+      const filteredFeedbacks = this.filteredFeedbacksList;
       //sort by "Least Upvotes"
       if (userStore.selectedSortingCategory.id === 2) {
         return filteredFeedbacks.sort(
@@ -121,10 +104,13 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         );
       }
     },
-    [INCLUDE_UPVOTED_FEEDBACK]: () => (feedback) => {
+    upvotedFeedback() {
       const userStore = useUserStore();
       const upvotedFeedback = userStore.upvotedFeedback;
-      return upvotedFeedback.id === feedback.id;
+      const feedbackToUpvote = this.feedbacks.find(
+        (feedback) => upvotedFeedback.id === feedback.id
+      );
+      return feedbackToUpvote;
     },
   },
 });

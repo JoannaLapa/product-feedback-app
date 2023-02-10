@@ -1,8 +1,5 @@
 import { defineStore } from "pinia";
 
-export const ADD_SELECTED_CATEGORY = "ADD_SELECTED_CATEGORY";
-export const ADD_SELECTED_SORTING_CATEGORY = "ADD_SELECTED_SORTING_CATEGORY";
-export const ADD_UPVOTED_FEEDBACK = "ADD_UPVOTED_FEEDBACK";
 export const useUserStore = defineStore("user", {
   state: () => ({
     selectedCategories: [{ id: 0, name: "All" }],
@@ -12,13 +9,13 @@ export const useUserStore = defineStore("user", {
     ],
   }),
   actions: {
-    [ADD_SELECTED_CATEGORY](category) {
+    addSelectedCategory(category) {
       this.selectedCategories = category;
     },
-    [ADD_UPVOTED_FEEDBACK](upvotedFeedback) {
+    addUpvotedFeedback(upvotedFeedback) {
       this.upvotedFeedback = upvotedFeedback;
     },
-    [ADD_SELECTED_SORTING_CATEGORY](sortingCategory) {
+    addSelectedSortingCategory(sortingCategory) {
       this.selectedSortingCategory = sortingCategory;
     },
   },

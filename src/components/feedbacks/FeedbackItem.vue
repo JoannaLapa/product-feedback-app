@@ -81,7 +81,7 @@ const firstLetterToUpper = (name) =>
   name.charAt(0).toUpperCase() + name.slice(1);
 const addUpvotedFeedback = (feedback) => {
   upvotedFeeedback.value = feedback;
-  usersStore.ADD_UPVOTED_FEEDBACK(upvotedFeeedback.value);
-  useFeedbackStore.INCREASE_UPVOTES();
+  usersStore.addUpvotedFeedback(upvotedFeeedback.value);
+  useFeedbackStore.increaseUpvotes();
 };
 </script>
