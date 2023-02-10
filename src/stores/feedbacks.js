@@ -33,6 +33,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
           : console.log("Something went wrong");
       }
     },
+    //increase the upvotes after click
     increaseUpvotes() {
       if (this.upvotedFeedback === undefined) {
         return;
@@ -104,6 +105,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         );
       }
     },
+    //return the feedback clicked by the user
     upvotedFeedback() {
       const userStore = useUserStore();
       const upvotedFeedback = userStore.upvotedFeedback;
