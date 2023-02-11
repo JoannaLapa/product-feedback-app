@@ -26,7 +26,6 @@ import { useFeedbacksStore } from "../../stores/feedbacks";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
-// import BaseOption from "../../components/basicComponents/BaseOption.vue";
 import BaseSelect from "../../components/basicComponents/BaseSelect.vue";
 import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
