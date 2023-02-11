@@ -55,7 +55,7 @@ defineProps({
     type: String,
     required: true,
     validation: (variant) =>
-      ["primary", "secondary", "neutral", "small"].includes(variant),
+      ["primary", "secondary", "neutral", "dark", "small"].includes(variant),
   },
 });
 
