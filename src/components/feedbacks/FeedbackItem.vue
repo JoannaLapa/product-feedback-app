@@ -8,7 +8,7 @@
         <!-- <p v-if="roadmap">{{ feedback.status }}</p> -->
         <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
         <BaseButton
-          variant="voted"
+          variant="small"
           :number="feedback.upvotes"
           class="group relative col-span-1 row-start-2 flex w-fit flex-row-reverse place-content-center sm:row-span-full sm:flex-col"
         >
@@ -29,11 +29,13 @@
             <p class="text-xxs text-neutral-400 sm:text-base">
               {{ feedback.description }}
             </p>
-            <div class="w-fit rounded-lg bg-neutral-300 sm:mt-1">
-              <p class="py-1.5 px-4 text-xxs font-semibold text-primary-100">
-                {{ firstLetterToUpper(feedback.category) }}
-              </p>
-            </div>
+            <!-- <div class="w-fit rounded-lg bg-neutral-300 sm:mt-1"> -->
+            <p
+              class="w-fit rounded-lg bg-neutral-300 py-1.5 px-4 text-xxs font-semibold text-primary-100 sm:mt-1"
+            >
+              {{ firstLetterToUpper(feedback.category) }}
+            </p>
+            <!-- </div> -->
           </div>
         </router-link>
         <div
