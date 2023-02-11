@@ -1,5 +1,5 @@
 <template>
-  <div class="go-back__container">
+  <div class="flex items-center gap-3 text-xxs font-bold text-neutral-400">
     <ArrowLeft />
     <router-link to="/">Go Back</router-link>
   </div>
