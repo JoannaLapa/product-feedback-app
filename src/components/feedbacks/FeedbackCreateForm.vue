@@ -1,7 +1,7 @@
 <template>
   <form>
     <fieldset>
-      <legend>{{ (title, dynamicTitle) }}</legend>
+      <legend>{{ title }}</legend>
       <label for="feedback-title">Feedback Title</label>
       <p id="feedback-title-instruction">Add a short, descriptive headline</p>
       <input
@@ -11,14 +11,7 @@
       />
       <label for="category">Category</label>
       <p id="category-instruction">Choose a category for your feedback</p>
-      <BaseSelect id="category" aria-described-by="category - instruction">
-        <BaseOption
-          v-for="category in categories"
-          :key="category"
-          :value="category"
-          :text="category"
-        />
-      </BaseSelect>
+      <BaseSelect id="category" aria-described-by="category - instruction" />
       <label for="feedback-detail">Feedback Detail</label>
       <p id="feedback-details-instruction">
         Include any specific comments on what should be improved, added, etc.
@@ -30,8 +23,8 @@
       />
     </fieldset>
     <BaseButton v-if="edit">Delete</BaseButton>
-    <BaseButton>Cancel</BaseButton>
-    <BaseButton>Add Feedback</BaseButton>
+    <BaseButton variant="dark" text="Cancel" />
+    <BaseButton variant="primary" text="Add Feedback" />
   </form>
 </template>
 
@@ -39,5 +32,14 @@
 import BaseButton from "../basicComponents/BaseButton.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
 
-const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  edit: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
