@@ -1,13 +1,10 @@
 <template>
   <main>
-    <BaseWrapper>
+    <BaseWrapper variant="secondary">
       <GoBack />
       <BaseBox>
         <IconNewFeedback />
-        <FeedbackCreateForm
-          title="Create New Feedback"
-          submit-title="Add Feedback"
-        />
+        <FeedbackCreateForm title="Create New Feedback" />
       </BaseBox>
     </BaseWrapper>
   </main>
