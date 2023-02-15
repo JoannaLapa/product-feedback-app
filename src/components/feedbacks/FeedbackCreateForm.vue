@@ -1,5 +1,5 @@
 <template>
-  <form class="-mt-3 p-6 pt-0">
+  <form class="-mt-3 flex flex-col gap-10 p-6 pt-0">
     <fieldset class="flex flex-col gap-6">
       <div>
         <legend class="text-lg font-bold text-neutral-500">{{ title }}</legend>
@@ -38,13 +38,15 @@
           id="feedback-detail"
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
-          class="h-30 mt-4 w-full resize-none rounded-md bg-neutral-200"
+          class="mt-4 h-30 w-full resize-none rounded-md bg-neutral-200"
         />
       </div>
     </fieldset>
-    <BaseButton v-if="edit">Delete</BaseButton>
-    <BaseButton variant="dark" text="Cancel" />
-    <BaseButton variant="primary" text="Add Feedback" />
+    <div class="flex flex-col gap-4">
+      <BaseButton variant="primary" text="Add Feedback" />
+      <BaseButton variant="dark" text="Cancel" />
+      <BaseButton v-if="edit">Delete</BaseButton>
+    </div>
   </form>
 </template>
 
