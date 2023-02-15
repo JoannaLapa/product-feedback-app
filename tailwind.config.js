@@ -29,6 +29,7 @@ module.exports = {
         "neutral-600": "#373F68",
         "neutral-700": "#979797",
         "neutral-800": "#373f6859",
+        "neutral-900": "#656EA3",
       },
       backgroundImage: {
         "header-sm":
