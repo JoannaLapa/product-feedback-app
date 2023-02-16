@@ -4,7 +4,7 @@
       <GoBack />
       <BaseBox>
         <IconNewFeedback />
-        <FeedbackCreateForm title="Create New Feedback" />
+        <FeedbackCreateForm title="Create New Feedback" variant="add" />
       </BaseBox>
     </BaseWrapper>
   </main>
