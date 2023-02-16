@@ -10,6 +10,7 @@
           delete="Delete"
           submit-title="Save Changes"
           dynamic-title=""
+          variant="edit"
         />
       </BaseBox>
     </BaseWrapper>
