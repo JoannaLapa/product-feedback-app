@@ -5,12 +5,12 @@
         <legend class="text-lg font-bold text-neutral-500">{{ title }}</legend>
       </div>
       <div>
-        <label for="feedback-title" class="text-xxs font-bold text-neutral-500"
-          >Feedback Title</label
-        >
-        <p id="feedback-title-instruction" class="text-xxs text-neutral-400">
-          Add a short, descriptive headline
-        </p>
+        <BaseLabel
+          label-for="feedback-title"
+          title="Feedback Title"
+          id-title="feedback-title-instruction"
+          description="Add a short, descriptive headline"
+        />
         <input
           id="feedback-title"
           type="text"
@@ -19,21 +19,21 @@
         />
       </div>
       <div>
-        <label for="category" class="text-xxs font-bold text-neutral-500"
-          >Category</label
-        >
-        <p id="category-instruction" class="text-xxs text-neutral-400">
-          Choose a category for your feedback
-        </p>
+        <BaseLabel
+          label-for="category"
+          title="Category"
+          id-title="category-instruction"
+          description="Choose a category for your feedback"
+        />
         <BaseSelect id="category" aria-described-by="category - instruction" />
       </div>
       <div>
-        <label for="feedback-detail" class="text-xxs font-bold text-neutral-500"
-          >Feedback Detail</label
-        >
-        <p id="feedback-details-instruction" class="text-xxs text-neutral-400">
-          Include any specific comments on what should be improved, added, etc.
-        </p>
+        <BaseLabel
+          label-for="feedback-detail"
+          title="Feedback Detail"
+          id-title="feedback-details-instruction"
+          description="Include any specific comments on what should be improved, added, etc."
+        />
         <textarea
           id="feedback-detail"
           aria-describedby="feedback-details-instruction"
@@ -42,9 +42,14 @@
         />
       </div>
     </fieldset>
-    <div class="flex flex-col gap-4">
-      <BaseButton variant="primary" text="Add Feedback" />
-      <BaseButton variant="dark" text="Cancel" />
+    <div
+      class="flex flex-col gap-4 sm:flex-row"
+      :class="{ 'sm:justify-end': variant === 'add' }"
+    >
+      <div class="flex flex-col gap-4 sm:flex-row-reverse">
+        <BaseButton variant="primary" text="Add Feedback" />
+        <BaseButton variant="dark" text="Cancel" />
+      </div>
       <BaseButton v-if="edit">Delete</BaseButton>
     </div>
   </form>
@@ -52,6 +57,7 @@
 
 <script setup>
 import BaseButton from "../basicComponents/BaseButton.vue";
+import BaseLabel from "../basicComponents/BaseLabel.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
 
 defineProps({
@@ -62,6 +68,11 @@ defineProps({
   edit: {
     type: Boolean,
     default: false,
+  },
+  variant: {
+    type: String,
+    default: "",
+    validation: (variant) => ["edit", "add"].includes(variant),
   },
 });
 </script>
