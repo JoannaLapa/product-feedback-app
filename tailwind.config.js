@@ -91,6 +91,7 @@ module.exports = {
       spacing: {
         //follows tailwind spacing system organisation - 1 = approx 4px //
         7.5: "1.875rem",
+        10.5: "2.625rem", //42px
         17: "4.375rem", //70px
         18: "4.5rem",
         19: "4.8125rem",
