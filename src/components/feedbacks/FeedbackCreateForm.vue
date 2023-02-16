@@ -1,8 +1,10 @@
 <template>
-  <form class="-mt-3 flex flex-col gap-10 p-6 pt-0">
+  <form class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10">
     <fieldset class="flex flex-col gap-6">
       <div>
-        <legend class="text-lg font-bold text-neutral-500">{{ title }}</legend>
+        <legend class="text-lg font-bold text-neutral-500 sm:text-2xl">
+          {{ title }}
+        </legend>
       </div>
       <div>
         <BaseLabel

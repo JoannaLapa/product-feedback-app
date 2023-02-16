@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <BaseWrapper variant="secondary">
+  <main class="flex justify-center">
+    <BaseWrapper variant="secondary" class="sm:mt-14">
       <GoBack />
       <BaseBox>
         <IconNewFeedback />
