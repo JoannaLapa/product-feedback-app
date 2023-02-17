@@ -54,7 +54,7 @@
         <BaseButton variant="primary" text="Add Feedback" />
         <BaseButton variant="dark" text="Cancel" />
       </div>
-      <BaseButton v-if="edit">Delete</BaseButton>
+      <BaseButton v-if="edit"> Delete </BaseButton>
     </div>
   </form>
 </template>
