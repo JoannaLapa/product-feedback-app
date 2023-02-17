@@ -85,6 +85,9 @@ module.exports = {
         "3xl": "51.625rem",
         "4xl": "55rem",
       },
+      minWidth: {
+        "3/4": "70%",
+      },
       screens: {
         xs: "375px",
       },
@@ -102,7 +105,8 @@ module.exports = {
         61: "15.3125rem",
         73: "18.9375rem",
         76: "19rem",
-        132: "33.125rem",
+        132: "33.125rem", //530px
+        134: "33.75rem", //540px
       },
       boxShadow: {
         "3xl": "0 10px 40px -7px rgba(55, 63, 104, 0.350492)",
