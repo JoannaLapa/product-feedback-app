@@ -82,6 +82,7 @@ module.exports = {
         "feedback-article": "1fr 2rem",
       },
       maxWidth: {
+        xl: "33.75rem",
         "3xl": "51.625rem",
         "4xl": "55rem",
       },
@@ -98,6 +99,7 @@ module.exports = {
         17: "4.375rem", //70px
         18: "4.5rem",
         19: "4.8125rem",
+        23: "5.75rem", //92px
         26: "6.5rem",
         30: "7.5rem", //120px
         45: "11.125rem",
