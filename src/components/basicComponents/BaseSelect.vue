@@ -95,6 +95,6 @@ defineProps({
   },
 });
 watch(selectedOption, function () {
-  usersStore.ADD_SELECTED_SORTING_CATEGORY(selectedOption.value);
+  usersStore.addSelectedSortingCategory(selectedOption.value);
 });
 </script>

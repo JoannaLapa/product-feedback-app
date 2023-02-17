@@ -24,7 +24,7 @@
       'h-10 w-full bg-neutral-500 text-neutral-300 hover:bg-neutral-900 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
         variant === 'dark',
     }"
-    @click="$emit('filter-data')"
+    @click="$emit('action')"
   >
     {{ text || number }}
     <slot></slot>
@@ -63,5 +63,5 @@ defineProps({
   },
 });
 
-defineEmits(["filter-data"]);
+defineEmits(["action"]);
 </script>

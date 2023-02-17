@@ -12,7 +12,7 @@
       <NoFeedback v-if="noFeedback" />
       <ul class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5">
         <FeedbackItem
-          v-for="feedback in SORTED_FEEDBACKS"
+          v-for="feedback in sortedFeedbacksList"
           :key="feedback.id"
           :feedback="feedback"
         />
@@ -40,9 +40,8 @@ defineProps({
     default: false,
   },
 });
-
 const feedbacksStore = useFeedbacksStore();
+onMounted(feedbacksStore.fetchFeedbacks);
 const feedbacks = computed(() => feedbacksStore.feedbacks);
-onMounted(feedbacksStore.FETCH_FEEDBACKS);
-const SORTED_FEEDBACKS = computed(() => feedbacksStore.SORTED_FEEDBACKS);
+const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
 </script>

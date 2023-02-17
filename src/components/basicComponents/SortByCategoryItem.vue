@@ -4,7 +4,7 @@
       :variant="whichVariant(name)"
       :text="name"
       :value="name"
-      @filter-data="filterData({ id: id, name: name.toLowerCase() })"
+      @action="filterData({ id: id, name: name.toLowerCase() })"
     />
   </li>
 </template>
@@ -29,7 +29,7 @@ const whichVariant = (name) => {
 };
 const filterData = (name) => {
   activeFilter.value = name;
-  usersStore.ADD_SELECTED_CATEGORY(activeFilter.value);
-  return feedbacksStore.FILTERED_FEEDBACKS;
+  usersStore.addSelectedCategory(activeFilter.value);
+  return feedbacksStore.filteredFeedbacksList;
 };
 </script>
