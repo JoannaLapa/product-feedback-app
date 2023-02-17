@@ -2,8 +2,8 @@
   <Listbox v-model="selectedOption">
     <div class="relative">
       <div class="flex items-center gap-0.5">
-        <ListboxLabel class="text-xxs text-neutral-300 md:text-xs">
-          Sort by:
+        <ListboxLabel v-if="ok" class="text-xxs text-neutral-300 md:text-xs">
+          {{ labelTitle }}
         </ListboxLabel>
         <ListboxButton
           v-slot="{ open }"
@@ -83,6 +83,17 @@ const options = computed(() => feedbacksStore.options);
 const selectSortingData = (name) => {
   selectedOption.value = name;
 };
+
+defineProps({
+  labelTitle: {
+    type: String,
+    default: "",
+  },
+  ok: {
+    type: Boolean,
+    default: false,
+  },
+});
 watch(selectedOption, function () {
   usersStore.ADD_SELECTED_SORTING_CATEGORY(selectedOption.value);
 });

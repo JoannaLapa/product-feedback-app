@@ -5,7 +5,7 @@
       <BaseBar variant="primary">
         <div class="items-center sm:flex sm:gap-10">
           <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
-          <BaseSelect />
+          <BaseSelect label-title="Sort by:" ok />
         </div>
         <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
       </BaseBar>
