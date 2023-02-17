@@ -1,8 +1,10 @@
+<!-- todo - after implementing correctly BaseSelect verify spasing and element hight again -->
+
 <template>
   <form class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10.5">
     <fieldset class="flex flex-col gap-6">
       <div>
-        <legend class="text-lg font-bold text-neutral-500 sm:text-2xl">
+        <legend class="pb-4 text-lg font-bold text-neutral-500 sm:text-2xl">
           {{ title }}
         </legend>
       </div>
@@ -40,7 +42,7 @@
           id="feedback-detail"
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
-          class="mt-4 h-30 w-full resize-none rounded-md bg-neutral-200"
+          class="mt-4 h-30 w-full resize-none rounded-md bg-neutral-200 sm:h-24"
         />
       </div>
     </fieldset>
