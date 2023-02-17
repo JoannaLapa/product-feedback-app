@@ -1,11 +1,10 @@
 <template>
-  <!-- to change sm:max-w-[43.0625rem] for tailwind spacing unit in next branches where spacing already exists in tailwind.config-->
   <div
-    class="relative my-0 mx-auto md:max-w-3xl lg:my-24 lg:flex lg:gap-8 lg:px-0 xl:max-w-6xl"
+    class="relative my-0 mx-auto md:max-w-3xl lg:flex lg:px-0"
     :class="{
-      'mx-6 mt-8 flex flex-col gap-9 sm:min-w-3/4 sm:gap-17':
+      'mx-6 mt-8 flex flex-col gap-9 sm:w-134 sm:gap-17 lg:my-23':
         variant === 'secondary',
-      'sm:px-10 md:px-24': variant === 'primary',
+      'sm:px-10 md:px-24 lg:my-24 lg:gap-8 xl:max-w-6xl': variant === 'primary',
     }"
   >
     <slot></slot>
