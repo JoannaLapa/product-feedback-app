@@ -6,7 +6,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => {
     return {
       feedbacks: [],
-      uniqueCategories: [
+      categories: [
         { id: 0, name: "All" },
         { id: 1, name: "UX" },
         { id: 2, name: "UI" },
@@ -113,6 +113,14 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         (feedback) => upvotedFeedback.id === feedback.id
       );
       return feedbackToUpvote;
+    },
+    uniqueCategories() {
+      const uniqueCategories = this.categories.slice(5);
+      uniqueCategories.push(
+        ...this.categories.slice(1, 3).reverse(),
+        ...this.categories.slice(3, 5)
+      );
+      return uniqueCategories;
     },
   },
 });
