@@ -32,7 +32,7 @@
         <BaseSelect
           id="category"
           aria-described-by="category - instruction"
-          :options="useFeedbackStore.uniqueCategories"
+          :options="uniqueCategories"
           :action="usersStore.assignCategory"
         />
       </div>
@@ -70,6 +70,7 @@ import BaseLabel from "../basicComponents/BaseLabel.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "../../stores/user.js";
+import { computed } from "vue";
 
 defineProps({
   title: {
@@ -89,4 +90,5 @@ defineProps({
 
 const useFeedbackStore = useFeedbacksStore();
 const usersStore = useUserStore();
+const uniqueCategories = computed(() => useFeedbackStore.uniqueCategories);
 </script>
