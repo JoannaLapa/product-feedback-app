@@ -5,14 +5,9 @@
         <ListboxLabel v-if="ok" class="text-xxs text-neutral-300 md:text-xs">
           {{ labelTitle }}
         </ListboxLabel>
-        <ListboxButton
-          v-slot="{ open }"
-          class="relative flex cursor-pointer items-center gap-2 text-xxs font-bold text-neutral-300 md:text-xs"
-        >
-          {{ selectedOption.name }}
-          <ArrowUp v-show="open" class="stroke-neutral-100" />
-          <ArrowDown v-show="!open" />
-        </ListboxButton>
+        <BaseListboxButton>
+          {{ selectedOption ? selectedOption.name : options[0].name }}
+        </BaseListboxButton>
       </div>
       <transition
         leave-active-class="transition ease-in duration-100"
@@ -35,7 +30,7 @@
             >
               <button
                 @click="
-                  selectSortingData({
+                  selectData({
                     id: option.id,
                     name: option.name,
                     unavailable: option.unavailable,
@@ -62,29 +57,20 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref } from "vue";
 import {
   Listbox,
-  ListboxButton,
+  // ListboxButton,
   ListboxOptions,
   ListboxOption,
   ListboxLabel,
 } from "@headlessui/vue";
-import ArrowDown from "../icons/ArrowDown.vue";
-import ArrowUp from "../icons/ArrowUp.vue";
+// import ArrowDown from "../icons/ArrowDown.vue";
+// import ArrowUp from "../icons/ArrowUp.vue";
+import BaseListboxButton from "./BaseListboxButton.vue";
 import IconCheck from "../icons/IconCheck.vue";
-import { useUserStore } from "@/stores/user.js";
-import { useFeedbacksStore } from "@/stores/feedbacks.js";
-
-const selectedOption = ref({ id: 0, name: "Most Upvotes", unavailable: false });
-const usersStore = useUserStore();
-const feedbacksStore = useFeedbacksStore();
-const options = computed(() => feedbacksStore.options);
-const selectSortingData = (name) => {
-  selectedOption.value = name;
-};
-
-defineProps({
+const selectedOption = ref();
+const props = defineProps({
   labelTitle: {
     type: String,
     default: "",
@@ -93,8 +79,18 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  options: {
+    type: Object,
+    default: null,
+  },
+  action: {
+    type: Function,
+    required: true,
+  },
 });
-watch(selectedOption, function () {
-  usersStore.addSelectedSortingCategory(selectedOption.value);
-});
+const selectData = (name) => {
+  selectedOption.value = name;
+  console.log(selectedOption.value);
+  props.action(selectedOption.value);
+};
 </script>
