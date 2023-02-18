@@ -5,7 +5,12 @@
       <BaseBar variant="primary">
         <div class="items-center sm:flex sm:gap-10">
           <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
-          <BaseSelect label-title="Sort by:" ok />
+          <BaseSelect
+            label-title="Sort by:"
+            ok
+            :options="optionValues"
+            :action="usersStore.addSelectedSortingCategory"
+          />
         </div>
         <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
       </BaseBar>
@@ -23,6 +28,7 @@
 <script setup>
 import { onMounted, computed } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
+import { useUserStore } from "../../stores/user.js";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
@@ -41,7 +47,9 @@ defineProps({
   },
 });
 const feedbacksStore = useFeedbacksStore();
+const usersStore = useUserStore();
 onMounted(feedbacksStore.fetchFeedbacks);
 const feedbacks = computed(() => feedbacksStore.feedbacks);
 const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
+const optionValues = computed(() => feedbacksStore.options);
 </script>
