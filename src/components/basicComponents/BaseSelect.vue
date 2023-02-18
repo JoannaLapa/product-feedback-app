@@ -29,6 +29,7 @@
               class="relative cursor-pointer select-none py-3 text-neutral-400 transition duration-300 hover:text-primary-200 md:text-xs lg:text-base"
             >
               <button
+                type="button"
                 @click="
                   selectData({
                     id: option.id,
