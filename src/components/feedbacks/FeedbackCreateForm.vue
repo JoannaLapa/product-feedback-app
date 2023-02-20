@@ -19,7 +19,7 @@
           id="feedback-title"
           type="text"
           aria-describedby="feedback-title-instruction"
-          class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200"
+          class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:p-6"
         />
       </div>
       <div>
@@ -47,7 +47,7 @@
           id="feedback-detail"
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
-          class="mt-4 h-30 w-full resize-none rounded-md bg-neutral-200 sm:h-24"
+          class="mt-4 h-30 w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:h-24 sm:p-6"
         />
       </div>
     </fieldset>
