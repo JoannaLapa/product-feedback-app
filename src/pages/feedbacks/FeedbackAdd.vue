@@ -16,4 +16,10 @@ import FeedbackCreateForm from "../../components/feedbacks/FeedbackCreateForm.vu
 import GoBack from "../../components/basicComponents/GoBack.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 import IconNewFeedback from "../../components/icons/IconNewFeedback.vue";
+import { provide } from "vue";
+
+const variant = "wide";
+const listBoxOptionsVariant = "wide";
+provide("variant", variant);
+provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>

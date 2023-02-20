@@ -26,7 +26,7 @@
   </BaseWrapper>
 </template>
 <script setup>
-import { onMounted, computed } from "vue";
+import { onMounted, computed, provide } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useUserStore } from "../../stores/user.js";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
@@ -52,4 +52,8 @@ onMounted(feedbacksStore.fetchFeedbacks);
 const feedbacks = computed(() => feedbacksStore.feedbacks);
 const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
 const optionValues = computed(() => feedbacksStore.options);
+const variant = "primary";
+const listBoxOptionsVariant = "narrow";
+provide("variant", variant);
+provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>
