@@ -19,7 +19,7 @@
           id="feedback-title"
           type="text"
           aria-describedby="feedback-title-instruction"
-          class="mt-4 h-12 w-full rounded-md bg-neutral-200"
+          class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200"
         />
       </div>
       <div>
