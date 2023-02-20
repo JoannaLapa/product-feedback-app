@@ -5,7 +5,7 @@
         <ListboxLabel v-if="ok" class="text-xxs text-neutral-300 md:text-xs">
           {{ labelTitle }}
         </ListboxLabel>
-        <BaseListboxButton>
+        <BaseListboxButton :variant="variant">
           {{ selectedOption ? selectedOption.name : options[0].name }}
         </BaseListboxButton>
       </div>
@@ -14,10 +14,7 @@
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
       >
-        <ListboxOptions
-          class="divide-neutral-700/15 absolute top-12 z-10 flex w-60 flex-col divide-y rounded-lg border-neutral-700 bg-neutral-100 indent-6 text-xxs shadow-3xl sm:top-14 lg:w-64"
-          role="listbox"
-        >
+        <BaseListboxOptions :variant="listBoxOptionsVariant">
           <ListboxOption
             v-for="option in options"
             :key="option.id"
@@ -51,24 +48,17 @@
               </button>
             </li>
           </ListboxOption>
-        </ListboxOptions>
+        </BaseListboxOptions>
       </transition>
     </div>
   </Listbox>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import {
-  Listbox,
-  // ListboxButton,
-  ListboxOptions,
-  ListboxOption,
-  ListboxLabel,
-} from "@headlessui/vue";
-// import ArrowDown from "../icons/ArrowDown.vue";
-// import ArrowUp from "../icons/ArrowUp.vue";
+import { ref, inject } from "vue";
+import { Listbox, ListboxOption, ListboxLabel } from "@headlessui/vue";
 import BaseListboxButton from "./BaseListboxButton.vue";
+import BaseListboxOptions from "./BaseListboxOptions.vue";
 import IconCheck from "../icons/IconCheck.vue";
 const selectedOption = ref();
 const props = defineProps({
@@ -94,4 +84,6 @@ const selectData = (name) => {
   console.log(selectedOption.value);
   props.action(selectedOption.value);
 };
+const variant = inject("variant");
+const listBoxOptionsVariant = inject("listBoxOptionsVariant");
 </script>
