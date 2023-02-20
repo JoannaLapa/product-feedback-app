@@ -20,6 +20,7 @@ import { provide } from "vue";
 
 const variant = "wide";
 const listBoxOptionsVariant = "wide";
+
 provide("variant", variant);
 provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>
