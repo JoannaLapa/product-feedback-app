@@ -6,14 +6,12 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => {
     return {
       feedbacks: [],
-      categories: [
-        { id: 0, name: "All" },
-        { id: 1, name: "UX" },
-        { id: 2, name: "UI" },
-        { id: 3, name: "Enhancement" },
-        { id: 4, name: "Bug" },
-        { id: 5, name: "Feature" },
-      ],
+      categoryAll: { id: 0, name: "All", unavailable: false },
+      categoryUX: { id: 1, name: "UX", unavailable: false },
+      categoryUI: { id: 2, name: "UI", unavailable: false },
+      categoryEnhancement: { id: 3, name: "Enhancement", unavailable: false },
+      categoryBug: { id: 4, name: "Bug", unavailable: false },
+      categoryFeature: { id: 5, name: "Feature", unavailable: false },
       options: [
         { id: 1, name: "Most Upvotes", unavailable: false },
         { id: 2, name: "Least Upvotes", unavailable: false },
@@ -41,6 +39,10 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         this.upvotedFeedback.upvotes++;
         return this.upvotedFeedback.upvotes;
       }
+    },
+    updateFeedbackList() {
+      const userStore = useUserStore();
+      return this.feedbacks.push(userStore.createdFeedback);
     },
   },
   getters: {
@@ -114,13 +116,24 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       );
       return feedbackToUpvote;
     },
+    categories() {
+      return [
+        this.categoryAll,
+        this.categoryUX,
+        this.categoryUI,
+        this.categoryEnhancement,
+        this.categoryBug,
+        this.categoryFeature,
+      ];
+    },
     uniqueCategories() {
-      const uniqueCategories = this.categories.slice(5);
-      uniqueCategories.push(
-        ...this.categories.slice(1, 3).reverse(),
-        ...this.categories.slice(3, 5)
-      );
-      return uniqueCategories;
+      return [
+        this.categoryFeature,
+        this.categoryUI,
+        this.categoryUX,
+        this.categoryEnhancement,
+        this.categoryBug,
+      ];
     },
   },
 });

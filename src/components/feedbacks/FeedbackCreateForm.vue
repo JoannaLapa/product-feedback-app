@@ -17,6 +17,7 @@
         />
         <input
           id="feedback-title"
+          v-model="newFeedbackTitle"
           type="text"
           aria-describedby="feedback-title-instruction"
           class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:p-6"
@@ -32,7 +33,7 @@
         <BaseSelect
           id="category"
           aria-described-by="category - instruction"
-          :options="uniqueCategories"
+          :options="options"
           :action="usersStore.assignCategory"
         />
       </div>
@@ -45,6 +46,7 @@
         />
         <textarea
           id="feedback-detail"
+          v-model="newDescription"
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
           class="mt-4 h-30 w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:h-24 sm:p-6"
@@ -56,10 +58,24 @@
       :class="{ 'sm:justify-end': variant === 'add' }"
     >
       <div class="flex flex-col gap-4 sm:flex-row-reverse">
-        <BaseButton variant="primary" text="Add Feedback" />
-        <BaseButton variant="dark" text="Cancel" />
+        <BaseButton
+          variant="primary"
+          text="Add Feedback"
+          type="button"
+          @action="
+            updateFeedbackList({
+              id: useFeedbackStore.feedbacks.length + 1,
+              title: newFeedbackTitle,
+              category: usersStore.assignedCategory.name,
+              upvotes: 0,
+              status: 'suggestion',
+              description: newDescription,
+            })
+          "
+        />
+        <BaseButton variant="dark" text="Cancel" type="button" />
       </div>
-      <BaseButton v-if="edit" text="Delete" />
+      <BaseButton v-if="edit" text="Delete" type="button" />
     </div>
   </form>
 </template>
@@ -70,7 +86,7 @@ import BaseLabel from "../basicComponents/BaseLabel.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "../../stores/user.js";
-import { computed } from "vue";
+import { ref, computed } from "vue";
 
 defineProps({
   title: {
@@ -90,5 +106,13 @@ defineProps({
 
 const useFeedbackStore = useFeedbacksStore();
 const usersStore = useUserStore();
-const uniqueCategories = computed(() => useFeedbackStore.uniqueCategories);
+const newFeedbackTitle = ref("");
+const newDescription = ref("");
+const newFeedback = ref({});
+const options = computed(() => useFeedbackStore.uniqueCategories);
+const updateFeedbackList = (data) => {
+  newFeedback.value = data;
+  usersStore.addNewFeedback(newFeedback.value);
+  return useFeedbackStore.updateFeedbackList();
+};
 </script>
