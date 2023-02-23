@@ -4,6 +4,7 @@
       :variant="whichVariant(name)"
       :text="name"
       :value="name"
+      type="button"
       @action="filterData({ id: id, name: name.toLowerCase() })"
     />
   </li>
