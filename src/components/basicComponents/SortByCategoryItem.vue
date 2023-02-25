@@ -1,6 +1,7 @@
 <template>
   <li v-for="{ id, name } in categories" :key="id">
     <BaseButton
+      tag="button"
       :variant="whichVariant(name)"
       :text="name"
       :value="name"

@@ -8,6 +8,7 @@
         <!-- <p v-if="roadmap">{{ feedback.status }}</p> -->
         <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
         <BaseButton
+          tag="button"
           variant="small"
           :number="feedback.upvotes"
           type="button"

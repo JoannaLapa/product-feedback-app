@@ -13,10 +13,10 @@
           />
         </div>
         <BaseButton
-          link
+          tag="router-link"
           to="/add"
           text="+ Add Feedback"
-          variant="primary"
+          variant="primary-link"
           type=""
         />
       </BaseBar>

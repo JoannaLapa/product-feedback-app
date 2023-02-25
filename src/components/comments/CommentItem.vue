@@ -6,10 +6,14 @@
     <!-- here comments.user.name -->
     <p>{{}}</p>
     <!-- here comments.user.username -->
-    <button>Reply</button>
+    <BaseButton tag="button" type="button" variant="pure" text="Reply" />
   </div>
   <blockquote>{{}}</blockquote>
   <!-- here comments.content -->
   <!-- v-if reply add span with username who replies - replies.replyingTo -->
   <slot></slot>
 </template>
+
+<script setup>
+import BaseButton from "../basicComponents/BaseButton.vue";
+</script>

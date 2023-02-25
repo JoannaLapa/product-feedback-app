@@ -2,7 +2,13 @@
   <main>
     <BaseWrapper>
       <GoBack>
-        <BaseButton link to="" text="Edit Feedback" />
+        <BaseButton
+          tag="router-link"
+          to="/edit"
+          text="Edit Feedback"
+          type=""
+          variant="secondary"
+        />
       </GoBack>
       <!-- <FeedbackItem :feedback="feedbacks[$route.params.id - 1]" />
       <CommentsList />

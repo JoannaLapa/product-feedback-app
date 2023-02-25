@@ -10,7 +10,12 @@
         aria-describedby="characters-left"
       />
       <p id="characters-left">Dynamic number characters left</p>
-      <BaseButton>Post comment</BaseButton>
+      <BaseButton
+        tag="button"
+        type="button"
+        variant="primary"
+        text="Post comment"
+      />
     </form>
   </BaseBox>
 </template>

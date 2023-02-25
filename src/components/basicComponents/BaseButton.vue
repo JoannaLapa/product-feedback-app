@@ -1,17 +1,7 @@
 <template>
-  <router-link
-    v-if="link"
+  <component
+    :is="tag"
     :to="to"
-    class="flex max-h-10 w-fit place-items-center rounded-lg p-2 text-xs font-bold transition duration-300 xs:p-4 md:max-h-11"
-    :class="{
-      'bg-primary-200 text-neutral-300 hover:bg-secondary-600 md:text-sm':
-        variant === 'primary',
-    }"
-  >
-    {{ text }}
-  </router-link>
-  <button
-    v-else
     :type="type"
     class="flex place-items-center justify-center rounded-lg p-2.5 transition duration-300"
     :class="{
@@ -22,6 +12,8 @@
       'h-7.5 bg-primary-100 text-neutral-100': variant === 'secondary',
       'h-10 w-full bg-primary-200 text-neutral-300 hover:bg-secondary-600 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
         variant === 'primary',
+      'max-h-10 w-fit bg-primary-200 p-2 text-xs font-bold text-neutral-300 hover:bg-secondary-600 xs:p-4 md:max-h-11 md:text-sm':
+        variant === 'primary-link',
       'h-10 w-full bg-neutral-500 text-neutral-300 hover:bg-neutral-900 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
         variant === 'dark',
     }"
@@ -29,18 +21,14 @@
   >
     {{ text || number }}
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <script setup>
 defineProps({
-  link: {
-    type: Boolean,
-    default: false,
-  },
   to: {
     type: String,
-    default: "/feedbacks",
+    default: "",
   },
   text: {
     type: String,
@@ -60,7 +48,19 @@ defineProps({
     type: String,
     required: true,
     validation: (variant) =>
-      ["primary", "secondary", "neutral", "dark", "small"].includes(variant),
+      [
+        "primary",
+        "secondary",
+        "neutral",
+        "dark",
+        "small",
+        "primary-link",
+      ].includes(variant),
+  },
+  tag: {
+    type: String,
+    default: "button",
+    validation: (tag) => ["button", "router-link"].includes(tag),
   },
   type: {
     type: String,
