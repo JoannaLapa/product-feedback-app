@@ -22,13 +22,17 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   },
   actions: {
     async fetchFeedbacks() {
-      try {
-        const feedbacks = await getFeedbacks();
-        this.feedbacks = feedbacks;
-      } catch (err) {
-        err instanceof Error
-          ? console.log(`The error: ${err.message}`)
-          : console.log("Something went wrong");
+      if (JSON.parse(localStorage.getItem("feedbacks"))) {
+        this.feedbacks = JSON.parse(localStorage.getItem("feedbacks"));
+      } else {
+        try {
+          const feedbacks = await getFeedbacks();
+          this.feedbacks = feedbacks;
+        } catch (err) {
+          err instanceof Error
+            ? console.log(`The error: ${err.message}`)
+            : console.log("Something went wrong");
+        }
       }
     },
     //increase the upvotes after click
@@ -46,16 +50,16 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     },
   },
   getters: {
-    countedStatusMap(state) {
+    countedStatusMap() {
       const statusNumbers = new Map();
       //counting how many feedbacks are dependly on status value
-      const plannedNumber = state.feedbacks.filter(
+      const plannedNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "planned"
       ).length;
-      const inProgressNumber = state.feedbacks.filter(
+      const inProgressNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "in-progress"
       ).length;
-      const liveNumber = state.feedbacks.filter(
+      const liveNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "live"
       ).length;
       //map with status names as a key and status quantity as a value
@@ -68,13 +72,13 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     },
     //if the feedback.category is empty I return all feedbacks - idea for the future improvement - maybe better is to make this button disabled
     //filtering feedbacks when the user clicks on the button with category
-    filteredFeedbacksList(state) {
+    filteredFeedbacksList() {
       const userStore = useUserStore();
-      const filteredFeedbacks = state.feedbacks.filter(
+      const filteredFeedbacks = this.feedbacks.filter(
         (feedback) => userStore.selectedCategories.name === feedback.category
       );
       return filteredFeedbacks.length === 0
-        ? state.feedbacks
+        ? this.feedbacks
         : filteredFeedbacks;
     },
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes

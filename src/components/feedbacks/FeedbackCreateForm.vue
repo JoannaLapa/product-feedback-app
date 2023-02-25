@@ -1,7 +1,10 @@
 <!-- todo - after implementing correctly BaseSelect verify spacing and element hight again -->
 
 <template>
-  <form class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10.5">
+  <form
+    class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10.5"
+    @submit.prevent="updateFeedbackList"
+  >
     <fieldset class="flex flex-col gap-6">
       <div>
         <legend class="pb-4 text-lg font-bold text-neutral-500 sm:text-2xl">
@@ -17,7 +20,7 @@
         />
         <input
           id="feedback-title"
-          v-model="newFeedbackTitle"
+          v-model.trim="newFeedbackTitle"
           type="text"
           aria-describedby="feedback-title-instruction"
           class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:p-6"
@@ -46,7 +49,7 @@
         />
         <textarea
           id="feedback-detail"
-          v-model="newDescription"
+          v-model.trim="newDescription"
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
           class="mt-4 h-30 w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:h-24 sm:p-6"
@@ -87,6 +90,7 @@ import BaseSelect from "../basicComponents/BaseSelect.vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "../../stores/user.js";
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
 defineProps({
   title: {
@@ -106,13 +110,17 @@ defineProps({
 
 const useFeedbackStore = useFeedbacksStore();
 const usersStore = useUserStore();
+const router = useRouter();
 const newFeedbackTitle = ref("");
 const newDescription = ref("");
 const newFeedback = ref({});
 const options = computed(() => useFeedbackStore.uniqueCategories);
+
 const updateFeedbackList = (data) => {
   newFeedback.value = data;
   usersStore.addNewFeedback(newFeedback.value);
-  return useFeedbackStore.updateFeedbackList();
+  useFeedbackStore.updateFeedbackList();
+  localStorage.setItem("feedbacks", JSON.stringify(useFeedbackStore.feedbacks));
+  router.push("/");
 };
 </script>

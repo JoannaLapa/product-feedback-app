@@ -12,7 +12,13 @@
             :action="usersStore.addSelectedSortingCategory"
           />
         </div>
-        <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
+        <BaseButton
+          link
+          to="/add"
+          text="+ Add Feedback"
+          variant="primary"
+          type=""
+        />
       </BaseBar>
       <NoFeedback v-if="noFeedback" />
       <ul class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5">
@@ -26,7 +32,7 @@
   </BaseWrapper>
 </template>
 <script setup>
-import { onMounted, computed, provide } from "vue";
+import { computed, provide, onMounted } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useUserStore } from "../../stores/user.js";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
@@ -50,7 +56,6 @@ defineProps({
 });
 const feedbacksStore = useFeedbacksStore();
 const usersStore = useUserStore();
-
 onMounted(feedbacksStore.fetchFeedbacks);
 
 const feedbacks = computed(() => feedbacksStore.feedbacks);
