@@ -50,11 +50,11 @@ defineProps({
     validation: (variant) =>
       [
         "primary",
+        "primary-link",
         "secondary",
         "neutral",
         "dark",
         "small",
-        "primary-link",
       ].includes(variant),
   },
   tag: {
