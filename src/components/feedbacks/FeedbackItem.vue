@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li v-if="listed">
     <BaseBox>
       <article
         class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 p-6 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10 sm:px-8 sm:py-8 xl:py-7"
@@ -66,6 +66,10 @@ import { useFeedbacksStore } from "@/stores/feedbacks.js";
 
 const props = defineProps({
   // Ola's suggestion - If null then you should think about hiding this component
+  listed: {
+    type: Boolean,
+    default: false,
+  },
   feedback: {
     type: Object,
     default: null,
