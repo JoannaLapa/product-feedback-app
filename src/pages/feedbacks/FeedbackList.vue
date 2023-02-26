@@ -25,6 +25,7 @@
         <FeedbackItem
           v-for="feedback in sortedFeedbacksList"
           :key="feedback.id"
+          listed
           :feedback="feedback"
         />
       </ul>
