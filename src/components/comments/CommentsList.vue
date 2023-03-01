@@ -18,7 +18,7 @@
               :src="`src/${comment.user.image.slice(2)}`"
               alt="photo of the user"
             />
-            <div v-if="comment.replies">
+            <ul v-if="comment.replies">
               <CommentItem
                 v-for="reply in comment.replies"
                 :key="reply.content"
@@ -30,11 +30,13 @@
                   :src="`src/${reply.user.image.slice(2)}`"
                   alt="photo of the user"
                 />
+                <!-- <PostReply /> -->
+                <!-- add post-replay when the user clicks on reply -->
               </CommentItem>
-            </div>
+            </ul>
             <!-- <PostReply /> -->
+            <!-- add post-replay when the user clicks on reply -->
           </CommentItem>
-          <!-- add post-replay when the user clicks on reply -->
         </ul>
       </div>
     </BaseBox>
