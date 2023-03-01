@@ -25,8 +25,8 @@
         <FeedbackItem
           v-for="feedback in sortedFeedbacksList"
           :key="feedback.id"
-          listed
           :feedback="feedback"
+          :number="sortedFeedbacksList.indexOf(feedback)"
         />
       </ul>
     </main>
@@ -64,7 +64,6 @@ const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
 const optionValues = computed(() => feedbacksStore.options);
 const variant = "primary";
 const listBoxOptionsVariant = "narrow";
-
 provide("variant", variant);
 provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>
