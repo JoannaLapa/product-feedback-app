@@ -34,10 +34,10 @@ import CommentsList from "../../components/comments/CommentsList.vue";
 // import AddComment from "../../components/comments/AddComment.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 
-const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
-const commentsList = ref([...feedback.value.comments]);
 const feedbacksStore = useFeedbacksStore();
 const route = useRoute();
 feedbacksStore.fetchFeedbacks();
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
+const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
+const commentsList = ref([...feedback.value.comments]);
 </script>
