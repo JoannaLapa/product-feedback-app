@@ -3,6 +3,7 @@
     class="flex items-center justify-between py-2 px-3 xs:px-6 sm:rounded-lg sm:py-3.5 sm:pr-3 sm:pl-6 lg:pr-4"
     :class="{
       'min-h-14 bg-neutral-600': variant === 'primary',
+      'px-0 py-0': variant === 'neutral',
     }"
   >
     <slot></slot>
