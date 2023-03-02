@@ -1,8 +1,8 @@
 <template>
   <!-- todo: BaseBox should have :is tag and here BaseBox should be li -->
-  <BaseBox>
+  <BaseBox variant="primary">
     <article
-      class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 p-6 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10 sm:px-8 sm:py-8 xl:py-7"
+      class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10"
     >
       <!-- the commented paragraph should be added when the component is used in StatusFeedbackList page -->
       <!-- <p v-if="roadmap">{{ feedback.status }}</p> -->
