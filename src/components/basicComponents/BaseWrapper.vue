@@ -5,6 +5,7 @@
       'mx-6 mt-8 flex flex-col gap-9 sm:w-134 sm:gap-17 lg:my-23':
         variant === 'secondary',
       'sm:px-10 md:px-24 lg:my-24 lg:gap-8 xl:max-w-6xl': variant === 'primary',
+      'my-6 mx-6 flex flex-col': variant === 'tertiary',
     }"
   >
     <slot></slot>
@@ -16,7 +17,8 @@ defineProps({
   variant: {
     type: String,
     default: "primary",
-    validation: (variant) => ["primary", "secondary"].includes(variant),
+    validation: (variant) =>
+      ["primary", "secondary", "tertiary"].includes(variant),
   },
 });
 </script>
