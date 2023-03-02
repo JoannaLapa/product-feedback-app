@@ -1,7 +1,8 @@
 <template>
   <main>
-    <BaseWrapper>
-      <GoBack>
+    <BaseWrapper variant="tertiary">
+      <BaseBar variant="neutral">
+        <GoBack />
         <BaseButton
           tag="router-link"
           to="/edit"
@@ -9,7 +10,7 @@
           type=""
           variant="secondary"
         />
-      </GoBack>
+      </BaseBar>
       <FeedbackItem
         :feedback="feedback"
         :number="Number(route.params.id.slice(1))"
@@ -29,6 +30,7 @@ import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useRoute } from "vue-router";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";
+import BaseBar from "../../components/basicComponents/BaseBar.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 import CommentsList from "../../components/comments/CommentsList.vue";
 // import AddComment from "../../components/comments/AddComment.vue";
