@@ -1,13 +1,27 @@
 <template>
   <li>
-    <article>
-      <div>
-        <slot></slot>
-        <h3>{{ name }}</h3>
-        <p>{{ userName }}</p>
+    <article class="flex flex-col gap-4 py-6">
+      <div class="flex justify-between">
+        <div class="flex gap-4">
+          <img
+            :src="src"
+            alt="photo of the user"
+            class="h-10 w-10 rounded-full"
+          />
+          <div>
+            <h3 class="text-xxs font-bold text-neutral-500">{{ name }}</h3>
+            <p class="text-xxs text-neutral-400">{{ userName }}</p>
+          </div>
+        </div>
         <BaseButton tag="button" type="button" variant="pure" text="Reply" />
       </div>
-      <p>{{ content }}</p>
+      <p class="text-xxs text-neutral-400">
+        <span v-if="reply" class="font-bold text-primary-200">{{
+          replyTo
+        }}</span
+        >{{ content }}
+      </p>
+      <slot></slot>
     </article>
   </li>
 </template>
@@ -26,6 +40,18 @@ defineProps({
   content: {
     type: String,
     default: "",
+  },
+  src: {
+    type: String,
+    default: "",
+  },
+  replyTo: {
+    type: String,
+    default: "",
+  },
+  reply: {
+    type: Boolean,
+    default: false,
   },
 });
 </script>
