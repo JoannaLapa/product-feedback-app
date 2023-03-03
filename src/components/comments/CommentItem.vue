@@ -1,6 +1,11 @@
 <template>
   <li>
-    <article class="flex flex-col gap-4 py-6">
+    <article
+      class="flex flex-col gap-4"
+      :class="{
+        'py-6': variant === 'primary',
+      }"
+    >
       <div class="flex justify-between">
         <div class="flex gap-4">
           <img
@@ -52,6 +57,11 @@ defineProps({
   reply: {
     type: Boolean,
     default: false,
+  },
+  variant: {
+    type: String,
+    required: true,
+    validation: (variant) => ["primary", "secondary"].includes(variant),
   },
 });
 </script>
