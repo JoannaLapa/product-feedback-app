@@ -1,27 +1,29 @@
 <template>
   <li>
     <article
-      class="flex flex-col gap-4"
+      class="flex flex-col gap-4 sm:grid sm:grid-cols-comment-article-sm"
       :class="{
         'py-6': variant === 'primary',
       }"
     >
-      <div class="flex justify-between">
-        <div class="flex gap-4">
+      <div class="flex justify-between sm:col-span-full">
+        <div class="flex gap-4 sm:gap-8">
           <img
             :src="src"
             alt="photo of the user"
             class="h-10 w-10 rounded-full"
           />
           <div>
-            <h3 class="text-xxs font-bold text-neutral-500">{{ name }}</h3>
-            <p class="text-xxs text-neutral-400">{{ userName }}</p>
+            <h3 class="text-xxs font-bold text-neutral-500 sm:text-xs">
+              {{ name }}
+            </h3>
+            <p class="text-xxs text-neutral-400 sm:text-xs">{{ userName }}</p>
           </div>
         </div>
         <BaseButton tag="button" type="button" variant="pure" text="Reply" />
       </div>
-      <p class="text-xxs text-neutral-400">
-        <span v-if="reply" class="font-bold text-primary-200">{{
+      <p class="text-xxs text-neutral-400 sm:col-start-2 sm:text-sm">
+        <span v-if="reply" class="font-bold text-primary-200 sm:text-sm">{{
           replyTo
         }}</span
         >{{ content }}
