@@ -19,7 +19,7 @@
           <!-- future todo: set before with same tyles like divide from comment up, but on x and from the begginind of comment content to the middle of avatar of the last reply?  -->
           <ul
             v-if="comment.replies"
-            class="relative flex flex-col gap-6 divide-neutral-400/10 pl-6 before:absolute before:left-0 before:h-4/6 before:border-l before:border-neutral-400 before:opacity-10"
+            class="relative flex flex-col gap-6 divide-neutral-400/10 pl-6 before:absolute before:left-0 before:h-4/6 before:border-l before:border-neutral-400 before:opacity-10 sm:col-span-full"
           >
             <CommentItem
               v-for="reply in comment.replies"

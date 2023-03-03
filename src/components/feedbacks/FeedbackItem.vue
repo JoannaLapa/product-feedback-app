@@ -23,15 +23,17 @@
         class="col-span-full row-span-1 sm:col-span-2 sm:row-span-full"
         :to="linkTo"
       >
-        <div class="flex flex-col gap-2">
-          <h2
-            class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
-          >
-            {{ feedback.title }}
-          </h2>
-          <p class="text-xxs text-neutral-400 sm:text-base">
-            {{ feedback.description }}
-          </p>
+        <div class="flex flex-col gap-2 sm:gap-3">
+          <div class="flex flex-col gap-2 sm:gap-1">
+            <h2
+              class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+            >
+              {{ feedback.title }}
+            </h2>
+            <p class="text-xxs text-neutral-400 sm:text-base">
+              {{ feedback.description }}
+            </p>
+          </div>
           <p
             class="w-fit rounded-lg bg-neutral-300 py-1.5 px-4 text-xxs font-semibold text-primary-100 sm:mt-1"
           >
