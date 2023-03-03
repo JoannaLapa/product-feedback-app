@@ -19,7 +19,7 @@
         :number="feedback.comments ? feedback.comments.length : 0"
         :comments-list="commentsList"
       />
-      <!--  <AddComment /> -->
+      <AddComment />
     </BaseWrapper>
   </main>
 </template>
@@ -33,7 +33,7 @@ import GoBack from "../../components/basicComponents/GoBack.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 import CommentsList from "../../components/comments/CommentsList.vue";
-// import AddComment from "../../components/comments/AddComment.vue";
+import AddComment from "../../components/comments/AddComment.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 
 const feedbacksStore = useFeedbacksStore();
