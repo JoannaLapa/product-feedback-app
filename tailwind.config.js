@@ -76,6 +76,7 @@ module.exports = {
         "sidebar-lg": "13.75rem",
         "sidebar-xl": "15.875rem",
         "feedback-article-sm": "2.5rem 1fr 2.75rem",
+        "comment-article-sm": "2.5rem 1fr",
       },
       gridTemplateRows: {
         "sidebar-lg": "8.625rem 23rem",
