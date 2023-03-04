@@ -21,6 +21,7 @@ module.exports = {
         "secondary-400": "#62BCFA",
         "secondary-500": "#8397F8",
         "secondary-600": "#C75AF6",
+        "secondary-700": " #7C91F9",
         "neutral-100": "#FFFFFF",
         "neutral-200": "#F7F8FD",
         "neutral-300": "#F2F4FF",
@@ -84,6 +85,7 @@ module.exports = {
         "feedback-article": "1fr 2rem",
       },
       maxWidth: {
+        "1/2": "50%",
         xl: "33.75rem",
         "3xl": "51.625rem",
         "4xl": "55rem",
@@ -93,6 +95,7 @@ module.exports = {
       },
       screens: {
         xs: "375px",
+        "2xl": "1440px",
       },
       spacing: {
         //follows tailwind spacing system organisation - 1 = approx 4px //

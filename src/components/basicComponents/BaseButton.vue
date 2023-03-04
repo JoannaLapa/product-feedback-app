@@ -9,7 +9,7 @@
         variant === 'neutral',
       'h-8 w-17 gap-2.5 bg-neutral-300  text-xxs font-bold text-neutral-500 hover:bg-secondary-300 focus:bg-primary-100 focus:text-neutral-100 sm:h-14 sm:w-10 sm:flex-col sm:gap-2':
         variant === 'small',
-      'h-7.5 w-fit bg-primary-100 px-4 text-xxs font-bold text-neutral-100':
+      'h-7.5 w-fit bg-primary-100 px-4 text-xxs font-bold text-neutral-100 hover:bg-secondary-700 sm:h-11 sm:px-6 sm:text-xs':
         variant === 'secondary',
       'h-10 w-full bg-primary-200 text-neutral-300 hover:bg-secondary-600 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
         variant === 'primary',

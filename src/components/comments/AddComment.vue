@@ -11,7 +11,7 @@
           maxlength="250"
           placeholder="Type your comment here"
           aria-describedby="characters-left"
-          class="resize-none rounded-md bg-neutral-200 p-4 placeholder:text-xxs placeholder:text-neutral-1000"
+          class="cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 placeholder:text-xxs placeholder:text-neutral-1000 sm:text-xs"
         />
         <div class="flex w-full justify-between">
           <p id="characters-left" class="text-xxs text-neutral-400">

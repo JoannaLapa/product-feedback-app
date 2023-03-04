@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="flex justify-center">
     <BaseWrapper variant="tertiary">
       <BaseBar variant="neutral">
         <GoBack />
