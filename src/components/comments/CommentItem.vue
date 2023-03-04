@@ -3,7 +3,7 @@
     <article
       class="flex flex-col gap-4 sm:grid sm:grid-cols-comment-article-sm"
       :class="{
-        'py-6': variant === 'primary',
+        'py-6 md:py-8': variant === 'primary',
       }"
     >
       <div class="flex justify-between sm:col-span-full">
