@@ -11,6 +11,7 @@
           variant="small"
           :number="feedback.upvotes"
           class="group relative col-span-1 row-start-2 flex w-fit flex-row-reverse place-content-center sm:row-span-full sm:flex-col"
+          @action="addUpvotedFeedback(feedback)"
         >
           <ArrowUp
             class="transition-300 stroke-primary-100 transition group-focus:stroke-neutral-100"
@@ -54,11 +55,13 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
 import BaseButton from "../basicComponents/BaseButton.vue";
+import { useUserStore } from "@/stores/user.js";
+import { useFeedbacksStore } from "@/stores/feedbacks.js";
 
 const props = defineProps({
   // Ola's suggestion - If null then you should think about hiding this component
@@ -72,8 +75,15 @@ const props = defineProps({
     default: "/feedbacks",
   },
 });
+const usersStore = useUserStore();
+const useFeedbackStore = useFeedbacksStore();
+const upvotedFeeedback = ref({});
 const feedbackPageLink = computed(() => `/${props.feedback.id}`);
 const firstLetterToUpper = (name) =>
   name.charAt(0).toUpperCase() + name.slice(1);
+const addUpvotedFeedback = (feedback) => {
+  upvotedFeeedback.value = feedback;
+  usersStore.addUpvotedFeedback(upvotedFeeedback.value);
+  useFeedbackStore.increaseUpvotes();
+};
 </script>
-``

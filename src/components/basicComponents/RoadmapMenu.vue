@@ -12,7 +12,7 @@
       </div>
       <ul class="flex flex-col gap-2">
         <RoadmapItem
-          v-for="[statusName, statusNumber] in COUNTED_STATUS_MAP"
+          v-for="[statusName, statusNumber] in countedStatusMap"
           :key="statusName"
           :status-name="statusName"
           :status-number="statusNumber"
@@ -30,5 +30,5 @@ import BaseBox from "./BaseBox.vue";
 import RoadmapItem from "./RoadmapItem.vue";
 
 const feedbacksStore = useFeedbacksStore();
-const COUNTED_STATUS_MAP = computed(() => feedbacksStore.COUNTED_STATUS_MAP);
+const countedStatusMap = computed(() => feedbacksStore.countedStatusMap);
 </script>

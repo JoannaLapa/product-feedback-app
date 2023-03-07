@@ -20,7 +20,7 @@
         variant === 'small',
       'h-7.5 bg-primary-100 text-neutral-100': variant === 'secondary',
     }"
-    @click="$emit('filter-data')"
+    @click="$emit('action')"
   >
     {{ text || number }}
     <slot></slot>
@@ -59,5 +59,5 @@ defineProps({
   },
 });
 
-defineEmits(["filter-data"]);
+defineEmits(["action"]);
 </script>

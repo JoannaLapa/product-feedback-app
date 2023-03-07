@@ -23,5 +23,5 @@ import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 
 const feedbacksStore = useFeedbacksStore();
 // const feedbacks = computed(() => feedbacksStore.feedbacks);
-onMounted(feedbacksStore.FETCH_FEEDBACKS);
+onMounted(feedbacksStore.fetchFeedbacks);
 </script>
