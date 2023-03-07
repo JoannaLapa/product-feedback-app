@@ -13,10 +13,10 @@
           />
         </div>
         <BaseButton
-          link
+          tag="router-link"
           to="/add"
           text="+ Add Feedback"
-          variant="primary"
+          variant="primary-link"
           type=""
         />
       </BaseBar>
@@ -26,6 +26,7 @@
           v-for="feedback in sortedFeedbacksList"
           :key="feedback.id"
           :feedback="feedback"
+          :number="sortedFeedbacksList.indexOf(feedback)"
         />
       </ul>
     </main>
@@ -63,7 +64,6 @@ const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
 const optionValues = computed(() => feedbacksStore.options);
 const variant = "primary";
 const listBoxOptionsVariant = "narrow";
-
 provide("variant", variant);
 provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>

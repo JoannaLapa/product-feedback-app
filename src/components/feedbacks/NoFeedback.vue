@@ -8,7 +8,13 @@
         about new ideas to improve our app.
       </p>
     </div>
-    <BaseButton link to="/add">+ Add Feedback</BaseButton>
+    <BaseButton
+      tag="router-link"
+      type=""
+      variant="primary-link"
+      text="+ Add Feedback"
+      to="/add"
+    />
   </BaseBox>
 </template>
 

@@ -4,7 +4,12 @@
       <BaseBar variant="primary">
         <GoBack></GoBack>
         <h2>Roadmap</h2>
-        <BaseButton link to="/add" variant="primary" text="+ Add Feedback" />
+        <BaseButton
+          tag="router-link"
+          to="/add"
+          variant="primary"
+          text="+ Add Feedback"
+        />
       </BaseBar>
     </BaseWrapper>
     <BaseWrapper>

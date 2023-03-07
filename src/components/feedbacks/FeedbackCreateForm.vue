@@ -62,6 +62,7 @@
     >
       <div class="flex flex-col gap-4 sm:flex-row-reverse">
         <BaseButton
+          tag="button"
           variant="primary"
           text="Add Feedback"
           type="button"
