@@ -12,6 +12,7 @@
   </router-link>
   <button
     v-else
+    :type="type"
     class="flex place-items-center justify-center rounded-lg p-2.5 transition duration-300"
     :class="{
       'h-7.5 bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100':
@@ -60,6 +61,10 @@ defineProps({
     required: true,
     validation: (variant) =>
       ["primary", "secondary", "neutral", "dark", "small"].includes(variant),
+  },
+  type: {
+    type: String,
+    required: true,
   },
 });
 

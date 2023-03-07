@@ -36,7 +36,6 @@
 import { ref } from "vue";
 import SortByCategory from "./SortByCategory.vue";
 import RoadmapMenu from "./RoadmapMenu.vue";
-// import BaseWrapper from "./BaseWrapper.vue";
 import IconOpenMenu from "../icons/IconOpenMenu.vue";
 import IconCloseMenu from "../icons/IconCloseMenu.vue";
 

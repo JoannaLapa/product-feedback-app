@@ -6,14 +6,12 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => {
     return {
       feedbacks: [],
-      categories: [
-        { id: 0, name: "All" },
-        { id: 1, name: "UX" },
-        { id: 2, name: "UI" },
-        { id: 3, name: "Enhancement" },
-        { id: 4, name: "Bug" },
-        { id: 5, name: "Feature" },
-      ],
+      categoryAll: { id: 0, name: "All", unavailable: false },
+      categoryUX: { id: 1, name: "UX", unavailable: false },
+      categoryUI: { id: 2, name: "UI", unavailable: false },
+      categoryEnhancement: { id: 3, name: "Enhancement", unavailable: false },
+      categoryBug: { id: 4, name: "Bug", unavailable: false },
+      categoryFeature: { id: 5, name: "Feature", unavailable: false },
       options: [
         { id: 1, name: "Most Upvotes", unavailable: false },
         { id: 2, name: "Least Upvotes", unavailable: false },
@@ -24,13 +22,17 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   },
   actions: {
     async fetchFeedbacks() {
-      try {
-        const feedbacks = await getFeedbacks();
-        this.feedbacks = feedbacks;
-      } catch (err) {
-        err instanceof Error
-          ? console.log(`The error: ${err.message}`)
-          : console.log("Something went wrong");
+      if (JSON.parse(localStorage.getItem("feedbacks"))) {
+        this.feedbacks = JSON.parse(localStorage.getItem("feedbacks"));
+      } else {
+        try {
+          const feedbacks = await getFeedbacks();
+          this.feedbacks = feedbacks;
+        } catch (err) {
+          err instanceof Error
+            ? console.log(`The error: ${err.message}`)
+            : console.log("Something went wrong");
+        }
       }
     },
     //increase the upvotes after click
@@ -42,18 +44,22 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         return this.upvotedFeedback.upvotes;
       }
     },
+    updateFeedbackList() {
+      const userStore = useUserStore();
+      return this.feedbacks.push(userStore.createdFeedback);
+    },
   },
   getters: {
-    countedStatusMap(state) {
+    countedStatusMap() {
       const statusNumbers = new Map();
       //counting how many feedbacks are dependly on status value
-      const plannedNumber = state.feedbacks.filter(
+      const plannedNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "planned"
       ).length;
-      const inProgressNumber = state.feedbacks.filter(
+      const inProgressNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "in-progress"
       ).length;
-      const liveNumber = state.feedbacks.filter(
+      const liveNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "live"
       ).length;
       //map with status names as a key and status quantity as a value
@@ -66,13 +72,13 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     },
     //if the feedback.category is empty I return all feedbacks - idea for the future improvement - maybe better is to make this button disabled
     //filtering feedbacks when the user clicks on the button with category
-    filteredFeedbacksList(state) {
+    filteredFeedbacksList() {
       const userStore = useUserStore();
-      const filteredFeedbacks = state.feedbacks.filter(
+      const filteredFeedbacks = this.feedbacks.filter(
         (feedback) => userStore.selectedCategories.name === feedback.category
       );
       return filteredFeedbacks.length === 0
-        ? state.feedbacks
+        ? this.feedbacks
         : filteredFeedbacks;
     },
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
@@ -114,13 +120,24 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       );
       return feedbackToUpvote;
     },
+    categories() {
+      return [
+        this.categoryAll,
+        this.categoryUX,
+        this.categoryUI,
+        this.categoryEnhancement,
+        this.categoryBug,
+        this.categoryFeature,
+      ];
+    },
     uniqueCategories() {
-      const uniqueCategories = this.categories.slice(5);
-      uniqueCategories.push(
-        ...this.categories.slice(1, 3).reverse(),
-        ...this.categories.slice(3, 5)
-      );
-      return uniqueCategories;
+      return [
+        this.categoryFeature,
+        this.categoryUI,
+        this.categoryUX,
+        this.categoryEnhancement,
+        this.categoryBug,
+      ];
     },
   },
 });

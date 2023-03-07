@@ -26,6 +26,7 @@
               class="relative cursor-pointer select-none py-3 text-neutral-400 transition duration-300 hover:text-primary-200 md:text-xs lg:text-base"
             >
               <button
+                class="w-full text-left"
                 type="button"
                 @click="
                   selectData({
@@ -60,6 +61,7 @@ import { Listbox, ListboxOption, ListboxLabel } from "@headlessui/vue";
 import BaseListboxButton from "./BaseListboxButton.vue";
 import BaseListboxOptions from "./BaseListboxOptions.vue";
 import IconCheck from "../icons/IconCheck.vue";
+
 const selectedOption = ref();
 const props = defineProps({
   labelTitle: {

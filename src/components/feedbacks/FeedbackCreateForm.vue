@@ -1,7 +1,10 @@
 <!-- todo - after implementing correctly BaseSelect verify spacing and element hight again -->
 
 <template>
-  <form class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10.5">
+  <form
+    class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10.5"
+    @submit.prevent="updateFeedbackList"
+  >
     <fieldset class="flex flex-col gap-6">
       <div>
         <legend class="pb-4 text-lg font-bold text-neutral-500 sm:text-2xl">
@@ -17,9 +20,10 @@
         />
         <input
           id="feedback-title"
+          v-model.trim="newFeedbackTitle"
           type="text"
           aria-describedby="feedback-title-instruction"
-          class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200"
+          class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:p-6"
         />
       </div>
       <div>
@@ -32,7 +36,7 @@
         <BaseSelect
           id="category"
           aria-described-by="category - instruction"
-          :options="uniqueCategories"
+          :options="options"
           :action="usersStore.assignCategory"
         />
       </div>
@@ -45,9 +49,10 @@
         />
         <textarea
           id="feedback-detail"
+          v-model.trim="newDescription"
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
-          class="mt-4 h-30 w-full resize-none rounded-md bg-neutral-200 sm:h-24"
+          class="mt-4 h-30 w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:h-24 sm:p-6"
         />
       </div>
     </fieldset>
@@ -56,10 +61,24 @@
       :class="{ 'sm:justify-end': variant === 'add' }"
     >
       <div class="flex flex-col gap-4 sm:flex-row-reverse">
-        <BaseButton variant="primary" text="Add Feedback" />
-        <BaseButton variant="dark" text="Cancel" />
+        <BaseButton
+          variant="primary"
+          text="Add Feedback"
+          type="button"
+          @action="
+            updateFeedbackList({
+              id: useFeedbackStore.feedbacks.length + 1,
+              title: newFeedbackTitle,
+              category: usersStore.assignedCategory.name,
+              upvotes: 0,
+              status: 'suggestion',
+              description: newDescription,
+            })
+          "
+        />
+        <BaseButton variant="dark" text="Cancel" type="button" />
       </div>
-      <BaseButton v-if="edit" text="Delete" />
+      <BaseButton v-if="edit" text="Delete" type="button" />
     </div>
   </form>
 </template>
@@ -70,7 +89,8 @@ import BaseLabel from "../basicComponents/BaseLabel.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "../../stores/user.js";
-import { computed } from "vue";
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
 defineProps({
   title: {
@@ -90,5 +110,17 @@ defineProps({
 
 const useFeedbackStore = useFeedbacksStore();
 const usersStore = useUserStore();
-const uniqueCategories = computed(() => useFeedbackStore.uniqueCategories);
+const router = useRouter();
+const newFeedbackTitle = ref("");
+const newDescription = ref("");
+const newFeedback = ref({});
+const options = computed(() => useFeedbackStore.uniqueCategories);
+
+const updateFeedbackList = (data) => {
+  newFeedback.value = data;
+  usersStore.addNewFeedback(newFeedback.value);
+  useFeedbackStore.updateFeedbackList();
+  localStorage.setItem("feedbacks", JSON.stringify(useFeedbackStore.feedbacks));
+  router.push("/");
+};
 </script>
