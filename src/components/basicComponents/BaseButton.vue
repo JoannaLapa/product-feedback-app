@@ -12,13 +12,17 @@
   </router-link>
   <button
     v-else
-    class="flex place-items-center rounded-lg p-2.5 transition duration-300"
+    class="flex place-items-center justify-center rounded-lg p-2.5 transition duration-300"
     :class="{
       'h-7.5 bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100':
         variant === 'neutral',
       'h-8 w-17 gap-2.5 bg-neutral-300  text-xxs font-bold text-neutral-500 hover:bg-secondary-300 focus:bg-primary-100 focus:text-neutral-100 sm:h-14 sm:w-10 sm:flex-col sm:gap-2':
         variant === 'small',
       'h-7.5 bg-primary-100 text-neutral-100': variant === 'secondary',
+      'h-10 w-full bg-primary-200 text-neutral-300 hover:bg-secondary-600 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
+        variant === 'primary',
+      'h-10 w-full bg-neutral-500 text-neutral-300 hover:bg-neutral-900 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
+        variant === 'dark',
     }"
     @click="$emit('action')"
   >
@@ -55,7 +59,7 @@ defineProps({
     type: String,
     required: true,
     validation: (variant) =>
-      ["primary", "secondary", "neutral", "small"].includes(variant),
+      ["primary", "secondary", "neutral", "dark", "small"].includes(variant),
   },
 });
 

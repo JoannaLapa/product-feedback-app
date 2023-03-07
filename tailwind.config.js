@@ -29,6 +29,7 @@ module.exports = {
         "neutral-600": "#373F68",
         "neutral-700": "#979797",
         "neutral-800": "#373f6859",
+        "neutral-900": "#656EA3",
       },
       backgroundImage: {
         "header-sm":
@@ -81,8 +82,12 @@ module.exports = {
         "feedback-article": "1fr 2rem",
       },
       maxWidth: {
+        xl: "33.75rem",
         "3xl": "51.625rem",
         "4xl": "55rem",
+      },
+      minWidth: {
+        "3/4": "70%",
       },
       screens: {
         xs: "375px",
@@ -90,16 +95,20 @@ module.exports = {
       spacing: {
         //follows tailwind spacing system organisation - 1 = approx 4px //
         7.5: "1.875rem",
+        10.5: "2.625rem", //42px
         17: "4.375rem", //70px
         18: "4.5rem",
         19: "4.8125rem",
+        23: "5.75rem", //92px
         26: "6.5rem",
+        30: "7.5rem", //120px
         45: "11.125rem",
         59: "15.9375rem",
         61: "15.3125rem",
         73: "18.9375rem",
         76: "19rem",
-        132: "33.125rem",
+        132: "33.125rem", //530px
+        134: "33.75rem", //540px
       },
       boxShadow: {
         "3xl": "0 10px 40px -7px rgba(55, 63, 104, 0.350492)",

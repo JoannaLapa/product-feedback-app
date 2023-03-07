@@ -30,22 +30,21 @@
             <p class="text-xxs text-neutral-400 sm:text-base">
               {{ feedback.description }}
             </p>
-            <!-- <div class="w-fit rounded-lg bg-neutral-300 sm:mt-1"> -->
             <p
               class="w-fit rounded-lg bg-neutral-300 py-1.5 px-4 text-xxs font-semibold text-primary-100 sm:mt-1"
             >
               {{ firstLetterToUpper(feedback.category) }}
             </p>
-            <!-- </div> -->
           </div>
         </router-link>
         <div
           class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold sm:col-span-3 sm:row-span-full sm:self-center sm:text-base"
         >
           <IconComments />
-          <!-- if there iss no comment  - the number should be in grey color -->
-          <!-- :class="{ 'opacity-50': the condition?? }" -->
-          <p class="text-neutral-500 opacity-100">
+          <p
+            class="text-neutral-500 opacity-100"
+            :class="{ 'opacity-50': !feedback.comments }"
+          >
             {{ feedback.comments ? feedback.comments.length : 0 }}
           </p>
         </div>

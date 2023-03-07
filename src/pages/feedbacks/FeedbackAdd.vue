@@ -1,13 +1,10 @@
 <template>
-  <main>
-    <BaseWrapper>
+  <main class="flex justify-center">
+    <BaseWrapper variant="secondary" class="sm:mt-14">
       <GoBack />
       <BaseBox>
         <IconNewFeedback />
-        <FeedbackCreateForm
-          title="Create New Feedback"
-          submit-title="Add Feedback"
-        />
+        <FeedbackCreateForm title="Create New Feedback" variant="add" />
       </BaseBox>
     </BaseWrapper>
   </main>
