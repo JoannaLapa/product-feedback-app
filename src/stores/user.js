@@ -7,6 +7,7 @@ export const useUserStore = defineStore("user", {
     selectedSortingCategory: [
       { id: 1, name: "Most Upvotes", unavailable: false },
     ],
+    assignedCategory: { id: 5, name: "Feature" },
   }),
   actions: {
     addSelectedCategory(category) {
@@ -16,7 +17,14 @@ export const useUserStore = defineStore("user", {
       this.upvotedFeedback = upvotedFeedback;
     },
     addSelectedSortingCategory(sortingCategory) {
-      this.selectedSortingCategory = sortingCategory;
+      if (sortingCategory) {
+        this.selectedSortingCategory = sortingCategory;
+      }
+    },
+    assignCategory(category) {
+      if (category) {
+        this.assignedCategory = category;
+      }
     },
   },
 });

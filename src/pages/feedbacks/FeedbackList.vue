@@ -5,7 +5,12 @@
       <BaseBar variant="primary">
         <div class="items-center sm:flex sm:gap-10">
           <ShowSuggestions :feedbacks-length="Object.keys(feedbacks).length" />
-          <BaseSelect />
+          <BaseSelect
+            label-title="Sort by:"
+            ok
+            :options="optionValues"
+            :action="usersStore.addSelectedSortingCategory"
+          />
         </div>
         <BaseButton link to="/add" text="+ Add Feedback" variant="primary" />
       </BaseBar>
@@ -21,8 +26,9 @@
   </BaseWrapper>
 </template>
 <script setup>
-import { onMounted, computed } from "vue";
+import { onMounted, computed, provide } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
+import { useUserStore } from "../../stores/user.js";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
@@ -31,6 +37,8 @@ import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vu
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 import NoFeedback from "../../components/feedbacks/NoFeedback.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
+
+//future todo:
 // v-if here, because default is null. (this is Ola's suggestion how to do it) - I think it was a comment for resolving noFeedback case
 // set the v-if - if there is no feedback add NoFeedback component v-else if there are feedbacks set FeedbackItem component with v-for
 // <!-- attach NoFeedback and make like in the BaseButton props with Boolean and if true attach feedback item if false - v-else - attach NoFeedback component
@@ -41,7 +49,16 @@ defineProps({
   },
 });
 const feedbacksStore = useFeedbacksStore();
+const usersStore = useUserStore();
+
 onMounted(feedbacksStore.fetchFeedbacks);
+
 const feedbacks = computed(() => feedbacksStore.feedbacks);
 const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
+const optionValues = computed(() => feedbacksStore.options);
+const variant = "primary";
+const listBoxOptionsVariant = "narrow";
+
+provide("variant", variant);
+provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>

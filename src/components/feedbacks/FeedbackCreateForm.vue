@@ -19,7 +19,7 @@
           id="feedback-title"
           type="text"
           aria-describedby="feedback-title-instruction"
-          class="mt-4 h-12 w-full rounded-md bg-neutral-200"
+          class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200"
         />
       </div>
       <div>
@@ -29,7 +29,12 @@
           id-title="category-instruction"
           description="Choose a category for your feedback"
         />
-        <BaseSelect id="category" aria-described-by="category - instruction" />
+        <BaseSelect
+          id="category"
+          aria-described-by="category - instruction"
+          :options="uniqueCategories"
+          :action="usersStore.assignCategory"
+        />
       </div>
       <div>
         <BaseLabel
@@ -54,7 +59,7 @@
         <BaseButton variant="primary" text="Add Feedback" />
         <BaseButton variant="dark" text="Cancel" />
       </div>
-      <BaseButton v-if="edit"> Delete </BaseButton>
+      <BaseButton v-if="edit" text="Delete" />
     </div>
   </form>
 </template>
@@ -63,6 +68,9 @@
 import BaseButton from "../basicComponents/BaseButton.vue";
 import BaseLabel from "../basicComponents/BaseLabel.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
+import { useFeedbacksStore } from "@/stores/feedbacks.js";
+import { useUserStore } from "../../stores/user.js";
+import { computed } from "vue";
 
 defineProps({
   title: {
@@ -79,4 +87,8 @@ defineProps({
     validation: (variant) => ["edit", "add"].includes(variant),
   },
 });
+
+const useFeedbackStore = useFeedbacksStore();
+const usersStore = useUserStore();
+const uniqueCategories = computed(() => useFeedbackStore.uniqueCategories);
 </script>

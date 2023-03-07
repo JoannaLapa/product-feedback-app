@@ -1,5 +1,5 @@
 <template>
-  <li v-for="{ id, name } in uniqueCategories" :key="id">
+  <li v-for="{ id, name } in categories" :key="id">
     <BaseButton
       :variant="whichVariant(name)"
       :text="name"
@@ -17,7 +17,7 @@ import { useUserStore } from "@/stores/user.js";
 
 const usersStore = useUserStore();
 const feedbacksStore = useFeedbacksStore();
-const uniqueCategories = computed(() => feedbacksStore.uniqueCategories);
+const categories = computed(() => feedbacksStore.categories);
 const activeFilter = ref("All");
 
 const whichVariant = (name) => {
