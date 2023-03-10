@@ -13,7 +13,7 @@
         variant === 'secondary',
       'h-10 w-full bg-primary-200 text-neutral-300 hover:bg-secondary-600 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
         variant === 'primary',
-      'max-h-10 w-fit bg-primary-200 p-2 text-xxs font-bold text-neutral-300 hover:bg-secondary-600 xs:p-4 md:max-h-11 md:text-sm':
+      'max-h-10 w-fit bg-primary-200 p-2 text-xxs font-bold text-neutral-300 hover:bg-secondary-600 xs:p-4 sm:px-6 sm:py-3 md:max-h-11 md:text-sm':
         variant === 'primary-narrow',
       'h-10 w-full bg-neutral-500 text-neutral-300 hover:bg-neutral-900 sm:h-11 sm:min-w-fit sm:px-6 md:text-sm':
         variant === 'dark',

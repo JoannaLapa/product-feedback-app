@@ -10,7 +10,7 @@
       <div
         class="flex flex-col gap-4"
         :class="{
-          'justify-between sm:w-full sm:flex-row': variant === 'flex-row',
+          'sm:w-full sm:flex-row sm:justify-between': variant === 'flex-row',
         }"
       >
         <textarea
@@ -19,9 +19,16 @@
           maxlength="250"
           placeholder="Type your comment here"
           aria-describedby="characters-left"
-          class="w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 placeholder:text-xxs placeholder:text-neutral-1000 sm:text-xs"
+          class="cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 placeholder:text-xxs placeholder:text-neutral-1000 sm:text-xs"
+          :class="{ 'sm:basis-9/12': variant === 'flex-row' }"
         />
-        <div class="flex w-full justify-between">
+        <div
+          class="flex w-full"
+          :class="{
+            'justify-end sm:basis-3/12': variant === 'flex-row',
+            'justify-between': variant === 'flex-col',
+          }"
+        >
           <p
             v-if="postComment"
             id="characters-left"
