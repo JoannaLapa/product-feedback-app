@@ -6,6 +6,7 @@
         variant === 'small',
       'p-6 sm:px-7 sm:py-8 xl:py-7': variant === 'primary',
       'px-6 pt-6 sm:px-8 sm:pt-8 xl:pt-7': variant === 'secondary',
+      'w-full sm:col-start-2': variant === 'pure',
     }"
   >
     <slot></slot>
@@ -18,7 +19,7 @@ defineProps({
     type: String,
     default: "",
     validation: (variant) =>
-      ["small", "primary", "secondary"].includes(variant),
+      ["small", "primary", "secondary", "pure"].includes(variant),
   },
 });
 </script>
