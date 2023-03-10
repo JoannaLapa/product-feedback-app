@@ -16,7 +16,7 @@
           tag="router-link"
           to="/add"
           text="+ Add Feedback"
-          variant="primary-link"
+          variant="primary-narrow"
           type=""
         />
       </BaseBar>

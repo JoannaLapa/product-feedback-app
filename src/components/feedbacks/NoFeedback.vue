@@ -11,7 +11,7 @@
     <BaseButton
       tag="router-link"
       type=""
-      variant="primary-link"
+      variant="primary-narrow"
       text="+ Add Feedback"
       to="/add"
     />

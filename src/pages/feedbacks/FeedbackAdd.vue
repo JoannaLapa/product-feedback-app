@@ -1,3 +1,5 @@
+<!-- future todo: margin bottom to separate wrapper from bottom edge on mobile 
+when clicking on cancel router push to FeedbackList -->
 <template>
   <main class="flex justify-center">
     <BaseWrapper variant="secondary" class="sm:mt-14">

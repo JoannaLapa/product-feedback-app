@@ -1,8 +1,10 @@
+<!-- Future todo 
+  1) set focus() on BaseButton with textContent "All" when the page is loaded (idea onMounted, nextTick()) -->
 <template>
   <li v-for="{ id, name } in categories" :key="id">
     <BaseButton
       tag="button"
-      :variant="whichVariant(name)"
+      variant="neutral"
       :text="name"
       :value="name"
       type="button"
@@ -22,13 +24,6 @@ const feedbacksStore = useFeedbacksStore();
 const categories = computed(() => feedbacksStore.categories);
 const activeFilter = ref("All");
 
-const whichVariant = (name) => {
-  if (name === activeFilter.value) {
-    return "secondary";
-  } else {
-    return "neutral";
-  }
-};
 const filterData = (name) => {
   activeFilter.value = name;
   usersStore.addSelectedCategory(activeFilter.value);
