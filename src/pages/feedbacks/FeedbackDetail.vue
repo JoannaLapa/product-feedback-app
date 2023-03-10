@@ -19,13 +19,13 @@
         :number="feedback.comments ? feedback.comments.length : 0"
         :comments-list="commentsList"
       />
-      <AddComment />
+      <AddComment variant="flex-col" />
     </BaseWrapper>
   </main>
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, provide } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useRoute } from "vue-router";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
@@ -42,4 +42,8 @@ feedbacksStore.fetchFeedbacks();
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
 const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
 const commentsList = ref([...feedback.value.comments]);
+const baseBoxVariant = ref("primary");
+const primaryButtonText = "Post Comment";
+provide("baseBoxVariant", baseBoxVariant);
+provide("primaryButtonText", primaryButtonText);
 </script>

@@ -28,13 +28,16 @@
         }}</span
         >{{ content }}
       </p>
+      <AddComment variant="flex-row" />
       <slot></slot>
     </article>
   </li>
 </template>
 
 <script setup>
+import { provide } from "vue";
 import BaseButton from "../basicComponents/BaseButton.vue";
+import AddComment from "./AddComment.vue";
 defineProps({
   userName: {
     type: String,
@@ -66,4 +69,9 @@ defineProps({
     validation: (variant) => ["primary", "secondary"].includes(variant),
   },
 });
+
+const baseBoxVariant = "pure";
+const primaryButtonText = "Post Reply";
+provide("baseBoxVariant", baseBoxVariant);
+provide("primaryButtonText", primaryButtonText);
 </script>

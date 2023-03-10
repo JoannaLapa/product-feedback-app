@@ -17,6 +17,7 @@
           :content="comment.content"
           :src="`src/${comment.user.image.slice(2)}`"
           variant="primary"
+          post-comment
         >
           <ul
             v-if="comment.replies"
@@ -30,9 +31,9 @@
               :content="reply.content"
               :src="`src/${reply.user.image.slice(2)}`"
               reply
+              post-comment
               :reply-to="`@${reply.replyingTo} `"
             >
-              <!-- <PostReply /> -->
               <!-- add post-replay when the user clicks on reply -->
             </CommentItem>
           </ul>
@@ -46,7 +47,6 @@
 
 <script setup>
 import CommentItem from "./CommentItem.vue";
-// import PostReply from "./PostReply.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
 defineProps({
   number: {
