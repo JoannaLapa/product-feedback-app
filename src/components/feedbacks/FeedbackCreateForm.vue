@@ -77,7 +77,12 @@
             })
           "
         />
-        <BaseButton variant="dark" text="Cancel" type="button" />
+        <BaseButton
+          variant="dark"
+          text="Cancel"
+          type="button"
+          @action="routeToFeedbackList"
+        />
       </div>
       <BaseButton v-if="edit" text="Delete" type="button" />
     </div>
@@ -122,6 +127,10 @@ const updateFeedbackList = (data) => {
   usersStore.addNewFeedback(newFeedback.value);
   useFeedbackStore.updateFeedbackList();
   localStorage.setItem("feedbacks", JSON.stringify(useFeedbackStore.feedbacks));
+  router.push("/");
+};
+
+const routeToFeedbackList = () => {
   router.push("/");
 };
 </script>
