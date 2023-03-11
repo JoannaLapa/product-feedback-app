@@ -15,7 +15,7 @@
           :name="comment.user.name"
           :user-name="comment.user.username"
           :content="comment.content"
-          :src="`src/${comment.user.image.slice(2)}`"
+          :src="`${comment.user.image.slice(8)}`"
           variant="primary"
           post-comment
         >
@@ -29,7 +29,7 @@
               :name="reply.user.name"
               :user-name="reply.user.username"
               :content="reply.content"
-              :src="`src/${reply.user.image.slice(2)}`"
+              :src="`${reply.user.image.slice(8)}`"
               reply
               post-comment
               :reply-to="`@${reply.replyingTo} `"
