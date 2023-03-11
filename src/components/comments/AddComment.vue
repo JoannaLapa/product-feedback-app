@@ -1,6 +1,9 @@
 <template>
   <BaseBox :variant="baseBoxVariant">
-    <form class="flex w-full flex-col gap-6">
+    <form
+      class="flex w-full flex-col gap-6"
+      @submit.prevent="updateCommentsList"
+    >
       <label
         v-if="postComment"
         for="comment"
@@ -15,6 +18,7 @@
       >
         <textarea
           id="comment"
+          v-model.trim="newDescription"
           name="comment"
           maxlength="250"
           placeholder="Type your comment here"
@@ -41,6 +45,17 @@
             type="button"
             variant="primary-narrow"
             :text="primaryButtonText"
+            @action="
+              updateCommentsList({
+                id: newCommentId,
+                content: newDescription,
+                user: {
+                  image: currentUser.image,
+                  name: currentUser.name,
+                  username: currentUser.username,
+                },
+              })
+            "
           />
         </div>
       </div>
@@ -53,7 +68,8 @@
 <script setup>
 import BaseButton from "../basicComponents/BaseButton.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
-import { inject } from "vue";
+import { inject, ref } from "vue";
+import { useUserStore } from "../../stores/user.js";
 
 defineProps({
   number: {
@@ -69,7 +85,20 @@ defineProps({
     default: "",
     validation: (variant) => ["flex-row", "flex-col"].includes(variant),
   },
+  newCommentId: {
+    type: Number,
+    default: null,
+  },
 });
 const baseBoxVariant = inject("baseBoxVariant");
 const primaryButtonText = inject("primaryButtonText");
+const userStore = useUserStore();
+const newComment = ref({});
+userStore.fetchCurrentUser();
+const currentUser = ref(userStore.currentUser);
+const updateCommentsList = (data) => {
+  newComment.value = data;
+  console.log(userStore.currentUser);
+  console.log(newComment.value);
+};
 </script>

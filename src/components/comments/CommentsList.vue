@@ -18,6 +18,7 @@
           :src="`${comment.user.image.slice(8)}`"
           variant="primary"
           post-comment
+          :comments-list="commentsList"
         >
           <ul
             v-if="comment.replies"
@@ -33,6 +34,7 @@
               reply
               post-comment
               :reply-to="`@${reply.replyingTo} `"
+              :comments-list="comment.replies"
             >
               <!-- add post-replay when the user clicks on reply -->
             </CommentItem>

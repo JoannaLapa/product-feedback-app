@@ -20,7 +20,13 @@
             <p class="text-xxs text-neutral-400 sm:text-xs">{{ userName }}</p>
           </div>
         </div>
-        <BaseButton tag="button" type="button" variant="pure" text="Reply" />
+        <BaseButton
+          tag="button"
+          type="button"
+          variant="pure"
+          text="Reply"
+          @action="showReplyWindow"
+        />
       </div>
       <p class="text-xxs text-neutral-400 sm:col-start-2 sm:text-sm">
         <span v-if="reply" class="font-bold text-primary-200 sm:text-sm">{{
@@ -28,14 +34,18 @@
         }}</span
         >{{ content }}
       </p>
-      <AddComment variant="flex-row" />
+      <AddComment
+        v-if="isShown"
+        variant="flex-row"
+        :new-comment-id="commentsList.length + 1"
+      />
       <slot></slot>
     </article>
   </li>
 </template>
 
 <script setup>
-import { provide } from "vue";
+import { provide, ref } from "vue";
 import BaseButton from "../basicComponents/BaseButton.vue";
 import AddComment from "./AddComment.vue";
 defineProps({
@@ -68,10 +78,18 @@ defineProps({
     required: true,
     validation: (variant) => ["primary", "secondary"].includes(variant),
   },
+  commentsList: {
+    type: Array,
+    required: true,
+  },
 });
 
 const baseBoxVariant = "pure";
 const primaryButtonText = "Post Reply";
+const isShown = ref(false);
+const showReplyWindow = () => {
+  isShown.value = !isShown.value;
+};
 provide("baseBoxVariant", baseBoxVariant);
 provide("primaryButtonText", primaryButtonText);
 </script>
