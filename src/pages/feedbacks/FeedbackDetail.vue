@@ -17,7 +17,6 @@
       />
       <CommentsList
         :number="feedback.comments ? feedback.comments.length : 0"
-        :comments-list="commentsList"
       />
       <AddComment variant="flex-col" />
     </BaseWrapper>
@@ -42,8 +41,14 @@ feedbacksStore.fetchFeedbacks();
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
 const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
 const commentsList = ref([...feedback.value.comments]);
+const newCommentId = computed(() => {
+  return commentsList.value.length + 1;
+});
 const baseBoxVariant = ref("primary");
 const primaryButtonText = "Post Comment";
+const providedCommentsList = commentsList.value;
 provide("baseBoxVariant", baseBoxVariant);
 provide("primaryButtonText", primaryButtonText);
+provide("commentsList", providedCommentsList);
+provide("newCommentId", newCommentId);
 </script>

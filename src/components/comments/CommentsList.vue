@@ -18,7 +18,6 @@
           :src="`${comment.user.image.slice(8)}`"
           variant="primary"
           post-comment
-          :comments-list="commentsList"
         >
           <ul
             v-if="comment.replies"
@@ -27,6 +26,7 @@
             <CommentItem
               v-for="reply in comment.replies"
               :key="reply.content"
+              ref="repliesList"
               :name="reply.user.name"
               :user-name="reply.user.username"
               :content="reply.content"
@@ -34,13 +34,9 @@
               reply
               post-comment
               :reply-to="`@${reply.replyingTo} `"
-              :comments-list="comment.replies"
             >
-              <!-- add post-replay when the user clicks on reply -->
             </CommentItem>
           </ul>
-          <!-- <PostReply /> -->
-          <!-- add post-replay when the user clicks on reply -->
         </CommentItem>
       </ul>
     </div>
@@ -50,14 +46,14 @@
 <script setup>
 import CommentItem from "./CommentItem.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
+import { inject, ref, provide } from "vue";
 defineProps({
   number: {
     type: Number,
     required: true,
   },
-  commentsList: {
-    type: Array,
-    required: true,
-  },
 });
+const commentsList = inject("commentsList");
+const repliesList = ref([]);
+provide("commentsList", repliesList.value);
 </script>
