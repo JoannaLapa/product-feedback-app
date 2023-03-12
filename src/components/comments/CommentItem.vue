@@ -10,7 +10,7 @@
         <div class="flex gap-4 sm:gap-8">
           <img
             :src="src"
-            alt="photo of the user"
+            :alt="`photo of the ${name}`"
             class="h-10 w-10 rounded-full"
           />
           <div>
@@ -34,11 +34,7 @@
         }}</span
         >{{ content }}
       </p>
-      <AddComment
-        v-if="isShown"
-        variant="flex-row"
-        :new-comment-id="commentsList.length + 1"
-      />
+      <AddComment v-if="isShown" variant="flex-row" />
       <slot></slot>
     </article>
   </li>
@@ -77,10 +73,6 @@ defineProps({
     type: String,
     required: true,
     validation: (variant) => ["primary", "secondary"].includes(variant),
-  },
-  commentsList: {
-    type: Array,
-    required: true,
   },
 });
 
