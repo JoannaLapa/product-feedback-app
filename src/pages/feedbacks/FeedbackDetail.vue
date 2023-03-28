@@ -116,6 +116,6 @@ const updateCommentsList = (content) => {
 
 provide("baseBoxVariant", baseBoxVariant);
 provide("primaryButtonText", primaryButtonText);
-//code belowe should be replaced with correct one in store 
+//code belowe should be replaced with correct one in store
 provide("updateCommentsList", updateCommentsList);
 </script>
