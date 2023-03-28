@@ -48,6 +48,9 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const userStore = useUserStore();
       return this.feedbacks.push(userStore.createdFeedback);
     },
+    // updateRepliesList(commentsList, index, newReply) {
+    //   return commentsList[index].push(newReply);
+    // },
   },
   getters: {
     countedStatusMap() {
