@@ -1,3 +1,7 @@
+<!-- Future todo
+1) Comments List: Number should be equal to comments + replies (at this moment it calculates only the comments)
+2) Comments List: Desktop styles: padding on reply comments 
+3) Data code should be moved to store-->
 <template>
   <main class="flex justify-center">
     <BaseWrapper variant="tertiary">
@@ -15,9 +19,50 @@
         :feedback="feedback"
         :number="Number(route.params.id.slice(1))"
       />
-      <CommentsList
-        :number="feedback.comments ? feedback.comments.length : 0"
-      />
+      <BaseBox variant="secondary">
+        <h2 class="text-lg font-bold text-neutral-500">
+          <span>{{ feedback.comments ? feedback.comments.length : 0 }}</span>
+          {{ feedback.comments === 1 ? "Comment" : "Comments" }}
+        </h2>
+        <div>
+          <ul class="divide-neutral-700/15 divide-y">
+            <CommentItem
+              v-for="comment in commentsList"
+              :key="comment.id"
+              :index="commentsList.findIndex((item) => item.id === comment.id)"
+              :name="comment.user.name"
+              :user-name="comment.user.username"
+              :content="comment.content"
+              :src="`${comment.user.image.slice(8)}`"
+              variant="primary"
+              post-comment
+            >
+              <ul
+                v-if="comment.replies"
+                class="relative flex flex-col gap-6 divide-neutral-400/10 pl-6 before:absolute before:left-0 before:h-4/6 before:border-l before:border-neutral-400 before:opacity-10 sm:col-span-full"
+              >
+                <CommentItem
+                  v-for="reply in comment.replies"
+                  :key="reply.content"
+                  :index="
+                    comment.replies.findIndex(
+                      (item) => item.content === reply.content
+                    )
+                  "
+                  :name="reply.user.name"
+                  :user-name="reply.user.username"
+                  :content="reply.content"
+                  :src="`${reply.user.image.slice(8)}`"
+                  reply
+                  post-comment
+                  :reply-to="`@${reply.replyingTo} `"
+                >
+                </CommentItem>
+              </ul>
+            </CommentItem>
+          </ul>
+        </div>
+      </BaseBox>
       <AddComment variant="flex-col" />
     </BaseWrapper>
   </main>
@@ -26,29 +71,51 @@
 <script setup>
 import { computed, ref, provide } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
+import { useUserStore } from "../../stores/user.js";
 import { useRoute } from "vue-router";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
+import BaseBox from "../../components/basicComponents/BaseBox.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
-import CommentsList from "../../components/comments/CommentsList.vue";
 import AddComment from "../../components/comments/AddComment.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
+import CommentItem from "../../components/comments/CommentItem.vue";
 
 const feedbacksStore = useFeedbacksStore();
+const userStore = useUserStore();
 const route = useRoute();
 feedbacksStore.fetchFeedbacks();
+userStore.fetchCurrentUser();
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
 const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
 const commentsList = ref([...feedback.value.comments]);
 const newCommentId = computed(() => {
   return commentsList.value.length + 1;
 });
+
+const currentUser = computed(() => {
+  return userStore.currentUser;
+});
 const baseBoxVariant = ref("primary");
 const primaryButtonText = "Post Comment";
-const providedCommentsList = commentsList.value;
+
+const updateCommentsList = (content) => {
+  commentsList.value.push({
+    id: newCommentId,
+    content: content,
+    user: {
+      image: currentUser.value.image,
+      name: currentUser.value.name,
+      username: currentUser.value.username,
+    },
+  });
+  console.log(currentUser.value);
+  document.getElementById("comment").value = "";
+};
+
 provide("baseBoxVariant", baseBoxVariant);
 provide("primaryButtonText", primaryButtonText);
-provide("commentsList", providedCommentsList);
-provide("newCommentId", newCommentId);
+//code belowe should be replaced with correct one in store 
+provide("updateCommentsList", updateCommentsList);
 </script>
