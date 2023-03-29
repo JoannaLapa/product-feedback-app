@@ -22,7 +22,7 @@
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">
           <span>{{ commentsNumber }}</span>
-          {{ feedback.comments === 1 ? "Comment" : "Comments" }}
+          {{ feedback.comments.length === 1 ? "Comment" : "Comments" }}
         </h2>
         <div>
           <ul class="divide-neutral-700/15 divide-y">
