@@ -62,7 +62,6 @@
 import BaseButton from "../basicComponents/BaseButton.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
 import { inject } from "vue";
-// import { useUserStore } from "../../stores/user.js";
 
 defineProps({
   number: {
@@ -81,21 +80,5 @@ defineProps({
 });
 const baseBoxVariant = inject("baseBoxVariant");
 const primaryButtonText = inject("primaryButtonText");
-// const userStore = useUserStore();
-// const newComment = ref({});
-// const commentsList = inject("commentsList");
-// const newCommentId = inject("newCommentId");
 const updateCommentsList = inject("updateCommentsList");
-// userStore.fetchCurrentUser();
-// const currentUser = computed(() => {
-//   return userStore.currentUser;
-// });
-
-// const updateCommentsList = (data) => {
-//   newComment.value = data;
-//   console.log(newComment.value);
-//   commentsList.push(newComment.value);
-//   console.log(commentsList.length);
-//   document.getElementById("comment").value = "";
-// };
 </script>
