@@ -48,9 +48,32 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const userStore = useUserStore();
       return this.feedbacks.push(userStore.createdFeedback);
     },
-    // updateRepliesList(commentsList, index, newReply) {
-    //   return commentsList[index].push(newReply);
-    // },
+    updateCommentsList(id) {
+      const userStore = useUserStore();
+      return this.feedbacks[id].comments.push(userStore.createdComment);
+    },
+    //calculate a number of comments (including replies)
+    commentsNumber(feedback) {
+      if (!feedback.comments) {
+        return 0;
+      } else {
+        let includes = false;
+        let count = 0;
+        feedback.comments.forEach((comment) => {
+          if (Object.keys(comment).includes("replies")) {
+            includes = true;
+            const { replies } = comment;
+            count = count + replies.length;
+            console.log(count);
+          }
+        });
+        if (!includes) {
+          return feedback.comments.length;
+        } else {
+          return count + feedback.comments.length;
+        }
+      }
+    },
   },
   getters: {
     countedStatusMap() {

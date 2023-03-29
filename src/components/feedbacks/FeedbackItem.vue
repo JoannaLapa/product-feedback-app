@@ -49,7 +49,7 @@
           class="text-neutral-500 opacity-100"
           :class="{ 'opacity-50': !feedback.comments }"
         >
-          {{ feedback.comments ? feedback.comments.length : 0 }}
+          {{ commentsNumber }}
         </p>
       </div>
     </article>
@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
@@ -96,4 +96,7 @@ const addUpvotedFeedback = (feedback) => {
   usersStore.addUpvotedFeedback(upvotedFeeedback.value);
   useFeedbackStore.increaseUpvotes();
 };
+const commentsNumber = computed(() =>
+  useFeedbackStore.commentsNumber(props.feedback)
+);
 </script>

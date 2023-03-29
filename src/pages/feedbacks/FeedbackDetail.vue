@@ -1,7 +1,7 @@
 <!-- Future todo
-1) Comments List: Number should be equal to comments + replies (at this moment it calculates only the comments)
-2) Comments List: Desktop styles: padding on reply comments 
-3) Data code should be moved to store-->
+1) Comments List: Desktop styles: padding on reply comments  
+-->
+
 <template>
   <main class="flex justify-center">
     <BaseWrapper variant="tertiary">
@@ -21,15 +21,17 @@
       />
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">
-          <span>{{ feedback.comments ? feedback.comments.length : 0 }}</span>
+          <span>{{ commentsNumber }}</span>
           {{ feedback.comments === 1 ? "Comment" : "Comments" }}
         </h2>
         <div>
           <ul class="divide-neutral-700/15 divide-y">
             <CommentItem
-              v-for="comment in commentsList"
+              v-for="comment in feedback.comments"
               :key="comment.id"
-              :index="commentsList.findIndex((item) => item.id === comment.id)"
+              :index="
+                feedback.comments.findIndex((item) => item.id === comment.id)
+              "
               :name="comment.user.name"
               :user-name="comment.user.username"
               :content="comment.content"
@@ -85,23 +87,25 @@ import CommentItem from "../../components/comments/CommentItem.vue";
 const feedbacksStore = useFeedbacksStore();
 const userStore = useUserStore();
 const route = useRoute();
+const baseBoxVariant = ref("primary");
+const primaryButtonText = "Post Comment";
 feedbacksStore.fetchFeedbacks();
 userStore.fetchCurrentUser();
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
 const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
-const commentsList = ref([...feedback.value.comments]);
+const commentsNumber = computed(() =>
+  feedbacksStore.commentsNumber(feedback.value)
+);
 const newCommentId = computed(() => {
-  return commentsList.value.length + 1;
+  return feedback.value.comments.length + 1;
 });
 
 const currentUser = computed(() => {
   return userStore.currentUser;
 });
-const baseBoxVariant = ref("primary");
-const primaryButtonText = "Post Comment";
 
 const updateCommentsList = (content) => {
-  commentsList.value.push({
+  userStore.addNewComment({
     id: newCommentId,
     content: content,
     user: {
@@ -110,12 +114,12 @@ const updateCommentsList = (content) => {
       username: currentUser.value.username,
     },
   });
+  feedbacksStore.updateCommentsList(Number(route.params.id.slice(1)));
   console.log(currentUser.value);
   document.getElementById("comment").value = "";
 };
 
 provide("baseBoxVariant", baseBoxVariant);
 provide("primaryButtonText", primaryButtonText);
-//code belowe should be replaced with correct one in store
 provide("updateCommentsList", updateCommentsList);
 </script>
