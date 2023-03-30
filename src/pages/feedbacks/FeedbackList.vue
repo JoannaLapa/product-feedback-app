@@ -20,8 +20,11 @@
           type=""
         />
       </BaseBar>
-      <NoFeedback v-if="noFeedback" />
-      <ul class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5">
+      <NoFeedback v-if="!sortedFeedbacksList" />
+      <ul
+        v-else
+        class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
+      >
         <FeedbackItem
           v-for="feedback in sortedFeedbacksList"
           :key="feedback.id"
@@ -47,14 +50,7 @@ import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 
 //future todo:
 // v-if here, because default is null. (this is Ola's suggestion how to do it) - I think it was a comment for resolving noFeedback case
-// set the v-if - if there is no feedback add NoFeedback component v-else if there are feedbacks set FeedbackItem component with v-for
-// <!-- attach NoFeedback and make like in the BaseButton props with Boolean and if true attach feedback item if false - v-else - attach NoFeedback component
-defineProps({
-  noFeedback: {
-    type: Boolean,
-    default: false,
-  },
-});
+
 const feedbacksStore = useFeedbacksStore();
 const usersStore = useUserStore();
 onMounted(feedbacksStore.fetchFeedbacks);
