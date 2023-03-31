@@ -41,16 +41,12 @@
 </template>
 
 <script setup>
-import { provide, ref, computed, inject } from "vue";
+import { provide, ref, computed } from "vue";
+import { useRoute } from "vue-router";
 import BaseButton from "../basicComponents/BaseButton.vue";
 import AddComment from "./AddComment.vue";
 import { useUserStore } from "../../stores/user.js";
-
-const userStore = useUserStore();
-userStore.fetchCurrentUser();
-const currentUser = computed(() => {
-  return userStore.currentUser;
-});
+import { useFeedbacksStore } from "../../stores/feedbacks.js";
 
 const props = defineProps({
   userName: {
@@ -82,23 +78,30 @@ const props = defineProps({
     required: true,
     validation: (variant) => ["primary", "secondary"].includes(variant),
   },
-  index: {
+  id: {
     type: Number,
-    default: null,
+    required: true,
   },
 });
 
+const userStore = useUserStore();
+const feedbacksStore = useFeedbacksStore();
+const route = useRoute();
+const feedbackId = Number(route.params.id.slice(1));
 const baseBoxVariant = "pure";
 const primaryButtonText = "Post Reply";
 const isShown = ref(false);
+userStore.fetchCurrentUser();
+const currentUser = computed(() => {
+  return userStore.currentUser;
+});
+
 const showReplyWindow = () => {
   isShown.value = !isShown.value;
 };
-provide("baseBoxVariant", baseBoxVariant);
-provide("primaryButtonText", primaryButtonText);
-const commentsList = inject("commentsList");
+
 const updateCommentsList = (content) => {
-  const newReply = {
+  userStore.addNewReply({
     content: content,
     replyingTo: props.userName,
     user: {
@@ -106,30 +109,13 @@ const updateCommentsList = (content) => {
       name: currentUser.value.name,
       username: currentUser.value.username,
     },
-  };
-  console.log(currentUser.value);
-  document.getElementById("comment").value = "";
+  });
+
+  feedbacksStore.updateRepliesList(feedbackId, props.id);
   showReplyWindow();
-  // if (commentsList[props.index] === undefined) {
-  //   const number = commentsList.findIndex(
-  //     (item) => item.replies.content === props.content
-  //   );
-  //   console.log(`Numer indeksu ${number}`);
-  //   if (Array.isArray(commentsList[number].replies[props.index])) {
-  //     return commentsList[number].replies[props.index].push(newReply);
-  //   } else {
-  //     return (commentsList[number].replies = newReply);
-  //   }
-  // } else if (commentsList[props.index].replies) {
-  //   return commentsList[props.index].replies.push(newReply);
-  // } else {
-  //   return (commentsList[props.index].replies = [newReply]);
-  // }
-  console.log(`NewReply ${newReply}`);
-  console.log("Index");
-  console.log(
-    commentsList.findIndex((comment) => comment.content === props.content)
-  );
 };
+
 provide("updateCommentsList", updateCommentsList);
+provide("baseBoxVariant", baseBoxVariant);
+provide("primaryButtonText", primaryButtonText);
 </script>

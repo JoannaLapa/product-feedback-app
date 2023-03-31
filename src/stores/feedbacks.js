@@ -52,6 +52,20 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const userStore = useUserStore();
       return this.feedbacks[id].comments.push(userStore.createdComment);
     },
+    updateRepliesList(id, commentId) {
+      const userStore = useUserStore();
+      const index = this.feedbacks[id].comments.findIndex(
+        (item) => item.id === commentId
+      );
+      const { replies } = this.feedbacks[id].comments[index];
+      if (replies) {
+        return replies.push(userStore.createdReply);
+      } else {
+        this.feedbacks[id].comments[index].replies = [];
+        const { replies } = this.feedbacks[id].comments[index];
+        return replies.push(userStore.createdReply);
+      }
+    },
     //calculate a number of comments (including replies)
     commentsNumber(feedback) {
       if (!feedback.comments) {
