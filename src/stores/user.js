@@ -12,6 +12,7 @@ export const useUserStore = defineStore("user", {
     assignedCategory: { id: 5, name: "Feature" },
     createdFeedback: {},
     createdComment: {},
+    createdReply: {},
   }),
   actions: {
     async fetchCurrentUser() {
@@ -47,6 +48,9 @@ export const useUserStore = defineStore("user", {
     },
     addNewComment(comment) {
       this.createdComment = comment;
+    },
+    addNewReply(reply) {
+      this.createdReply = reply;
     },
   },
 });

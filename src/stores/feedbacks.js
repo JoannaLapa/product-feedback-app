@@ -48,6 +48,46 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const userStore = useUserStore();
       return this.feedbacks.push(userStore.createdFeedback);
     },
+    updateCommentsList(id) {
+      const userStore = useUserStore();
+      return this.feedbacks[id].comments.push(userStore.createdComment);
+    },
+    updateRepliesList(id, commentId) {
+      const userStore = useUserStore();
+      const index = this.feedbacks[id].comments.findIndex(
+        (item) => item.id === commentId
+      );
+      const { replies } = this.feedbacks[id].comments[index];
+      if (replies) {
+        return replies.push(userStore.createdReply);
+      } else {
+        this.feedbacks[id].comments[index].replies = [];
+        const { replies } = this.feedbacks[id].comments[index];
+        return replies.push(userStore.createdReply);
+      }
+    },
+    //calculate a number of comments (including replies)
+    commentsNumber(feedback) {
+      if (!feedback.comments) {
+        return 0;
+      } else {
+        let includes = false;
+        let count = 0;
+        feedback.comments.forEach((comment) => {
+          if (Object.keys(comment).includes("replies")) {
+            includes = true;
+            const { replies } = comment;
+            count = count + replies.length;
+            console.log(count);
+          }
+        });
+        if (!includes) {
+          return feedback.comments.length;
+        } else {
+          return count + feedback.comments.length;
+        }
+      }
+    },
   },
   getters: {
     countedStatusMap() {

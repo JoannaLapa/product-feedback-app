@@ -41,10 +41,14 @@
 </template>
 
 <script setup>
-import { provide, ref } from "vue";
+import { provide, ref, computed } from "vue";
+import { useRoute } from "vue-router";
 import BaseButton from "../basicComponents/BaseButton.vue";
 import AddComment from "./AddComment.vue";
-defineProps({
+import { useUserStore } from "../../stores/user.js";
+import { useFeedbacksStore } from "../../stores/feedbacks.js";
+
+const props = defineProps({
   userName: {
     type: String,
     default: "",
@@ -74,14 +78,44 @@ defineProps({
     required: true,
     validation: (variant) => ["primary", "secondary"].includes(variant),
   },
+  id: {
+    type: Number,
+    required: true,
+  },
 });
 
+const userStore = useUserStore();
+const feedbacksStore = useFeedbacksStore();
+const route = useRoute();
+const feedbackId = Number(route.params.id.slice(1));
 const baseBoxVariant = "pure";
 const primaryButtonText = "Post Reply";
 const isShown = ref(false);
+userStore.fetchCurrentUser();
+const currentUser = computed(() => {
+  return userStore.currentUser;
+});
+
 const showReplyWindow = () => {
   isShown.value = !isShown.value;
 };
+
+const updateCommentsList = (content) => {
+  userStore.addNewReply({
+    content: content,
+    replyingTo: props.userName,
+    user: {
+      image: currentUser.value.image,
+      name: currentUser.value.name,
+      username: currentUser.value.username,
+    },
+  });
+
+  feedbacksStore.updateRepliesList(feedbackId, props.id);
+  showReplyWindow();
+};
+
+provide("updateCommentsList", updateCommentsList);
 provide("baseBoxVariant", baseBoxVariant);
 provide("primaryButtonText", primaryButtonText);
 </script>

@@ -1,3 +1,7 @@
+<!-- Future todo -->
+<!-- 1. Styling textarea:valid/invalid for active states possible on textarea and form -->
+<!-- 2. Check how to add dynamic number of characters left in the input -->
+<!-- 3. Another function for post reply (commented part) -->
 <template>
   <BaseBox :variant="baseBoxVariant">
     <form
@@ -18,6 +22,7 @@
       >
         <textarea
           id="comment"
+          ref="content"
           v-model.trim="newDescription"
           name="comment"
           maxlength="250"
@@ -45,17 +50,7 @@
             type="button"
             variant="primary-narrow"
             :text="primaryButtonText"
-            @action="
-              updateCommentsList({
-                id: newCommentId,
-                content: newDescription,
-                user: {
-                  image: currentUser.image,
-                  name: currentUser.name,
-                  username: currentUser.username,
-                },
-              })
-            "
+            @action="updateCommentsList(newDescription)"
           />
         </div>
       </div>
@@ -63,13 +58,10 @@
   </BaseBox>
 </template>
 
-<!-- future styling textarea:valid/invalid for active states possible on textarea and form -->
-<!-- check how to add dynamic number of characters left in the input -->
 <script setup>
 import BaseButton from "../basicComponents/BaseButton.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
-import { inject, ref, computed } from "vue";
-import { useUserStore } from "../../stores/user.js";
+import { inject } from "vue";
 
 defineProps({
   number: {
@@ -88,19 +80,5 @@ defineProps({
 });
 const baseBoxVariant = inject("baseBoxVariant");
 const primaryButtonText = inject("primaryButtonText");
-const userStore = useUserStore();
-const newComment = ref({});
-const commentsList = inject("commentsList");
-const newCommentId = inject("newCommentId");
-userStore.fetchCurrentUser();
-const currentUser = computed(() => {
-  return userStore.currentUser;
-});
-const updateCommentsList = (data) => {
-  newComment.value = data;
-  console.log(newComment.value);
-  commentsList.push(newComment.value);
-  console.log(commentsList.length);
-  document.getElementById("comment").value = "";
-};
+const updateCommentsList = inject("updateCommentsList");
 </script>

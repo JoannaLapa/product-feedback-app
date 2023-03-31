@@ -1,4 +1,5 @@
 <!-- Future todo - after implementing correctly BaseSelect verify spacing and element hight again -->
+<!-- Local Storage should be corrected - there shouldn't be added each time full list of feedbacks -->
 <template>
   <form
     class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10.5"
