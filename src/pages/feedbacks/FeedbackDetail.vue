@@ -28,10 +28,8 @@
           <ul class="divide-neutral-700/15 divide-y">
             <CommentItem
               v-for="comment in feedback.comments"
+              :id="comment.id"
               :key="comment.id"
-              :index="
-                feedback.comments.findIndex((item) => item.id === comment.id)
-              "
               :name="comment.user.name"
               :user-name="comment.user.username"
               :content="comment.content"
@@ -45,12 +43,8 @@
               >
                 <CommentItem
                   v-for="reply in comment.replies"
+                  :id="comment.id"
                   :key="reply.content"
-                  :index="
-                    comment.replies.findIndex(
-                      (item) => item.content === reply.content
-                    )
-                  "
                   :name="reply.user.name"
                   :user-name="reply.user.username"
                   :content="reply.content"
@@ -99,7 +93,6 @@ const commentsNumber = computed(() =>
 const newCommentId = computed(() => {
   return feedback.value.comments.length + 1;
 });
-
 const currentUser = computed(() => {
   return userStore.currentUser;
 });
