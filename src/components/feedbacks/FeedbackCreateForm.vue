@@ -40,6 +40,20 @@
           :action="usersStore.assignCategory"
         />
       </div>
+      <div v-if="edit">
+        <BaseLabel
+          label-for="status"
+          title="Category"
+          id-title="update-status"
+          description="Change feature state"
+        />
+        <BaseSelect
+          id="status"
+          aria-described-by="update-status"
+          :options="status"
+          :action="usersStore.assignStatus"
+        />
+      </div>
       <div>
         <BaseLabel
           label-for="feedback-detail"
@@ -72,7 +86,7 @@
               title: newFeedbackTitle,
               category: usersStore.assignedCategory.name,
               upvotes: 0,
-              status: 'suggestion',
+              status: usersStore.assignedStatus.name,
               description: newDescription,
             })
           "
@@ -95,7 +109,7 @@ import BaseLabel from "../basicComponents/BaseLabel.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "../../stores/user.js";
-import { ref, computed } from "vue";
+import { ref, computed, provide } from "vue";
 import { useRouter } from "vue-router";
 
 defineProps({
@@ -121,7 +135,7 @@ const newFeedbackTitle = ref("");
 const newDescription = ref("");
 const newFeedback = ref({});
 const options = computed(() => useFeedbackStore.uniqueCategories);
-
+const status = computed(() => useFeedbackStore.status);
 const updateFeedbackList = (data) => {
   newFeedback.value = data;
   usersStore.addNewFeedback(newFeedback.value);
@@ -133,4 +147,9 @@ const updateFeedbackList = (data) => {
 const routeToFeedbackList = () => {
   router.push("/");
 };
+
+const variant = "wide";
+const listBoxOptionsVariant = "wide";
+provide("variant", variant);
+provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>

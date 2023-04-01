@@ -18,6 +18,12 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         { id: 3, name: "Most Comments", unavailable: false },
         { id: 4, name: "Least Comments", unavailable: false },
       ],
+      status: [
+        { id: 1, name: "Suggestion", unavailable: false },
+        { id: 2, name: "Planned", unavailable: false },
+        { id: 3, name: "In-Progress", unavailable: false },
+        { id: 4, name: "Live", unavailable: false },
+      ],
     };
   },
   actions: {

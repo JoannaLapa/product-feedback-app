@@ -10,6 +10,7 @@ export const useUserStore = defineStore("user", {
       { id: 1, name: "Most Upvotes", unavailable: false },
     ],
     assignedCategory: { id: 5, name: "Feature" },
+    assignedStatus: {},
     createdFeedback: {},
     createdComment: {},
     createdReply: {},
@@ -41,6 +42,13 @@ export const useUserStore = defineStore("user", {
         this.assignedCategory = category;
       } else {
         this.assignedCategory = { id: 5, name: "Feature" };
+      }
+    },
+    assignStatus(status) {
+      if (status) {
+        this.assignedStatus = status;
+      } else {
+        this.assignedStatus = { id: 1, name: "Suggestion", unavailable: false };
       }
     },
     addNewFeedback(feedback) {
