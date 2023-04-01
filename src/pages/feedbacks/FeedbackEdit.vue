@@ -1,17 +1,10 @@
 <template>
-  <main>
-    <BaseWrapper>
+  <main class="flex justify-center">
+    <BaseWrapper variant="secondary" class="sm:mt-14">
       <GoBack />
       <BaseBox>
         <IconEditFeedback />
-        <FeedbackCreateForm
-          edit
-          title="Editing"
-          delete="Delete"
-          submit-title="Save Changes"
-          dynamic-title=""
-          variant="edit"
-        />
+        <FeedbackCreateForm edit title="Editing" variant="edit" />
       </BaseBox>
     </BaseWrapper>
   </main>
