@@ -56,7 +56,13 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     },
     updateCommentsList(id) {
       const userStore = useUserStore();
-      return this.feedbacks[id].comments.push(userStore.createdComment);
+      const { comments } = this.feedbacks[id];
+      if (comments) {
+        return this.feedbacks[id].comments.push(userStore.createdComment);
+      } else {
+        this.feedbacks[id].comments = [];
+        return this.feedbacks[id].comments.push(userStore.createdComment);
+      }
     },
     updateRepliesList(id, commentId) {
       const userStore = useUserStore();
@@ -75,8 +81,10 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     //calculate a number of comments (including replies)
     commentsNumber(feedback) {
       if (!feedback.comments) {
+        console.log("Wszedłem tam gdzie nie ma komentarzy");
         return 0;
       } else {
+        console.log("Wszedłem tam gdzie są komentarze");
         let includes = false;
         let count = 0;
         feedback.comments.forEach((comment) => {

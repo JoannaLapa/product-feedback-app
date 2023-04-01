@@ -19,7 +19,7 @@
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">
           <span>{{ commentsNumber }}</span>
-          {{ feedback.comments.length === 1 ? "Comment" : "Comments" }}
+          {{ commentsNumber === 1 ? "Comment" : "Comments" }}
         </h2>
         <div>
           <ul class="divide-neutral-700/15 divide-y">
@@ -88,7 +88,11 @@ const commentsNumber = computed(() =>
   feedbacksStore.commentsNumber(feedback.value)
 );
 const newCommentId = computed(() => {
-  return feedback.value.comments.length + 1;
+  if (feedback.value.comments) {
+    return feedback.value.comments.length + 1;
+  } else {
+    return 1;
+  }
 });
 const currentUser = computed(() => {
   return userStore.currentUser;
