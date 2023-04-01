@@ -27,7 +27,7 @@ const router = createRouter({
       component: FeedbackAdd,
     },
     {
-      path: "/edit",
+      path: "/edit/:id",
       component: FeedbackEdit,
     },
     {

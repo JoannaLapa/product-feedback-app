@@ -9,16 +9,13 @@
         <GoBack />
         <BaseButton
           tag="router-link"
-          to="/edit"
+          :to="`/edit/${Number(route.params.id)}`"
           text="Edit Feedback"
           type=""
           variant="secondary"
         />
       </BaseBar>
-      <FeedbackItem
-        :feedback="feedback"
-        :number="Number(route.params.id.slice(1))"
-      />
+      <FeedbackItem :feedback="feedback" :number="Number(route.params.id)" />
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">
           <span>{{ commentsNumber }}</span>
@@ -86,7 +83,7 @@ const primaryButtonText = "Post Comment";
 feedbacksStore.fetchFeedbacks();
 userStore.fetchCurrentUser();
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
-const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
+const feedback = ref(feedbacks.value[Number(route.params.id)]);
 const commentsNumber = computed(() =>
   feedbacksStore.commentsNumber(feedback.value)
 );
@@ -107,7 +104,7 @@ const updateCommentsList = (content) => {
       username: currentUser.value.username,
     },
   });
-  feedbacksStore.updateCommentsList(Number(route.params.id.slice(1)));
+  feedbacksStore.updateCommentsList(Number(route.params.id));
   console.log(currentUser.value);
   document.getElementById("comment").value = "";
 };

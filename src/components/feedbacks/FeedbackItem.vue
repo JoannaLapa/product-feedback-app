@@ -88,7 +88,7 @@ const props = defineProps({
 const usersStore = useUserStore();
 const useFeedbackStore = useFeedbacksStore();
 const upvotedFeeedback = ref({});
-const linkTo = `/:${props.number}`;
+const linkTo = `/${props.number}`;
 const firstLetterToUpper = (name) =>
   name.charAt(0).toUpperCase() + name.slice(1);
 const addUpvotedFeedback = (feedback) => {
