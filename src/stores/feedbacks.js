@@ -54,6 +54,13 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const userStore = useUserStore();
       return this.feedbacks.push(userStore.createdFeedback);
     },
+    updateFeedbackValue(index, title, description) {
+      console.log(this.feedbacks[index]);
+      console.log(title, description);
+      this.feedbacks[index].title = title;
+      this.feedbacks[index].description = description;
+      return this.feedbacks[index];
+    },
     updateCommentsList(id) {
       const userStore = useUserStore();
       const { comments } = this.feedbacks[id];
@@ -173,6 +180,16 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         (feedback) => upvotedFeedback.id === feedback.id
       );
       return feedbackToUpvote;
+    },
+    getFeedbackDescription: (state) => {
+      return (index) => {
+        return state.feedbacks[index].description;
+      };
+    },
+    getFeedbackTitle: (state) => {
+      return (index) => {
+        return state.feedbacks[index].title;
+      };
     },
     categories() {
       return [
