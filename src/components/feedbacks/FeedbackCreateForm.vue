@@ -20,10 +20,12 @@
         />
         <input
           id="feedback-title"
-          v-model.trim="newFeedbackTitle"
+          ref="titleRef"
+          :value="newFeedbackTitle"
           type="text"
           aria-describedby="feedback-title-instruction"
           class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:p-6"
+          @input="$emit('update:newFeedbackTitle', $event.target.value)"
         />
       </div>
       <div>
@@ -63,10 +65,11 @@
         />
         <textarea
           id="feedback-detail"
-          v-model.trim="newDescription"
+          :value="description"
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
           class="mt-4 h-30 w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:h-24 sm:p-6"
+          @input="$emit('update:description', $event.target.value)"
         />
       </div>
     </fieldset>
@@ -75,22 +78,7 @@
       :class="{ 'sm:justify-end': variant === 'add' }"
     >
       <div class="flex flex-col gap-4 sm:flex-row-reverse">
-        <BaseButton
-          tag="button"
-          variant="primary"
-          text="Add Feedback"
-          type="button"
-          @action="
-            updateFeedbackList({
-              id: useFeedbackStore.feedbacks.length + 1,
-              title: newFeedbackTitle,
-              category: usersStore.assignedCategory.name,
-              upvotes: 0,
-              status: usersStore.assignedStatus.name,
-              description: newDescription,
-            })
-          "
-        />
+        <slot name="AddEditButton" />
         <BaseButton
           variant="dark"
           text="Cancel"
@@ -113,6 +101,14 @@ import { ref, computed, provide } from "vue";
 import { useRouter } from "vue-router";
 
 defineProps({
+  description: {
+    type: String,
+    required: true,
+  },
+  newFeedbackTitle: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -128,21 +124,15 @@ defineProps({
   },
 });
 
+defineEmits(["update:description", "update:newFeedbackTitle"]);
+
 const useFeedbackStore = useFeedbacksStore();
 const usersStore = useUserStore();
 const router = useRouter();
-const newFeedbackTitle = ref("");
-const newDescription = ref("");
-const newFeedback = ref({});
+const titleRef = ref(null);
+
 const options = computed(() => useFeedbackStore.uniqueCategories);
 const status = computed(() => useFeedbackStore.status);
-const updateFeedbackList = (data) => {
-  newFeedback.value = data;
-  usersStore.addNewFeedback(newFeedback.value);
-  useFeedbackStore.updateFeedbackList();
-  localStorage.setItem("feedbacks", JSON.stringify(useFeedbackStore.feedbacks));
-  router.push("/");
-};
 
 const routeToFeedbackList = () => {
   router.push("/");
