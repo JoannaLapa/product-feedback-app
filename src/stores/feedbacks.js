@@ -12,12 +12,14 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       categoryEnhancement: { id: 3, name: "Enhancement", unavailable: false },
       categoryBug: { id: 4, name: "Bug", unavailable: false },
       categoryFeature: { id: 5, name: "Feature", unavailable: false },
+
       options: [
         { id: 1, name: "Most Upvotes", unavailable: false },
         { id: 2, name: "Least Upvotes", unavailable: false },
         { id: 3, name: "Most Comments", unavailable: false },
         { id: 4, name: "Least Comments", unavailable: false },
       ],
+
       status: [
         { id: 1, name: "Suggestion", unavailable: false },
         { id: 2, name: "Planned", unavailable: false },
@@ -26,6 +28,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       ],
     };
   },
+
   actions: {
     async fetchFeedbacks() {
       if (JSON.parse(localStorage.getItem("feedbacks"))) {
@@ -41,6 +44,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         }
       }
     },
+
     //increase the upvotes after click
     increaseUpvotes() {
       if (this.upvotedFeedback === undefined) {
@@ -50,10 +54,12 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         return this.upvotedFeedback.upvotes;
       }
     },
+
     updateFeedbackList() {
       const userStore = useUserStore();
       return this.feedbacks.push(userStore.createdFeedback);
     },
+
     updateFeedbackValue(index, title, description) {
       console.log(this.feedbacks[index]);
       console.log(title, description);
@@ -61,6 +67,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       this.feedbacks[index].description = description;
       return this.feedbacks[index];
     },
+
     updateCommentsList(id) {
       const userStore = useUserStore();
       const { comments } = this.feedbacks[id];
@@ -71,6 +78,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         return this.feedbacks[id].comments.push(userStore.createdComment);
       }
     },
+
     updateRepliesList(id, commentId) {
       const userStore = useUserStore();
       const index = this.feedbacks[id].comments.findIndex(
@@ -85,6 +93,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         return replies.push(userStore.createdReply);
       }
     },
+
     //calculate a number of comments (including replies)
     commentsNumber(feedback) {
       if (!feedback.comments) {
@@ -110,6 +119,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       }
     },
   },
+
   getters: {
     countedStatusMap() {
       const statusNumbers = new Map();
@@ -123,6 +133,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const liveNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "live"
       ).length;
+
       //map with status names as a key and status quantity as a value
       statusNumbers
         .set("Planned", plannedNumber)
@@ -131,6 +142,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       return statusNumbers;
     },
+
     //if the feedback.category is empty I return all feedbacks - idea for the future improvement - maybe better is to make this button disabled
     //filtering feedbacks when the user clicks on the button with category
     filteredFeedbacksList() {
@@ -142,6 +154,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         ? this.feedbacks
         : filteredFeedbacks;
     },
+
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
     sortedFeedbacksList() {
       const userStore = useUserStore();
@@ -172,6 +185,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         );
       }
     },
+
     //return the feedback clicked by the user
     upvotedFeedback() {
       const userStore = useUserStore();
@@ -181,16 +195,19 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       );
       return feedbackToUpvote;
     },
+
     getFeedbackDescription: (state) => {
       return (index) => {
         return state.feedbacks[index].description;
       };
     },
+
     getFeedbackTitle: (state) => {
       return (index) => {
         return state.feedbacks[index].title;
       };
     },
+
     categories() {
       return [
         this.categoryAll,
@@ -201,6 +218,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         this.categoryFeature,
       ];
     },
+
     uniqueCategories() {
       return [
         this.categoryFeature,
