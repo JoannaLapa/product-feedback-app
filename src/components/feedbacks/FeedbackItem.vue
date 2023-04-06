@@ -98,8 +98,12 @@ const usersStore = useUserStore();
 const useFeedbackStore = useFeedbacksStore();
 
 const linkTo = `/${props.number}`;
-const firstLetterToUpper = (name) =>
-  name.charAt(0).toUpperCase() + name.slice(1);
+const firstLetterToUpper = (name) => {
+  if (name === "ui" || name === "ux") {
+    return name.toUpperCase();
+  }
+  return name.charAt(0).toUpperCase() + name.slice(1);
+};
 
 const upvotedFeeedback = ref({});
 const addUpvotedFeedback = (feedback) => {
