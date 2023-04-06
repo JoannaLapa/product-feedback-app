@@ -61,11 +61,17 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     },
 
     updateFeedbackValue(index, title, description) {
-      console.log(this.feedbacks[index]);
-      console.log(title, description);
+      const userStore = useUserStore();
+
       const feedback = this.feedbacks.find((feedback) => feedback.id === index);
       feedback.title = title;
       feedback.description = description;
+
+      const { name: categoryName } = userStore.assignedCategory;
+      const { name: statusName } = userStore.assignedStatus;
+      feedback.category = categoryName.toLowerCase();
+      feedback.status = statusName.toLowerCase();
+
       localStorage.setItem("feedbacks", JSON.stringify(this.feedbacks));
       return feedback;
     },
@@ -152,9 +158,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       const filteredFeedbacks = this.feedbacks.filter(
         (feedback) => userStore.selectedCategories.name === feedback.category
       );
-      return filteredFeedbacks.length === 0
-        ? this.feedbacks
-        : filteredFeedbacks;
+      return filteredFeedbacks;
     },
 
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
