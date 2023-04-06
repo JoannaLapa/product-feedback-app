@@ -155,10 +155,11 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     //filtering feedbacks when the user clicks on the button with category
     filteredFeedbacksList() {
       const userStore = useUserStore();
+      const { name } = userStore.selectedCategories;
       const filteredFeedbacks = this.feedbacks.filter(
-        (feedback) => userStore.selectedCategories.name === feedback.category
+        (feedback) => name.toLowerCase() === feedback.category
       );
-      return filteredFeedbacks;
+      return name.toLowerCase() === "all" ? this.feedbacks : filteredFeedbacks;
     },
 
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
