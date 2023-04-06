@@ -98,6 +98,7 @@ const usersStore = useUserStore();
 const useFeedbackStore = useFeedbacksStore();
 
 const linkTo = `/${props.number}`;
+
 const firstLetterToUpper = (name) => {
   if (name === "ui" || name === "ux") {
     return name.toUpperCase();
