@@ -77,9 +77,11 @@ const categoryName = ref();
 categoryName.value = sortedFeedbacks.value[index].category;
 
 const firstLettertoUpperCase = (string) => {
-  const upperString =
-    string.value.charAt(0).toUpperCase() + string.value.slice(1);
-  return upperString;
+  const stringToLower = string.value.toLowerCase();
+  if (stringToLower === "ui" || stringToLower === "ux") {
+    return stringToLower.toUpperCase();
+  }
+  return stringToLower.charAt(0).toUpperCase() + stringToLower.slice(1);
 };
 
 provide("statusName", firstLettertoUpperCase(statusName));
