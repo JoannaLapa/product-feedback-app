@@ -15,6 +15,7 @@ how to do it) - I think it was a comment for resolving noFeedback case
             label-title="Sort by:"
             ok
             :options="optionValues"
+            :option-name="optionValues[0].name"
             :action="usersStore.addSelectedSortingCategory"
           />
         </div>
@@ -28,7 +29,7 @@ how to do it) - I think it was a comment for resolving noFeedback case
         />
       </BaseBar>
 
-      <NoFeedback v-if="!sortedFeedbacksList" />
+      <NoFeedback v-if="sortedFeedbacksList.length === 0" />
 
       <ul
         v-else

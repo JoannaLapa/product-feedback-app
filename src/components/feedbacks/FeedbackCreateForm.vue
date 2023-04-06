@@ -42,6 +42,7 @@
           id="category"
           aria-described-by="category - instruction"
           :options="options"
+          :option-name="categoryName"
           :action="usersStore.assignCategory"
         />
       </div>
@@ -58,6 +59,7 @@
           id="status"
           aria-described-by="update-status"
           :options="status"
+          :option-name="statusName"
           :action="usersStore.assignStatus"
         />
       </div>
@@ -107,7 +109,7 @@ import BaseLabel from "../basicComponents/BaseLabel.vue";
 import BaseSelect from "../basicComponents/BaseSelect.vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "../../stores/user.js";
-import { ref, computed, provide } from "vue";
+import { ref, computed, provide, inject } from "vue";
 import { useRouter } from "vue-router";
 
 defineProps({
@@ -158,4 +160,7 @@ provide("variant", variant);
 
 const listBoxOptionsVariant = "wide";
 provide("listBoxOptionsVariant", listBoxOptionsVariant);
+
+const statusName = inject("statusName");
+const categoryName = inject("categoryName");
 </script>

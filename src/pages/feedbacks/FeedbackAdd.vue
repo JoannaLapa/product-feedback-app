@@ -47,7 +47,7 @@ import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 import IconNewFeedback from "../../components/icons/IconNewFeedback.vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useUserStore } from "../../stores/user";
-import { ref } from "vue";
+import { ref, provide } from "vue";
 import { useRouter } from "vue-router";
 
 const description = ref("");
@@ -65,4 +65,7 @@ const updateFeedbackList = (data) => {
   localStorage.setItem("feedbacks", JSON.stringify(feedbacksStore.feedbacks));
   router.push("/");
 };
+
+const categoryName = feedbacksStore.categoryFeature.name;
+provide("categoryName", categoryName);
 </script>

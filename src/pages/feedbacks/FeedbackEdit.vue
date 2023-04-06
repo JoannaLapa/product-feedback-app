@@ -38,7 +38,7 @@ import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 import IconEditFeedback from "../../components/icons/IconEditFeedback.vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useRoute, useRouter } from "vue-router";
-import { ref, computed } from "vue";
+import { ref, computed, provide } from "vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -48,13 +48,13 @@ feedbacksStore.fetchFeedbacks();
 
 const sortedFeedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
 
+const index = Number(route.params.id);
+
 const description = ref("");
 description.value = sortedFeedbacks.value[index].description;
 
 const feedbackTitle = ref("");
 feedbackTitle.value = sortedFeedbacks.value[index].title;
-
-const index = Number(route.params.id);
 
 const feedbackID = sortedFeedbacks.value[index].id;
 console.log(feedbackID);
@@ -69,4 +69,19 @@ const updateFeedbackList = () => {
   localStorage.setItem("feedbacks", JSON.stringify(feedbacksStore.feedbacks));
   router.push("/");
 };
+
+const statusName = ref();
+statusName.value = sortedFeedbacks.value[index].status;
+
+const categoryName = ref();
+categoryName.value = sortedFeedbacks.value[index].category;
+
+const firstLettertoUpperCase = (string) => {
+  const upperString =
+    string.value.charAt(0).toUpperCase() + string.value.slice(1);
+  return upperString;
+};
+
+provide("statusName", firstLettertoUpperCase(statusName));
+provide("categoryName", firstLettertoUpperCase(categoryName));
 </script>
