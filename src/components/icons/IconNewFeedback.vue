@@ -15,10 +15,13 @@
         r="166.816%"
       >
         <stop stop-color="#E84D70" offset="0%" />
+
         <stop stop-color="#A337F6" offset="53.089%" />
+
         <stop stop-color="#28A7ED" offset="100%" />
       </radialGradient>
     </defs>
+
     <g fill="none" fill-rule="evenodd">
       <circle
         fill="url(#a)"
@@ -27,6 +30,7 @@
         r="28"
         class="origin-center scale-75 sm:scale-100"
       />
+
       <path
         fill="#FFF"
         fill-rule="nonzero"
@@ -43,6 +47,7 @@ defineProps({
     type: [Number, String],
     default: 56,
   },
+
   height: {
     type: [Number, String],
     default: 56,
@@ -50,7 +55,7 @@ defineProps({
 });
 </script>
 
-<style>
+<style scoped>
 circle {
   transform-origin: center center;
   transform: scale(66%);

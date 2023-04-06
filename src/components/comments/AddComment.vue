@@ -2,6 +2,7 @@
 <!-- 1. Styling textarea:valid/invalid for active states possible on textarea and form -->
 <!-- 2. Check how to add dynamic number of characters left in the input -->
 <!-- 3. Another function for post reply (commented part) -->
+
 <template>
   <BaseBox :variant="baseBoxVariant">
     <form
@@ -12,8 +13,9 @@
         v-if="postComment"
         for="comment"
         class="text-lg font-bold text-neutral-500"
-        >Add comment:</label
       >
+        Add comment:
+      </label>
       <div
         class="flex flex-col gap-4"
         :class="{
@@ -31,6 +33,7 @@
           class="cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 placeholder:text-xxs placeholder:text-neutral-1000 sm:text-xs"
           :class="{ 'sm:basis-9/12': variant === 'flex-row' }"
         />
+
         <div
           class="flex w-full"
           :class="{
@@ -45,6 +48,7 @@
           >
             {{ number }} characters left
           </p>
+
           <BaseButton
             tag="button"
             type="button"
@@ -68,16 +72,19 @@ defineProps({
     type: Number,
     default: 250,
   },
+
   postComment: {
     type: Boolean,
     default: false,
   },
+
   variant: {
     type: String,
     default: "",
     validation: (variant) => ["flex-row", "flex-col"].includes(variant),
   },
 });
+
 const baseBoxVariant = inject("baseBoxVariant");
 const primaryButtonText = inject("primaryButtonText");
 const updateCommentsList = inject("updateCommentsList");

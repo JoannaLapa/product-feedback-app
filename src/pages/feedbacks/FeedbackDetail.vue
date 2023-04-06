@@ -1,12 +1,12 @@
 <!-- Future todo
 1) Comments List: Desktop styles: padding on reply comments  
 -->
-
 <template>
   <main class="flex justify-center">
     <BaseWrapper variant="tertiary">
       <BaseBar variant="neutral">
         <GoBack />
+
         <BaseButton
           tag="router-link"
           :to="`/edit/${Number(route.params.id)}`"
@@ -16,11 +16,13 @@
         />
       </BaseBar>
       <FeedbackItem :feedback="feedback" :number="Number(route.params.id)" />
+
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">
           <span>{{ commentsNumber }}</span>
           {{ commentsNumber === 1 ? "Comment" : "Comments" }}
         </h2>
+
         <div>
           <ul class="divide-neutral-700/15 divide-y">
             <CommentItem
@@ -56,6 +58,7 @@
           </ul>
         </div>
       </BaseBox>
+
       <AddComment variant="flex-col" />
     </BaseWrapper>
   </main>
@@ -78,15 +81,17 @@ import CommentItem from "../../components/comments/CommentItem.vue";
 const feedbacksStore = useFeedbacksStore();
 const userStore = useUserStore();
 const route = useRoute();
-const baseBoxVariant = ref("primary");
-const primaryButtonText = "Post Comment";
+
 feedbacksStore.fetchFeedbacks();
 userStore.fetchCurrentUser();
+
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
 const feedback = ref(feedbacks.value[Number(route.params.id)]);
+
 const commentsNumber = computed(() =>
   feedbacksStore.commentsNumber(feedback.value)
 );
+
 const newCommentId = computed(() => {
   if (feedback.value.comments) {
     return feedback.value.comments.length + 1;
@@ -94,6 +99,7 @@ const newCommentId = computed(() => {
     return 1;
   }
 });
+
 const currentUser = computed(() => {
   return userStore.currentUser;
 });
@@ -112,8 +118,11 @@ const updateCommentsList = (content) => {
   console.log(currentUser.value);
   document.getElementById("comment").value = "";
 };
-
-provide("baseBoxVariant", baseBoxVariant);
-provide("primaryButtonText", primaryButtonText);
 provide("updateCommentsList", updateCommentsList);
+
+const baseBoxVariant = ref("primary");
+provide("baseBoxVariant", baseBoxVariant);
+
+const primaryButtonText = "Post Comment";
+provide("primaryButtonText", primaryButtonText);
 </script>

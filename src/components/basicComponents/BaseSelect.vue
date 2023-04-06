@@ -5,10 +5,12 @@
         <ListboxLabel v-if="ok" class="text-xxs text-neutral-300 md:text-xs">
           {{ labelTitle }}
         </ListboxLabel>
+
         <BaseListboxButton :variant="variant">
           {{ selectedOption ? selectedOption.name : options[0].name }}
         </BaseListboxButton>
       </div>
+
       <transition
         leave-active-class="transition ease-in duration-100"
         leave-from-class="opacity-100"
@@ -37,6 +39,7 @@
                 "
               >
                 <span> {{ option.name }}</span>
+
                 <span
                   v-if="selected"
                   :class="[
@@ -68,24 +71,29 @@ const props = defineProps({
     type: String,
     default: "",
   },
+
   ok: {
     type: Boolean,
     default: false,
   },
+
   options: {
     type: Object,
     default: null,
   },
+
   action: {
     type: Function,
     required: true,
   },
 });
+
 const selectData = (name) => {
   selectedOption.value = name;
   console.log(selectedOption.value);
   props.action(selectedOption.value);
 };
+
 const variant = inject("variant");
 const listBoxOptionsVariant = inject("listBoxOptionsVariant");
 </script>

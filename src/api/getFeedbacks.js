@@ -1,5 +1,7 @@
 import axios from "axios";
+
 //future todo - move to firebase and hide API with env
+
 const getFeedbacks = async () => {
   try {
     const url = "https://run.mocky.io/v3/bea655b8-25cc-4ee6-a057-65052e50e6ee";
@@ -12,4 +14,5 @@ const getFeedbacks = async () => {
       : console.log("Something went wrong");
   }
 };
+
 export default getFeedbacks;

@@ -4,8 +4,10 @@ when clicking on cancel router push to FeedbackList -->
   <main class="flex justify-center">
     <BaseWrapper variant="secondary" class="sm:mt-14">
       <GoBack />
+
       <BaseBox>
         <IconNewFeedback />
+
         <FeedbackCreateForm
           v-model:description="description"
           v-model:newFeedbackTitle="newFeedbackTitle"
@@ -50,10 +52,12 @@ import { useRouter } from "vue-router";
 
 const description = ref("");
 const newFeedbackTitle = ref("");
-const newFeedback = ref("");
+
 const router = useRouter();
 const feedbacksStore = useFeedbacksStore();
 const usersStore = useUserStore();
+
+const newFeedback = ref("");
 const updateFeedbackList = (data) => {
   newFeedback.value = data;
   usersStore.addNewFeedback(newFeedback.value);

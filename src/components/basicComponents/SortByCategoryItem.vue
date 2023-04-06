@@ -19,9 +19,11 @@ import { computed, ref } from "vue";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 import { useUserStore } from "@/stores/user.js";
 
+const categories = computed(() => feedbacksStore.categories);
+
 const usersStore = useUserStore();
 const feedbacksStore = useFeedbacksStore();
-const categories = computed(() => feedbacksStore.categories);
+
 const activeFilter = ref("All");
 
 const filterData = (name) => {

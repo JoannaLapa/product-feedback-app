@@ -13,9 +13,11 @@ import { RouterView } from "vue-router";
 *::after {
   box-sizing: border-box;
 }
+
 html {
   font-family: "Jost", sans-serif;
 }
+
 body {
   margin: 0 auto;
   background-color: #f7f8fd;

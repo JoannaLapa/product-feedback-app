@@ -13,13 +13,16 @@
             :alt="`photo of the ${name}`"
             class="h-10 w-10 rounded-full"
           />
+
           <div>
             <h3 class="text-xxs font-bold text-neutral-500 sm:text-xs">
               {{ name }}
             </h3>
+
             <p class="text-xxs text-neutral-400 sm:text-xs">{{ userName }}</p>
           </div>
         </div>
+
         <BaseButton
           tag="button"
           type="button"
@@ -28,6 +31,7 @@
           @action="showReplyWindow"
         />
       </div>
+
       <p class="text-xxs text-neutral-400 sm:col-start-2 sm:text-sm">
         <span v-if="reply" class="font-bold text-primary-200 sm:text-sm">{{
           replyTo
@@ -35,6 +39,7 @@
         >{{ content }}
       </p>
       <AddComment v-if="isShown" variant="flex-row" />
+
       <slot></slot>
     </article>
   </li>
@@ -53,18 +58,22 @@ const props = defineProps({
     type: String,
     default: "",
   },
+
   name: {
     type: String,
     default: "",
   },
+
   content: {
     type: String,
     default: "",
   },
+
   src: {
     type: String,
     default: "",
   },
+
   replyTo: {
     type: String,
     default: "",
@@ -73,11 +82,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+
   variant: {
     type: String,
     required: true,
     validation: (variant) => ["primary", "secondary"].includes(variant),
   },
+
   id: {
     type: Number,
     required: true,
@@ -87,19 +98,18 @@ const props = defineProps({
 const userStore = useUserStore();
 const feedbacksStore = useFeedbacksStore();
 const route = useRoute();
-const feedbackId = Number(route.params.id);
-const baseBoxVariant = "pure";
-const primaryButtonText = "Post Reply";
-const isShown = ref(false);
+
 userStore.fetchCurrentUser();
 const currentUser = computed(() => {
   return userStore.currentUser;
 });
 
+const isShown = ref(false);
 const showReplyWindow = () => {
   isShown.value = !isShown.value;
 };
 
+const feedbackId = Number(route.params.id);
 const updateCommentsList = (content) => {
   userStore.addNewReply({
     content: content,
@@ -110,12 +120,14 @@ const updateCommentsList = (content) => {
       username: currentUser.value.username,
     },
   });
-
   feedbacksStore.updateRepliesList(feedbackId, props.id);
   showReplyWindow();
 };
-
 provide("updateCommentsList", updateCommentsList);
+
+const baseBoxVariant = "pure";
 provide("baseBoxVariant", baseBoxVariant);
+
+const primaryButtonText = "Post Reply";
 provide("primaryButtonText", primaryButtonText);
 </script>

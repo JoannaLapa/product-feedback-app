@@ -9,27 +9,33 @@ import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(),
+
   routes: [
     {
       path: "/",
       component: FeedbackList,
     },
+
     {
       path: "/:id",
       component: FeedbackDetail,
     },
+
     {
       path: "/roadmap",
       component: StatusFeedbackList,
     },
+
     {
       path: "/add",
       component: FeedbackAdd,
     },
+
     {
       path: "/edit/:id",
       component: FeedbackEdit,
     },
+
     {
       path: "/:notFound(.*)",
       component: NotFound,

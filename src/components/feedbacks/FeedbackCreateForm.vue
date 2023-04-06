@@ -18,6 +18,7 @@
           id-title="feedback-title-instruction"
           description="Add a short, descriptive headline"
         />
+
         <input
           id="feedback-title"
           ref="titleRef"
@@ -28,6 +29,7 @@
           @input="$emit('update:newFeedbackTitle', $event.target.value)"
         />
       </div>
+
       <div>
         <BaseLabel
           label-for="category"
@@ -35,6 +37,7 @@
           id-title="category-instruction"
           description="Choose a category for your feedback"
         />
+
         <BaseSelect
           id="category"
           aria-described-by="category - instruction"
@@ -42,6 +45,7 @@
           :action="usersStore.assignCategory"
         />
       </div>
+
       <div v-if="edit">
         <BaseLabel
           label-for="status"
@@ -49,6 +53,7 @@
           id-title="update-status"
           description="Change feature state"
         />
+
         <BaseSelect
           id="status"
           aria-described-by="update-status"
@@ -56,6 +61,7 @@
           :action="usersStore.assignStatus"
         />
       </div>
+
       <div>
         <BaseLabel
           label-for="feedback-detail"
@@ -63,6 +69,7 @@
           id-title="feedback-details-instruction"
           description="Include any specific comments on what should be improved, added, etc."
         />
+
         <textarea
           id="feedback-detail"
           :value="description"
@@ -73,12 +80,14 @@
         />
       </div>
     </fieldset>
+
     <div
       class="flex flex-col gap-4 sm:flex-row"
       :class="{ 'sm:justify-end': variant === 'add' }"
     >
       <div class="flex flex-col gap-4 sm:flex-row-reverse">
         <slot name="AddEditButton" />
+
         <BaseButton
           variant="dark"
           text="Cancel"
@@ -86,6 +95,7 @@
           @action="routeToFeedbackList"
         />
       </div>
+
       <BaseButton v-if="edit" text="Delete" type="button" />
     </div>
   </form>
@@ -105,18 +115,22 @@ defineProps({
     type: String,
     required: true,
   },
+
   newFeedbackTitle: {
     type: String,
     required: true,
   },
+
   title: {
     type: String,
     required: true,
   },
+
   edit: {
     type: Boolean,
     default: false,
   },
+
   variant: {
     type: String,
     default: "",
@@ -128,18 +142,20 @@ defineEmits(["update:description", "update:newFeedbackTitle"]);
 
 const useFeedbackStore = useFeedbacksStore();
 const usersStore = useUserStore();
+
 const router = useRouter();
+const routeToFeedbackList = () => {
+  router.push("/");
+};
+
 const titleRef = ref(null);
 
 const options = computed(() => useFeedbackStore.uniqueCategories);
 const status = computed(() => useFeedbackStore.status);
 
-const routeToFeedbackList = () => {
-  router.push("/");
-};
-
 const variant = "wide";
-const listBoxOptionsVariant = "wide";
 provide("variant", variant);
+
+const listBoxOptionsVariant = "wide";
 provide("listBoxOptionsVariant", listBoxOptionsVariant);
 </script>

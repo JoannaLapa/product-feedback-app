@@ -9,6 +9,7 @@
   >
     <div class="flex w-full justify-between">
       <p>{{ statusName }}</p>
+
       <p class="mr-0 self-end font-bold">{{ statusNumber }}</p>
     </div>
   </li>
@@ -20,10 +21,12 @@ defineProps({
     type: String,
     required: true,
   },
+
   statusNumber: {
     type: Number,
     required: true,
   },
+
   variant: {
     type: String,
     default: "",
