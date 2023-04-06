@@ -63,9 +63,11 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     updateFeedbackValue(index, title, description) {
       console.log(this.feedbacks[index]);
       console.log(title, description);
-      this.feedbacks[index].title = title;
-      this.feedbacks[index].description = description;
-      return this.feedbacks[index];
+      const feedback = this.feedbacks.find((feedback) => feedback.id === index);
+      feedback.title = title;
+      feedback.description = description;
+      localStorage.setItem("feedbacks", JSON.stringify(this.feedbacks));
+      return feedback;
     },
 
     updateCommentsList(id) {

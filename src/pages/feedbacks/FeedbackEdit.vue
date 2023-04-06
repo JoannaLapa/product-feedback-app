@@ -2,8 +2,10 @@
   <main class="flex justify-center">
     <BaseWrapper variant="secondary" class="sm:mt-14">
       <GoBack />
+
       <BaseBox>
         <IconEditFeedback />
+
         <FeedbackCreateForm
           ref="addEditRef"
           v-model:description="description"
@@ -36,27 +38,35 @@ import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 import IconEditFeedback from "../../components/icons/IconEditFeedback.vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useRoute, useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+
+const route = useRoute();
+const router = useRouter();
 
 const feedbacksStore = useFeedbacksStore();
 feedbacksStore.fetchFeedbacks();
-const route = useRoute();
-const router = useRouter();
-const description = ref("");
-const feedbackTitle = ref("");
 
-description.value = feedbacksStore.getFeedbackDescription(
-  Number(route.params.id)
-);
+const sortedFeedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
+
+const description = ref("");
+description.value = sortedFeedbacks.value[index].description;
+
+const feedbackTitle = ref("");
+feedbackTitle.value = sortedFeedbacks.value[index].title;
+
+const index = Number(route.params.id);
+
+const feedbackID = sortedFeedbacks.value[index].id;
+console.log(feedbackID);
+
 const updateFeedbackList = () => {
   feedbacksStore.updateFeedbackValue(
-    Number(route.params.id),
+    feedbackID,
     feedbackTitle.value,
     description.value
   );
+
   localStorage.setItem("feedbacks", JSON.stringify(feedbacksStore.feedbacks));
   router.push("/");
 };
 </script>
-<!-- 
-  feedbacksStore.feedbacks[Number(route.params.id)].description -->
