@@ -4,12 +4,13 @@ import getUser from "@/api/getUser";
 export const useUserStore = defineStore("user", {
   state: () => ({
     currentUser: {},
-    selectedCategories: [{ id: 0, name: "All" }],
+    selectedCategories: { id: 0, name: "All" },
     upvotedFeedback: "",
-    selectedSortingCategory: [
-      { id: 1, name: "Most Upvotes", unavailable: false },
-    ],
-
+    selectedSortingCategory: {
+      id: 1,
+      name: "Most Upvotes",
+      unavailable: false,
+    },
     assignedCategory: { id: 5, name: "Feature" },
     assignedStatus: {},
     createdFeedback: {},
