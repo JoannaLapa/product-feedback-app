@@ -7,7 +7,7 @@
         </ListboxLabel>
 
         <BaseListboxButton :variant="variant">
-          {{ selectedOption ? selectedOption.name : options[0].name }}
+          {{ selectedOption ? selectedOption.name : optionName }}
         </BaseListboxButton>
       </div>
 
@@ -85,6 +85,11 @@ const props = defineProps({
   action: {
     type: Function,
     required: true,
+  },
+
+  optionName: {
+    type: String,
+    default: "",
   },
 });
 
