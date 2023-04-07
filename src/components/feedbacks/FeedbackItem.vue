@@ -63,6 +63,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { useString } from "../../use/useString";
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
 import BaseBox from "../basicComponents/BaseBox.vue";
@@ -99,12 +100,7 @@ const useFeedbackStore = useFeedbacksStore();
 
 const linkTo = `/${props.number}`;
 
-const firstLetterToUpper = (name) => {
-  if (name === "ui" || name === "ux") {
-    return name.toUpperCase();
-  }
-  return name.charAt(0).toUpperCase() + name.slice(1);
-};
+const { firstLetterToUpper } = useString();
 
 const upvotedFeeedback = ref({});
 const addUpvotedFeedback = (feedback) => {
