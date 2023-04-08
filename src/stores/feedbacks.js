@@ -57,13 +57,14 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
     updateFeedbackList() {
       const userStore = useUserStore();
+      localStorage.setItem("feedbacks", JSON.stringify(this.feedbacks));
       return this.feedbacks.push(userStore.createdFeedback);
     },
 
-    updateFeedbackValue(index, title, description) {
+    updateFeedbackValue(id, title, description) {
       const userStore = useUserStore();
 
-      const feedback = this.feedbacks.find((feedback) => feedback.id === index);
+      const feedback = this.feedbacks.find((feedback) => feedback.id === id);
       feedback.title = title;
       feedback.description = description;
 
@@ -74,6 +75,12 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       localStorage.setItem("feedbacks", JSON.stringify(this.feedbacks));
       return feedback;
+    },
+
+    deleteFeedback(id) {
+      const index = this.feedbacks.findIndex((feedback) => feedback.id === id);
+      this.feedbacks.splice(index, 1);
+      localStorage.setItem("feedbacks", JSON.stringify(this.feedbacks));
     },
 
     updateCommentsList(id) {
