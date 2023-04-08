@@ -23,6 +23,15 @@
               @action="updateFeedbackList"
             />
           </template>
+
+          <template #DeleteButton>
+            <BaseButton
+              text="Delete"
+              type="button"
+              variant="danger"
+              @action="deleteFeedback"
+            />
+          </template>
         </FeedbackCreateForm>
       </BaseBox>
     </BaseWrapper>
@@ -67,8 +76,11 @@ const updateFeedbackList = () => {
     feedbackTitle.value,
     description.value
   );
+  router.push("/");
+};
 
-  localStorage.setItem("feedbacks", JSON.stringify(feedbacksStore.feedbacks));
+const deleteFeedback = () => {
+  feedbacksStore.deleteFeedback(feedbackID);
   router.push("/");
 };
 
