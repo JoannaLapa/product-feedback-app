@@ -50,7 +50,6 @@ module.exports = {
           "0.8125rem",
           {
             lineHeight: "1.17rem",
-            fontWeight: "500",
           },
         ],
 
@@ -114,6 +113,7 @@ module.exports = {
 
       spacing: {
         //follows tailwind spacing system organisation - 1 = approx 4px //
+        3.5: "0.875rem", //14px
         7.5: "1.875rem",
         10.5: "2.625rem", //42px
         17: "4.375rem", //70px
