@@ -59,6 +59,20 @@ const usersStore = useUserStore();
 
 const newFeedback = ref("");
 const updateFeedbackList = (data) => {
+  if (description.value === "" || newFeedbackTitle.value === "") {
+    if (description.value === "") {
+      document
+        .querySelector("#feedback-detail")
+        .classList.add("border-2", "border-primary-300");
+    }
+    if (newFeedbackTitle.value === "") {
+      document
+        .querySelector("#feedback-title")
+        .classList.add("border-2", "border-primary-300");
+    }
+    return;
+  }
+
   newFeedback.value = data;
   usersStore.addNewFeedback(newFeedback.value);
   feedbacksStore.updateFeedbackList();

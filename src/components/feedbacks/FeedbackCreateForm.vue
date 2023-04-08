@@ -1,5 +1,7 @@
 <!-- Future todo - after implementing correctly BaseSelect verify spacing and element hight again -->
 <!-- Local Storage should be corrected - there shouldn't be added each time full list of feedbacks -->
+<!-- Replace v-if with v-show for paragraph alert when empty -->
+<!-- Logic for empty field to fix -->
 <template>
   <form
     class="-mt-3 flex flex-col gap-10 p-6 pt-0 sm:-mt-12 sm:p-10.5"
@@ -29,6 +31,10 @@
           @input="$emit('update:newFeedbackTitle', $event.target.value)"
         />
       </div>
+
+      <p v-if="newFeedbackTitle === ''" class="text-xs text-primary-300">
+        Can't be empty
+      </p>
 
       <div>
         <BaseLabel
@@ -80,13 +86,14 @@
           class="mt-4 h-30 w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:h-24 sm:p-6"
           @input="$emit('update:description', $event.target.value)"
         />
+
+        <p v-if="description === ''" class="text-xs text-primary-300">
+          Can't be empty
+        </p>
       </div>
     </fieldset>
 
-    <div
-      class="flex flex-col gap-4 sm:flex-row"
-      :class="{ 'sm:justify-end': variant === 'add' }"
-    >
+    <div class="flex flex-col gap-4 sm:flex-row-reverse sm:justify-between">
       <div class="flex flex-col gap-4 sm:flex-row-reverse">
         <slot name="AddEditButton" />
 
@@ -98,7 +105,7 @@
         />
       </div>
 
-      <BaseButton v-if="edit" text="Delete" type="button" />
+      <slot name="DeleteButton" />
     </div>
   </form>
 </template>
@@ -137,6 +144,11 @@ defineProps({
     type: String,
     default: "",
     validation: (variant) => ["edit", "add"].includes(variant),
+  },
+
+  isEmpty: {
+    type: Boolean,
+    default: false,
   },
 });
 
