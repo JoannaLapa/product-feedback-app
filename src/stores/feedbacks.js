@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import getFeedbacks from "@/api/getFeedbacks";
 import { useUserStore } from "./user";
+import { useString } from "../use/useString";
 
 export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => {
@@ -12,6 +13,8 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       categoryEnhancement: { id: 3, name: "Enhancement", unavailable: false },
       categoryBug: { id: 4, name: "Bug", unavailable: false },
       categoryFeature: { id: 5, name: "Feature", unavailable: false },
+      // isEmptyTitle: false,
+      // isEmptyDescription: false,
 
       options: [
         { id: 1, name: "Most Upvotes", unavailable: false },
@@ -57,12 +60,14 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
     updateFeedbackList() {
       const userStore = useUserStore();
+      this.feedbacks.push(userStore.createdFeedback);
       localStorage.setItem("feedbacks", JSON.stringify(this.feedbacks));
-      return this.feedbacks.push(userStore.createdFeedback);
+      return this.feedbacks;
     },
 
     updateFeedbackValue(id, title, description) {
       const userStore = useUserStore();
+      const { changeToLowerCase } = useString();
 
       const feedback = this.feedbacks.find((feedback) => feedback.id === id);
       feedback.title = title;
@@ -70,8 +75,8 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
       const { name: categoryName } = userStore.assignedCategory;
       const { name: statusName } = userStore.assignedStatus;
-      feedback.category = categoryName.toLowerCase();
-      feedback.status = statusName.toLowerCase();
+      feedback.category = changeToLowerCase(categoryName);
+      feedback.status = changeToLowerCase(statusName);
 
       localStorage.setItem("feedbacks", JSON.stringify(this.feedbacks));
       return feedback;
