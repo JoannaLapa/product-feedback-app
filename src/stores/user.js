@@ -12,7 +12,7 @@ export const useUserStore = defineStore("user", {
       unavailable: false,
     },
     assignedCategory: { id: 5, name: "Feature" },
-    assignedStatus: {},
+    assignedStatus: { id: 1, name: "Suggestion" },
     createdFeedback: {},
     createdComment: {},
     createdReply: {},
