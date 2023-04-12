@@ -6,5 +6,12 @@ export function useString() {
     return name.charAt(0).toUpperCase() + name.slice(1);
   };
 
-  return { firstLetterToUpper };
+  const changeToLowerCase = (name) => {
+    if (name === "UI" || name === "UX") {
+      return name;
+    }
+    return name.toLowerCase();
+  };
+
+  return { firstLetterToUpper, changeToLowerCase };
 }
