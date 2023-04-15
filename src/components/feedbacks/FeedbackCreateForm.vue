@@ -135,8 +135,8 @@ import { useUserStore } from "../../stores/user.js";
 import { ref, reactive, computed, provide } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useString } from "../../use/useString";
-// import { useVuelidate } from "@vuelidate/core";
-// import { required } from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
 
 const useFeedbackStore = useFeedbacksStore();
 useFeedbackStore.fetchFeedbacks();
@@ -161,6 +161,13 @@ const state = reactive({
   newFeedbackTitle:
     routeName === "add" ? "" : sortedFeedbacks.value[index].title,
 });
+
+const rules = {
+  description: { required, $lazy: true },
+  newFeedbackTitle: { required, $lazy: true },
+};
+
+const v$ = useVuelidate(rules, state);
 
 const router = useRouter();
 const routeToFeedbackList = () => {
