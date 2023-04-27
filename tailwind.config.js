@@ -47,16 +47,16 @@ module.exports = {
 
       fontSize: {
         xxs: [
-          "0.8125rem",
+          "0.8125rem", //13px
           {
             lineHeight: "1.17rem",
           },
         ],
 
-        xs: "0.875rem",
+        xs: "0.875rem", //14px
 
         sm: [
-          "0.9375rem",
+          "0.9375rem", //15px
           {
             lineHeight: "1.355rem",
             letterSpacing: "-0.02em",
@@ -93,6 +93,11 @@ module.exports = {
         "sidebar-lg": "8.625rem 23rem",
         "sidebar-box-lg": "10.375rem 11.125rem",
         "feedback-article": "1fr 2rem",
+      },
+
+      minHeight: {
+        7.5: "1.875rem", //30px
+        14: "3.5rem", //56px
       },
 
       maxWidth: {

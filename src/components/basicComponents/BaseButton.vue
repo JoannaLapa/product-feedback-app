@@ -3,7 +3,7 @@
     :is="tag"
     :to="to"
     :type="type"
-    class="flex h-7.5 place-items-center justify-center rounded-lg p-2.5 text-xxs font-bold text-neutral-300 transition duration-300 sm:h-11 sm:px-6 sm:text-xs"
+    class="min-h-7.5 flex place-items-center justify-center rounded-lg p-2.5 text-xxs font-bold text-neutral-300 transition duration-300 sm:h-11 sm:px-6 sm:text-xs"
     :class="{
       'bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100 sm:h-7.5 sm:px-4 sm:text-xxs':
         variant === 'neutral',
@@ -17,7 +17,7 @@
       'w-full bg-primary-200  hover:bg-secondary-600  sm:min-w-fit':
         variant === 'primary',
 
-      'w-fit bg-primary-200 px-2 hover:bg-secondary-600 xs:px-4':
+      'w-fit bg-primary-200 px-2 hover:bg-secondary-600 xs:px-4 xs:py-3':
         variant === 'primary-narrow',
 
       'w-full bg-neutral-500 hover:bg-neutral-900 sm:min-w-fit':
