@@ -57,6 +57,7 @@ Future development:
 - [Pinia](https://pinia.vuejs.org/) - Vue.js Store
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 - [Headless UI](https://headlessui.com/) 
+- [Vuelidate](https://vuelidate-next.netlify.app/)
 - Semantic HTML5 markup
 - Flexbox
 - CSS Grid
@@ -64,7 +65,7 @@ Future development:
 
 ### What I learned
 
-I learnt Vue.js basic concepts, Pinia basics, Tailwind CSS.
+I learnt Vue.js basic concepts, Pinia basics, Tailwind CSS, validation forms with Vuelidate library. I've also learnt how to created reusable components with Vue 3.
 
 ### Continued development
 
@@ -83,5 +84,5 @@ At this moment I focus on learning Vue.js and I continue to deepen my knowledge 
 
 ## Acknowledgments
 
-I would like to thank Aleksandra Kręcisz for her feedbacks, lots of useful advices and huge commitment.
+I would like to thank Aleksandra Kręcisz - my mentor during Dare IT mentoring programm for her feedbacks, lots of useful advices concering Vue good practices, performance issues and huge commitment.
 
