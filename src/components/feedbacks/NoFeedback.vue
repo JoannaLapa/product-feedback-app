@@ -13,10 +13,10 @@
 
     <BaseButton
       tag="router-link"
-      type=""
-      variant="primary-narrow"
-      text="+ Add Feedback"
       to="/add"
+      text="+ Add Feedback"
+      variant="primary-narrow"
+      type=""
     />
   </BaseBox>
 </template>
