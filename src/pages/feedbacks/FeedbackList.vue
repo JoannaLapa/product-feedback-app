@@ -1,7 +1,7 @@
 //future todo: // v-if here, because default is null. (this is Ola's suggestion
 how to do it) - I think it was a comment for resolving noFeedback case
 <template>
-  <BaseWrapper>
+  <BaseWrapper variant="primary">
     <TheHeader />
 
     <main class="lg:w-4/5 xl:max-w-3xl">

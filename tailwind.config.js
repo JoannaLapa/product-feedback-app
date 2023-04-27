@@ -73,7 +73,7 @@ module.exports = {
         lg: ["1.125rem", { lineHeight: "1.75rem" }], //18px
 
         xl: [
-          "1.25rem",
+          "1.25rem", //20px
           {
             lineHeight: "1.81rem",
             letterSpacing: "-0.02em",
@@ -126,6 +126,7 @@ module.exports = {
         19: "4.8125rem",
         23: "5.75rem", //92px
         26: "6.5rem",
+        29: "7.25rem",
         30: "7.5rem", //120px
         45: "11.125rem",
         59: "15.9375rem",
