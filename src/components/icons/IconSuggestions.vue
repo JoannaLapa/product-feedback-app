@@ -14,6 +14,7 @@ defineProps({
     type: [Number, String],
     default: 23,
   },
+
   height: {
     type: [Number, String],
     default: 24,

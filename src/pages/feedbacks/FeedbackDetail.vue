@@ -1,29 +1,28 @@
 <!-- Future todo
 1) Comments List: Desktop styles: padding on reply comments  
 -->
-
 <template>
   <main class="flex justify-center">
     <BaseWrapper variant="tertiary">
       <BaseBar variant="neutral">
         <GoBack />
+
         <BaseButton
           tag="router-link"
-          to="/edit"
+          :to="`/edit/${Number(route.params.id)}`"
           text="Edit Feedback"
           type=""
           variant="secondary"
         />
       </BaseBar>
-      <FeedbackItem
-        :feedback="feedback"
-        :number="Number(route.params.id.slice(1))"
-      />
+      <FeedbackItem :feedback="feedback" :number="Number(route.params.id)" />
+
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">
           <span>{{ commentsNumber }}</span>
-          {{ feedback.comments.length === 1 ? "Comment" : "Comments" }}
+          {{ commentsNumber === 1 ? "Comment" : "Comments" }}
         </h2>
+
         <div>
           <ul class="divide-neutral-700/15 divide-y">
             <CommentItem
@@ -59,6 +58,7 @@
           </ul>
         </div>
       </BaseBox>
+
       <AddComment variant="flex-col" />
     </BaseWrapper>
   </main>
@@ -81,18 +81,25 @@ import CommentItem from "../../components/comments/CommentItem.vue";
 const feedbacksStore = useFeedbacksStore();
 const userStore = useUserStore();
 const route = useRoute();
-const baseBoxVariant = ref("primary");
-const primaryButtonText = "Post Comment";
+
 feedbacksStore.fetchFeedbacks();
 userStore.fetchCurrentUser();
+
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
-const feedback = ref(feedbacks.value[Number(route.params.id.slice(1))]);
+const feedback = ref(feedbacks.value[Number(route.params.id)]);
+
 const commentsNumber = computed(() =>
   feedbacksStore.commentsNumber(feedback.value)
 );
+
 const newCommentId = computed(() => {
-  return feedback.value.comments.length + 1;
+  if (feedback.value.comments) {
+    return feedback.value.comments.length + 1;
+  } else {
+    return 1;
+  }
 });
+
 const currentUser = computed(() => {
   return userStore.currentUser;
 });
@@ -107,12 +114,15 @@ const updateCommentsList = (content) => {
       username: currentUser.value.username,
     },
   });
-  feedbacksStore.updateCommentsList(Number(route.params.id.slice(1)));
+  feedbacksStore.updateCommentsList(Number(route.params.id));
   console.log(currentUser.value);
   document.getElementById("comment").value = "";
 };
-
-provide("baseBoxVariant", baseBoxVariant);
-provide("primaryButtonText", primaryButtonText);
 provide("updateCommentsList", updateCommentsList);
+
+const baseBoxVariant = ref("primary");
+provide("baseBoxVariant", baseBoxVariant);
+
+const primaryButtonText = "Post Comment";
+provide("primaryButtonText", primaryButtonText);
 </script>

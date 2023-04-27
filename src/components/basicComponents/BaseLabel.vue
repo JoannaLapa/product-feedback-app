@@ -13,14 +13,17 @@ defineProps({
     type: String,
     required: true,
   },
+
   labelFor: {
     type: String,
     default: "",
   },
+
   idTitle: {
     type: String,
     default: "",
   },
+
   description: {
     type: String,
     default: "",

@@ -6,11 +6,13 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts}"],
+
   theme: {
     extend: {
       fontFamily: {
         jost: ["Jost", ...defaultTheme.fontFamily.sans],
       },
+
       colors: {
         "primary-100": "#4661E6",
         "primary-200": "#AD1FEA",
@@ -33,6 +35,7 @@ module.exports = {
         "neutral-900": "#656EA3",
         "neutral-1000": "#8C92B3",
       },
+
       backgroundImage: {
         "header-sm":
           "url('/src/assets/suggestions/background-header-mobile.jpg')",
@@ -41,15 +44,17 @@ module.exports = {
         "header-xl":
           "url('/src/assets/suggestions/background-header-desktop.jpg')",
       },
+
       fontSize: {
         xxs: [
           "0.8125rem",
           {
             lineHeight: "1.17rem",
-            fontWeight: "500",
           },
         ],
+
         xs: "0.875rem",
+
         sm: [
           "0.9375rem",
           {
@@ -57,13 +62,16 @@ module.exports = {
             letterSpacing: "-0.02em",
           },
         ],
+
         base: [
           "1rem",
           {
             lineHeight: "1.5rem",
           },
         ],
+
         lg: ["1.125rem", { lineHeight: "1.75rem" }], //18px
+
         xl: [
           "1.25rem",
           {
@@ -73,32 +81,39 @@ module.exports = {
           },
         ],
       },
+
       gridTemplateColumns: {
         "sidebar-lg": "13.75rem",
         "sidebar-xl": "15.875rem",
         "feedback-article-sm": "2.5rem 1fr 2.75rem",
         "comment-article-sm": "2.5rem 1fr",
       },
+
       gridTemplateRows: {
         "sidebar-lg": "8.625rem 23rem",
         "sidebar-box-lg": "10.375rem 11.125rem",
         "feedback-article": "1fr 2rem",
       },
+
       maxWidth: {
         "1/2": "50%",
         xl: "33.75rem",
         "3xl": "51.625rem",
         "4xl": "55rem",
       },
+
       minWidth: {
         "3/4": "70%",
       },
+
       screens: {
         xs: "375px",
         "2xl": "1440px",
       },
+
       spacing: {
         //follows tailwind spacing system organisation - 1 = approx 4px //
+        3.5: "0.875rem", //14px
         7.5: "1.875rem",
         10.5: "2.625rem", //42px
         17: "4.375rem", //70px
@@ -115,16 +130,20 @@ module.exports = {
         132: "33.125rem", //530px
         134: "33.75rem", //540px
       },
+
       boxShadow: {
         "3xl": "0 10px 40px -7px rgba(55, 63, 104, 0.350492)",
       },
+
       width: {
         "3/4": "72%",
       },
+
       borderRadius: {
         "rounded-lg": "0.625rem", //10x
       },
     },
+
     plugins: [require("@tailwindcss/forms")],
   },
 };

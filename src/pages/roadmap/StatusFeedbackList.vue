@@ -3,7 +3,9 @@
     <BaseWrapper>
       <BaseBar variant="primary">
         <GoBack />
+
         <h1>Roadmap</h1>
+
         <BaseButton
           tag="router-link"
           to="/add"
@@ -12,8 +14,10 @@
         />
       </BaseBar>
     </BaseWrapper>
+
     <BaseWrapper>
       <p class="text-xl">This page would be changed soon</p>
+
       <!--  <ul>
         <li> -->
       <!-- list of items dependly on status name -->

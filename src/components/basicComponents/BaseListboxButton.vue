@@ -4,6 +4,7 @@
     class="relative flex cursor-pointer items-center gap-2 text-xxs md:text-xs"
     :class="{
       ' font-bold text-neutral-300': variant === 'primary',
+
       'mt-4 h-12 w-full rounded-md bg-neutral-200 indent-6 text-neutral-500':
         variant === 'wide',
     }"

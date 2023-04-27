@@ -5,8 +5,9 @@ when clicking on cancel router push to FeedbackList -->
     <BaseWrapper variant="secondary" class="sm:mt-14">
       <GoBack />
       <BaseBox>
-        <IconNewFeedback />
-        <FeedbackCreateForm title="Create New Feedback" variant="add" />
+        <IconNewFeedback v-if="routeName === 'add'" />
+        <IconEditFeedback v-if="routeName === 'edit'" />
+        <FeedbackCreateForm />
       </BaseBox>
     </BaseWrapper>
   </main>
@@ -18,10 +19,9 @@ import FeedbackCreateForm from "../../components/feedbacks/FeedbackCreateForm.vu
 import GoBack from "../../components/basicComponents/GoBack.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 import IconNewFeedback from "../../components/icons/IconNewFeedback.vue";
-import { provide } from "vue";
+import IconEditFeedback from "../../components/icons/IconEditFeedback.vue";
+import { useRoute } from "vue-router";
 
-const variant = "wide";
-const listBoxOptionsVariant = "wide";
-provide("variant", variant);
-provide("listBoxOptionsVariant", listBoxOptionsVariant);
+const route = useRoute();
+const routeName = route.name;
 </script>

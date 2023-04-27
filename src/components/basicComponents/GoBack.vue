@@ -3,6 +3,7 @@
     class="flex items-center gap-3 text-xxs font-bold text-neutral-400 sm:text-xs"
   >
     <ArrowLeft />
+
     <router-link
       to="/"
       class="underline-offset-2 transition delay-1000 duration-1000 hover:underline hover:decoration-neutral-400"
