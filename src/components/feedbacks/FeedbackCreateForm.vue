@@ -1,6 +1,5 @@
 <!-- Future todo - after implementing correctly BaseSelect verify spacing and element hight again -->
 <!-- Local Storage should be corrected - there shouldn't be added each time full list of feedbacks -->
-<!-- Form validation -->
 
 <template>
   <form
@@ -204,15 +203,11 @@ categoryName.value =
     : firstLetterToUpper(sortedFeedbacks.value[index].category);
 
 const statusName = ref("");
-statusName.value = firstLetterToUpper(sortedFeedbacks.value[index].status);
+statusName.value =
+  routeName === "edit"
+    ? firstLetterToUpper(sortedFeedbacks.value[index].status)
+    : " ";
 
-const feedbackID = sortedFeedbacks.value[index].id;
-
-// async function submitForm() {
-//   const isFormCorrect = await v$.value.$validate();
-//   if (!isFormCorrect) return;
-// }
-// async
 async function updateFeedbackList() {
   const isFormCorrect = await v$.value.$validate();
   if (!isFormCorrect) return;
@@ -228,7 +223,7 @@ async function updateFeedbackList() {
     useFeedbackStore.updateFeedbackList();
   } else {
     useFeedbackStore.updateFeedbackValue(
-      feedbackID,
+      sortedFeedbacks.value[index].id,
       state.newFeedbackTitle,
       state.description
     );
@@ -237,7 +232,7 @@ async function updateFeedbackList() {
 }
 
 const deleteFeedback = () => {
-  useFeedbackStore.deleteFeedback(feedbackID);
+  useFeedbackStore.deleteFeedback(sortedFeedbacks.value[index].id);
   router.push("/");
 };
 
