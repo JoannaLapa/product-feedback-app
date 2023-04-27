@@ -31,12 +31,15 @@
           type="text"
           aria-describedby="feedback-title-instruction"
           class="mt-4 h-12 w-full cursor-pointer rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:p-6"
+          :class="
+            v$.newFeedbackTitle.$error ? 'border-2 border-primary-300' : ''
+          "
+          @blur="v$.newFeedbackTitle.$touch"
         />
       </div>
-
-      <p v-if="newFeedbackTitle === ''" class="text-xs text-primary-300">
-        Can't be empty
-      </p>
+      <div v-if="v$.newFeedbackTitle.$error">
+        <p class="text-xs text-primary-300">Can't be empty</p>
+      </div>
 
       <div>
         <BaseLabel
@@ -86,14 +89,14 @@
           aria-describedby="feedback-details-instruction"
           name="feedback-detail"
           class="mt-4 h-30 w-full cursor-pointer resize-none rounded-md bg-neutral-200 p-4 text-xxs text-neutral-500 sm:h-24 sm:p-6"
+          :class="
+            v$.newFeedbackTitle.$error ? 'border-2 border-primary-300' : ''
+          "
+          @blur="v$.description.$touch"
         />
-
-        <p
-          v-show="useFeedbackStore.isEmptyDescription"
-          class="text-xs text-primary-300"
-        >
-          Can't be empty
-        </p>
+        <div v-if="v$.description.$error">
+          <p class="text-xs text-primary-300">Can't be empty</p>
+        </div>
       </div>
     </fieldset>
 
@@ -163,9 +166,28 @@ const state = reactive({
 });
 
 const rules = {
-  description: { required, $lazy: true },
-  newFeedbackTitle: { required, $lazy: true },
+  description: {
+    required,
+    $lazy: true,
+  },
+  newFeedbackTitle: {
+    required,
+    $lazy: true,
+  },
 };
+
+// const validations = () => {
+//   return {
+//     description: {
+//       required,
+//       $lazy: true,
+//     },
+//     newFeedbackTitle: {
+//       required,
+//       $lazy: true,
+//     },
+//   };
+// };
 
 const v$ = useVuelidate(rules, state);
 
@@ -188,7 +210,14 @@ statusName.value = firstLetterToUpper(sortedFeedbacks.value[index].status);
 
 const feedbackID = sortedFeedbacks.value[index].id;
 
-const updateFeedbackList = () => {
+// async function submitForm() {
+//   const isFormCorrect = await v$.value.$validate();
+//   if (!isFormCorrect) return;
+// }
+// async
+async function updateFeedbackList() {
+  const isFormCorrect = await v$.value.$validate();
+  if (!isFormCorrect) return;
   if (routeName === "add") {
     usersStore.addNewFeedback({
       id: feedbacks.value.length + 1,
@@ -207,7 +236,7 @@ const updateFeedbackList = () => {
     );
   }
   router.push("/");
-};
+}
 
 const deleteFeedback = () => {
   useFeedbackStore.deleteFeedback(feedbackID);
