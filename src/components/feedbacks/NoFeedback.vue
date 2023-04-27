@@ -6,7 +6,9 @@
       >
         <IconNoFeedback />
         <div class="px-3 md:px-26 xl:px-52">
-          <h2 class="py-3 text-center text-lg font-bold md:py-5 md:text-2xl">
+          <h2
+            class="py-3 text-center text-lg font-bold text-neutral-500 md:py-5 md:text-2xl"
+          >
             There is no feedback yet.
           </h2>
 
