@@ -208,7 +208,6 @@ statusName.value =
     ? firstLetterToUpper(sortedFeedbacks.value[index].status)
     : " ";
 
-
 async function updateFeedbackList() {
   const isFormCorrect = await v$.value.$validate();
   if (!isFormCorrect) return;
