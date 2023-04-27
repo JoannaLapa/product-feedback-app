@@ -1,6 +1,6 @@
 <template>
   <BaseBox>
-    <div class="no-feedback__container">
+    <div>
       <IconNoFeedback />
 
       <h2>There is no feedback yet.</h2>
