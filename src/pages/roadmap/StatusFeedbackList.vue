@@ -9,8 +9,9 @@
         <BaseButton
           tag="router-link"
           to="/add"
-          variant="primary"
           text="+ Add Feedback"
+          variant="primary-narrow"
+          type=""
         />
       </BaseBar>
     </BaseWrapper>
