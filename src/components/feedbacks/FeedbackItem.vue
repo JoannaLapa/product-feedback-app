@@ -27,11 +27,7 @@
       >
         <div class="flex flex-col gap-2 sm:gap-3">
           <div class="flex flex-col gap-2 sm:gap-1">
-            <h2
-              class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
-            >
-              {{ feedback.title }}
-            </h2>
+            <slot name="heading" />
 
             <p class="text-xxs text-neutral-400 sm:text-base">
               {{ feedback.description }}

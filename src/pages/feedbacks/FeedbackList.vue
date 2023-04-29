@@ -39,7 +39,15 @@ how to do it) - I think it was a comment for resolving noFeedback case
           <FeedbackItem
             :feedback="feedback"
             :number="sortedFeedbacksList.indexOf(feedback)"
-          />
+          >
+            <template #heading>
+              <h2
+                class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+              >
+                {{ feedback.title }}
+              </h2>
+            </template>
+          </FeedbackItem>
         </li>
       </ul>
     </main>

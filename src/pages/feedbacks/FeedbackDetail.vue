@@ -15,7 +15,15 @@
           variant="secondary"
         />
       </BaseBar>
-      <FeedbackItem :feedback="feedback" :number="Number(route.params.id)" />
+      <FeedbackItem :feedback="feedback" :number="Number(route.params.id)">
+        <template #heading>
+          <h1
+            class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+          >
+            {{ feedback.title }}
+          </h1>
+        </template>
+      </FeedbackItem>
 
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">

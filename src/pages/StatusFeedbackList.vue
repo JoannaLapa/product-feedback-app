@@ -45,6 +45,14 @@
                     :variant="status.name.toLowerCase()"
                   />
                 </template>
+
+                <template #heading>
+                  <h3
+                    class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+                  >
+                    {{ feedback.title }}
+                  </h3>
+                </template>
               </FeedbackItem>
             </li>
           </ul>
