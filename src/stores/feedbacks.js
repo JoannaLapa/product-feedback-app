@@ -142,7 +142,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
 
   getters: {
     countedStatusMap() {
-      const statusNumbers = new Map();
+      const statusNumbers = [];
       //counting how many feedbacks are dependly on status value
       const plannedNumber = this.feedbacks.filter(
         (feedback) => feedback.status === "planned"
@@ -155,10 +155,23 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       ).length;
 
       //map with status names as a key and status quantity as a value
-      statusNumbers
-        .set("Planned", plannedNumber)
-        .set("In-progress", inProgressNumber)
-        .set("Live", liveNumber);
+      statusNumbers.push(
+        {
+          name: "Planned",
+          number: plannedNumber,
+          description: "Ideas prioritized for research",
+        },
+        {
+          name: "In-progress",
+          number: inProgressNumber,
+          description: "Currently being developed",
+        },
+        {
+          name: "Live",
+          number: liveNumber,
+          description: "Released features",
+        }
+      );
 
       return statusNumbers;
     },
