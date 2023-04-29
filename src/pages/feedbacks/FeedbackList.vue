@@ -35,12 +35,12 @@ how to do it) - I think it was a comment for resolving noFeedback case
         v-else
         class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
       >
-        <FeedbackItem
-          v-for="feedback in sortedFeedbacksList"
-          :key="feedback.id"
-          :feedback="feedback"
-          :number="sortedFeedbacksList.indexOf(feedback)"
-        />
+        <li v-for="feedback in sortedFeedbacksList" :key="feedback.id">
+          <FeedbackItem
+            :feedback="feedback"
+            :number="sortedFeedbacksList.indexOf(feedback)"
+          />
+        </li>
       </ul>
     </main>
   </BaseWrapper>

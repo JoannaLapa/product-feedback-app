@@ -1,6 +1,7 @@
 <!-- todo: BaseBox should have :is tag and here BaseBox should be li -->
 <template>
   <BaseBox variant="primary">
+    <slot name="roadMap" />
     <article
       class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10"
     >

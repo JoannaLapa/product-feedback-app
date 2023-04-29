@@ -13,13 +13,16 @@
       </div>
 
       <ul class="flex flex-col gap-2">
-        <RoadmapItem
-          v-for="[statusName, statusNumber] in countedStatusMap"
-          :key="statusName"
-          :status-name="statusName"
-          :status-number="statusNumber"
-          :variant="statusName.toLowerCase()"
-        />
+        <li v-for="status in countedStatusMap" :key="status">
+          <RoadmapItem
+            :status-name="status.name"
+            :variant="status.name.toLowerCase()"
+          >
+            <template #statusNumber>
+              <p class="mr-0 self-end font-bold">{{ status.number }}</p>
+            </template>
+          </RoadmapItem>
+        </li>
       </ul>
     </BaseBox>
   </li>
