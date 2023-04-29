@@ -2,9 +2,9 @@
   <main>
     <BaseWrapper>
       <BaseBar variant="primary">
-        <GoBack />
-
-        <h1>Roadmap</h1>
+        <GoBack>
+          <h1>Roadmap</h1>
+        </GoBack>
 
         <BaseButton
           tag="router-link"
