@@ -1,0 +1,72 @@
+<template>
+  <main>
+    <BaseWrapper>
+      <BaseBar variant="primary">
+        <GoBack />
+
+        <h1>Roadmap</h1>
+
+        <BaseButton
+          tag="router-link"
+          to="/add"
+          text="+ Add Feedback"
+          variant="primary-narrow"
+          type=""
+        />
+      </BaseBar>
+    </BaseWrapper>
+
+    <BaseWrapper>
+      <div>
+        <button v-for="status in countedStatusMap" :key="status">
+          {{ status.name }} ({{ status.number }})
+        </button>
+      </div>
+
+      <div>
+        <li v-for="status in countedStatusMap" :key="status">
+          <h2>{{ status.name }} ({{ status.number }})</h2>
+
+          <p>{{ status.description }}</p>
+          <ul>
+            <li
+              v-for="feedback in sortedFeedbacksList.filter(
+                (item) => item.status === status.name.toLowerCase()
+              )"
+              :key="feedback.status === status.name"
+            >
+              <FeedbackItem
+                :feedback="feedback"
+                :number="sortedFeedbacksList.indexOf(feedback)"
+              >
+                <template #roadMap>
+                  <RoadmapItem
+                    :status-name="status.name"
+                    :variant="status.name.toLowerCase()"
+                  />
+                </template>
+              </FeedbackItem>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </BaseWrapper>
+  </main>
+</template>
+
+<script setup>
+import BaseWrapper from "../components/basicComponents/BaseWrapper.vue";
+import BaseBar from "../components/basicComponents/BaseBar.vue";
+import GoBack from "../components/basicComponents/GoBack.vue";
+import RoadmapItem from "../components/basicComponents/RoadmapItem.vue";
+import BaseButton from "../components/basicComponents/BaseButton.vue";
+import FeedbackItem from "../components/feedbacks/FeedbackItem.vue";
+import { useFeedbacksStore } from "../stores/feedbacks";
+import { computed } from "vue";
+
+const feedbacksStore = useFeedbacksStore();
+feedbacksStore.fetchFeedbacks();
+
+const countedStatusMap = computed(() => feedbacksStore.countedStatusMap);
+const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
+</script>
