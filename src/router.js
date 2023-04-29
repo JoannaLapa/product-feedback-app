@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import FeedbackDetail from "./pages/feedbacks/FeedbackDetail.vue";
 import FeedbackAddEdit from "./pages/feedbacks/FeedbackAddEdit.vue";
 import FeedbackList from "./pages/feedbacks/FeedbackList.vue";
-import StatusFeedbackList from "./pages/roadmap/StatusFeedbackList.vue";
+import StatusFeedbackList from "./pages/StatusFeedbackList.vue";
 import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
