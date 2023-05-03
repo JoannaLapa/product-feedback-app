@@ -99,6 +99,7 @@ module.exports = {
       minHeight: {
         7.5: "1.875rem", //30px
         14: "3.5rem", //56px
+        25: "6.25rem", //100px
       },
 
       maxWidth: {
