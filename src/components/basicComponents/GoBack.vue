@@ -1,9 +1,13 @@
 <template>
   <div class="flex flex-col">
     <div
-      class="flex items-center gap-3 text-xxs font-bold text-neutral-400 sm:text-xs"
+      class="flex items-center gap-3 text-xxs font-bold sm:text-xs"
+      :class="{
+        'text-neutral-400': variant === 'primary',
+        'text-neutral-100': variant === 'white',
+      }"
     >
-      <ArrowLeft />
+      <slot name="arrow" />
 
       <router-link
         to="/"
@@ -16,5 +20,11 @@
 </template>
 
 <script setup>
-import ArrowLeft from "../icons/ArrowLeft.vue";
+defineProps({
+  variant: {
+    type: String,
+    required: true,
+    validation: (variant) => ["primary", "white"].includes(variant),
+  },
+});
 </script>
