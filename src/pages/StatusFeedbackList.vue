@@ -17,53 +17,51 @@
     </BaseWrapper>
 
     <BaseWrapper>
-      <div>
-        <button v-for="status in countedStatusMap" :key="status">
-          {{ status.name }} ({{ status.number }})
-        </button>
-      </div>
+      <TabsWrapper :tab-titles="countedStatusMap">
+        <ul v-for="status in countedStatusMap" :key="status">
+          <TabComponent :title="status.name">
+            <h2>{{ status.name }} ({{ status.number }})</h2>
 
-      <div>
-        <li v-for="status in countedStatusMap" :key="status">
-          <h2>{{ status.name }} ({{ status.number }})</h2>
-
-          <p>{{ status.description }}</p>
-          <ul>
-            <li
-              v-for="feedback in sortedFeedbacksList.filter(
-                (item) => item.status === status.name.toLowerCase()
-              )"
-              :key="feedback.status === status.name"
-            >
-              <FeedbackItem
-                :feedback="feedback"
-                :number="sortedFeedbacksList.indexOf(feedback)"
+            <p>{{ status.description }}</p>
+            <ul>
+              <li
+                v-for="feedback in sortedFeedbacksList.filter(
+                  (item) => item.status === status.name.toLowerCase()
+                )"
+                :key="feedback.status === status.name"
               >
-                <template #roadMap>
-                  <RoadmapItem
-                    :status-name="status.name"
-                    :variant="status.name.toLowerCase()"
-                  />
-                </template>
+                <FeedbackItem
+                  :feedback="feedback"
+                  :number="sortedFeedbacksList.indexOf(feedback)"
+                >
+                  <template #roadMap>
+                    <RoadmapItem
+                      :status-name="status.name"
+                      :variant="status.name.toLowerCase()"
+                    />
+                  </template>
 
-                <template #heading>
-                  <h3
-                    class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
-                  >
-                    {{ feedback.title }}
-                  </h3>
-                </template>
-              </FeedbackItem>
-            </li>
-          </ul>
-        </li>
-      </div>
+                  <template #heading>
+                    <h3
+                      class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+                    >
+                      {{ feedback.title }}
+                    </h3>
+                  </template>
+                </FeedbackItem>
+              </li>
+            </ul>
+          </TabComponent>
+        </ul>
+      </TabsWrapper>
     </BaseWrapper>
   </main>
 </template>
 
 <script setup>
 import BaseWrapper from "../components/basicComponents/BaseWrapper.vue";
+import TabsWrapper from "../components/basicComponents/TabsWrapper.vue";
+import TabComponent from "../components/basicComponents/TabComponent.vue";
 import BaseBar from "../components/basicComponents/BaseBar.vue";
 import GoBack from "../components/basicComponents/GoBack.vue";
 import RoadmapItem from "../components/basicComponents/RoadmapItem.vue";
@@ -77,4 +75,5 @@ feedbacksStore.fetchFeedbacks();
 
 const countedStatusMap = computed(() => feedbacksStore.countedStatusMap);
 const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
+console.log(countedStatusMap);
 </script>
