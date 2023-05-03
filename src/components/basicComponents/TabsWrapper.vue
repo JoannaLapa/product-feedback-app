@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul>
+    <ul class="flex">
       <li
         v-for="title in tabTitles"
         :key="title"
