@@ -1,5 +1,5 @@
 <template>
-  <li v-show="title === selectedTitle">
+  <li :class="title === selectedTitle ? 'block' : 'hidden'" class="sm:block">
     <slot></slot>
   </li>
 </template>
@@ -12,6 +12,5 @@ defineProps({
     default: "Tab",
   },
 });
-
 const selectedTitle = inject("selectedTitle");
 </script>
