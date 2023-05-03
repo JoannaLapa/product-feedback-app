@@ -14,15 +14,15 @@
       'w-fit bg-primary-100 px-4 text-neutral-100 hover:bg-secondary-700':
         variant === 'secondary',
 
-      'w-full bg-primary-200  hover:bg-secondary-600  text-neutral-300 sm:min-w-fit':
+      'w-full bg-primary-200  text-neutral-300  hover:bg-secondary-600 sm:min-w-fit':
         variant === 'primary',
 
-      'w-fit bg-primary-200 px-2 hover:bg-secondary-600  text-neutral-300 xs:px-4 xs:py-3':
+      'w-fit bg-primary-200 px-2 text-neutral-300  hover:bg-secondary-600 xs:px-4 xs:py-3':
         variant === 'primary-narrow',
 
-      'w-full bg-neutral-500 hover:bg-neutral-900  text-neutral-300 sm:min-w-fit':
+      'w-full bg-neutral-500 text-neutral-300  hover:bg-neutral-900 sm:min-w-fit':
         variant === 'dark',
-      'w-full bg-primary-300 hover:bg-secondary-100  text-neutral-300 sm:w-23':
+      'w-full bg-primary-300 text-neutral-300  hover:bg-secondary-100 sm:w-23':
         variant === 'danger',
       'text-primary-100': variant === 'pure',
     }"
