@@ -3,7 +3,11 @@ when clicking on cancel router push to FeedbackList -->
 <template>
   <main class="flex justify-center">
     <BaseWrapper variant="secondary" class="sm:mt-14">
-      <GoBack />
+      <GoBack variant="primary">
+        <template #arrow>
+          <ArrowLeft />
+        </template>
+      </GoBack>
       <BaseBox>
         <IconNewFeedback v-if="routeName === 'add'" />
         <IconEditFeedback v-if="routeName === 'edit'" />
@@ -14,6 +18,7 @@ when clicking on cancel router push to FeedbackList -->
 </template>
 
 <script setup>
+import ArrowLeft from "../../components/icons/ArrowLeft.vue";
 import BaseBox from "../../components/basicComponents/BaseBox.vue";
 import FeedbackCreateForm from "../../components/feedbacks/FeedbackCreateForm.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";

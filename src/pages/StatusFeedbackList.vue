@@ -2,8 +2,12 @@
   <main>
     <BaseWrapper>
       <BaseBar variant="primary">
-        <GoBack>
-          <h1>Roadmap</h1>
+        <GoBack variant="white">
+          <template #arrow>
+            <ArrowLeft white />
+          </template>
+
+          <h1 class="text-lg font-bold text-neutral-100">Roadmap</h1>
         </GoBack>
 
         <BaseButton
@@ -59,6 +63,7 @@
 </template>
 
 <script setup>
+import ArrowLeft from "../components/icons/ArrowLeft.vue";
 import BaseWrapper from "../components/basicComponents/BaseWrapper.vue";
 import TabsWrapper from "../components/basicComponents/TabsWrapper.vue";
 import TabComponent from "../components/basicComponents/TabComponent.vue";

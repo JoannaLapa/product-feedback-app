@@ -5,7 +5,11 @@
   <main class="flex justify-center">
     <BaseWrapper variant="tertiary">
       <BaseBar variant="neutral">
-        <GoBack />
+        <GoBack variant="primary">
+          <template #arrow>
+            <ArrowLeft />
+          </template>
+        </GoBack>
 
         <BaseButton
           tag="router-link"
@@ -77,6 +81,7 @@ import { computed, ref, provide } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useUserStore } from "../../stores/user.js";
 import { useRoute } from "vue-router";
+import ArrowLeft from "../../components/icons/ArrowLeft.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBox from "../../components/basicComponents/BaseBox.vue";
 import GoBack from "../../components/basicComponents/GoBack.vue";
