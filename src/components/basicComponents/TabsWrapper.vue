@@ -23,6 +23,6 @@ const props = defineProps({
   },
 });
 
-const selectedTitle = ref(props.tabTitles[1].name);
+const selectedTitle = ref(props.tabTitles[0].name);
 provide("selectedTitle", selectedTitle);
 </script>
