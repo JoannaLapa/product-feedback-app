@@ -1,7 +1,7 @@
 <template>
   <main>
     <BaseWrapper>
-      <BaseBar variant="primary">
+      <BaseBar variant="primary-high">
         <GoBack variant="white">
           <template #arrow>
             <ArrowLeft white />
@@ -27,7 +27,9 @@
             <h2>{{ status.name }} ({{ status.number }})</h2>
 
             <p>{{ status.description }}</p>
-            <ul>
+            <ul
+              class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
+            >
               <li
                 v-for="feedback in sortedFeedbacksList.filter(
                   (item) => item.status === status.name.toLowerCase()
