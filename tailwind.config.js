@@ -34,6 +34,7 @@ module.exports = {
         "neutral-800": "#373f6859",
         "neutral-900": "#656EA3",
         "neutral-1000": "#8C92B3",
+        "neutral-1050": "#CDD2EE",
       },
 
       backgroundImage: {
