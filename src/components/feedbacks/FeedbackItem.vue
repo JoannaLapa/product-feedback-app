@@ -5,9 +5,6 @@
     <article
       class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10"
     >
-      <!-- the commented paragraph should be added when the component is used in StatusFeedbackList page -->
-      <!-- <p v-if="roadmap">{{ feedback.status }}</p> -->
-      <!-- status - activated in the Roadmap, hidden in the FeedbackList -->
       <BaseButton
         tag="button"
         variant="small"
@@ -72,18 +69,13 @@ const props = defineProps({
   // Ola's suggestion - If null then you should think about hiding this component
   feedback: {
     type: Object,
-    default: null,
+    required: true,
   },
 
   to: {
     type: String,
     required: false,
     default: "/:1",
-  },
-
-  id: {
-    type: Number,
-    default: null,
   },
 
   number: {

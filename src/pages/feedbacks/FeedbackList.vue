@@ -54,7 +54,7 @@ how to do it) - I think it was a comment for resolving noFeedback case
   </BaseWrapper>
 </template>
 <script setup>
-import { computed, provide } from "vue";
+import { computed, provide, onMounted } from "vue";
 import { useFeedbacksStore } from "../../stores/feedbacks";
 import { useUserStore } from "../../stores/user.js";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
@@ -69,7 +69,7 @@ import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
 const feedbacksStore = useFeedbacksStore();
 const usersStore = useUserStore();
 
-feedbacksStore.fetchFeedbacks();
+onMounted(feedbacksStore.fetchFeedbacks);
 
 const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
 
