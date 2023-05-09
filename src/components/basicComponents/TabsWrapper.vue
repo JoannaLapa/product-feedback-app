@@ -8,7 +8,7 @@
         @click="selectedTitle = title.name"
       >
         <div
-          class="flex min-h-15 font-bold text-neutral-500"
+          class="flex min-h-15 text-xxs font-bold text-neutral-500"
           :class="
             title.name === selectedTitle
               ? 'justify-end border-b-4 border-primary-200'
