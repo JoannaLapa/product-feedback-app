@@ -1,12 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// import FeedbackDetail from "./pages/feedbacks/FeedbackDetail.vue";
-import FeedbackAddEdit from "./pages/feedbacks/FeedbackAddEdit.vue";
-import FeedbackList from "./pages/feedbacks/FeedbackList.vue";
-import StatusFeedbackList from "./pages/StatusFeedbackList.vue";
-import NotFound from "./pages/NotFound.vue";
-
-const FeedbackDetail2 = () => import("./pages/feedbacks/FeedbackDetail2.vue");
+const FeedbackDetail = () => import("./pages/feedbacks/FeedbackDetail.vue");
+const FeedbackAddEdit = () => import("./pages/feedbacks/FeedbackAddEdit.vue");
+const StatusFeedbackList = () => import("./pages/StatusFeedbackList.vue");
+const FeedbackList = () => import("./pages/feedbacks/FeedbackList.vue");
+const NotFound = () => import("./pages/NotFound.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -26,17 +24,20 @@ const router = createRouter({
       path: "/add",
       name: "add",
       component: FeedbackAddEdit,
+      props: true,
     },
 
     {
       path: "/:id",
-      component: FeedbackDetail2,
+      component: FeedbackDetail,
+      props: true,
     },
 
     {
       path: "/edit/:id",
       name: "edit",
       component: FeedbackAddEdit,
+      props: true,
     },
 
     {
