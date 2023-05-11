@@ -1,5 +1,6 @@
 export function useString() {
   const firstLetterToUpper = (name) => {
+    if (!name) return;
     if (name === "ui" || name === "ux") {
       return name.toUpperCase();
     }
@@ -7,6 +8,7 @@ export function useString() {
   };
 
   const changeToLowerCase = (name) => {
+    if (!name) return;
     if (name === "UI" || name === "UX") {
       return name;
     }
