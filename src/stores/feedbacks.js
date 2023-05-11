@@ -190,32 +190,41 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
     sortedFeedbacksList() {
       const userStore = useUserStore();
-      const filteredFeedbacks = this.filteredFeedbacksList;
+      const suggestionsList = this.filteredFeedbacksList.filter(
+        (item) => item.status === "suggestion"
+      );
       //sort by "Least Upvotes"
       if (userStore.selectedSortingCategory.id === 2) {
-        return filteredFeedbacks.sort(
+        return suggestionsList.sort(
           (feedbackA, feedbackB) => feedbackA.upvotes - feedbackB.upvotes
         );
         //sort by "Most Comments", if there is any comment return 0 else return the length of comments array
       } else if (userStore.selectedSortingCategory.id === 3) {
-        return filteredFeedbacks.sort(
+        return suggestionsList.sort(
           (feedbackA, feedbackB) =>
             (feedbackB.comments ? feedbackB.comments.length : 0) -
             (feedbackA.comments ? feedbackA.comments.length : 0)
         );
         //sort by "Least Comments", if there is any comment return 0 else return the length of comments array
       } else if (userStore.selectedSortingCategory.id === 4) {
-        return filteredFeedbacks.sort(
+        return suggestionsList.sort(
           (feedbackA, feedbackB) =>
             (feedbackA.comments ? feedbackA.comments.length : 0) -
             (feedbackB.comments ? feedbackB.comments.length : 0)
         );
         //sort by "Most Upvotes"
       } else {
-        return filteredFeedbacks.sort(
+        return suggestionsList.sort(
           (feedbackA, feedbackB) => feedbackB.upvotes - feedbackA.upvotes
         );
       }
+    },
+
+    getSuggestionsList() {
+      const suggestionsList = this.sortedFeedbacksList.filter(
+        (item) => item.status === "suggestion"
+      );
+      return suggestionsList;
     },
 
     //return the feedback clicked by the user

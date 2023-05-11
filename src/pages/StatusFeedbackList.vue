@@ -31,14 +31,14 @@
               class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
             >
               <li
-                v-for="feedback in sortedFeedbacksList.filter(
+                v-for="feedback in feedbacks.filter(
                   (item) => item.status === status.name.toLowerCase()
                 )"
                 :key="feedback.status === status.name"
               >
                 <FeedbackItem
                   :feedback="feedback"
-                  :number="sortedFeedbacksList.indexOf(feedback)"
+                  :number="feedbacks.indexOf(feedback)"
                 >
                   <template #roadMap>
                     <RoadmapItem
@@ -81,6 +81,6 @@ const feedbacksStore = useFeedbacksStore();
 feedbacksStore.fetchFeedbacks();
 
 const countedStatusMap = computed(() => feedbacksStore.countedStatusMap);
-const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
+const feedbacks = computed(() => feedbacksStore.feedbacks);
 console.log(countedStatusMap);
 </script>
