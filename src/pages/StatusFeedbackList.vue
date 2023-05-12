@@ -1,6 +1,6 @@
 <template>
   <main>
-    <BaseWrapper>
+    <BaseWrapper variant="primary">
       <BaseBar variant="primary-high">
         <GoBack variant="white">
           <template #arrow>
