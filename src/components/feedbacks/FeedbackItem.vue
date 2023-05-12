@@ -1,6 +1,6 @@
 <!-- todo: BaseBox should have :is tag and here BaseBox should be li -->
 <template>
-  <BaseBox variant="primary">
+  <BaseBox :variant="routeName === 'FeedbackList' ? 'primary' : 'tertiary'">
     <slot name="roadMap" />
     <article
       class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10"
@@ -10,7 +10,7 @@
         variant="small"
         :number="feedback.upvotes"
         type="button"
-        class="group relative col-span-1 row-start-2 flex w-fit flex-row-reverse place-content-center sm:row-span-full sm:flex-col-reverse"
+        class="group relative col-span-1 row-start-2 flex flex-row-reverse place-content-center sm:row-span-full sm:flex-col-reverse"
         @action="addUpvotedFeedback(feedback)"
       >
         <ArrowUp
@@ -23,7 +23,7 @@
         :to="linkTo"
       >
         <div class="flex flex-col gap-2 sm:gap-3">
-          <div class="flex flex-col gap-2 sm:gap-1">
+          <div class="flex min-h-17 flex-col gap-2 sm:gap-1">
             <slot name="heading" />
 
             <p class="text-xxs text-neutral-400 sm:text-base">
@@ -57,6 +57,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 import { useString } from "../../use/useString";
 import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
@@ -90,6 +91,9 @@ const useFeedbackStore = useFeedbacksStore();
 const linkTo = `/${props.number}`;
 
 const { firstLetterToUpper } = useString();
+
+const route = useRoute();
+const routeName = route.name;
 
 const upvotedFeeedback = ref({});
 const addUpvotedFeedback = (feedback) => {

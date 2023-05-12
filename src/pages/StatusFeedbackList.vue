@@ -24,17 +24,28 @@
       <TabsWrapper :tab-titles="countedStatusMap">
         <ul v-for="status in countedStatusMap" :key="status">
           <TabComponent :title="status.name">
-            <h2>{{ status.name }} ({{ status.number }})</h2>
+            <div class="px-6">
+              <h2 class="text-lg font-bold text-neutral-500">
+                {{ status.name }} ({{ status.number }})
+              </h2>
 
-            <p>{{ status.description }}</p>
+              <p class="text-xxs text-neutral-400">{{ status.description }}</p>
+            </div>
+
             <ul
-              class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
+              class="flex flex-col gap-4 px-6 pt-7 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
             >
               <li
                 v-for="feedback in sortedFeedbacksList.filter(
                   (item) => item.status === status.name.toLowerCase()
                 )"
                 :key="feedback.status === status.name"
+                class="relative before:absolute before:top-0 before:h-1.5 before:w-full before:rounded-t-lg"
+                :class="{
+                  'before:bg-secondary-100': status.name === 'Planned',
+                  'before:bg-primary-200': status.name === 'In-Progress',
+                  'before:bg-secondary-400': status.name === 'Live',
+                }"
               >
                 <FeedbackItem
                   :feedback="feedback"
@@ -44,6 +55,7 @@
                     <RoadmapItem
                       :status-name="status.name"
                       :variant="status.name.toLowerCase()"
+                      status-feedback-list
                     />
                   </template>
 

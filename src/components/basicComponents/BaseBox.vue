@@ -8,6 +8,8 @@
       'p-6 sm:px-7 sm:py-8 xl:py-7': variant === 'primary',
 
       'px-6 pt-6 sm:px-8 sm:pt-8 xl:pt-7': variant === 'secondary',
+
+      'py-6 pl-6 pr-7 sm:px-8 sm:pt-8 xl:pt-7': variant === 'tertiary',
       'w-full sm:col-start-2': variant === 'pure',
     }"
   >
@@ -21,7 +23,7 @@ defineProps({
     type: String,
     default: "",
     validation: (variant) =>
-      ["small", "primary", "secondary", "pure"].includes(variant),
+      ["small", "primary", "secondary", "tertiary", "pure"].includes(variant),
   },
 });
 </script>
