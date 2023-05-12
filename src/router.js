@@ -12,11 +12,13 @@ const router = createRouter({
   routes: [
     {
       path: "/",
+      name: "FeedbackList",
       component: FeedbackList,
     },
 
     {
       path: "/roadmap",
+      name: "StatusFeedbackList",
       component: StatusFeedbackList,
     },
 
