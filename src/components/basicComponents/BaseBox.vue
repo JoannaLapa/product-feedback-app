@@ -9,7 +9,7 @@
 
       'px-6 pt-6 sm:px-8 sm:pt-8 xl:pt-7': variant === 'secondary',
 
-      'py-6 pl-6 pr-7 sm:px-8 sm:pt-8 xl:pt-7': variant === 'tertiary',
+      'py-6 pl-6 pr-7 md:pl-4 md:pr-4 xl:pt-7': variant === 'tertiary',
       'w-full sm:col-start-2': variant === 'pure',
     }"
   >

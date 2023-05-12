@@ -24,7 +24,7 @@
       <TabsWrapper :tab-titles="countedStatusMap">
         <ul v-for="status in countedStatusMap" :key="status">
           <TabComponent :title="status.name">
-            <div class="px-6">
+            <div class="px-6 md:px-0">
               <h2 class="text-lg font-bold text-neutral-500">
                 {{ status.name }} ({{ status.number }})
               </h2>
@@ -33,7 +33,7 @@
             </div>
 
             <ul
-              class="flex flex-col gap-4 px-6 pt-7 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
+              class="grid grid-cols-1 gap-4 px-6 pt-7 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
             >
               <li
                 v-for="feedback in sortedFeedbacksList.filter(
@@ -61,7 +61,7 @@
 
                   <template #heading>
                     <h3
-                      class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+                      class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100"
                     >
                       {{ feedback.title }}
                     </h3>

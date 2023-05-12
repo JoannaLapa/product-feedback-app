@@ -3,7 +3,11 @@
   <BaseBox :variant="routeName === 'FeedbackList' ? 'primary' : 'tertiary'">
     <slot name="roadMap" />
     <article
-      class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10"
+      class="grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4"
+      :class="{
+        'sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10':
+          routeName === 'FeedbackList',
+      }"
     >
       <BaseButton
         tag="button"
@@ -19,14 +23,23 @@
       </BaseButton>
 
       <router-link
-        class="col-span-full row-span-1 sm:col-span-2 sm:row-span-full"
+        class="col-span-full row-span-1"
+        :class="{
+          ' sm:col-span-2 sm:row-span-full': routeName === 'FeedbackList',
+          'md:row-start-3 md:row-end-5': routeName === 'StatusFeedbackList',
+        }"
         :to="linkTo"
       >
         <div class="flex flex-col gap-2 sm:gap-3">
           <div class="flex min-h-17 flex-col gap-2 sm:gap-1">
             <slot name="heading" />
 
-            <p class="text-xxs text-neutral-400 sm:text-base">
+            <p
+              class="text-xxs text-neutral-400"
+              :class="{
+                ' sm:text-base': routeName === 'FeedbackList',
+              }"
+            >
               {{ feedback.description }}
             </p>
           </div>
@@ -40,7 +53,12 @@
       </router-link>
 
       <div
-        class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold sm:col-span-3 sm:row-span-full sm:self-center sm:text-base"
+        class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold sm:self-center"
+        :class="{
+          ' sm:col-span-3 sm:row-span-full sm:text-base':
+            routeName === 'FeedbackList',
+          'md:row-start-4': routeName === 'StatusFeedbackList',
+        }"
       >
         <IconComments />
 
