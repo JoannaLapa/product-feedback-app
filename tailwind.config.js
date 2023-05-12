@@ -100,6 +100,7 @@ module.exports = {
         7.5: "1.875rem", //30px
         14: "3.5rem", //56px
         15: "3.75rem", //60px
+        17: "4.125rem", //66px
         25: "6.25rem", //100px
       },
 
@@ -112,6 +113,7 @@ module.exports = {
 
       minWidth: {
         "3/4": "70%",
+        18: "4.375rem", //70px
       },
 
       screens: {
@@ -121,6 +123,7 @@ module.exports = {
 
       spacing: {
         //follows tailwind spacing system organisation - 1 = approx 4px //
+        1.5: "0.375rem", //6px
         3.5: "0.875rem", //14px
         7.5: "1.875rem",
         10.5: "2.625rem", //42px
