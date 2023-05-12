@@ -162,9 +162,9 @@ export const useFeedbacksStore = defineStore("feedbacks", {
           description: "Ideas prioritized for research",
         },
         {
-          name: "In-progress",
+          name: "In-Progress",
           number: inProgressNumber,
-          description: "Currently being developed",
+          description: "Features currently being developed",
         },
         {
           name: "Live",
