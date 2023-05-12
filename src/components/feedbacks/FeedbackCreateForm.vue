@@ -138,10 +138,10 @@ import { useString } from "../../use/useString";
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 
-const useFeedbackStore = useFeedbacksStore();
-useFeedbackStore.fetchFeedbacks();
+const feedbackStore = useFeedbacksStore();
+
 const usersStore = useUserStore();
-const feedbacks = computed(() => useFeedbackStore.feedbacks);
+const feedbacks = computed(() => feedbackStore.feedbacks);
 
 const route = useRoute();
 const routeName = route.name;
@@ -153,7 +153,7 @@ console.log(`Numer indeksu ${index}`);
 const { firstLetterToUpper } = useString();
 const { changeToLowerCase } = useString();
 
-const sortedFeedbacks = computed(() => useFeedbackStore.sortedFeedbacksList);
+const sortedFeedbacks = computed(() => feedbackStore.sortedFeedbacksList);
 
 const state = reactive({
   description:
@@ -173,19 +173,6 @@ const rules = {
   },
 };
 
-// const validations = () => {
-//   return {
-//     description: {
-//       required,
-//       $lazy: true,
-//     },
-//     newFeedbackTitle: {
-//       required,
-//       $lazy: true,
-//     },
-//   };
-// };
-
 const v$ = useVuelidate(rules, state);
 
 const router = useRouter();
@@ -193,13 +180,13 @@ const routeToFeedbackList = () => {
   router.push("/");
 };
 
-const options = computed(() => useFeedbackStore.uniqueCategories);
-const status = computed(() => useFeedbackStore.status);
+const options = computed(() => feedbackStore.uniqueCategories);
+const status = computed(() => feedbackStore.status);
 
 const categoryName = ref("");
 categoryName.value =
   routeName === "add"
-    ? useFeedbackStore.categoryFeature.name
+    ? feedbackStore.categoryFeature.name
     : firstLetterToUpper(sortedFeedbacks.value[index].category);
 
 const statusName = ref("");
@@ -220,9 +207,9 @@ async function updateFeedbackList() {
       status: usersStore.assignedStatus.name.toLowerCase(),
       description: state.description,
     });
-    useFeedbackStore.updateFeedbackList();
+    feedbackStore.updateFeedbackList();
   } else {
-    useFeedbackStore.updateFeedbackValue(
+    feedbackStore.updateFeedbackValue(
       sortedFeedbacks.value[index].id,
       state.newFeedbackTitle,
       state.description
@@ -232,7 +219,7 @@ async function updateFeedbackList() {
 }
 
 const deleteFeedback = () => {
-  useFeedbackStore.deleteFeedback(sortedFeedbacks.value[index].id);
+  feedbackStore.deleteFeedback(sortedFeedbacks.value[index].id);
   router.push("/");
 };
 

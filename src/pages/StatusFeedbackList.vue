@@ -78,7 +78,6 @@ import { useFeedbacksStore } from "../stores/feedbacks";
 import { computed } from "vue";
 
 const feedbacksStore = useFeedbacksStore();
-feedbacksStore.fetchFeedbacks();
 
 const countedStatusMap = computed(() => feedbacksStore.countedStatusMap);
 const feedbacks = computed(() => feedbacksStore.feedbacks);

@@ -95,7 +95,6 @@ const feedbacksStore = useFeedbacksStore();
 const userStore = useUserStore();
 const route = useRoute();
 
-feedbacksStore.fetchFeedbacks();
 userStore.fetchCurrentUser();
 
 const feedbacks = computed(() => feedbacksStore.sortedFeedbacksList);
