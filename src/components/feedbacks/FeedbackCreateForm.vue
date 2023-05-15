@@ -173,19 +173,6 @@ const rules = {
   },
 };
 
-// const validations = () => {
-//   return {
-//     description: {
-//       required,
-//       $lazy: true,
-//     },
-//     newFeedbackTitle: {
-//       required,
-//       $lazy: true,
-//     },
-//   };
-// };
-
 const v$ = useVuelidate(rules, state);
 
 const router = useRouter();
