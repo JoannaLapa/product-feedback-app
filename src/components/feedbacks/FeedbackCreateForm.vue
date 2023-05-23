@@ -8,13 +8,13 @@
   >
     <fieldset class="flex flex-col gap-6">
       <div>
-        <legend class="pb-4 text-lg font-bold text-neutral-500 sm:text-2xl">
+        <h1 class="pb-4 text-lg font-bold text-neutral-500 sm:text-2xl">
           {{
             routeName === "add"
               ? "Create New Feedback"
               : `Editing '${state.newFeedbackTitle}'`
           }}
-        </legend>
+        </h1>
       </div>
       <div>
         <BaseLabel
@@ -50,7 +50,6 @@
 
         <BaseSelect
           id="category"
-          aria-described-by="category - instruction"
           :options="options"
           :option-name="categoryName"
           :action="usersStore.assignCategory"
@@ -67,7 +66,6 @@
 
         <BaseSelect
           id="status"
-          aria-described-by="update-status"
           :options="status"
           :option-name="statusName"
           :action="usersStore.assignStatus"
