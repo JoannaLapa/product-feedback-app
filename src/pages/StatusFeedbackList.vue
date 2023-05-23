@@ -36,8 +36,8 @@
               class="grid grid-cols-1 gap-4 px-6 pt-7 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
             >
               <li
-                v-for="feedback in sortedFeedbacksList.filter(
-                  (item) => item.status === status.name.toLowerCase()
+                v-for="feedback in feedbacks.filter(
+                  (feedback) => feedback.status === status.name.toLowerCase()
                 )"
                 :key="feedback.status === status.name"
                 class="relative before:absolute before:top-0 before:h-1.5 before:w-full before:rounded-t-lg"
@@ -49,7 +49,7 @@
               >
                 <FeedbackItem
                   :feedback="feedback"
-                  :number="sortedFeedbacksList.indexOf(feedback)"
+                  :number="feedbacks.indexOf(feedback)"
                 >
                   <template #roadMap>
                     <RoadmapItem
@@ -91,8 +91,7 @@ import { computed } from "vue";
 
 const feedbacksStore = useFeedbacksStore();
 feedbacksStore.fetchFeedbacks();
+const feedbacks = computed(() => feedbacksStore.getFeedbacks);
 
 const countedStatusMap = computed(() => feedbacksStore.countedStatusMap);
-const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
-console.log(countedStatusMap);
 </script>

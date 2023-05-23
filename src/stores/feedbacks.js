@@ -141,6 +141,9 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   },
 
   getters: {
+    getFeedbacks() {
+      return this.feedbacks;
+    },
     countedStatusMap() {
       const statusNumbers = [];
       //counting how many feedbacks are dependly on status value
@@ -181,10 +184,21 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     filteredFeedbacksList() {
       const userStore = useUserStore();
       const { name } = userStore.selectedCategories;
-      const filteredFeedbacks = this.feedbacks.filter(
-        (feedback) => name.toLowerCase() === feedback.category
+      const suggestionList = this.feedbacks.filter(
+        (feedback) => feedback.status === "suggestion"
       );
-      return name.toLowerCase() === "all" ? this.feedbacks : filteredFeedbacks;
+
+      return name.toLowerCase() === "all"
+        ? suggestionList
+        : suggestionList.filter(
+            (feedback) => name.toLowerCase() === feedback.category
+          );
+    },
+
+    filteredByStatus() {
+      return (status) => {
+        this.feedbacks.filter((feedback) => feedback.status === status);
+      };
     },
 
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
