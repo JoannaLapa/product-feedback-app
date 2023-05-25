@@ -29,8 +29,16 @@ how to do it) - I think it was a comment for resolving noFeedback case
         />
       </BaseBar>
 
+      <div
+        v-if="isLoading"
+        class="text-xxl flex h-full w-full items-center justify-center gap-1 p-20 font-normal"
+      >
+        <IconSpinner />
+        <p>Loading...</p>
+      </div>
+
       <transition-group
-        v-if="sortedFeedbacksList.length > 0"
+        v-else-if="sortedFeedbacksList.length > 0"
         tag="ul"
         class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
         name="custom-classes"
@@ -38,7 +46,8 @@ how to do it) - I think it was a comment for resolving noFeedback case
         enter-from-class="opacity-0"
         leave-to-class="opacity-0"
         enter-active-class="transition duration-1000"
-        leave-active-class="transition duration-1000"
+        leave-active-class="transition duration-1000 absolute"
+        move-class="transition duration-1000"
       >
         <li v-for="feedback in sortedFeedbacksList" :key="feedback.id">
           <FeedbackItem
@@ -73,12 +82,13 @@ import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vu
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
 import NoFeedback from "../../components/feedbacks/NoFeedback.vue";
 import BaseWrapper from "../../components/basicComponents/BaseWrapper.vue";
+import IconSpinner from "../../components/icons/IconSpinner.vue";
 
 const feedbacksStore = useFeedbacksStore();
 const usersStore = useUserStore();
 
 onMounted(feedbacksStore.fetchFeedbacks);
-
+const isLoading = computed(() => feedbacksStore.getLoadingStatus);
 const sortedFeedbacksList = computed(() => feedbacksStore.sortedFeedbacksList);
 
 const optionValues = computed(() => feedbacksStore.options);

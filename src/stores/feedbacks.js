@@ -6,6 +6,7 @@ import { useString } from "../use/useString";
 export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => {
     return {
+      isLoading: true,
       feedbacks: [],
       categoryAll: { id: 0, name: "All", unavailable: false },
       categoryUX: { id: 1, name: "UX", unavailable: false },
@@ -13,8 +14,6 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       categoryEnhancement: { id: 3, name: "Enhancement", unavailable: false },
       categoryBug: { id: 4, name: "Bug", unavailable: false },
       categoryFeature: { id: 5, name: "Feature", unavailable: false },
-      // isEmptyTitle: false,
-      // isEmptyDescription: false,
 
       options: [
         { id: 1, name: "Most Upvotes", unavailable: false },
@@ -40,6 +39,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         try {
           const feedbacks = await getFeedbacks();
           this.feedbacks = feedbacks;
+          this.isLoading = false;
         } catch (err) {
           err instanceof Error
             ? console.log(`The error: ${err.message}`)
@@ -252,6 +252,10 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       return (index) => {
         return state.feedbacks[index].title;
       };
+    },
+
+    getLoadingStatus() {
+      return this.isLoading;
     },
 
     categories() {
