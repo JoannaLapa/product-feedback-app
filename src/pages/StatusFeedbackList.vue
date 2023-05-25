@@ -31,9 +31,15 @@
 
               <p class="text-xxs text-neutral-400">{{ status.description }}</p>
             </div>
-
-            <ul
+            <transition-group
+              tag="ul"
               class="grid grid-cols-1 gap-4 px-6 pt-7 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
+              name="custom-classes"
+              appear
+              enter-from-class="opacity-0 -translate-y-2"
+              leave-to-class="opacity-0 translate-y-2"
+              enter-active-class="transition duration-1000"
+              leave-active-class="transition duration-1000"
             >
               <li
                 v-for="feedback in feedbacks.filter(
@@ -68,7 +74,7 @@
                   </template>
                 </FeedbackItem>
               </li>
-            </ul>
+            </transition-group>
           </TabComponent>
         </ul>
       </TabsWrapper>
