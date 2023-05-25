@@ -7,10 +7,18 @@
         class="lg:rows-span-1 flex items-center justify-between bg-header-sm bg-cover px-3 py-4 xs:px-6 sm:col-span-1 sm:min-h-full sm:items-end sm:rounded-lg sm:bg-header-md sm:bg-auto sm:py-6 lg:max-h-26 lg:bg-header-xl"
       >
         <div>
-          <h1 class="text-sm font-bold text-neutral-100 sm:text-xl">
-            Frontend Mentor
-          </h1>
-
+          <transition
+            name="custom-classes"
+            appear
+            enter-from-class="-translate-x-5 opacity-0"
+            leave-to-class="translate-x-5 opacity-0"
+            enter-active-class="transition duration-1000"
+            leave-active-class="transition duration-1000"
+          >
+            <h1 class="text-sm font-bold text-neutral-100 sm:text-xl">
+              Frontend Mentor
+            </h1>
+          </transition>
           <p class="text-xxs text-neutral-100 sm:text-sm">Feedback Board</p>
         </div>
 

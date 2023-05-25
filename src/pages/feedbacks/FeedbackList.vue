@@ -29,11 +29,16 @@ how to do it) - I think it was a comment for resolving noFeedback case
         />
       </BaseBar>
 
-      <NoFeedback v-if="sortedFeedbacksList.length === 0" />
-
-      <ul
-        v-else
+      <transition-group
+        v-if="sortedFeedbacksList.length > 0"
+        tag="ul"
         class="flex flex-col gap-4 px-6 pt-8 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
+        name="custom-classes"
+        appear
+        enter-from-class="opacity-0"
+        leave-to-class="opacity-0"
+        enter-active-class="transition duration-1000"
+        leave-active-class="transition duration-1000"
       >
         <li v-for="feedback in sortedFeedbacksList" :key="feedback.id">
           <FeedbackItem
@@ -49,7 +54,9 @@ how to do it) - I think it was a comment for resolving noFeedback case
             </template>
           </FeedbackItem>
         </li>
-      </ul>
+      </transition-group>
+
+      <NoFeedback v-else />
     </main>
   </BaseWrapper>
 </template>

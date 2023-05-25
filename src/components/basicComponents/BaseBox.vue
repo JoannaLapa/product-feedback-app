@@ -12,7 +12,7 @@
 
       'py-6 pl-6 pr-7 md:pl-4 md:pr-4 xl:pt-7': variant === 'tertiary',
       'w-full sm:col-start-2': variant === 'pure',
-      'hover:scale-105': routeName === 'FeedbackList',
+      'transition duration-300 hover:scale-105': routeName === 'FeedbackList',
     }"
   >
     <slot></slot>

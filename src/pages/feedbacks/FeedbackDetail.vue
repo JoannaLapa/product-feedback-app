@@ -36,7 +36,16 @@
         </h2>
 
         <div>
-          <ul class="divide-neutral-700/15 divide-y">
+          <transition-group
+            tag="ul"
+            class="divide-neutral-700/15 divide-y"
+            name="custom-classes"
+            appear
+            enter-from-class="opacity-0"
+            leave-to-class="opacity-0"
+            enter-active-class="transition duration-1000"
+            leave-active-class="transition duration-1000"
+          >
             <CommentItem
               v-for="comment in feedback.comments"
               :id="comment.id"
@@ -67,7 +76,7 @@
                 </CommentItem>
               </ul>
             </CommentItem>
-          </ul>
+          </transition-group>
         </div>
       </BaseBox>
 
