@@ -102,12 +102,14 @@ module.exports = {
         15: "3.75rem", //60px
         17: "4.125rem", //66px
         25: "6.25rem", //100px
+        28: "7rem", //112px
       },
 
       maxWidth: {
         "1/2": "50%",
         xl: "33.75rem",
-        "3xl": "51.625rem",
+        "2xl": "43.75rem", //700px
+        "3xl": "48rem", //768px
         "4xl": "55rem",
       },
 
