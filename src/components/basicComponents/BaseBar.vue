@@ -4,7 +4,7 @@
     :class="{
       'min-h-14 bg-neutral-600 py-2 px-3 xs:px-6 sm:py-3.5 sm:pr-3 sm:pl-6 lg:pr-4':
         variant === 'primary',
-      'min-h-25 w-full bg-neutral-600 py-2 px-3 xs:px-6 sm:py-3.5 sm:pr-3 sm:pl-6 md:mt-14 lg:pr-4':
+      'min-h-25 w-full bg-neutral-600 py-2 px-3 xs:px-6 sm:py-3.5 sm:pr-3 sm:pl-6 md:mt-14 md:min-h-28 md:pr-8 md:pl-8':
         variant === 'primary-high',
       'px-0 py-0': variant === 'neutral',
     }"
