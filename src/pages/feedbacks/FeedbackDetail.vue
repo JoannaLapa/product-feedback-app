@@ -19,7 +19,11 @@
           variant="secondary"
         />
       </BaseBar>
-      <FeedbackItem :feedback="feedback" :number="Number(route.params.id)">
+      <FeedbackItem
+        :feedback="feedback"
+        :number="Number(route.params.id)"
+        variant="primary"
+      >
         <template #heading>
           <h1
             class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"

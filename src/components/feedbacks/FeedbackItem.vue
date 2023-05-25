@@ -1,12 +1,16 @@
 <!-- todo: BaseBox should have :is tag and here BaseBox should be li -->
 <template>
-  <BaseBox :variant="routeName === 'FeedbackList' ? 'primary' : 'tertiary'">
+  <BaseBox
+    :variant="
+      routeName === 'FeedbackList' || 'FeedbackDetail' ? 'primary' : 'tertiary'
+    "
+  >
     <slot name="roadMap" />
     <article
       class="grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4"
       :class="{
         'sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10':
-          routeName === 'FeedbackList',
+          variant === 'primary',
       }"
     >
       <BaseButton
@@ -25,7 +29,8 @@
       <router-link
         class="col-span-full row-span-1"
         :class="{
-          ' sm:col-span-2 sm:row-span-full': routeName === 'FeedbackList',
+          ' sm:col-span-2 sm:row-span-full':
+            routeName === 'FeedbackList' || 'FeedbackDetail',
           'md:row-start-3 md:row-end-5': routeName === 'StatusFeedbackList',
         }"
         :to="linkTo"
@@ -37,7 +42,8 @@
             <p
               class="text-xxs text-neutral-400"
               :class="{
-                ' sm:text-base': routeName === 'FeedbackList',
+                ' sm:text-base':
+                  routeName === 'FeedbackList' || 'FeedbackDetail',
               }"
             >
               {{ feedback.description }}
@@ -56,7 +62,7 @@
         class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold sm:self-center"
         :class="{
           ' sm:col-span-3 sm:row-span-full sm:text-base':
-            routeName === 'FeedbackList',
+            routeName === 'FeedbackList' || 'FeedbackDetail',
           'md:row-start-4': routeName === 'StatusFeedbackList',
         }"
       >
@@ -100,6 +106,12 @@ const props = defineProps({
   number: {
     type: Number,
     default: null,
+  },
+
+  variant: {
+    type: String,
+    default: "secondary",
+    validation: (variant) => ["primary", "secondary"].includes(variant),
   },
 });
 

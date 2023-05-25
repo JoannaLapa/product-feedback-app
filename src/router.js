@@ -31,6 +31,7 @@ const router = createRouter({
 
     {
       path: "/:id",
+      name: "FeedbackDetail",
       component: FeedbackDetail,
       props: true,
     },

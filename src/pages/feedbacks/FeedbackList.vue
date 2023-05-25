@@ -44,6 +44,7 @@ how to do it) - I think it was a comment for resolving noFeedback case
           <FeedbackItem
             :feedback="feedback"
             :number="sortedFeedbacksList.indexOf(feedback)"
+            variant="primary"
           >
             <template #heading>
               <h2
