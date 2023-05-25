@@ -1,7 +1,7 @@
 <template>
   <li
     :class="title === selectedTitle ? 'block' : 'hidden'"
-    class="py-6 sm:block"
+    class="py-6 md:block md:py-7"
   >
     <slot></slot>
   </li>

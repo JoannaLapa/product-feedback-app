@@ -1,13 +1,15 @@
 <template>
-  <main>
-    <BaseWrapper variant="primary">
+  <BaseWrapper variant="fourth">
+    <header>
       <BaseBar variant="primary-high">
         <GoBack variant="white">
           <template #arrow>
             <ArrowLeft white />
           </template>
 
-          <h1 class="text-lg font-bold text-neutral-100">Roadmap</h1>
+          <h1 class="text-lg font-bold text-neutral-100 md:text-2xl">
+            Roadmap
+          </h1>
         </GoBack>
 
         <BaseButton
@@ -18,22 +20,23 @@
           type=""
         />
       </BaseBar>
-    </BaseWrapper>
-
-    <BaseWrapper>
+    </header>
+    <main>
       <TabsWrapper :tab-titles="countedStatusMap">
         <ul v-for="status in countedStatusMap" :key="status">
           <TabComponent :title="status.name">
             <div class="px-6 md:px-0">
-              <h2 class="text-lg font-bold text-neutral-500">
+              <h2 class="text-lg font-bold text-neutral-500 md:text-xs">
                 {{ status.name }} ({{ status.number }})
               </h2>
 
-              <p class="text-xxs text-neutral-400">{{ status.description }}</p>
+              <p class="text-xxs text-neutral-400 md:text-xs">
+                {{ status.description }}
+              </p>
             </div>
             <transition-group
               tag="ul"
-              class="grid grid-cols-1 gap-4 px-6 pt-7 pb-14 sm:px-0 sm:pt-6 lg:gap-5"
+              class="grid grid-cols-1 gap-4 px-6 pt-7 pb-14 md:px-0 md:pt-6 lg:gap-5"
               name="custom-classes"
               appear
               enter-from-class="opacity-0 -translate-y-2"
@@ -53,33 +56,35 @@
                   'before:bg-secondary-400': status.name === 'Live',
                 }"
               >
-                <FeedbackItem
-                  :feedback="feedback"
-                  :number="feedbacks.indexOf(feedback)"
-                >
-                  <template #roadMap>
-                    <RoadmapItem
-                      :status-name="status.name"
-                      :variant="status.name.toLowerCase()"
-                      status-feedback-list
-                    />
-                  </template>
+                <BaseBox variant="tertiary">
+                  <FeedbackItem
+                    :feedback="feedback"
+                    :number="feedbacks.indexOf(feedback)"
+                  >
+                    <template #roadMap>
+                      <RoadmapItem
+                        :status-name="status.name"
+                        :variant="status.name.toLowerCase()"
+                        status-feedback-list
+                      />
+                    </template>
 
-                  <template #heading>
-                    <h3
-                      class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100"
-                    >
-                      {{ feedback.title }}
-                    </h3>
-                  </template>
-                </FeedbackItem>
+                    <template #heading>
+                      <h3
+                        class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100"
+                      >
+                        {{ feedback.title }}
+                      </h3>
+                    </template>
+                  </FeedbackItem>
+                </BaseBox>
               </li>
             </transition-group>
           </TabComponent>
         </ul>
       </TabsWrapper>
-    </BaseWrapper>
-  </main>
+    </main>
+  </BaseWrapper>
 </template>
 
 <script setup>
@@ -88,6 +93,7 @@ import BaseWrapper from "../components/basicComponents/BaseWrapper.vue";
 import TabsWrapper from "../components/basicComponents/TabsWrapper.vue";
 import TabComponent from "../components/basicComponents/TabComponent.vue";
 import BaseBar from "../components/basicComponents/BaseBar.vue";
+import BaseBox from "../components/basicComponents/BaseBox.vue";
 import GoBack from "../components/basicComponents/GoBack.vue";
 import RoadmapItem from "../components/basicComponents/RoadmapItem.vue";
 import BaseButton from "../components/basicComponents/BaseButton.vue";

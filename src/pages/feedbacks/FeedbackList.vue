@@ -50,19 +50,21 @@ how to do it) - I think it was a comment for resolving noFeedback case
         move-class="transition duration-1000"
       >
         <li v-for="feedback in sortedFeedbacksList" :key="feedback.id">
-          <FeedbackItem
-            :feedback="feedback"
-            :number="sortedFeedbacksList.indexOf(feedback)"
-            variant="primary"
-          >
-            <template #heading>
-              <h2
-                class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
-              >
-                {{ feedback.title }}
-              </h2>
-            </template>
-          </FeedbackItem>
+          <BaseBox variant="primary">
+            <FeedbackItem
+              :feedback="feedback"
+              :number="sortedFeedbacksList.indexOf(feedback)"
+              variant="primary"
+            >
+              <template #heading>
+                <h2
+                  class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+                >
+                  {{ feedback.title }}
+                </h2>
+              </template>
+            </FeedbackItem>
+          </BaseBox>
         </li>
       </transition-group>
 
@@ -77,6 +79,7 @@ import { useUserStore } from "../../stores/user.js";
 import TheHeader from "../../components/basicComponents/TheHeader.vue";
 import BaseButton from "../../components/basicComponents/BaseButton.vue";
 import BaseBar from "../../components/basicComponents/BaseBar.vue";
+import BaseBox from "../../components/basicComponents/BaseBox.vue";
 import BaseSelect from "../../components/basicComponents/BaseSelect.vue";
 import ShowSuggestions from "../../components/basicComponents/ShowSuggestions.vue";
 import FeedbackItem from "../../components/feedbacks/FeedbackItem.vue";
