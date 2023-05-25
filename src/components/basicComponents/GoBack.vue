@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col" :class="{ 'md:gap-1': variant === 'white' }">
     <div
       class="flex items-center gap-3 text-xxs font-bold sm:text-xs"
       :class="{

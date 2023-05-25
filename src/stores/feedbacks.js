@@ -6,6 +6,7 @@ import { useString } from "../use/useString";
 export const useFeedbacksStore = defineStore("feedbacks", {
   state: () => {
     return {
+      isLoading: true,
       feedbacks: [],
       categoryAll: { id: 0, name: "All", unavailable: false },
       categoryUX: { id: 1, name: "UX", unavailable: false },
@@ -13,8 +14,6 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       categoryEnhancement: { id: 3, name: "Enhancement", unavailable: false },
       categoryBug: { id: 4, name: "Bug", unavailable: false },
       categoryFeature: { id: 5, name: "Feature", unavailable: false },
-      // isEmptyTitle: false,
-      // isEmptyDescription: false,
 
       options: [
         { id: 1, name: "Most Upvotes", unavailable: false },
@@ -40,6 +39,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
         try {
           const feedbacks = await getFeedbacks();
           this.feedbacks = feedbacks;
+          this.isLoading = false;
         } catch (err) {
           err instanceof Error
             ? console.log(`The error: ${err.message}`)
@@ -141,6 +141,9 @@ export const useFeedbacksStore = defineStore("feedbacks", {
   },
 
   getters: {
+    getFeedbacks() {
+      return this.feedbacks;
+    },
     countedStatusMap() {
       const statusNumbers = [];
       //counting how many feedbacks are dependly on status value
@@ -162,9 +165,9 @@ export const useFeedbacksStore = defineStore("feedbacks", {
           description: "Ideas prioritized for research",
         },
         {
-          name: "In-progress",
+          name: "In-Progress",
           number: inProgressNumber,
-          description: "Currently being developed",
+          description: "Features currently being developed",
         },
         {
           name: "Live",
@@ -181,10 +184,21 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     filteredFeedbacksList() {
       const userStore = useUserStore();
       const { name } = userStore.selectedCategories;
-      const filteredFeedbacks = this.feedbacks.filter(
-        (feedback) => name.toLowerCase() === feedback.category
+      const suggestionList = this.feedbacks.filter(
+        (feedback) => feedback.status === "suggestion"
       );
-      return name.toLowerCase() === "all" ? this.feedbacks : filteredFeedbacks;
+
+      return name.toLowerCase() === "all"
+        ? suggestionList
+        : suggestionList.filter(
+            (feedback) => name.toLowerCase() === feedback.category
+          );
+    },
+
+    filteredByStatus() {
+      return (status) => {
+        this.feedbacks.filter((feedback) => feedback.status === status);
+      };
     },
 
     //sorting feedbacks when the user chooses a sorting category - default Most Upvotes
@@ -247,6 +261,10 @@ export const useFeedbacksStore = defineStore("feedbacks", {
       return (index) => {
         return state.feedbacks[index].title;
       };
+    },
+
+    getLoadingStatus() {
+      return this.isLoading;
     },
 
     categories() {

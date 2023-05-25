@@ -8,9 +8,6 @@
       'bg-neutral-300 text-primary-100 hover:bg-secondary-300 hover:text-primary-100 focus:bg-primary-100 focus:text-neutral-100 sm:h-7.5 sm:px-4 sm:text-xxs':
         variant === 'neutral',
 
-      'h-8 w-17 gap-2.5 bg-neutral-300 text-neutral-500 hover:bg-secondary-300 focus:bg-primary-100 focus:text-neutral-100 sm:h-14 sm:w-10 sm:flex-col sm:gap-2 sm:text-xxs':
-        variant === 'small',
-
       'w-fit bg-primary-100 px-4 text-neutral-100 hover:bg-secondary-700':
         variant === 'secondary',
 
@@ -69,7 +66,6 @@ defineProps({
         "neutral",
         "dark",
         "danger",
-        "small",
       ].includes(variant),
   },
 

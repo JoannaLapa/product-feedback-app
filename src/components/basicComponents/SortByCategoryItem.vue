@@ -8,6 +8,7 @@
       :text="name"
       :value="name"
       type="button"
+      :autofocus="activeFilter === name"
       @action="filterData({ id: id, name: name.toLowerCase() })"
     />
   </li>

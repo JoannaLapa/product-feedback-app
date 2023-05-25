@@ -19,16 +19,21 @@
           variant="secondary"
         />
       </BaseBar>
-      <FeedbackItem :feedback="feedback" :number="Number(route.params.id)">
-        <template #heading>
-          <h1
-            class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
-          >
-            {{ feedback.title }}
-          </h1>
-        </template>
-      </FeedbackItem>
-
+      <BaseBox variant="primary">
+        <FeedbackItem
+          :feedback="feedback"
+          :number="Number(route.params.id)"
+          variant="primary"
+        >
+          <template #heading>
+            <h1
+              class="transition-300 text-xxs font-bold text-neutral-500 transition group-hover:text-primary-100 sm:text-lg"
+            >
+              {{ feedback.title }}
+            </h1>
+          </template>
+        </FeedbackItem>
+      </BaseBox>
       <BaseBox variant="secondary">
         <h2 class="text-lg font-bold text-neutral-500">
           <span>{{ commentsNumber }}</span>
@@ -36,7 +41,16 @@
         </h2>
 
         <div>
-          <ul class="divide-neutral-700/15 divide-y">
+          <transition-group
+            tag="ul"
+            class="divide-neutral-700/15 divide-y"
+            name="custom-classes"
+            appear
+            enter-from-class="opacity-0"
+            leave-to-class="opacity-0"
+            enter-active-class="transition duration-1000"
+            leave-active-class="transition duration-1000"
+          >
             <CommentItem
               v-for="comment in feedback.comments"
               :id="comment.id"
@@ -67,7 +81,7 @@
                 </CommentItem>
               </ul>
             </CommentItem>
-          </ul>
+          </transition-group>
         </div>
       </BaseBox>
 

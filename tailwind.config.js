@@ -100,18 +100,22 @@ module.exports = {
         7.5: "1.875rem", //30px
         14: "3.5rem", //56px
         15: "3.75rem", //60px
+        17: "4.125rem", //66px
         25: "6.25rem", //100px
+        28: "7rem", //112px
       },
 
       maxWidth: {
         "1/2": "50%",
         xl: "33.75rem",
-        "3xl": "51.625rem",
+        "2xl": "43.75rem", //700px
+        "3xl": "48rem", //768px
         "4xl": "55rem",
       },
 
       minWidth: {
         "3/4": "70%",
+        18: "4.375rem", //70px
       },
 
       screens: {
@@ -121,6 +125,7 @@ module.exports = {
 
       spacing: {
         //follows tailwind spacing system organisation - 1 = approx 4px //
+        1.5: "0.375rem", //6px
         3.5: "0.875rem", //14px
         7.5: "1.875rem",
         10.5: "2.625rem", //42px

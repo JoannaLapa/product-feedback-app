@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul class="grid grid-cols-3 justify-items-center">
+  <div class="w-full gap-2 md:grid md:grid-cols-3">
+    <ul class="grid grid-cols-3 justify-items-center md:hidden">
       <li
         v-for="title in tabTitles"
         :key="title"

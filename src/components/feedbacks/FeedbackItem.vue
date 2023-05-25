@@ -1,67 +1,79 @@
 <!-- todo: BaseBox should have :is tag and here BaseBox should be li -->
 <template>
-  <BaseBox variant="primary">
-    <slot name="roadMap" />
-    <article
-      class="group grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4 sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10"
+  <slot name="roadMap" />
+  <article
+    class="grid cursor-pointer grid-cols-2 grid-rows-feedback-article gap-4"
+    :class="{
+      'sm:grid-cols-feedback-article-sm sm:grid-rows-1 sm:gap-x-10':
+        variant === 'primary',
+    }"
+  >
+    <div
+      class="col-span-1 row-start-2"
+      :class="{
+        'sm:row-span-full': routeName != 'StatusFeedbackList',
+      }"
     >
-      <BaseButton
-        tag="button"
-        variant="small"
+      <VoteButton
         :number="feedback.upvotes"
-        type="button"
-        class="group relative col-span-1 row-start-2 flex w-fit flex-row-reverse place-content-center sm:row-span-full sm:flex-col-reverse"
         @action="addUpvotedFeedback(feedback)"
-      >
-        <ArrowUp
-          class="transition-300 stroke-primary-100 transition group-focus:stroke-neutral-100"
-        />
-      </BaseButton>
+      />
+    </div>
 
-      <router-link
-        class="col-span-full row-span-1 sm:col-span-2 sm:row-span-full"
-        :to="linkTo"
-      >
-        <div class="flex flex-col gap-2 sm:gap-3">
-          <div class="flex flex-col gap-2 sm:gap-1">
-            <slot name="heading" />
-
-            <p class="text-xxs text-neutral-400 sm:text-base">
-              {{ feedback.description }}
-            </p>
-          </div>
+    <router-link
+      class="col-span-full row-span-1"
+      :class="{
+        ' sm:col-span-2 sm:row-span-full': routeName != 'StatusFeedbackList',
+      }"
+      :to="linkTo"
+    >
+      <div class="flex flex-col gap-2 sm:gap-3">
+        <div class="flex min-h-17 flex-col gap-2 sm:gap-1">
+          <slot name="heading" />
 
           <p
-            class="w-fit rounded-lg bg-neutral-300 py-1.5 px-4 text-xxs font-semibold text-primary-100 sm:mt-1"
+            class="text-xxs text-neutral-400"
+            :class="{
+              ' sm:text-base': routeName === 'FeedbackList',
+            }"
           >
-            {{ firstLetterToUpper(feedback.category) }}
+            {{ feedback.description }}
           </p>
         </div>
-      </router-link>
-
-      <div
-        class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold sm:col-span-3 sm:row-span-full sm:self-center sm:text-base"
-      >
-        <IconComments />
 
         <p
-          class="text-neutral-500 opacity-100"
-          :class="{ 'opacity-50': !feedback.comments }"
+          class="w-fit rounded-lg bg-neutral-300 py-1.5 px-4 text-xxs font-semibold text-primary-100 sm:mt-1"
         >
-          {{ commentsNumber }}
+          {{ firstLetterToUpper(feedback.category) }}
         </p>
       </div>
-    </article>
-  </BaseBox>
+    </router-link>
+
+    <div
+      class="col-start-2 flex items-center gap-2 justify-self-end text-xxs font-bold"
+      :class="{
+        ' sm:col-span-3 sm:row-span-full sm:self-center sm:text-base':
+          routeName != 'StatusFeedbackList',
+      }"
+    >
+      <IconComments />
+
+      <p
+        class="text-neutral-500 opacity-100"
+        :class="{ 'opacity-50': !feedback.comments }"
+      >
+        {{ commentsNumber }}
+      </p>
+    </div>
+  </article>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 import { useString } from "../../use/useString";
-import ArrowUp from "../icons/ArrowUp.vue";
 import IconComments from "../icons/IconComments.vue";
-import BaseBox from "../basicComponents/BaseBox.vue";
-import BaseButton from "../basicComponents/BaseButton.vue";
+import VoteButton from "../basicComponents/VoteButton.vue";
 import { useUserStore } from "@/stores/user.js";
 import { useFeedbacksStore } from "@/stores/feedbacks.js";
 
@@ -82,6 +94,12 @@ const props = defineProps({
     type: Number,
     default: null,
   },
+
+  variant: {
+    type: String,
+    default: "secondary",
+    validation: (variant) => ["primary", "secondary"].includes(variant),
+  },
 });
 
 const usersStore = useUserStore();
@@ -90,6 +108,9 @@ const useFeedbackStore = useFeedbacksStore();
 const linkTo = `/${props.number}`;
 
 const { firstLetterToUpper } = useString();
+
+const route = useRoute();
+const routeName = route.name;
 
 const upvotedFeeedback = ref({});
 const addUpvotedFeedback = (feedback) => {
@@ -102,3 +123,11 @@ const commentsNumber = computed(() =>
   useFeedbackStore.commentsNumber(props.feedback)
 );
 </script>
+
+<!-- 
+    'md:row-start-3 md:row-end-5': routeName === 'StatusFeedbackList',
+ -->
+
+<!-- 
+        'md:row-start-4': routeName === 'StatusFeedbackList',
+  -->
