@@ -1,5 +1,4 @@
 <!-- Future todo - after implementing correctly BaseSelect verify spacing and element hight again -->
-<!-- Local Storage should be corrected - there shouldn't be added each time full list of feedbacks -->
 
 <template>
   <form
