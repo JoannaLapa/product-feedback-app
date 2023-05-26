@@ -35,6 +35,7 @@ export const useFeedbacksStore = defineStore("feedbacks", {
     async fetchFeedbacks() {
       if (JSON.parse(localStorage.getItem("feedbacks"))) {
         this.feedbacks = JSON.parse(localStorage.getItem("feedbacks"));
+        this.isLoading = false;
       } else {
         try {
           const feedbacks = await getFeedbacks();
