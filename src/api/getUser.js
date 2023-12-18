@@ -4,7 +4,7 @@ import axios from "axios";
 
 const getUser = async () => {
   try {
-    const url = "https://run.mocky.io/v3/bea655b8-25cc-4ee6-a057-65052e50e6ee";
+    const url = "https://run.mocky.io/v3/0511782d-a93a-460c-b996-64f3a49b43e5";
     const response = await axios.get(url);
     const user = response.data;
     return user.currentUser;
