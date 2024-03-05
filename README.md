@@ -5,7 +5,7 @@
 
 # Frontend Mentor - Product feedback app solution
 
-This is the project which is still in progress. The main page is almost done. It would be a solution to the [Product feedback app challenge on Frontend Mentor, level guru](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). 
+It is a solution to the [Product feedback app challenge on Frontend Mentor, level guru](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). 
 
 ## Table of contents
 
@@ -25,22 +25,17 @@ This is the project which is still in progress. The main page is almost done. It
 
 ### The challenge
 
-Already done:
-
 Users should be able to:
 
 - Sort suggestions by most/least upvotes and most/least comments
 - Filter suggestions by category
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
-
-Future development: 
-
 - Upvote product feedback requests
 - Create, read, update, and delete product feedback requests
 - Receive form validations when trying to create/edit feedback requests
 - Add comments and replies to a product feedback request
-- Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- Keep track of any changes, even after refreshing the browser (with usage of `localStorage`)
 
 ### Screenshots
 
