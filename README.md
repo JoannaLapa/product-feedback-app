@@ -62,10 +62,6 @@ Users should be able to:
 
 I learnt Vue.js basic concepts, Pinia basics, Tailwind CSS, validation forms with Vuelidate library. I've also learnt how to created reusable components with Vue 3.
 
-### Continued development
-
-At this moment I focus on learning Vue.js and I continue to deepen my knowledge of JavaScript. I am going to learn about testing the application and Typescript.
-
 ### Useful resources
 
 - [Vue.js documentation](https://vuejs.org/guide/introduction.html) 
@@ -79,5 +75,5 @@ At this moment I focus on learning Vue.js and I continue to deepen my knowledge 
 
 ## Acknowledgments
 
-I would like to thank Aleksandra Kręcisz - my mentor during Dare IT mentoring programm for her feedbacks, lots of useful advices concering Vue good practices, performance issues and huge commitment.
+I would like to thank Aleksandra Kręcisz - my mentor during Dare IT mentoring programm for her feedbacks, lots of useful advices concering Vue good practices, performance issues and huge commitment. Aleksandra made code review for most parts of this project showing me good practices of pull-request-based development.
 
